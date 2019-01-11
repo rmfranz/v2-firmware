@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 48">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;opacity:0}.cls-2{fill:none;stroke:#676767;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.613;stroke-width:3px;fill-rule:evenodd}
+        </style>
+    </defs>
+    <g id="arrows-icon" transform="translate(-5734 95)">
+        <path id="Rectangle_201" d="M0 0h17v48H0z" class="cls-1" data-name="Rectangle 201" transform="translate(5734 -95)"/>
+        <g id="Group_211" data-name="Group 211" transform="translate(5740.314 -85)">
+            <path id="Path_214" d="M7.353 0L3.679 3.275 0 0" class="cls-2" data-name="Path 214" transform="rotate(180 3.676 1.638)"/>
+            <path id="Path_217" d="M7.353 0L3.679 3.275 0 0" class="cls-2" data-name="Path 217" transform="rotate(180 3.676 9.05)"/>
+            <path id="Path_215" d="M7.353 0L3.679 3.275 0 0" class="cls-2" data-name="Path 215" transform="rotate(180 3.676 4.108)"/>
+            <path id="Path_218" d="M7.353 0L3.679 3.275 0 0" class="cls-2" data-name="Path 218" transform="rotate(180 3.676 11.52)"/>
+            <path id="Path_216" d="M7.353 0L3.679 3.275 0 0" class="cls-2" data-name="Path 216" transform="rotate(180 3.676 6.579)"/>
+            <path id="Path_219" d="M7.353 0L3.679 3.275 0 0" class="cls-2" data-name="Path 219" transform="rotate(180 3.676 13.991)"/>
+        </g>
+    </g>
+</svg>

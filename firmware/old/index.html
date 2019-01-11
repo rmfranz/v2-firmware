@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %} 
+<!--<h1>Contenido principal</h1>
+<h3>Estoy {{ working_on }}</h3>
+<a href="/print">Imprimir</a>
+<a href="/pausa">pausar</a>
+<a href="/resume">resume</a>
+<a href="/cancelar">cancelar</a>-->
+<h1 style="text-align: center; font-size: 29px; line-height: 35px; font-family: Graphik-Semibold;">Home</h1>
+<a href="/print-selection" style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 400px; height: 210px; border-radius: 10px; background: #FFB700; margin: 20px;">
+    <img src="/static/images/print_icon.png" alt="" height="100">
+    <h3 style="color: black; font-family: Graphik-Semibold; text-align: center; line-height: 24px; font-size: 28px;">Print</h3>
+</a>
+{% end %}

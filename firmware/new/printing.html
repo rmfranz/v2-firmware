@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %} 
+<h3 id="printing_action"></h3>
+<h3 id="timer"></h3>
+<div class="footer-div" class="row">    
+    <div class="row">
+        <a href="#" id="pausa" class="footer-text col-md-3 col-sm-3 col-xs-3">
+            Pausar
+        </a>
+        <a href="#" id="resume" class="footer-text col-md-3 col-sm-3 col-xs-3" style="display:none;">
+            Resume
+        </a>
+        <div data-toggle="modal" data-target="#cancelModal" style="background-color: rgba(237,50,55,1); color: black; border-left: 4px solid #CCC; " class="footer-text col-md-offset-6 col-sm-offset-6 col-xs-offset-6 col-md-3 col-sm-3 col-xs-3">
+            Cancelar
+        </div>
+    </div>
+</div>
+
+<!-- Cancel modal-->
+<div class="modal fade" id="cancelModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header" style="background-color:#FFB700;color:black">
+        </div>
+        <div style="font-size: 25pt;padding-top: 1px;padding-bottom: 2px;" class="modal-body" id="modal-body">
+            ¿Desea cancelar?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            <a href="/cancelar" class="btn btn-primary">Si</a>
+        </div>
+        </div>
+    </div>
+</div>
+<script>
+countDownDate = new Date();
+// Update the count down every 1 second
+var x = setInterval(function() {
+    // Get todays date and time
+    var now = new Date().getTime();
+    // Find the distance between now an the count down date
+    var distance = now - countDownDate.getTime();
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    // Output the result in an element with id="demo"
+    document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+}, 1000);
+
+$('#pausa').click(function(){
+    $.get( "/pausa" );
+    $('#pausa').toggle( false );
+    $('#resume').toggle( true );
+});
+$('#resume').click(function(){
+    $.get( "/resume" );
+    $('#pausa').toggle( true );
+    $('#resume').toggle( false );
+});
+</script>
+{% end %}

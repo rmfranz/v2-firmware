@@ -1,0 +1,11 @@
+T0
+G91
+G1 Z3 F7500
+G90
+G1 X0 F7500
+G1 X-12 F500
+G1 F7500
+T1
+
+;optionalG1
+;optionalZmove

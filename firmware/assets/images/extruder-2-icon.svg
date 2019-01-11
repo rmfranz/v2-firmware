@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 48">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;opacity:0}.cls-2,.cls-3{fill:none;stroke:#fab617;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.613;stroke-width:3px}.cls-3{fill-rule:evenodd}
+        </style>
+    </defs>
+    <g id="extruder-2-icon" transform="translate(-5593 95)">
+        <path id="Rectangle_203" d="M0 0h31v48H0z" class="cls-1" data-name="Rectangle 203" transform="translate(5593 -95)"/>
+        <g id="Group_202" data-name="Group 202" transform="translate(5324.447 -107.14)">
+            <g id="Group_193" data-name="Group 193" transform="translate(275.553 16.757)">
+                <rect id="Rectangle_193" width="17.31" height="17.31" class="cls-2" data-name="Rectangle 193" rx="3" transform="translate(0 11.559)"/>
+                <path id="Path_264" d="M1899.021 1089.994a7.081 7.081 0 0 1 3.787-8.114" class="cls-3" data-name="Path 264" transform="translate(-1890.297 -1078.497)"/>
+                <path id="Path_265" d="M1899.336 1144.7l-.181 3.861-3.674 3.118-3.679-3.118-.182-3.861" class="cls-3" data-name="Path 265" transform="translate(-1886.825 -1115.4)"/>
+            </g>
+            <g id="Group_199" data-name="Group 199">
+                <path id="Path_288" d="M1812.47 1120.41v5.993" class="cls-3" data-name="Path 288" transform="translate(-1525.97 -1086.409)"/>
+                <path id="Path_289" d="M1812.47 1120.41v5.993" class="cls-3" data-name="Path 289" transform="translate(-1530.97 -1086.409)"/>
+            </g>
+        </g>
+    </g>
+</svg>

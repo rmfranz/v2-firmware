@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 48">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;opacity:0}.cls-2{fill:none;stroke:#fab617;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.613;stroke-width:3px;fill-rule:evenodd}
+        </style>
+    </defs>
+    <g id="chamber-icon" transform="translate(-5751 95)">
+        <path id="Rectangle_200" d="M0 0h31v48H0z" class="cls-1" data-name="Rectangle 200" transform="translate(5751 -95)"/>
+        <g id="Group_204" data-name="Group 204" transform="translate(5289 -103.892)">
+            <path id="Path_282" d="M2042.551 1095.89h13.782l2.381 3.1v21.032l-2.381 3.1h-13.782l-2.381-3.1v-21.032z" class="cls-2" data-name="Path 282" transform="translate(-1572.023 -1076.057)"/>
+            <path id="Path_283" d="M2053.515 1108.86c-1.443 3.78-.821 5.055.536 7.987s-.789 6.178-.789 6.178" class="cls-2" data-name="Path 283" transform="translate(-1578.898 -1082.424)"/>
+            <path id="Path_284" d="M2065.815 1108.86c-1.442 3.78-.82 5.055.537 7.987s-.794 6.178-.794 6.178" class="cls-2" data-name="Path 284" transform="translate(-1585.653 -1082.424)"/>
+        </g>
+    </g>
+</svg>
