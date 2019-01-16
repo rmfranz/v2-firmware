@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %} 
+<form action="/put-serial" method="POST">
+    <div class="form-group">
+      <label for="serial">Put the serial number</label>
+      <input type="text" class="form-control" name="serial" placeholder="Serial number">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+{% end %}

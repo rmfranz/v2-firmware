@@ -11,6 +11,7 @@
 <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="container-fluid">
    <!-- Start Header -->
    <div class="row header">
       <div class="col-xs-1 col-sm-1 logo-container">
@@ -41,7 +42,7 @@
    </div>
    <!-- End Header -->
 {% block content %} {% end %}
-<div id="temps"></div>
+</div>
 </body>
 <script>
 function set_temperatures(data) {

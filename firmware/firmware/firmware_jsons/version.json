@@ -1,0 +1,49 @@
+{"1":{
+  "hardware": {
+    "calibration_probe_type": "original",
+    "screen_type": "ws_B_5",
+    "audio_port": "analogue",
+    "default_hotends": "baseline",
+    "default_nozzles": "baseline",
+    "printbed_type": "mirror_3mm",
+    "extruder_type": "E3DTitan",
+    "eofs": "none",
+    "logic_controller": "RPI3B",
+    "motion_controller": "SB_5X_v1.1"
+  },
+  "logic_os": "raspbian_vXXX",
+  "controller_fw": "SW_vXXX",
+  "base_sw": "v1",
+  "model": {
+    "sn_prefix": "KPA",
+    "hw_version": "01-01-001",
+    "sw_version": 1.55,
+    "release_number": 1,
+    "release_date": "2018-11-15"
+  }
+},
+"2":{
+  "hardware": {
+    "calibration_probe_type": "original",
+    "screen_type": "ws_B_5",
+    "audio_port": "analogue",
+    "default_hotends": "baseline",
+    "default_nozzles": "baseline",
+    "printbed_type": "mirror_3mm",
+    "extruder_type": "E3DTitan",
+    "eofs": "none",
+    "logic_controller": "RPI3B",
+    "motion_controller": "SB_5X_v1.1"
+  },
+  "logic_os": "raspbian_vXXX",
+  "controller_fw": "SW_vXXX",
+  "base_sw": "v1",
+  "model": {
+    "sn_prefix": "KPA",
+    "hw_version": "01-01-001",
+    "sw_version": 1.55,
+    "release_number": 1,
+    "release_date": "2018-11-15"
+  }
+}
+}
