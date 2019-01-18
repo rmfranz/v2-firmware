@@ -13,8 +13,8 @@
 # You should have received a copy of the GNU General Public License
 # along with Printrun.  If not, see <http://www.gnu.org/licenses/>.
 
-from PrintrunMartin.plugins.sample import SampleHandler
+#from printcore_modified.plugins.sample import SampleHandler
 #
-PRINTCORE_HANDLER = [SampleHandler()]
+#PRINTCORE_HANDLER = [SampleHandler()]
 #PRINTCORE_HANDLER = []
 

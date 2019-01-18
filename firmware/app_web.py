@@ -6,6 +6,7 @@ from tornado.options import parse_command_line
 from tornado.options import define, options
 from handlers_http.print_handler import * 
 from handlers_http.basic_handler import * 
+from handlers_http.calibration_handler import *
 from handlers_websocket.temperatures_ws_handler import *
 from firmware.firmware import SmoothieFirmware
 import logging
@@ -30,6 +31,7 @@ class Application(tornado.web.Application):
             (r"/confirm-print", PreviousPrintHandler),
             (r"/put-serial", SerialHandler),
             (r"/put-version", VersionHandler),
+            (r"/build-plate-calibration", BuildPlateCalibrationHandler),
             (r"/temperatures", TemperaturesWsHandler),
             (r"/heating-bed", HeatingBedWsHandler),
             (r"/heating-nozzle", HeatingNozzleWsHandler),
@@ -46,6 +48,9 @@ class HomeHandler(BasicHandler):
             self.render(options.template_folder + "put_serial.html")
         elif not self.firmware.check_version():
             self.render(options.template_folder + "put_version.html", version_list=self.firmware.get_version_list())
+        elif not self.firmware.is_initialized:
+            self.firmware.initialize()
+            self.render(options.template_folder + "index.html")
         else: self.render(options.template_folder + "index.html")
 
 class SerialHandler(BasicHandler):
@@ -58,7 +63,7 @@ class VersionHandler(BasicHandler):
     def post(self):
         version = self.get_body_argument("version")
         self.firmware.set_version(version)
-        self.render(options.template_folder + "index.html")
+        self.render(options.template_folder + "select_calibration.html")
 
 if __name__ == "__main__":
     app = Application()

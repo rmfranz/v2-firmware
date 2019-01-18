@@ -16,13 +16,15 @@
 from .eventhandler import PrinterEventHandler
 from websocket import create_connection
 
-class SampleHandler(PrinterEventHandler):
+class SmoothieHandler(PrinterEventHandler):
     '''
     Sample event handler for printcore.
     '''
     
     def __init__(self):
-        pass
+        self.ws_temps = create_connection("ws://127.0.0.1:8888/temperatures")
+        self.ws_bed_temp = create_connection("ws://127.0.0.1:8888/heating-bed")
+        self.ws_nozzle_temp = create_connection("ws://127.0.0.1:8888/heating-nozzle")
 
     def check_origin(self, origin):
         return True
@@ -47,11 +49,11 @@ class SampleHandler(PrinterEventHandler):
     
     def on_recv(self, line):
         if self.are_temperatures(line.strip()):
-            self.create_connection_and_send("ws://127.0.0.1:8888/temperatures", line.strip())
+            self.ws_temps.send(line.strip())
         elif self.are_bed_temperatures(line.strip()):
-            self.create_connection_and_send("ws://127.0.0.1:8888/heating-bed", line.strip())
+            self.ws_bed_temp.send(line.strip())
         elif self.are_nozzle_temperatures(line.strip()):
-            self.create_connection_and_send("ws://127.0.0.1:8888/heating-nozzle", line.strip())
+            self.ws_nozzle_temp.send(line.strip())
         self.__write("on_recv", line.strip())
     
     def on_connect(self):

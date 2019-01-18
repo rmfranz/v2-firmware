@@ -1,6 +1,7 @@
 import json
 from getmac import get_mac_address
-
+from printcore_modified.printcore import printcore
+from printcore_modified.plugins.smoothie_event_handler import SmoothieHandler as handler
 
 class FirmwareDirector:
     pass
@@ -17,7 +18,8 @@ class BaseFirmware:
         with open("firmware/firmware_jsons/filaments.json") as f:
             self.filaments_json = json.load(f)
         self.mac_addres_checked = False
-        self.is_initialiced = False
+        self.is_initialized = False
+        self.printrun = None
     
     def check_mac_address(self):
         """
@@ -54,4 +56,15 @@ class BaseFirmware:
 
 
 class SmoothieFirmware(BaseFirmware):
-    pass
+    
+    def initialize(self):
+        """
+        Initialized the connection to the board
+        and add an event handler
+        """
+        self.printrun = printcore("/dev/ttyACM0", 115200)
+        self.printrun.addEventHandler(handler())
+        self.is_initialized = True
+
+    def reconnect(self):
+        self.printrun.connect(port="/dev/ttyACM0")

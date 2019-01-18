@@ -34,14 +34,14 @@ import socket
 import re
 from functools import wraps, reduce
 from collections import deque
-from PrintrunMartin import gcoder
-from PrintrunMartin.utils import set_utf8_locale, install_locale, decode_utf8
+from printcore_modified import gcoder
+from printcore_modified.utils import set_utf8_locale, install_locale, decode_utf8
 try:
     set_utf8_locale()
 except:
     pass
 install_locale('pronterface')
-from PrintrunMartin.plugins import PRINTCORE_HANDLER
+from printcore_modified.plugins import PRINTCORE_HANDLER
 
 def locked(f):
     @wraps(f)
