@@ -129,6 +129,10 @@ class printcore():
         '''
         self.event_handler.append(handler)
 
+    def initEventHandlers(self):
+        for handler in self.event_handler:
+            handler.init_ws()
+
     def logError(self, error):
         for handler in self.event_handler:
             try: handler.on_error(error)

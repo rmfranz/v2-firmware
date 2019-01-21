@@ -16,5 +16,5 @@
 #from printcore_modified.plugins.sample import SampleHandler
 #
 #PRINTCORE_HANDLER = [SampleHandler()]
-#PRINTCORE_HANDLER = []
+PRINTCORE_HANDLER = []
 

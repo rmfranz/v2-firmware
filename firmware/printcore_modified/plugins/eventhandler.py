@@ -24,6 +24,9 @@ class PrinterEventHandler:
         Constructor.
         '''
         pass
+
+    def init_ws(self):
+        pass
     
     def on_init(self):
         '''

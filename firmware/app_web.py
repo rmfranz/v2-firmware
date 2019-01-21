@@ -8,12 +8,13 @@ from handlers_http.print_handler import *
 from handlers_http.basic_handler import * 
 from handlers_http.calibration_handler import *
 from handlers_websocket.temperatures_ws_handler import *
-from firmware.firmware import SmoothieFirmware
+from handlers_http.setup_handler import *
+from firmware.smoothie_firmware import SmoothieFirmware
 import logging
 import pickle
 import os
 
-#define("template_folder", default="templates/", help="Folder to use")
+define("template_folder", default="templates/", help="Folder to use")
 
 class Application(tornado.web.Application):
 
@@ -32,38 +33,42 @@ class Application(tornado.web.Application):
             (r"/put-serial", SerialHandler),
             (r"/put-version", VersionHandler),
             (r"/build-plate-calibration", BuildPlateCalibrationHandler),
+            (r"/z-offset-calibration", ZOffsetCalibrationHandler),
+            (r"/points-25-calibration", Points25Calibration),
+            (r"/setup", SetupHandler),
             (r"/temperatures", TemperaturesWsHandler),
             (r"/heating-bed", HeatingBedWsHandler),
             (r"/heating-nozzle", HeatingNozzleWsHandler),
-            (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/test/assets"}),
+            (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/prueba/assets"}),
         ]
         tornado.web.Application.__init__(self, handlers,
-                                         autoreload=True)
+                                         autoreload=True, template_path="/home/pi/prueba/templates/")
         #Put FirmwareDirector, this is wrong
         self.firmware = SmoothieFirmware()
 
 class HomeHandler(BasicHandler):
     def get(self):
         if not self.firmware.check_mac_address():
-            self.render(options.template_folder + "put_serial.html")
+            self.render("put_serial.html")
         elif not self.firmware.check_version():
-            self.render(options.template_folder + "put_version.html", version_list=self.firmware.get_version_list())
+            self.render("put_version.html", version_list=self.firmware.get_version_list())
         elif not self.firmware.is_initialized:
             self.firmware.initialize()
-            self.render(options.template_folder + "index.html")
-        else: self.render(options.template_folder + "index.html")
+            self.render("index.html")
+        else: self.render("index.html")
 
 class SerialHandler(BasicHandler):
     def post(self):
         serial = self.get_body_argument("serial")
         self.firmware.set_serial(serial)
-        self.render(options.template_folder + "put_version.html", version_list=self.firmware.get_version_list())
+        self.render("put_version.html", version_list=self.firmware.get_version_list())
 
 class VersionHandler(BasicHandler):
     def post(self):
         version = self.get_body_argument("version")
         self.firmware.set_version(version)
-        self.render(options.template_folder + "select_calibration.html")
+        self.firmware.initialize()
+        self.render("select_calibration.html")
 
 if __name__ == "__main__":
     app = Application()

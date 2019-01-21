@@ -22,10 +22,15 @@ class SmoothieHandler(PrinterEventHandler):
     '''
     
     def __init__(self):
+        self.ws_temps = None
+        self.ws_bed_temp = None
+        self.ws_nozzle_temp = None
+
+    def init_ws(self):
         self.ws_temps = create_connection("ws://127.0.0.1:8888/temperatures")
         self.ws_bed_temp = create_connection("ws://127.0.0.1:8888/heating-bed")
         self.ws_nozzle_temp = create_connection("ws://127.0.0.1:8888/heating-nozzle")
-
+        
     def check_origin(self, origin):
         return True
 
@@ -49,11 +54,14 @@ class SmoothieHandler(PrinterEventHandler):
     
     def on_recv(self, line):
         if self.are_temperatures(line.strip()):
-            self.ws_temps.send(line.strip())
+            #self.ws_temps.send(line.strip())
+            self.create_connection_and_send("ws://127.0.0.1:8888/temperatures", line.strip())
         elif self.are_bed_temperatures(line.strip()):
-            self.ws_bed_temp.send(line.strip())
+            #self.ws_bed_temp.send(line.strip())
+            self.create_connection_and_send("ws://127.0.0.1:8888/heating-bed", line.strip())
         elif self.are_nozzle_temperatures(line.strip()):
-            self.ws_nozzle_temp.send(line.strip())
+            #self.ws_nozzle_temp.send(line.strip())
+            self.create_connection_and_send("ws://127.0.0.1:8888/heating-nozzle", line.strip())
         self.__write("on_recv", line.strip())
     
     def on_connect(self):
