@@ -1,0 +1,75 @@
+header {
+    position: relative;
+    background: #000;
+    height:65px;
+    top:0;
+    overflow:hidden;
+    display:flex;
+    justify-content: space-between;
+}
+
+#logo {
+    order: 1;
+    background: #FFB700;
+    width: 100px;
+    height:65px;
+    clip-path: 
+    polygon(
+      0% 0%,     /* top left */
+      5% 0%,     /* top left */
+      80% 0%,    /* top right */
+      100% 50%,   /* top right */
+      100% 50%,  /* bottom right */
+      80% 100%,  /* bottom right */
+      0% 100%,   /* bottom left */
+      0% 95%      /* bottom left */
+    );
+    background-image: url(/static/images/logo.png);
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+}
+
+#temps {
+    order: 2;
+    flex-grow: 2; 
+    height: 65px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Graphik-Semibold;
+}
+
+.icon {
+    width: 100px;
+    height: 49px;
+    margin: 0 4px 0 4px;
+    position:relative;
+    background-image: url(/static/images/icons/arrows-icon.svg);
+    background-size:17px 49px;
+    background-repeat: no-repeat;
+    color: #FFB700;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 20px;
+}
+
+.icon img {
+    height: 49px;
+}
+
+#network {
+    order: 3;
+    width: 100px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+}
+
+#network div {
+    width:50px;
+    height:49px;
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;opacity:0}.cls-2,.cls-3{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.613;stroke-width:3px}.cls-2{stroke:#ed0000;fill-rule:evenodd}.cls-3{stroke:#fab617}
+        </style>
+    </defs>
+    <g id="cloud-icon" transform="translate(-5935 102)">
+        <path id="Rectangle_199" d="M0 0h48v48H0z" class="cls-1" data-name="Rectangle 199" transform="translate(5935 -102)"/>
+        <g id="Group_176" data-name="Group 176" transform="translate(5942 -93)">
+            <path id="Path_275" d="M2248.888 1135.886h-33.446a6.889 6.889 0 0 1 2.15-5.871c2.738-2.541 6.064-.193 6.064-.193a9.284 9.284 0 0 1 5.674-8.605c3.817-1.574 14.344 1.007 11.537 8.8 0-.002 8.605-.783 8.021 5.869z" class="cls-2" data-name="Path 275" transform="translate(-2215.388 -1106.816)"/>
+            <g id="Group_172" data-name="Group 172" transform="translate(10.675)">
+                <g id="Group_146" data-name="Group 146" transform="translate(0 4.789)">
+                    <path id="Line_76" d="M0 4.784L4.439 0" class="cls-3" data-name="Line 76" transform="translate(8.525)"/>
+                    <path id="Line_77" d="M12.964 0H0" class="cls-3" data-name="Line 77"/>
+                </g>
+                <path id="Line_78" d="M0 0l4.439 4.789" class="cls-3" data-name="Line 78" transform="translate(8.525)"/>
+            </g>
+        </g>
+    </g>
+</svg>

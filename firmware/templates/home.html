@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../assets/styles.css">
+        <link rel="stylesheet" href="../assets/header.css">
+        <link rel="stylesheet" href="../assets/main.css">
+        <link rel="stylesheet" href="../assets/footer.css">
+    </head>
+    <body>
+
+        <header>
+            <div id="logo"></div>
+            <div id="temps">
+                <div id="hotend2" class="icon"><img src="../assets/icons/extruder-2-icon.svg">{{temps.hotend2Temp}}</div>
+                <div id="hotend1" class="icon"><img src="../assets/icons/extruder-1-icon.svg">{{temps.hotend1Temp}}</div>
+                <div id="bed" class="icon"><img src="../assets/icons/heatbed-icon.svg">{{temps.bedTemp}}</div>
+                <div id="chamber" class="icon"><img src="../assets/icons/chamber-icon.svg">{{temps.ambTemp}}</div>
+            </div>
+            <div id="network">
+                <div id="wifi"><img src="../assets/icons/wifi-header-{{wifiSignal > 0 ? wifiSignal + 1 : 0}}.svg"></div>
+                <div id="cloud"><img src="../assets/icons/cloud-icon{{$root.printerData.cloudStatus ? '' : '-off'}}.svg"></div>
+            </div>
+        </header>
+
+        <main>
+            <h1>{{'home_title' | translate}}</h1>
+            <div id="container">
+                    <div id="print" class="button">
+                            <img src="../assets/print_icon.png" alt="" height="100">
+                            <h3>{{'home_print' | translate}}</h3>
+                        </div>
+                        <div id="setup" class="button">
+                            <img src="../assets/icons/settings-menu-icon-big.svg" alt="" height="100">
+                            <h3>{{'home_settings' | translate}}</h3>
+                        </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="slogan up">
+                <p>{{'home_message_1' | translate}}</p>
+                <p>{{'home_message_2' | translate}}</p>
+            </div>
+        </footer>
+
+    </body>
+</html>

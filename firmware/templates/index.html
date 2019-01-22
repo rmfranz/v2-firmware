@@ -1,7 +1,23 @@
 {% extends "base.html" %}
-
 {% block content %}
-<h1>Home</h1>
-<a class="btn btn-default" href="/print-selection" role="button">Print</a>
-<a class="btn btn-default" href="/setup" role="button">Setup</a>
+<main>
+    <h1>Home</h1>
+    <div id="container">
+            <a href="/print-selection" id="print" class="button">
+                    <img src="/static/images/print_icon.png" alt="" height="100">
+                    <h3>Print</h3>
+            </a>
+            <a href="/setup" id="setup" class="button">
+                <img src="/static/images/icons/settings-menu-icon-big.svg" alt="" height="100">
+                <h3>Setup</h3>
+            </a>
+    </div>
+</main>
+<footer>
+    <div class="slogan up">
+        <p>a</p>
+        <p>b</p>
+    </div>
+</footer>
+</body>
 {% end %}

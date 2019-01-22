@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 48">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;opacity:0}.cls-2,.cls-3{fill:none;stroke:#fab617;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.613;stroke-width:3px}.cls-3{fill-rule:evenodd}
+        </style>
+    </defs>
+    <g id="heatbed-icon" transform="translate(-5659 95)">
+        <path id="Rectangle_202" d="M0 0h31v48H0z" class="cls-1" data-name="Rectangle 202" transform="translate(5659 -95)"/>
+        <g id="Group_203" data-name="Group 203" transform="translate(5665 -94.402)">
+            <g id="Group_178" data-name="Group 178" transform="translate(0 22.724)">
+                <path id="Path_267" d="M2.833 2.928L14.1.684l-2.167 10.861L.669 13.789z" class="cls-2" data-name="Path 267" transform="rotate(45 4.638 11.198)"/>
+            </g>
+            <path id="Path_268" d="M1978.506 1081.88c-2.4 4.034-1.365 5.39.892 8.518s-1.318 6.584-1.318 6.584" class="cls-3" data-name="Path 268" transform="translate(-1969.156 -1075.478)"/>
+            <path id="Path_269" d="M1963.833 1095.1c-2.029 3.1-1.157 4.144.757 6.55s-1.115 5.059-1.115 5.059" class="cls-3" data-name="Path 269" transform="translate(-1962.199 -1084.148)"/>
+            <path id="Path_270" d="M1994.165 1095.1c-2.029 3.1-1.152 4.144.757 6.55s-1.115 5.059-1.115 5.059" class="cls-3" data-name="Path 270" transform="translate(-1976.793 -1084.148)"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;opacity:0}.cls-2{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.613;stroke-width:3px}
+        </style>
+    </defs>
+    <g id="cloud-sub-icon" transform="translate(-11812 -842)">
+        <path id="Rectangle_282" d="M0 0h160v80H0z" class="cls-1" data-name="Rectangle 282" transform="translate(11812 842)"/>
+        <path id="Path_1077" d="M5808 1207.691a10.7 10.7 0 0 0 0-21.393 10.844 10.844 0 0 0-3.24.491 19.177 19.177 0 0 0-35.728-7.861 14.471 14.471 0 1 0-2.284 28.763z" class="cls-2" data-name="Path 1077" transform="translate(6106.504 -306.691)"/>
+    </g>
+</svg>
