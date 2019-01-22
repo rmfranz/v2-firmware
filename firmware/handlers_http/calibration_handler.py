@@ -1,4 +1,5 @@
 from handlers_http.basic_handler import BasicHandler
+import tornado
 
 class BuildPlateCalibrationHandler(BasicHandler):
     
@@ -28,6 +29,9 @@ class ZOffsetCalibrationHandler(BasicHandler):
         # si la respuesta es 0, todo bien sino todo mal
         if response == 0:
             self.firmware.reset()
+            self.firmware.disconnect()
+            tornado.ioloop.IOLoop.current().call_later(delay=20,
+                callback=self.firmware.reconnect)
             self.render("select_calibration.html")
         else:
             self.render("z_offset_calibration.html")

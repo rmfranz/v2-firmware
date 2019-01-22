@@ -1,5 +1,7 @@
 import json
 from getmac import get_mac_address
+import glob
+import tornado
 
 class FirmwareDirector:
     pass
@@ -55,7 +57,16 @@ class BaseFirmware:
                 json.dump(self.hardware_json, f)
     
     def reconnect(self):
-        self.printrun.connect(port="/dev/ttyACM0")
+        """
+        list directory /dev/ttyACM* because smoothie board should be on
+        /dev/ttyACM0 or /dev/ttyACM1 and there isn´t nothing else there
+        """
+        dev_list = glob.glob('/dev/ttyACM*')
+        if dev_list:
+            self.printrun.connect(port=dev_list[0])
+        else:
+            tornado.ioloop.IOLoop.current().call_later(delay=20,
+                callback=self.reconnect)
 
     def disconnect(self):
         self.printrun.disconnect()
