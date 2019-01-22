@@ -1,11 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Z offset calibration</h1>
-<form>
+  <h1>Z offset calibration</h1>
+  <form action="/z-offset-calibration" method="POST">
     <div class="form-group">
       <label for="exampleInputEmail1">Z Offset</label>
-      <input type="number" name="points" value="1" step="0.025">
+      <!--<input type="number" name="points" value="1" step="0.025">-->
+      <input type="text" name="zoffset" id="zoffset" value="0">
+      <div id="plus_button" class="button">+</div>
+      <div id="minus_button" class="button">-</div>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit">Guardar</button>
   </form>
+
+<footer>
+  <a id="back" class="button" href="/back-calibration-selection"></a>
+</footer>
+</body>
+<script src="/static/js/calibration.js"></script>
 {% end %}

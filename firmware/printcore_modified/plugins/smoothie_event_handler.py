@@ -22,14 +22,7 @@ class SmoothieHandler(PrinterEventHandler):
     '''
     
     def __init__(self):
-        self.ws_temps = None
-        self.ws_bed_temp = None
-        self.ws_nozzle_temp = None
-
-    def init_ws(self):
-        self.ws_temps = create_connection("ws://127.0.0.1:8888/temperatures")
-        self.ws_bed_temp = create_connection("ws://127.0.0.1:8888/heating-bed")
-        self.ws_nozzle_temp = create_connection("ws://127.0.0.1:8888/heating-nozzle")
+        pass
         
     def check_origin(self, origin):
         return True
@@ -54,13 +47,12 @@ class SmoothieHandler(PrinterEventHandler):
     
     def on_recv(self, line):
         if self.are_temperatures(line.strip()):
-            #self.ws_temps.send(line.strip())
             self.create_connection_and_send("ws://127.0.0.1:8888/temperatures", line.strip())
         elif self.are_bed_temperatures(line.strip()):
-            #self.ws_bed_temp.send(line.strip())
             self.create_connection_and_send("ws://127.0.0.1:8888/heating-bed", line.strip())
         elif self.are_nozzle_temperatures(line.strip()):
-            #self.ws_nozzle_temp.send(line.strip())
+            self.create_connection_and_send("ws://127.0.0.1:8888/heating-nozzle", line.strip())
+        elif self.is_z_probe_triggered(line.strip()):
             self.create_connection_and_send("ws://127.0.0.1:8888/heating-nozzle", line.strip())
         self.__write("on_recv", line.strip())
     
@@ -95,14 +87,17 @@ class SmoothieHandler(PrinterEventHandler):
         self.__write("on_printsend", gline)
 
     def are_temperatures(self, data):
-        return "ok" in data and "T0:" in data and "T1:" in data and "B:" in data and "B:" in data
+        return "ok" in data and "T0:" in data and "T1:" in data and "B:" in data and "A:" in data
     
     def are_bed_temperatures(self, data):
-        return "B:" in data
+        return "B:" in data and "T0:" not in data and "T1:" not in data and "A:" not in data
 
     def are_nozzle_temperatures(self, data):
-        return "T0:" in data
+        return "T0:" in data and "B:" not in data and "T1:" not in data and "A:" not in data
 
+    def is_z_probe_triggered(self, data):
+        return "Z:" in data
+    
     def create_connection_and_send(self, url, data):
         ws = create_connection(url)
         ws.send(data.strip())

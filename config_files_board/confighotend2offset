@@ -1,0 +1,3 @@
+extruder.hotend2.z_offset 0
+extruder.hotend2.y_offset 0
+extruder.hotend2.x_offset 50

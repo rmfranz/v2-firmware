@@ -7,6 +7,7 @@ from tornado.options import define, options
 from handlers_http.print_handler import * 
 from handlers_http.basic_handler import * 
 from handlers_http.calibration_handler import *
+from handlers_http.back_handler import *
 from handlers_websocket.temperatures_ws_handler import *
 from handlers_http.setup_handler import *
 from firmware.smoothie_firmware import SmoothieFirmware
@@ -32,6 +33,9 @@ class Application(tornado.web.Application):
             (r"/confirm-print", PreviousPrintHandler),
             (r"/put-serial", SerialHandler),
             (r"/put-version", VersionHandler),
+            (r"/back-calibration-selection", BackSelectCalibrationHandler),
+            (r"/z-offset-up", UpZOffsetCalibrationHandler),
+            (r"/z-offset-down", DownZOffsetCalibrationHandler),
             (r"/build-plate-calibration", BuildPlateCalibrationHandler),
             (r"/z-offset-calibration", ZOffsetCalibrationHandler),
             (r"/points-25-calibration", Points25Calibration),
