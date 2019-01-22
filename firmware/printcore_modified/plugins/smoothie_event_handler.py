@@ -54,6 +54,8 @@ class SmoothieHandler(PrinterEventHandler):
             self.create_connection_and_send("ws://127.0.0.1:8888/heating-nozzle", line.strip())
         elif self.is_z_probe_triggered(line.strip()):
             self.create_connection_and_send("ws://127.0.0.1:8888/heating-nozzle", line.strip())
+        elif self.is_probe_complete(line.strip()):
+            self.create_connection_and_send("ws://127.0.0.1:8888/probe-complete", line.strip())
         self.__write("on_recv", line.strip())
     
     def on_connect(self):
@@ -97,6 +99,9 @@ class SmoothieHandler(PrinterEventHandler):
 
     def is_z_probe_triggered(self, data):
         return "Z:" in data
+
+    def is_probe_complete(self, data):
+        return "Probe completed" in data
     
     def create_connection_and_send(self, url, data):
         ws = create_connection(url)

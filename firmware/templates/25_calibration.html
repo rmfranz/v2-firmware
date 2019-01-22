@@ -2,5 +2,23 @@
 {% block content %}
 <h1>Build plate calibration</h1>
 <h3>25 Points</h3>
-<a class="btn btn-default" href="/points-25-calibration" role="button">Hacer la calibracion</a>
+<div id="25_points_calibration" class="button" role="button">Hacer la calibracion</div>
+<footer>
+    <a id="back" class="button" href="/back-calibration-selection"></a>
+    <a id="save" class="button" href="/save-25-calibration">Guardar</a>
+</footer>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-body">
+            Espere
+        </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+</body>
+<script src="/static/js/calibration.js"></script>
 {% end %}

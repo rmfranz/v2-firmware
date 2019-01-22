@@ -8,6 +8,7 @@ from handlers_http.basic_handler import *
 from handlers_http.calibration_handler import *
 from handlers_http.back_handler import *
 from handlers_websocket.temperatures_ws_handler import *
+from handlers_websocket.calibration_ws_handler import *
 from handlers_http.setup_handler import *
 from firmware.smoothie_firmware import SmoothieFirmware
 import logging
@@ -38,10 +39,12 @@ class Application(tornado.web.Application):
             (r"/build-plate-calibration", BuildPlateCalibrationHandler),
             (r"/z-offset-calibration", ZOffsetCalibrationHandler),
             (r"/points-25-calibration", Points25Calibration),
+            (r"/save-25-calibration", SavePoints25Calibration),
             (r"/setup", SetupHandler),
             (r"/temperatures", TemperaturesWsHandler),
             (r"/heating-bed", HeatingBedWsHandler),
             (r"/heating-nozzle", HeatingNozzleWsHandler),
+            (r"/probe-complete", ProbeCompleteWsHandler),
             (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/prueba/assets"}),
         ]
         tornado.web.Application.__init__(self, handlers,

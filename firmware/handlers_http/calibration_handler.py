@@ -10,7 +10,12 @@ class BuildPlateCalibrationHandler(BasicHandler):
 class Points25Calibration(BasicHandler):
     def get(self):
         self.firmware.calibration_25_points_until_complete()
-        self.render("25_calibration.html")
+        self.write("ok")
+
+class SavePoints25Calibration(BasicHandler):
+    def get(self):
+        self.firmware.calibration_25_points_for_complete()
+        self.render("select_calibration.html")
 
 class Points3Calibration(BasicHandler):
     def get(self):

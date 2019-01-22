@@ -59,7 +59,7 @@ class BaseFirmware:
     def reconnect(self):
         """
         list directory /dev/ttyACM* because smoothie board should be on
-        /dev/ttyACM0 or /dev/ttyACM1 and there isn´t nothing else there
+        /dev/ttyACM0 or /dev/ttyACM1 and there should not be anything else there
         """
         dev_list = glob.glob('/dev/ttyACM*')
         if dev_list:
