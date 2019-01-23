@@ -1,1 +1,2 @@
 extruder.hotend1.z_offset 0
+extruder.hotend2.z_offset 3

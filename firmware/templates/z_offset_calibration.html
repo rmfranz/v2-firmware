@@ -1,19 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Z offset calibration</h1>
-  <form action="/z-offset-calibration" method="POST">
+  <!--<form action="/z-offset-calibration" method="POST">-->
     <div class="form-group">
       <label for="exampleInputEmail1">Z Offset</label>
       <!--<input type="number" name="points" value="1" step="0.025">-->
-      <input type="text" name="zoffset" id="zoffset" value="0">
+      <input type="text" name="zoffset" id="zoffset">
       <div id="plus_button" class="button">+</div>
       <div id="minus_button" class="button">-</div>
     </div>
-    <button type="submit">Guardar</button>
-  </form>
-
+    <button id="t0_btn">Poner T0</button>
+    <button id="t1_btn">Poner T1</button>
+  <!--</form>-->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-body">
+          Espere mientras se realiza el cambio de herramienta
+      </div>
+      </div>
+  </div>
+</div>
+<!-- End Modal -->
 <footer>
   <a id="back" class="button" href="/back-calibration-selection"></a>
+  <div id="save_zoffset" class="button" href="/back-calibration-selection">Save</div>
 </footer>
 </body>
 <script src="/static/js/calibration.js"></script>

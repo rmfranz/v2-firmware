@@ -53,7 +53,7 @@ class SmoothieHandler(PrinterEventHandler):
         elif self.are_nozzle_temperatures(line.strip()):
             self.create_connection_and_send("ws://127.0.0.1:8888/heating-nozzle", line.strip())
         elif self.is_z_probe_triggered(line.strip()):
-            self.create_connection_and_send("ws://127.0.0.1:8888/heating-nozzle", line.strip())
+            self.create_connection_and_send("ws://127.0.0.1:8888/z-probe", line.strip())
         elif self.is_probe_complete(line.strip()):
             self.create_connection_and_send("ws://127.0.0.1:8888/probe-complete", line.strip())
         self.__write("on_recv", line.strip())

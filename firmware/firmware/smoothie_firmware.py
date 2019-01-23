@@ -4,8 +4,11 @@ from firmware.firmware import BaseFirmware
 from gcodes_loader.gcodes_loading import patch_and_split_gcodes
 from printcore_modified import gcoder
 import os
+import json
 
 class SmoothieFirmware(BaseFirmware):
+
+    OFFSET_PATH = "/home/pi/config-files/offsets.json"
     
     def initialize(self):
         """
@@ -42,6 +45,8 @@ class SmoothieFirmware(BaseFirmware):
             self.printrun.startprint(gcode)
     
     def t0_zoffset_calibration(self):
+        with open(self.OFFSET_PATH) as f:
+            config_json = json.load(f)
         self.printrun.send_now("G28")
         self.printrun.send_now("T0")
         self.printrun.send_now("G91")
@@ -52,9 +57,11 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("G1 X100 Y100 F7500")
         self.printrun.send_now("G1 Z10 F7500")
         self.printrun.send_now("G30 Z0")
-        #self.printrun.send_now("G1 Z1")
+        self.printrun.send_now("G1 Z{}".format(config_json["t0_zoffset"]))
 
     def t1_zoffset_calibration(self):
+        with open(self.OFFSET_PATH) as f:
+            config_json = json.load(f)
         self.printrun.send_now("G28")
         self.printrun.send_now("T0")
         self.printrun.send_now("G1 X100 Y100 F7600")
@@ -66,7 +73,7 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("G1 X0 F7200")
         self.printrun.send_now("G1 X-12 F500")
         self.printrun.send_now("G1 X128 Y100 F7600")
-        self.printrun.send_now("G1 Z3 F7200")
+        self.printrun.send_now("G1 Z{} F7200".format(config_json["t1_zoffset"]))
 
     def zoffset_up(self):
         self.printrun.send_now("G91")
@@ -78,13 +85,31 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("G1 Z-0.025")
         self.printrun.send_now("G90")
 
-    def save_zoffset_t0(self, z_offset):
-        config_file = "/home/pi/config-files/confighotend1offset"
+    def save_zoffset(self, z_offset_t0=None, z_offset_t1=None):
+        with open(self.OFFSET_PATH) as f:
+            config_json = json.load(f)
+        if not z_offset_t0 and not z_offset_t1:
+            z_offset_t0 = config_json["t0_zoffset"]
+            z_offset_t1 = config_json["t1_zoffset"]
+        elif not z_offset_t0 and z_offset_t1:
+            z_offset_t0 = config_json["t0_zoffset"]
+            config_json["t1_zoffset"] = z_offset_t1
+        elif not z_offset_t1 and z_offset_t0:
+            z_offset_t1 = config_json["t1_zoffset"]
+            config_json["t0_zoffset"] = z_offset_t0
+        else:
+            config_json["t0_zoffset"] = z_offset_t0
+            config_json["t1_zoffset"] = z_offset_t1
+        config_file = "/home/pi/config-files/confighotendzoffset"        
         os.system("sudo mount /dev/sda1 /media/smoothie -o uid=pi,gid=pi")
         with open(config_file, "w") as f:
-            f.write("extruder.hotend1.z_offset {}".format(str(z_offset)))
-        os.system("cp {} /media/smoothie/confighotend1offset && sync".format(config_file))
+            f.write("extruder.hotend1.z_offset {}\n".format(str(z_offset_t0)))
+            f.write("extruder.hotend2.z_offset {}".format(str(z_offset_t1)))
+        os.system("cp {} /media/smoothie/confighotendzoffset && sync".format(config_file))
         response = os.system("sudo umount /media/smoothie")
+        if response == 0:
+            with open(self.OFFSET_PATH, 'w') as f:
+                json.dump(config_json, f)
         return response
 
     def calibration_25_points_until_complete(self):

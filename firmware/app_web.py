@@ -34,6 +34,9 @@ class Application(tornado.web.Application):
             (r"/put-serial", SerialHandler),
             (r"/put-version", VersionHandler),
             (r"/back-calibration-selection", BackSelectCalibrationHandler),
+            (r"/get-offsets", GetOffsetsHandler),
+            (r"/t0-calibration", ZOffsetT0CalibrationHandler),
+            (r"/t1-calibration", ZOffsetT1CalibrationHandler),
             (r"/z-offset-up", UpZOffsetCalibrationHandler),
             (r"/z-offset-down", DownZOffsetCalibrationHandler),
             (r"/build-plate-calibration", BuildPlateCalibrationHandler),
@@ -45,6 +48,7 @@ class Application(tornado.web.Application):
             (r"/heating-bed", HeatingBedWsHandler),
             (r"/heating-nozzle", HeatingNozzleWsHandler),
             (r"/probe-complete", ProbeCompleteWsHandler),
+            (r"/z-probe", ZProbeWsHandler),
             (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/prueba/assets"}),
         ]
         tornado.web.Application.__init__(self, handlers,

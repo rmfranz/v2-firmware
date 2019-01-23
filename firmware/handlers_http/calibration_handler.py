@@ -1,5 +1,6 @@
 from handlers_http.basic_handler import BasicHandler
 import tornado
+import json
 
 class BuildPlateCalibrationHandler(BasicHandler):
     
@@ -29,18 +30,37 @@ class ZOffsetCalibrationHandler(BasicHandler):
         self.render("z_offset_calibration.html")
 
     def post(self):
-        z_offset = self.get_body_argument("zoffset")
-        response = self.firmware.save_zoffset_t0(z_offset)
+        zoffset_t0 = self.get_body_argument("zoffset_t0")
+        zoffset_t1 = self.get_body_argument("zoffset_t1")
+        response = self.firmware.save_zoffset(zoffset_t0, zoffset_t1)
         # si la respuesta es 0, todo bien sino todo mal
         if response == 0:
             self.firmware.reset()
             self.firmware.disconnect()
             tornado.ioloop.IOLoop.current().call_later(delay=20,
                 callback=self.firmware.reconnect)
-            self.render("select_calibration.html")
+            self.write("ok")
         else:
-            self.render("z_offset_calibration.html")
-            
+            self.render("error")
+
+class ZOffsetT0CalibrationHandler(BasicHandler):
+    
+    def get(self):
+        self.firmware.t0_zoffset_calibration()
+        self.write("ok")
+
+class ZOffsetT1CalibrationHandler(BasicHandler):
+    
+    def get(self):
+        self.firmware.t1_zoffset_calibration()
+        self.write("ok")
+
+class GetOffsetsHandler(BasicHandler):
+
+    def get(self):
+        with open(self.OFFSET_PATH) as f:
+            config_json = json.load(f)
+        self.write(config_json)
 
 class UpZOffsetCalibrationHandler(BasicHandler):
     
