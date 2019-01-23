@@ -120,6 +120,9 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("M374")
         self.printrun.send_now("G28")
 
+    def show_grid_25_points(self):
+        self.printrun.send_now("M375.1")
+
     def move_to_p1(self, z_probe):
         self.printrun.send_now("G28")
         self.printrun.send_now("G1 Z10 F9000")

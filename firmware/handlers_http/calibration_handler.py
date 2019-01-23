@@ -13,6 +13,11 @@ class Points25Calibration(BasicHandler):
         self.firmware.calibration_25_points_until_complete()
         self.write("ok")
 
+class Show25GridCalibration(BasicHandler):
+    def get(self):
+        self.firmware.show_grid_25_points()
+        self.write("ok")
+
 class SavePoints25Calibration(BasicHandler):
     def get(self):
         self.firmware.calibration_25_points_for_complete()

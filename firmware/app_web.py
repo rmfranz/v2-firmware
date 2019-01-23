@@ -49,6 +49,8 @@ class Application(tornado.web.Application):
             (r"/heating-nozzle", HeatingNozzleWsHandler),
             (r"/probe-complete", ProbeCompleteWsHandler),
             (r"/z-probe", ZProbeWsHandler),
+            (r"/inspect-grid", InspectGridWsHandler),
+            (r"/show-grid", Show25GridCalibration),
             (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/prueba/assets"}),
         ]
         tornado.web.Application.__init__(self, handlers,
