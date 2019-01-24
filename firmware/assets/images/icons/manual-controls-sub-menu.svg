@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;opacity:0}.cls-2,.cls-3,.cls-4,.cls-5{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.613;stroke-width:3px}.cls-2,.cls-3{stroke:#000}.cls-2,.cls-4{fill-rule:evenodd}.cls-4,.cls-5{stroke:#ed3237}
+        </style>
+    </defs>
+    <g id="manual-controls-sub-menu" transform="translate(-90 -135)">
+        <path id="Rectangle_491" d="M0 0h160v80H0z" class="cls-1" data-name="Rectangle 491" transform="translate(90 135)"/>
+        <g id="callibration-icon" transform="translate(-222.033 -57.929)">
+            <path id="Path_296" d="M1259.046 606.89h39.754l5.116 5.9v49.2l-5.116 5.9h-39.753l-5.116-5.9v-49.2z" class="cls-2" data-name="Path 296" transform="translate(-887.403 -404.961)"/>
+            <path id="Rectangle_212" d="M0 0h10.43v4.707H0z" class="cls-3" data-name="Rectangle 212" transform="translate(398.998 207.444)"/>
+            <path id="Path_297" d="M1296.23 654.59l9.287 9.287-9.287 9.287" class="cls-4" data-name="Path 297" transform="translate(-870.182 -427.173)"/>
+            <path id="Line_275" d="M37.636 0H0" class="cls-5" data-name="Line 275" transform="translate(395.699 236.705)"/>
+            <circle id="Ellipse_155" cx="2.969" cy="2.969" r="2.969" class="cls-5" data-name="Ellipse 155" transform="translate(389.392 233.74)"/>
+            <path id="Path_298" d="M0 0l9.287 9.287L0 18.574" class="cls-4" data-name="Path 298" transform="rotate(180 179.16 122.996)"/>
+            <path id="Line_276" d="M37.636 0H0" class="cls-5" data-name="Line 276" transform="rotate(180 194.334 118.352)"/>
+            <path id="Line_277" d="M0 13.329V0" class="cls-5" data-name="Line 277" transform="translate(392.364 219.429)"/>
+            <path id="Path_496" d="M1296.23 654.59l9.013 9.013-9.013 9.013" class="cls-4" data-name="Path 496" transform="rotate(-90 626.06 897.245)"/>
+            <path id="Line_373" d="M0 13.329V0" class="cls-5" data-name="Line 373" transform="translate(392.364 240.429)"/>
+            <path id="Path_497" d="M1296.23 654.59l9.013 9.013-9.013 9.013" class="cls-4" data-name="Path 497" transform="rotate(90 1053.596 2.426)"/>
+        </g>
+    </g>
+</svg>

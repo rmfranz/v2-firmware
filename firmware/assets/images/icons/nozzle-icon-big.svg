@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;opacity:0}.cls-2,.cls-3,.cls-4{fill:none;stroke-linecap:round;stroke-width:3px}.cls-2,.cls-3{stroke:#000;stroke-linejoin:round;stroke-miterlimit:2.613}.cls-3{fill-rule:evenodd}.cls-4{stroke:#ed3237}
+        </style>
+    </defs>
+    <g id="nozzle-icon-big" transform="translate(-10715 -622)">
+        <path id="Path_503" d="M0 0h160v100H0z" class="cls-1" data-name="Path 503" transform="translate(10715 622)"/>
+        <g id="Group_411" data-name="Group 411" transform="translate(-4077.454 -1554.734)">
+            <g id="Group_261" data-name="Group 261" transform="translate(14837.5 2197.511)">
+                <g id="Group_255" data-name="Group 255">
+                    <g id="Group_254" data-name="Group 254" transform="translate(5.765 25.517)">
+                        <g id="Group_331" data-name="Group 331">
+                            <path id="Line_294" d="M0 11.122V0" class="cls-2" data-name="Line 294" transform="translate(6)"/>
+                            <path id="Line_366" d="M0 11.122V0" class="cls-2" data-name="Line 366" transform="translate(11.322)"/>
+                        </g>
+                    </g>
+                    <rect id="Rectangle_261" width="28.195" height="28.195" class="cls-2" data-name="Rectangle 261" rx="7" transform="translate(0 17.419)"/>
+                    <path id="Path_319" d="M2758.538 475.02l-.184 3.9-3.714 3.153-3.708-3.153-.184-3.9" class="cls-3" data-name="Path 319" transform="translate(-2740.106 -429.039)"/>
+                </g>
+            </g>
+        </g>
+        <path id="Path_507" d="M0 0h32.942" class="cls-4" data-name="Path 507" transform="translate(10791.595 696)"/>
+        <path id="Path_504" d="M0 0h59.429" class="cls-4" data-name="Path 504" transform="translate(10763.595 702)"/>
+        <g id="Group_412" data-name="Group 412" transform="translate(-4040.454 -1560.734)">
+            <g id="Group_261-2" data-name="Group 261" transform="translate(14837.5 2197.511)">
+                <g id="Group_255-2" data-name="Group 255">
+                    <g id="Group_254-2" data-name="Group 254" transform="translate(5.765 25.517)">
+                        <g id="Group_331-2" data-name="Group 331">
+                            <path id="Line_366-2" d="M0 11.122V0" class="cls-2" data-name="Line 366" transform="translate(8.322)"/>
+                        </g>
+                    </g>
+                    <rect id="Rectangle_261-2" width="28.195" height="28.195" class="cls-2" data-name="Rectangle 261" rx="7" transform="translate(0 17.419)"/>
+                    <path id="Path_319-2" d="M2758.538 475.02l-.184 3.9-3.714 3.153-3.708-3.153-.184-3.9" class="cls-3" data-name="Path 319" transform="translate(-2740.106 -429.039)"/>
+                    <path id="Path_505" d="M14.1 17.419V11.73c0-3.5.779-10.841 5.074-12.7" class="cls-2" data-name="Path 505"/>
+                </g>
+            </g>
+        </g>
+        <path id="Path_506" d="M14.1 17.419V11.73c0-3.5.779-10.841 5.074-12.7" class="cls-2" data-name="Path 506" transform="translate(10760.046 642.777)"/>
+        <path id="Path_508" d="M0 0h160v100H0z" class="cls-1" data-name="Path 508" transform="translate(10715 622)"/>
+    </g>
+</svg>

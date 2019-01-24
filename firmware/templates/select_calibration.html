@@ -1,6 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-<a class="btn btn-default" href="/z-offset-calibration" role="button">Z offset calibration</a>
-<a class="btn btn-default" href="/build-plate-calibration" role="button">Build plate calibration</a>
-<a class="btn btn-default" href="#" role="button">Nozzle offset calibration</a>
+<main>
+    <h1>Calibration</h1>
+    <ul>
+        <li>
+            <a href="/build-plate-calibration">
+                <img src="/static/images/icons/buildplate-icon-big.svg" alt="">
+                <h3>Build Plate</h3>
+            </a>
+        </li>
+        <li>
+            <a href="/z-offset-calibration">
+                <img src="/static/images/icons/z-offset-icon-big.svg" alt="">
+                <h3>Z Offset</h3>
+            </a>
+        </li>        
+        <li>
+            <a href="#">
+                <img src="/static/images/icons/nozzle-icon-big.svg" alt="">
+                <h3>Nozzle Offset</h3>
+            </a>
+        </li> 
+    </ul>
+</main>
+
+<footer>
+    <a id="back" class="button" href="/home"></a>
+    <div class="slogan"></div>
+</footer>
 {% end %}

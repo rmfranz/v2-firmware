@@ -4,8 +4,8 @@ html {
 }
 
 body {
-    margin:auto;
-    width:800px;
+    margin: auto;
+    max-width: 800px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -39,3 +39,7 @@ body {
     src: url('/static/images/EM-Graphik/Graphik-Medium.ttf') format('truetype');
 }
 
+a {
+    color: #000;
+    text-decoration: none;
+}

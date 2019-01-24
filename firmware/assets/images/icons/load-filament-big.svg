@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;opacity:0}.cls-2,.cls-3,.cls-4,.cls-5{fill:none}.cls-2,.cls-3{stroke:#ed3237}.cls-2,.cls-3,.cls-4,.cls-5,.cls-6{stroke-linecap:round;stroke-linejoin:round;stroke-width:3px}.cls-2,.cls-3,.cls-4{stroke-miterlimit:10}.cls-2{fill-rule:evenodd}.cls-4,.cls-5,.cls-6{stroke:#000}.cls-5,.cls-6{stroke-miterlimit:2.613}
+        </style>
+    </defs>
+    <g id="load-filament-big" transform="translate(-93 -160)">
+        <path id="Rectangle_280" d="M0 0h160v100H0z" class="cls-1" data-name="Rectangle 280" transform="translate(93 160)"/>
+        <g id="Group_308" data-name="Group 308" transform="rotate(90 6177.784 -4503.025)">
+            <g id="Group_307" data-name="Group 307">
+                <path id="Path_398" d="M59675.594 9994.475l-5.7 5.281-5.793-5.367" class="cls-2" data-name="Path 398" transform="translate(-48813.781 -8448.481)"/>
+                <path id="Line_355" d="M0 33.228V0" class="cls-3" data-name="Line 355" transform="translate(10856.14 1515.696)"/>
+                <path id="Path_399" d="M60175.2 2041.693a43.614 43.614 0 0 1 43.613-43.614" class="cls-2" data-name="Path 399" transform="translate(-49319.055 -543.159)"/>
+                <path id="Path_400" d="M59677.6 5359.435l-5.7 5.283-5.8-5.368" class="cls-2" data-name="Path 400" transform="translate(-48815.754 -3866.184)"/>
+                <ellipse id="Ellipse_187" cx="2.894" cy="2.894" class="cls-3" data-name="Ellipse 187" rx="2.894" ry="2.894" transform="rotate(-90 6179.182 -4721.186)"/>
+                <ellipse id="Ellipse_188" cx="2.894" cy="2.894" class="cls-3" data-name="Ellipse 188" rx="2.894" ry="2.894" transform="rotate(-90 6184.471 -4668.775)"/>
+            </g>
+            <g id="Group_304" data-name="Group 304">
+                <path id="Line_353" d="M0 36.524V0" class="cls-4" data-name="Line 353" transform="translate(10870 1499)"/>
+                <path id="Line_354" d="M0 0v7" class="cls-4" data-name="Line 354" transform="translate(10870.156 1541.709)"/>
+                <g id="Group_303" data-name="Group 303" transform="translate(10875.5 1448.631)">
+                    <ellipse id="Ellipse_173" cx="30.179" cy="30.179" class="cls-5" data-name="Ellipse 173" rx="30.179" ry="30.179" transform="translate(-5.5 20.369)"/>
+                    <ellipse id="Ellipse_176" cx="8.67" cy="8.67" class="cls-5" data-name="Ellipse 176" rx="8.67" ry="8.67" transform="translate(16.009 41.878)"/>
+                    <g id="Group_264" data-name="Group 264" transform="translate(14.551 27.015)">
+                        <path id="Path_323" d="M18.681 11.977a2.165 2.165 0 0 0 2.58.929 14.232 14.232 0 0 1 10.115 0 2.165 2.165 0 0 0 2.58-.929l2.374-4.232a2.036 2.036 0 0 0-1.03-2.89 23.855 23.855 0 0 0-17.96 0 2.14 2.14 0 0 0-1.032 2.89z" class="cls-6" data-name="Path 323" transform="translate(-16.087 -3.1)"/>
+                    </g>
+                    <g id="Group_265" data-name="Group 265" transform="translate(14.402 64.263)">
+                        <path id="Path_324" d="M33.858 40.233a2.165 2.165 0 0 0-2.58-.929 14.232 14.232 0 0 1-10.115 0 2.165 2.165 0 0 0-2.58.929l-2.374 4.232a2.036 2.036 0 0 0 1.032 2.89 23.855 23.855 0 0 0 17.96 0 2.14 2.14 0 0 0 1.032-2.89z" class="cls-6" data-name="Path 324" transform="translate(-15.943 -39.188)"/>
+                    </g>
+                    <g id="Group_266" data-name="Group 266" transform="translate(1.146 40.271)">
+                        <path id="Path_325" d="M11.977 33.858a2.165 2.165 0 0 0 .929-2.58 14.232 14.232 0 0 1 0-10.115 2.165 2.165 0 0 0-.929-2.58l-4.232-2.375a2.036 2.036 0 0 0-2.89 1.032 23.855 23.855 0 0 0 0 17.959 2.14 2.14 0 0 0 2.89 1.032z" class="cls-6" data-name="Path 325" transform="translate(-3.1 -15.943)"/>
+                    </g>
+                    <g id="Group_267" data-name="Group 267" transform="translate(38.394 40.42)">
+                        <path id="Path_326" d="M40.233 18.681a2.165 2.165 0 0 0-.929 2.58 14.232 14.232 0 0 1 0 10.115 2.165 2.165 0 0 0 .929 2.58l4.232 2.374a2.036 2.036 0 0 0 2.89-1.032 23.855 23.855 0 0 0 0-17.959 2.14 2.14 0 0 0-2.89-1.032z" class="cls-6" data-name="Path 326" transform="translate(-39.188 -16.087)"/>
+                    </g>
+                </g>
+                <ellipse id="Ellipse_193" cx="2.894" cy="2.894" class="cls-4" data-name="Ellipse 193" rx="2.894" ry="2.894" transform="rotate(-90 6204.471 -4662.775)"/>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -81,7 +81,7 @@ $("#save_zoffset").on("click", function() {
 });
 
 $("#25_points_calibration").on("click", function() {
-    $("#grid").empty();
+    $("#grid_inspect").empty();
     $.ajax({url: "/points-25-calibration", success: function(result){
         console.info(result)
     }});
@@ -89,23 +89,31 @@ $("#25_points_calibration").on("click", function() {
 });
 
 $("#inspect_grid_points").on("click", function() {
-    $("#grid").empty();
+    $("#grid_inspect").empty();
     $.ajax({url: "/show-grid", success: function(result){
+        console.info(result)
+    }});
+    $('#grid_modal').modal('show');
+});
+
+$("#reset_grid").on("click", function() {
+    $.ajax({url: "/reset-grid", success: function(result){
         console.info(result)
     }});
 });
 
 var ws_z_probe = new WebSocket("ws://" + ip + ":8888/z-probe");
 ws_z_probe.onmessage = function (evt) {
-    $('#myModal').modal('hide')
+    $('#myModal').modal('hide');    
 };
 
 var ws_25_points_calibration = new WebSocket("ws://" + ip + ":8888/probe-complete");
 ws_25_points_calibration.onmessage = function (evt) {
-    $('#myModal').modal('hide')
+    $('#myModal').modal('hide');
+    $('#grid_modal').modal('show');
 };
 
 var inspect_grid = new WebSocket("ws://" + ip + ":8888/inspect-grid");
 inspect_grid.onmessage = function (evt) {
-    $( "#grid" ).append( "<p>" + evt.data + "</p>" );
+    $( "#grid_inspect" ).append( "<p>" + evt.data + "</p>" );    
 };

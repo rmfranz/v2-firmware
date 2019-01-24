@@ -1,14 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Build plate calibration</h1>
-<h3>25 Points</h3>
-<button id="25_points_calibration" class="button" role="button">Hacer la calibracion</button>
-<button id="" class="button" role="button">Remove outdated</button>
-<button id="inspect_grid_points" class="button" role="button">Inspectgrid points</button>
-<div id="grid"></div>
+<main>
+    <h1>Grid Calibration</h1>
+    <ul id="grid">
+        <li>
+            <a id="25_points_calibration">
+                <img src="/static/images/icons/buildplate-icon-big.svg" alt="">
+                <h3>Calibrate</h3>
+            </a>
+        </li>
+        <li>
+            <a id="reset_grid">
+                <h3>Reset</h3>
+            </a>
+        </li>
+        <li class="smallbutton">
+            <a id="inspect_grid_points">
+                <h3>Inspect</h3>
+            </a>
+        </li>
+    </ul>
+</main>
+
 <footer>
     <a id="back" class="button" href="/back-calibration-selection"></a>
-    <a id="save" class="button" href="/save-25-calibration">Guardar</a>
+    <div class="slogan"></div>
+    <a id="forward" class="button" href="/save-25-calibration">Save</a>
 </footer>
 
 <!-- Modal -->
@@ -16,7 +33,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-body">
-            Espere
+            Espere mientras se realiza la calibración
+        </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+<!-- Modal -->
+<div class="modal fade" id="grid_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-body">
+            <div id="grid_inspect"></div>
         </div>
         </div>
     </div>

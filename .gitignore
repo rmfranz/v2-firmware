@@ -200,3 +200,6 @@ firmware/.vscode/*
 .history
 
 # End of https://www.gitignore.io/api/python,eclipse
+
+HTML/
+HTML.7z

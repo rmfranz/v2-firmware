@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;opacity:0}.cls-2,.cls-3{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.613;stroke-width:3px}.cls-2{fill-rule:evenodd}
+        </style>
+    </defs>
+    <g id="sound-sub-icon" transform="translate(-320 -319)">
+        <path id="Rectangle_492" d="M0 0h160v80H0z" class="cls-1" data-name="Rectangle 492" transform="translate(320 319)"/>
+        <g id="Group_335" data-name="Group 335" transform="translate(-14475.5 -2132)">
+            <g id="wifi-big-btn" transform="translate(14483.467 2265.638)">
+                <path id="Path_227" d="M1946.48 627.56a24.159 24.159 0 0 1 0 34.841" class="cls-2" data-name="Path 227" transform="translate(-1552.266 -419.15)"/>
+                <path id="Path_228" d="M1958.05 615.52a33.967 33.967 0 0 1 0 48.989" class="cls-2" data-name="Path 228" transform="translate(-1557.038 -414.184)"/>
+                <path id="Path_229" d="M1969.46 603.65a43.646 43.646 0 0 1 0 62.937" class="cls-2" data-name="Path 229" transform="translate(-1561.744 -409.288)"/>
+            </g>
+            <path id="Union_7" d="M11.954 24.5H.5v-15h11.326l9.5-9.5v33.872z" class="cls-3" data-name="Union 7" transform="translate(14846 2474.5)"/>
+        </g>
+    </g>
+</svg>

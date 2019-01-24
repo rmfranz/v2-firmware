@@ -51,6 +51,7 @@ class Application(tornado.web.Application):
             (r"/z-probe", ZProbeWsHandler),
             (r"/inspect-grid", InspectGridWsHandler),
             (r"/show-grid", Show25GridCalibration),
+            (r"/reset-grid", ResetGridCalibration),
             (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/prueba/assets"}),
         ]
         tornado.web.Application.__init__(self, handlers,
