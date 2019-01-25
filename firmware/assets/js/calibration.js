@@ -1,21 +1,27 @@
 var ip = "192.168.0.24";
 var t0_activate =  true;
-function get_t0_t1_offset() {
+function get_offsets() {
     var t0_offset = 1;
     var t1_offset = 1;
+    var t1_yoffset = 0;
+    var t1_xoffset = 28;
     $.ajax({
         url: "/get-offsets",
         success: function (result) {
             t0_offset = result["t0_zoffset"];
             t1_offset = result["t1_zoffset"];
+            t1_yoffset = result["t1_yoffset"];
+            t1_xoffset = result["t1_xoffset"];
         },
         async: false
     });
-    return {t0_offset, t1_offset}
+    return {t0_offset, t1_offset, t1_yoffset, t1_xoffset}
 }
 
-var {t0_offset, t1_offset} = get_t0_t1_offset();
+var {t0_offset, t1_offset, t1_yoffset, t1_xoffset} = get_offsets();
 $("#zoffset").val(t0_offset);
+$("#yoffset").val(t1_yoffset);
+$("#xoffset").val(t1_xoffset);
 
 $("#plus_button").on("click", function() {
     $.ajax({url: "/z-offset-up", success: function(result){
@@ -101,6 +107,44 @@ $("#reset_grid").on("click", function() {
         console.info(result)
     }});
 });
+
+$("#x_plus_button").on("click", function() {
+    var oldValue = $("#xoffset").val();
+    t1_xoffset = Number((parseFloat(oldValue) + 0.05).toFixed(2));
+    $("#xoffset").val(t1_xoffset);
+});
+
+$("#x_minus_button").on("click", function() {
+    var oldValue = $("#xoffset").val();
+    t1_xoffset = Number((parseFloat(oldValue) - 0.05).toFixed(2))
+    $("#xoffset").val(t1_xoffset);
+});
+
+$("#y_plus_button").on("click", function() {
+    var oldValue = $("#yoffset").val();
+    t1_yoffset = Number((parseFloat(oldValue) + 0.05).toFixed(2));
+    $("#yoffset").val(t1_yoffset);
+});
+
+$("#y_minus_button").on("click", function() {
+    var oldValue = $("#yoffset").val();
+    t1_yoffset = Number((parseFloat(oldValue) - 0.05).toFixed(2));
+    $("#yoffset").val(t1_yoffset);
+});
+
+$("#save_xyoffset").on("click", function() {
+    $.post( "/xy-offset-calibration", { yoffset: t1_yoffset, xoffset: t1_xoffset })
+    .done(function( data ) {
+        if(data == "ok"){
+            $('#myModal').modal('hide');
+            window.location.href = "/back-calibration-selection";
+        } else {
+            $('#myModal').modal('hide');
+        }
+    });
+    $('#myModal').modal('show')
+});
+
 
 var ws_z_probe = new WebSocket("ws://" + ip + ":8888/z-probe");
 ws_z_probe.onmessage = function (evt) {

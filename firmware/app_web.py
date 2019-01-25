@@ -43,6 +43,7 @@ class Application(tornado.web.Application):
             (r"/z-offset-down", DownZOffsetCalibrationHandler),
             (r"/build-plate-calibration", BuildPlateCalibrationHandler),
             (r"/z-offset-calibration", ZOffsetCalibrationHandler),
+            (r"/xy-offset-calibration", XYOffsetCalibrationHandler),
             (r"/points-25-calibration", Points25Calibration),
             (r"/save-25-calibration", SavePoints25Calibration),
             (r"/setup", SetupHandler),

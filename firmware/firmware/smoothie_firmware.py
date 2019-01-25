@@ -85,6 +85,23 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("G1 Z-0.025")
         self.printrun.send_now("G90")
 
+    def save_xyoffset(self, x_offset, y_offset):
+        with open(self.OFFSET_PATH) as f:
+            config_json = json.load(f)
+        config_json["t1_xoffset"] = x_offset
+        config_json["t1_yoffset"] = y_offset
+        config_file = "/home/pi/config-files/confighotend2xyoffset"        
+        os.system("sudo mount /dev/sda1 /media/smoothie -o uid=pi,gid=pi")
+        with open(config_file, "w") as f:
+            f.write("extruder.hotend2.y_offset {}\n".format(str(y_offset)))
+            f.write("extruder.hotend2.x_offset {}".format(str(x_offset)))
+        os.system("cp {} /media/smoothie/confighotend2xyoffset && sync".format(config_file))
+        response = os.system("sudo umount /media/smoothie")
+        if response == 0:
+            with open(self.OFFSET_PATH, 'w') as f:
+                json.dump(config_json, f)
+        return response
+
     def save_zoffset(self, z_offset_t0=None, z_offset_t1=None):
         with open(self.OFFSET_PATH) as f:
             config_json = json.load(f)

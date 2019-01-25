@@ -58,6 +58,25 @@ class ZOffsetCalibrationHandler(BasicHandler):
         else:
             self.render("error")
 
+class XYOffsetCalibrationHandler(BasicHandler):
+    
+    def get(self):
+        self.render("xy_offset.html")
+
+    def post(self):
+        xoffset = self.get_body_argument("xoffset")
+        yoffset = self.get_body_argument("yoffset")
+        response = self.firmware.save_xyoffset(xoffset, yoffset)
+        # si la respuesta es 0, todo bien sino todo mal
+        if response == 0:
+            self.firmware.reset()
+            self.firmware.disconnect()
+            tornado.ioloop.IOLoop.current().call_later(delay=20,
+                callback=self.firmware.reconnect)
+            self.write("ok")
+        else:
+            self.render("error")
+
 class ZOffsetT0CalibrationHandler(BasicHandler):
     
     def get(self):
