@@ -7,6 +7,7 @@ from handlers_http.print_handler import *
 from handlers_http.basic_handler import * 
 from handlers_http.calibration_handler import *
 from handlers_http.back_handler import *
+from handlers_http.connection_handler import *
 from handlers_websocket.temperatures_ws_handler import *
 from handlers_websocket.calibration_ws_handler import *
 from handlers_http.setup_handler import *
@@ -33,6 +34,7 @@ class Application(tornado.web.Application):
             (r"/confirm-print", PreviousPrintHandler),
             (r"/put-serial", SerialHandler),
             (r"/put-version", VersionHandler),
+            (r"/select-calibration", CalibrationHandler),
             (r"/back-calibration-selection", BackSelectCalibrationHandler),
             (r"/get-offsets", GetOffsetsHandler),
             (r"/t0-calibration", ZOffsetT0CalibrationHandler),
@@ -52,6 +54,8 @@ class Application(tornado.web.Application):
             (r"/inspect-grid", InspectGridWsHandler),
             (r"/show-grid", Show25GridCalibration),
             (r"/reset-grid", ResetGridCalibration),
+            (r"/wifi-connection", WifiConnectionHandler),
+            (r"/connectivity", ConnectivityHandler),
             (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/prueba/assets"}),
         ]
         tornado.web.Application.__init__(self, handlers,

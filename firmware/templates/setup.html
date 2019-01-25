@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <h1>Settings</h1>
+    <ul>
+        <li>
+            <a href="/connectivity">
+                <img src="static/images/icons/connectivity-icon.png" alt="">
+                <h3>Connectivity</h3>
+            </a>
+        </li>
+        <li>
+            <a href="filamentsMenu.html">
+                <img src="static/images/icons/filament-sub-icon.svg" alt="">
+                <h3>Filaments</h3>
+            </a>
+        </li>
+        <li>
+            <a href="/select-calibration">
+                <img src="static/images/icons/calibration-sub-icon.svg" alt="">
+                <h3>Calibration</h3>
+            </a>
+        </li>
+        <li>
+            <a href="settingsGeneral.html">
+                <img src="static/images/icons/extras-sub-icon.svg" alt="">
+                <h3>General</h3>
+            </a>
+        </li>
+        <li>               
+            <a href="settingsAdvanced.html">
+                <img src="static/images/icons/calibration-sub-icon.svg" alt="">
+                <h3>Advanced</h3>
+            </a>
+        </li>
+    </ul>
+</main>
+
+<footer>
+    <a id="back" class="button" href="/home"></a>
+    <div class="slogan"></div>
+</footer>
+</body>
+{% end %}

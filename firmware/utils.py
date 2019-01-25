@@ -30,7 +30,7 @@ def connect_public_wifi(network_name):
     os.system("sudo wpa_cli save_config")
     os.system("sudo wpa_cli -i wlan0 reconfigure")
 
-def connect_wifi(network_name, password):
+def connect_private_wifi(network_name, password):
     network_number = int(check_output("wpa_cli add_network | grep -v \"Selected interface 'p2p-dev-wlan0'\"", shell=True, universal_newlines=True))
     os.system("sudo wpa_cli set_network {} ssid '\"{}\"'".format(network_number, network_name))
     os.system("sudo wpa_cli set_network {} psk '\"{}\"'".format(network_number, password))
@@ -38,3 +38,9 @@ def connect_wifi(network_name, password):
     os.system("sudo wpa_cli select_network {}".format(network_number))
     os.system("sudo wpa_cli save_config")
     os.system("sudo wpa_cli -i wlan0 reconfigure")
+
+def connect_to_wifi(network_name, password=None):
+    if password:
+        connect_private_wifi(network_name, password)
+    else:
+        connect_public_wifi(network_name)

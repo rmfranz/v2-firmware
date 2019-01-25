@@ -8,6 +8,11 @@ class BuildPlateCalibrationHandler(BasicHandler):
         #Aca hay que poner la qué calibración va
         self.render("25_calibration.html")
 
+class CalibrationHandler(BasicHandler):
+    
+    def get(self):
+        self.render("select_calibration.html")
+
 class Points25Calibration(BasicHandler):
     def get(self):
         self.firmware.calibration_25_points_until_complete()

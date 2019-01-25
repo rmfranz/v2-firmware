@@ -3,4 +3,4 @@ from tornado.options import options
 
 class SetupHandler(BasicHandler):
     def get(self):
-        self.render("select_calibration.html")
+        self.render("setup.html")

@@ -1,0 +1,128 @@
+/* override Bootstrap excessive button padding */
+button.ui-keyboard-button.btn {
+    padding: 1px 6px;
+    font-size: 33px;
+}
+/* Bootswatch Darkly input is too bright */
+ .ui-keyboard-input.light, .ui-keyboard-preview.light {
+    color: #282828;
+    background: #ddd;
+}
+.ui-keyboard-input.dark, .ui-keyboard-preview.dark {
+    color: #ddd;
+    background: #282828;
+}
+
+div.ui-keyboard {
+    background-color: #000000;
+    padding: 0;
+  }
+  
+  div.ui-keyboard {
+    opacity: 0;
+    -webkit-transform: translate(0%, -20%);
+    -ms-transform: translate(0%, -20%);
+    -o-transform: translate(0%, -20%);
+    transform: translate(0%, -20%);
+    -webkit-transition: all .3s cubic-bezier(.25, .5, .5, .9) 0s;
+    -o-transition: all .3s cubic-bezier(.25, .5, .5, .9) 0s;
+    transition: all .3s cubic-bezier(.25, .5, .5, .9) 0s;
+  }
+  
+  div.ui-keyboard.in {
+    opacity: 1;
+    border:0;
+    -webkit-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    -o-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+  
+  #net-keyboard_keyboard, #keyboard_keyboard {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      width: 100%;
+  }
+  
+  button.ui-keyboard-accept.ui-keyboard-valid-input,button.ui-keyboard-bksp{
+      border-color: #c5c5c5 !important;
+      background: rgb(69,69,69) !important;
+      color:white !important;
+      
+  }
+  
+  .ui-keyboard-tab {
+      display: none;
+  }
+  
+  .ui-keyboard-enter {
+      display: none;
+  }
+  
+  
+  
+  .ui-keyboard-shift[data-pos='3,11'] {
+      display: none;
+  }
+  
+  .ui-widget-content {
+      background: rgb(255, 255, 255) !important;
+  }
+  
+  .ui-widget-content-2 {
+      background: rgb(0, 0, 0) !important;
+  }
+  
+  .ui-keyboard div {}
+  
+  .ui-login {
+      font-size: 2em !important;
+      left: 27% !important;
+      top: 7% !important;
+  }
+  
+  #login-keyboard_keyboard .ui-keyboard-button, .ui-login .ui-keyboard-button {
+      width: 100px;
+      height: 75px !important;
+  }
+  button.btn-default:active {
+      background-color: #FFF;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+  }
+  button.btn-default:active:hover {
+      background-color: #3276B1;
+  }
+  /* override Bootstrap excessive button padding */
+   button.ui-keyboard-button.btn {
+      padding: 1px 6px;
+      background-color: #454545;
+      color: white;
+      border:0;
+  }
+  /* Bootswatch Darkly input is too bright */
+   .ui-keyboard-input.light, .ui-keyboard-preview.light {
+      color: #282828;
+      background: #ddd;
+  }
+  .ui-keyboard-input.dark, .ui-keyboard-preview.dark {
+      color: black;
+      background: white;
+      height: 60px;
+      font-size: 30px;
+  }
+
+  .ui-text .ui-keyboard-button {
+    height: 2.18em;
+    min-width: 2.18em;
+}
+
+.ui-keyboard-text img {
+    /* vertical-align: inherit; */
+}
+
+.ui-keyboard-bksp {
+    color: rgb(250, 250, 250) !important;
+    background: #000000 !important;
+    width: 122px;
+}

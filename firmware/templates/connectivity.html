@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <h1>Connectivity</h1>
+    <ul>
+        <li>
+            <a href="/wifi-connection">
+                <img src="/static/images/icons/wifi-sub-icon.svg" alt="">
+                <h3>Wifi</h3>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="/static/images/icons/info-sub-icon.svg" alt="">
+                <h3>Network info</h3>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="/static/images/icons/cloud-sub-icon.svg" alt="">
+                <h3>Cloud</h3>
+            </a>
+        </li> 
+    </ul>
+</main>
+
+<footer>
+    <a id="back" class="button" href="/setup"></a>
+    <div class="slogan"></div>
+</footer>
+</body>
+{% end %}
