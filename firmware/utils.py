@@ -2,7 +2,7 @@ import os, fnmatch
 from subprocess import check_output, call
 
 def mount_usb():
-    return os.system("sudo mount /dev/sda1 /media/usb -o uid=pi,gid=pi")
+    return os.system("sudo mount /dev/sdc1 /media/usb -o uid=pi,gid=pi")
 
 def get_gcodes_from_usb():
     dirName = "/media/usb"

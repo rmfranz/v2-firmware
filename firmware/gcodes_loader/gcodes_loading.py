@@ -13,7 +13,7 @@ import pickle
 
 DEBUG = False # the code below will switch this to True automaticaly if this file is __main__
 
-CURRENT_PATH = os.getcwd() + "\\"
+CURRENT_PATH = os.getcwd() + "/"
 GCODES_PATHES_FOLDER = CURRENT_PATH
 PATH_TO_DB = CURRENT_PATH + "../databasesqlite/db/Prefs.db"
 LEVELING_FILE_NAME = "levelling.gcode"
@@ -57,9 +57,8 @@ def load_leveling_gcodes(parent=None):
     t0_switching = load_switching_to_t0_gcodes()
     t0_index = gcodes.index("T0") + 1
     gcodes[t0_index:t0_index] = t0_switching
-    conn = None
     print("voy a insertar el levelling")
-    gcodes.insert(-1,  "G30 Z-" + "1.2")
+    #gcodes.insert(-1,  "G30 Z-" + "1.2")
     print("lo inserte")
     logger.info("Leveling offset from db:" + "1.2")
     return gcodes
