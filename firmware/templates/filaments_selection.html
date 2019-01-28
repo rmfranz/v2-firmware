@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <h1>Filaments</h1>
+    <ul>
+        <li>
+            <a href="/load">
+                <img src="static/images/icons/load-filament-big.svg" alt="">
+                <h3>Load Filaments</h3>
+            </a>
+        </li>
+        <li>
+            <a href="/unload">
+                <img src="static/images/icons/unload-filament-big.svg" alt="">
+                <h3>Unload Filaments</h3>
+            </a>
+        </li>
+    </ul>
+</main>
+
+<footer>
+    <a id="back" class="button" href="/setup"></a>
+    <div class="slogan"></div>
+</footer>
+</body>
+{% end %}

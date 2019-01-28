@@ -33,6 +33,26 @@ class SmoothieFirmware(BaseFirmware):
     def reset(self):
         self.printrun.send_now("reset")
 
+    def load_filament(self):
+        self.printrun.send_now("G21")
+        self.printrun.send_now("G91")
+        self.printrun.send_now("M109 S220")
+        self.printrun.send_now("G92 E0")
+        self.printrun.send_now("G1 E400 F3000")
+        self.printrun.send_now("G1 E200 F900")
+        self.printrun.send_now("G92 E0")
+        self.printrun.send_now("M104 S0")
+
+    def unload_filament(self):
+        self.printrun.send_now("G21")
+        self.printrun.send_now("G90")
+        self.printrun.send_now("M109 S215")
+        self.printrun.send_now("G90 E0")
+        self.printrun.send_now("G1 E-1 F200")
+        self.printrun.send_now("G1 E-599 F5000")
+        self.printrun.send_now("G90 E0")
+        self.printrun.send_now("M104 S0")
+
     def cancel(self):
         self.printrun.cancelprint()
         self.printrun.send_now("G28")
