@@ -2,6 +2,7 @@ import json
 from getmac import get_mac_address
 import glob
 import tornado
+from subprocess import check_output
 
 class FirmwareDirector:
     pass
@@ -46,6 +47,10 @@ class BaseFirmware:
         self.write_hardware_json()
     
     def set_serial(self, serial):
+        #TODO: Check if more than one
+        board_info = check_output("ls -l /dev/disk/by-uuid | grep sd", shell=True, universal_newlines=True)
+        board_info = [j for j in board_info.split("\n") if j]
+        self.hardware_json["board_uuid"] = board_info[0].split()[8]
         self.hardware_json["serial_number"] = serial
         self.write_hardware_json()
 

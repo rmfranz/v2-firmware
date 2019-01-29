@@ -1,8 +1,14 @@
 import os, fnmatch
 from subprocess import check_output, call
 
-def mount_usb():
-    return os.system("sudo mount /dev/sdc1 /media/usb -o uid=pi,gid=pi")
+def mount_usb(uuid_board):
+    #TODO: Check if more than one
+    usb_info = check_output("ls -l /dev/disk/by-uuid | grep sd | grep -v {}".format(uuid_board),
+                    shell=True, universal_newlines=True)
+    #a = check_output("ls -l /dev/disk/by-uuid | grep sd", shell=True, universal_newlines=True)
+    usb_info = [j for j in usb_info.split("\n") if j]
+    #usb = {usb_info[0].split()[8]: usb_info[0].split()[10].split("/")[-1]}
+    return os.system("sudo mount /dev/{} /media/usb -o uid=pi,gid=pi".format(usb_info[0].split()[10].split("/")[-1]))
 
 def get_gcodes_from_usb():
     dirName = "/media/usb"
