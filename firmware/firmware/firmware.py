@@ -55,7 +55,8 @@ class BaseFirmware:
         self.write_hardware_json()
 
     def get_version_list(self):
-        return list(self.version_json)
+        #return list(self.version_json)
+        return ["KPA1"]
     
     def write_hardware_json(self):
         with open(self.HARDWARE_JSON_FOLDER, 'w') as f:

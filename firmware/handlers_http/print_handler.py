@@ -14,9 +14,12 @@ class ListingFilesHandler(BasicHandler):
         items = []
         print("listing id: {}".format(listing_id))
         if listing_id == "1":
-            result = mount_usb(self.firmware.hardware_json["board_uuid"])
-            print("resultado: {}".format(result))
-            items = get_gcodes_from_usb()
+            try:
+                result = mount_usb(self.firmware.hardware_json["board_uuid"])
+                print("resultado: {}".format(result))
+                items = get_gcodes_from_usb()
+            except:
+                items = {}
         elif listing_id == "2":
             b = ""
         self.render("listingFiles.html", items=items)
