@@ -1,8 +1,39 @@
 {% extends "base.html" %}
-{% block content %} 
-<h1>queres imprimir este archivo?</h1>
-<h3>{{filename}}</h3>
-
+{% block content %}
+<main>
+    <div class="monitor-container">
+        <div>
+            <div class="monitor-header">
+                {{filename}}
+            </div>
+            <div class="progress-numeric">
+                <div class="clock-small-icon"></div>
+                <div>Calculating...</div>
+            </div>
+            <div class="progress-numeric">
+                <div class="extruder-2-small-icon"></div>
+                <div>Preset on file</div>
+            </div>
+            <div class="progress-numeric">
+                <div class="extruder-1-small-icon"></div>
+                <div>Preset on file</div>
+            </div>
+            <div class="progress-numeric">
+                <div class="bed-small-icon"></div>
+                <div>Preset on file</div>
+            </div>
+        </div>
+        <div class="status-preview">
+            <img class="model-preview" src="#" alt="" width="300" height="100%">
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+<a id="back" class="button" href="/print-selection"></a>
+<div class="slogan"></div>
+<a id="forward print" data-toggle="modal" data-target="#waitModal" class="button" href="#"><img src="static/images/icons/print-icon.svg">Print</a>
+</footer>
 <!-- Modal -->
 <div class="modal fade" id="waitModal" tabindex="-1" role="dialog">
 <div class="modal-dialog" role="document">
@@ -15,17 +46,6 @@
     </div>
     </div>
 </div>
-</div>
-
-<div class="footer-div" class="row">
-    <div class="row">
-        <div ng-click="back()" class="footer-text col-md-3 col-sm-3 col-xs-3" style="background: #ed3237">
-            <img src="../assets/printIcons/46px_Back.png" alt="">
-        </div>
-        <div id="print" data-toggle="modal" data-target="#waitModal" style="color: black; display: flex;justify-content: center;align-items: center; padding-top: 0;" class="footer-text col-md-offset-6 col-sm-offset-6 col-xs-offset-6 col-md-3 col-sm-3 col-xs-3" ng-click="printF()">
-            <img src="/static/images/print-icon.svg" height="64" alt=""> Confirm print
-        </div>
-    </div>
 </div>
 <script src="/static/js/print.js"></script>
 </body>

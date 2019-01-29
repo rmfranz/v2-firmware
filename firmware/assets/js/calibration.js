@@ -1,4 +1,4 @@
-var ip = "192.168.0.24";
+var ip = "127.0.0.1";
 var t0_activate =  true;
 function get_offsets() {
     var t0_offset = 1;

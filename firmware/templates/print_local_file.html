@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %} 
+<main>
+    <div class="container">
+        <h1>Print from Local file</h1>
+        <ul class="menu">
+            <li class="btn">
+                <a href="/listing-files/1">
+                    <img src="static/images/icons/usb-icon-big.svg" alt="">
+                    <h3>USB</h3>
+                </a>
+            </li>
+            <li class="btn">
+                <a href="#">
+                    <img src="static/images/icons/sample-icon-big.svg" alt="">
+                    <h3>Sample file</h3>
+                </a>
+            </li>
+            <li class="btn">
+                <a href="printCalibrationfile.html">
+                    <img src="static/images/icons/calibrate-icon-big.svg" alt="">
+                    <h3>Calibration file</h3>
+                </a>
+            </li>
+        </ul>
+    </div>
+</main>
+
+<footer>
+    <a id="back" class="button" href="/local-files-selection"></a>
+    <div class="slogan"></div>
+</footer>
+
+</body>
+{% end %}

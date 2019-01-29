@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <h1>Info</h1>
+    <div class="grid">
+        <div id="infobold" class="top left-half">
+            <span>IP Address:</span>
+        </div>
+        <div id="infolight" class="top right-half">
+            192.168.0.66
+        </div>
+        <div id="infobold" class="middle left-half">
+            Serial Number:
+        </div>
+        <div id="infolight" class="middle right-half">
+            XXXXXXXXXXXX
+        </div>        
+        <div id="infobold" class="bottom left-half">
+            Software Version:
+        </div>
+        <div id="infolight" class="bottom right-half">
+            v0.1.67
+        </div>   
+    </div>
+</main>
+
+<footer>
+    <a id="back" class="button" href="javascript:history.back()"></a>
+    <div class="slogan"></div>
+</footer>
+
+</body>
+{% end %}

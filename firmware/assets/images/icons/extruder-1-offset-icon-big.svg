@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;opacity:0}.cls-2,.cls-3,.cls-4{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.613;stroke-width:3px}.cls-2,.cls-3{stroke:#000}.cls-3{fill-rule:evenodd}.cls-4{stroke:#ed3237}
+        </style>
+    </defs>
+    <g id="extruder-1-offset-icon-big" transform="translate(-11582 -842)">
+        <path id="Rectangle_283" d="M0 0h160v100H0z" class="cls-1" data-name="Rectangle 283" transform="translate(11582 842)"/>
+        <g id="Group_261" data-name="Group 261" transform="translate(5.007 96.512)">
+            <g id="Group_255" data-name="Group 255" transform="translate(11530 448)">
+                <g id="Group_254" data-name="Group 254" transform="translate(-37 11)">
+                    <path id="Line_294" d="M0 17.828V0" class="cls-2" data-name="Line 294" transform="translate(160.265 327.699)"/>
+                </g>
+                <circle id="Ellipse_171" cx="3.561" cy="3.561" r="3.561" class="cls-2" data-name="Ellipse 171" transform="translate(149.728 338.406)"/>
+                <path id="Rectangle_261" d="M0 0h31.787v31.787H0z" class="cls-2" data-name="Rectangle 261" transform="translate(106.993 331.858)"/>
+                <path id="Path_318" d="M2757.975 407.117c-3.833-24.547 30.831-27.216 30.831-.035" class="cls-3" data-name="Path 318" transform="translate(-2635.091 -75.199)"/>
+                <path id="Path_319" d="M2759.531 475.02l-.207 4.393-4.187 3.555-4.18-3.555-.207-4.393" class="cls-3" data-name="Path 319" transform="translate(-2632.253 -110.961)"/>
+                <path id="Line_426" d="M0 0h61" class="cls-4" data-name="Line 426" transform="translate(91.993 385.488)"/>
+            </g>
+        </g>
+    </g>
+</svg>

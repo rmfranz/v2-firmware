@@ -1,4 +1,4 @@
-var ip = "192.168.0.24"
+var ip = "127.0.0.1"
 
 function set_temperatures(data) {
     var temps = data.split("@")

@@ -1,21 +1,37 @@
 {% extends "base.html" %}
-{% block content %} 
-<h3 id="printing_action"></h3>
-<h3 id="timer"></h3>
-<div class="footer-div" class="row">    
-    <div class="row">
-        <a href="#" id="pausa" class="footer-text col-md-3 col-sm-3 col-xs-3">
-            Pausar
-        </a>
-        <a href="#" id="resume" class="footer-text col-md-3 col-sm-3 col-xs-3" style="display:none;">
-            Resume
-        </a>
-        <div data-toggle="modal" data-target="#cancelModal" style="background-color: rgba(237,50,55,1); color: black; border-left: 4px solid #CCC; " class="footer-text col-md-offset-6 col-sm-offset-6 col-xs-offset-6 col-md-3 col-sm-3 col-xs-3">
-            Cancelar
+{% block content %}
+<main>
+       
+    <div class="monitor-container">
+        <div>
+            <div class="monitor-header">
+                XY Offset Calibration
+            </div>
+            
+            <div class="monitor-progress">
+                <!--<uib-progressbar class="monitor-progress-bar"></uib-progressbar>-->
+                <span style="position: absolute; right: 0; color: white; font-family: Graphik-Semibold; font-size: 28px; line-height: 42px; margin-right: 5px">100%</span>
+            </div>
+
+            <div class="progress-numeric">
+                <div class="clock-small-icon"></div>
+                <div id="timer"></div>
+            </div>
+        </div>
+        <div class="status-preview">
+            <img class="model-preview" src="#" alt="" width="300" height="100%">
+            <div class="monitor-status">Monitor status</div>
+            </div>
         </div>
     </div>
-</div>
+</main>
 
+<footer>
+    <a id="cancel" class="button" href="#" data-toggle="modal" data-target="#cancelModal">Cancel</a>
+    <div class="slogan"></div>
+    <a id="forward pausa" class="button" href="#" >Pause</a>
+    <a id="forward resume" class="button" href="#" style="display:none;">Resume</a>
+</footer>
 <!-- Cancel modal-->
 <div class="modal fade" id="cancelModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -32,6 +48,7 @@
         </div>
     </div>
 </div>
+</body>
 <script>
 countDownDate = new Date();
 // Update the count down every 1 second

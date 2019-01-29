@@ -1,17 +1,44 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Z offset calibration</h1>
-  <!--<form action="/z-offset-calibration" method="POST">-->
-    <div class="form-group">
-      <label for="exampleInputEmail1">Z Offset</label>
-      <!--<input type="number" name="points" value="1" step="0.025">-->
-      <input type="text" name="zoffset" id="zoffset">
-      <div id="plus_button" class="button">+</div>
-      <div id="minus_button" class="button">-</div>
+<main>
+    <h1>Z Offset Calibration</h1>
+    <div class="grid">
+        <div class="left full-height">
+            Instructions how to calibrate Z offset
+        </div>
+        <div class="btn top-row center">
+            <a id="t1_btn" href="#">
+                <img src="static/images/icons/extruder-2-offset-icon-big.svg" alt="">
+                <h3>Extruder II</h3>
+            </a>
+        </div>
+        <div class="btn bottom-row center">
+            <a id="t0_btn" href="#">
+                <img src="static/images/icons/extruder-1-offset-icon-big.svg" alt="">
+                <h3>Extruder I</h3>
+            </a>   
+        </div>
+        <div class="btn top right">
+            <a id="plus_button" href="#">
+                <img src="static/images/icons/arrow-up.svg">
+            </a>
+        </div>
+        <div id="value" class="middle right"><input id="zoffset" type="text" style="font-size: 50px" size="4"/> </div>
+        <div class="btn bottom right">
+            <a id="minus_button" href="#">
+                <img src="static/images/icons/arrow-down.svg">
+            </a>    
+        </div>
     </div>
-    <button id="t0_btn">Poner T0</button>
-    <button id="t1_btn">Poner T1</button>
-  <!--</form>-->
+</main>
+
+<footer>
+    <a id="back" class="button" href="/back-calibration-selection"></a>
+    <div class="slogan">
+        <a id="tooltip" class="button" href="#"></a>
+    </div>
+    <div id="forward" class="button"><a id="save_zoffset" href="#">Save</a></div>
+</footer>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -23,10 +50,6 @@
   </div>
 </div>
 <!-- End Modal -->
-<footer>
-  <a id="back" class="button" href="/back-calibration-selection"></a>
-  <div id="save_zoffset" class="button">Save</div>
-</footer>
 </body>
 <script src="/static/js/calibration.js"></script>
 {% end %}

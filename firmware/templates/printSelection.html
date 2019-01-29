@@ -1,17 +1,19 @@
 {% extends "base.html" %}
 {% block content %} 
-<h1 style="text-align: center; font-size: 29px; line-height: 35px; font-family: Graphik-Semibold;">Print</h1>
-<div style="display: flex; flex-direction: row; margin:0;justify-content: center; align-items: center; height: 260px;">
-    <a  href="/local-files-selection" style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 200px; height: 210px; border-radius: 10px; background: #FFB700; margin: 20px;">
-        <img src="/static/images/print-menu-icon-big.svg" alt="" height="100">
-        <h3 style="color: black; font-family: Graphik-Semibold; text-align: center; line-height: 24px; font-size: 20px; width: 150px;">Print from local file</h3>
-    </a>
-</div>
-<div class="footer-div" class="row">
-    <div class="row">
-        <div class="footer-text col-md-3 col-sm-3 col-xs-3" style="background: #ed3237">
-            <img src="/static/images/46px_Back.png" alt="">
-        </div>
-    </div>
-</div>
+<main>
+    <h1>Print</h1>
+    <ul class="buttons">
+        <li>
+            <a href="/local-files-selection">
+                <img src="static/images/icons/placeholder-icon.png" alt="">
+                <h3>Local file</h3>
+            </a>
+        </li>
+    </ul>
+</main>
+
+<footer>
+    <a id="back" class="button" href="/home"></a>
+    <div class="slogan"></div>
+</footer>
 {% end %}

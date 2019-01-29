@@ -35,14 +35,14 @@ li {
 
 li a {
     display: flex;
-    flex-flow: column wrap;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
     justify-content: center;
     align-items: center;
-    vertical-align: middle;
-    height: 100%;
 }
 
-li a img {
+li img {
     height: 65%;
 }
 
@@ -87,29 +87,6 @@ li:first-child:nth-last-child(6) ~ li {
     height: 126px;
 }
 
-#grid {
-    height: 285px;
-    width: 770px;
-    margin: 0px;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: stretch;
-    padding: 0;
-    overflow: hidden;
-}
-
-#grid li:first-child {
-    width: 369px!important;
-    height: 269px!important;
-    Flex-grow: 2;
-}
-
-#grid li:nth-child(2), #grid li:nth-child(3) {
-    width: 369px!important;
-    height: 126px!important;
-}
-
 h1, h2, h3, h4, h5 {
     font-family: Graphik-Semibold;
     color: #000;
@@ -136,4 +113,132 @@ h3 {
     line-height: 24px;
     margin-block-start: 0px;
     margin-block-end: 0px;
+}
+
+.scroll-files {
+    height: 325px;
+}
+
+.monitor-container {
+    display:flex;
+    justify-content:space-around;
+}
+
+.monitor-header {
+    display:flex;
+    flex-direction:row;
+    font-family: Graphik-Semibold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+.monitor-progress {
+    display:flex;
+    flex-direction:row;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.monitor-progress-bar {
+    width: 400px;
+    height:40px ;
+    border-radius: 0;
+}
+
+.clock-small-icon {
+    width: 24px;
+    height: 24px;
+    background: url(/static/images/icons/clock-small-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    content: "";
+    margin: auto 4px;
+}
+
+.extruder-2-small-icon {
+    width: 24px;
+    height: 24px;
+    background: url(/static/images/icons/extruder-2-small-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    content: "";
+    margin: auto 4px;
+}
+
+.extruder-1-small-icon {
+    width: 24px;
+    height: 24px;
+    background: url(/static/images/icons/extruder-1-small-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    content: "";
+    margin: auto 4px;
+}
+
+.bed-small-icon {
+    width: 24px;
+    height: 24px;
+    background: url(/static/images/icons/bed-small-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    content: "";
+    margin: auto 4px;
+}
+
+.progress-numeric {
+    display:flex;
+    flex-direction:row;
+}
+
+.progress-numeric div {
+    text-align: left;
+    font-size: 22px;
+    font-family: Graphik-Light;
+    line-height: 30px;
+}
+
+.monitor-status {
+    font-family: Graphik-Semibold;
+    color: #000;
+    bottom: 0;
+    width: 100%;
+    height: 86px;
+    background: #FFB700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 24px;
+    font-size: 28px;
+}
+
+.status-preview {
+    height:200px;
+    margin-top: 30px;
+    width: 300px;
+}
+
+.model-preview {
+    width: 300px;
+    height: 100%;
+}
+
+#infobold {
+    font-family: Graphik-Semibold;
+    font-size: 22px;
+    line-height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+#infolight {
+    font-family: Graphik-Light;
+    font-size: 22px;
+    line-height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
 }

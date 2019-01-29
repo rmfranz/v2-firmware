@@ -7,7 +7,7 @@ class PrintSelectionHandler(BasicHandler):
 
 class LocalFilesSelectionHandler(BasicHandler):
     def get(self):
-        self.render("localFilesSelection.html", working_on="haciendo nada")
+        self.render("print_local_file.html")
 
 class ListingFilesHandler(BasicHandler):
     def get(self, listing_id):

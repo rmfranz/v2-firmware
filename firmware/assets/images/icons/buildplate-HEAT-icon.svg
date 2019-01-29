@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;opacity:0}.cls-2,.cls-3{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.613;stroke-width:3px}.cls-2{stroke:#000}.cls-3{stroke:#ed3237}
+        </style>
+    </defs>
+    <g id="buildplate-HEAT-icon" transform="translate(-388 -109)">
+        <g id="wifi-sub-icon" transform="translate(-11089 -593)">
+            <path id="Rectangle_278" d="M0 0h120v80H0z" class="cls-1" data-name="Rectangle 278" transform="translate(11477 702)"/>
+        </g>
+        <g id="Group_399" data-name="Group 399">
+            <g id="Group_390" data-name="Group 390" transform="translate(26.5 -4.5)">
+                <path id="Line_411" d="M0 0h61" class="cls-2" data-name="Line 411" transform="translate(391.5 173.5)"/>
+                <path id="Line_412" d="M0 0h61" class="cls-2" data-name="Line 412" transform="translate(391.5 179.5)"/>
+            </g>
+            <g id="Group_391" data-name="Group 391" transform="translate(36.5 -138.5)">
+                <path id="Union_8" d="M5.535 36.89V20.143H0L20.144 0l20.142 20.143h-5.237V36.89z" class="cls-3" data-name="Union 8" transform="translate(391.5 261.5)"/>
+                <g id="Group_344" data-name="Group 344" transform="translate(404.874 278.563)">
+                    <path id="Rectangle_500" d="M0 0h13.835v13.835H0z" class="cls-3" data-name="Rectangle 500"/>
+                    <path id="Line_413" d="M0 0v12.913" class="cls-3" data-name="Line 413" transform="translate(6.917 .461)"/>
+                    <path id="Line_414" d="M0 0h12.913" class="cls-3" data-name="Line 414" transform="translate(.461 6.918)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

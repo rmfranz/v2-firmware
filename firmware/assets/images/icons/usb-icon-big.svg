@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;opacity:0}.cls-2,.cls-3,.cls-4{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.613;stroke-width:3px}.cls-2{stroke:#000}.cls-3,.cls-4{stroke:#ed3237}.cls-3{fill-rule:evenodd}
+        </style>
+    </defs>
+    <g id="usb-menu-icon-big" transform="translate(-10715 -622)">
+        <path id="Rectangle_284" d="M0 0h160v100H0z" class="cls-1" data-name="Rectangle 284" transform="translate(10715 622)"/>
+        <g id="Group_300" data-name="Group 300" transform="translate(10772.5 635.5)">
+            <path id="Path_349" d="M37.329 62.08H7.284A6.868 6.868 0 0 1 .5 55.3V8h43.613v47.1a6.91 6.91 0 0 1-6.784 6.98z" class="cls-2" data-name="Path 349" transform="translate(0 7.038)"/>
+            <path id="Rectangle_319" d="M0 0h29.463v14.538H0z" class="cls-2" data-name="Rectangle 319" transform="translate(7.672 .5)"/>
+            <g id="Group_300-2" data-name="Group 300" transform="translate(12.13 5.54)">
+                <path id="Rectangle_320" d="M0 0h7.366v4.652H0z" class="cls-2" data-name="Rectangle 320"/>
+                <path id="Rectangle_321" d="M0 0h7.366v4.652H0z" class="cls-2" data-name="Rectangle 321" transform="translate(12.987)"/>
+            </g>
+            <path id="Rectangle_322" d="M0 0h18.608v4.458H0z" class="cls-2" data-name="Rectangle 322" transform="translate(12.906 69.118)"/>
+        </g>
+        <path id="Path_350" d="M1999.022 406.954l-10.234 9.478-10.4-9.631" class="cls-3" data-name="Path 350" transform="rotate(180 6391.806 539.716)"/>
+        <path id="Line_309" d="M0 0v25.5" class="cls-4" data-name="Line 309" transform="translate(10794.823 663)"/>
+    </g>
+</svg>

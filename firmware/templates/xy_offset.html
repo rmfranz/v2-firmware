@@ -1,20 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Z offset calibration</h1>
-  <form action="/xy-offset-calibration" method="POST">
-<div class="form-group">
-    <label for="exampleInputEmail1">X Offset</label>
-    <input type="text" name="xoffset" id="xoffset">
-    <div id="x_plus_button" class="button">+</div>
-    <div id="x_minus_button" class="button">-</div>
-</div>
-<div class="form-group">
-    <label for="exampleInputEmail1">Y Offset</label>
-    <input type="text" name="yoffset" id="yoffset">
-    <div id="y_plus_button" class="button">+</div>
-    <div id="y_minus_button" class="button">-</div>
-</div>
+<main>
 
+  <h1>XY Offset Calibration</h1>
+  <div class="grid">
+      <div id="value" class="top-row left-half"><input id="xoffset" type="text" style="font-size: 50px" size="4"/></div>
+      <div id="value" class="bottom-row left-half"><input id="yoffset" type="text" style="font-size: 50px" size="4"/></div>
+      <div class="btn y-calibration top">
+          <a id="y_plus_button" href="#">
+              <img src="static/images/icons/arrow-up.svg">
+          </a>
+      </div>
+      <div class="btn x-calibration-left middle">
+          <a id="x_minus_button" href="#">
+              <img src="static/images/icons/arrow-up.svg" style="  transform: rotate(-90deg);">
+          </a>
+      </div>
+      <div class="btn x-calibration-right middle">
+          <a id="x_plus_button" href="#">
+              <img src="static/images/icons/arrow-up.svg" style="  transform: rotate(90deg);">
+          </a>
+      </div>
+      <div class="btn y-calibration bottom">
+          <a id="y_minus_button" href="#">
+              <img src="static/images/icons/arrow-down.svg">
+          </a>
+      </div>
+  </div>
+</main>
+<footer>
+  <a id="back" class="button" href="/back-calibration-selection"></a>
+  <div class="slogan">
+      <a id="tooltip" class="button" href="#"></a>
+  </div>
+  <div id="forward" class="button"><a id="save_xyoffset" href="#">Save</a></div>
+</footer>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -26,10 +46,6 @@
   </div>
 </div>
 <!-- End Modal -->
-<footer>
-  <a id="back" class="button" href="/back-calibration-selection"></a>
-  <div id="save_xyoffset" class="button">Save</div>
-</footer>
 </body>
 <script src="/static/js/calibration.js"></script>
 {% end %}
