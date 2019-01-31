@@ -5,6 +5,10 @@ class SetupHandler(BasicHandler):
     def get(self):
         self.render("setup.html")
 
+class AdvancedHandler(BasicHandler):
+    def get(self):
+        self.render("advanced.html")
+
 class ToFilamentsExtrudersHandler(BasicHandler):
     def get(self):
         self.render("filaments_extruders.html", action=self.request.path.split("/")[1])
@@ -28,3 +32,17 @@ class LoadUnloadFilamentsHandler(BasicHandler):
 class ToFilamentsHandler(BasicHandler):
     def get(self):
         self.render("filaments_selection.html")
+
+class ToManualControlHandler(BasicHandler):
+    def get(self):
+        self.render("manual_ctl_select.html")
+
+class ToBuildPlateControlHandler(BasicHandler):
+    def get(self):
+        self.render("plate_control.html")
+
+class SetBoardUuidHandler(BasicHandler):
+    def get(self):
+        if not self.firmware.hardware_json["board_uuid"]:
+            self.firmware.set_board_info()
+        self.write("ok")

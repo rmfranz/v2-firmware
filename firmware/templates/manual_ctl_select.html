@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <h1>Manual Controls</h1>
+    <ul>
+        <li>
+            <a href="/build-plate-controls">
+                <img src="static/images/icons/buildplate-icon.png" alt="">
+                <h3>Build Plate</h3>
+            </a>
+        </li>
+        <li>
+            <a href="manualControlsExtruders.html">
+                <img src="static/images/icons/extruders-icon.png" alt="">
+                <h3>Extruders</h3>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="static/images/icons/lights-icon-on.svg" alt="">
+                <h3>Lights</h3>
+            </a>
+        </li>
+    </ul>
+</main>
+
+    <footer>
+        <a id="back" class="button" href="/advanced"></a>
+        <div class="slogan"></div>
+    </footer>
+</body>
+{% end %}

@@ -47,12 +47,18 @@ class BaseFirmware:
         self.write_hardware_json()
     
     def set_serial(self, serial):
-        #TODO: Check if more than one
-        board_info = check_output("ls -l /dev/disk/by-uuid | grep sd", shell=True, universal_newlines=True)
-        board_info = [j for j in board_info.split("\n") if j]
-        self.hardware_json["board_uuid"] = board_info[0].split()[8]
         self.hardware_json["serial_number"] = serial
         self.write_hardware_json()
+
+    def set_board_info(self):
+        try:
+            #TODO: Check if more than one
+            board_info = check_output("ls -l /dev/disk/by-uuid | grep sd", shell=True, universal_newlines=True)
+            board_info = [j for j in board_info.split("\n") if j]
+            self.hardware_json["board_uuid"] = board_info[0].split()[8]
+            self.write_hardware_json()
+        except:
+            print("Vaya dios a saber")
 
     def get_version_list(self):
         #return list(self.version_json)

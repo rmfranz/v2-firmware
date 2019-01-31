@@ -135,7 +135,7 @@ class printcore():
             handler.init_ws()
 
     def endcb(self):
-        if self.gcode_list:
+        if not self.paused and self.gcode_list:
             self.startprint(self.gcode_list[0])
             del self.gcode_list[0]
 

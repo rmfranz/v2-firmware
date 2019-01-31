@@ -23,6 +23,11 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/home", HomeHandler),
+            (r"/set-board-uuid", SetBoardUuidHandler),
+            (r"/setup", SetupHandler),
+            (r"/advanced", AdvancedHandler),
+            (r"/manual-controls", ToManualControlHandler),
+            (r"/build-plate-controls", ToBuildPlateControlHandler),
             (r"/print", PrintHandler),
             (r"/pausa", PauseHandler),
             (r"/resume", ResumeHandler),
@@ -46,7 +51,6 @@ class Application(tornado.web.Application):
             (r"/xy-offset-calibration", XYOffsetCalibrationHandler),
             (r"/points-25-calibration", Points25Calibration),
             (r"/save-25-calibration", SavePoints25Calibration),
-            (r"/setup", SetupHandler),
             (r"/show-grid", Show25GridCalibration),
             (r"/reset-grid", ResetGridCalibration),
             (r"/wifi-connection", WifiConnectionHandler),
@@ -78,7 +82,7 @@ class Application(tornado.web.Application):
 class HomeHandler(BasicHandler):
     def get(self):
         if not self.firmware.check_mac_address():
-            self.render("put_serial.html")
+            self.render("put_serial.html")        
         elif not self.firmware.check_version():
             self.render("put_version.html", version_list=self.firmware.get_version_list())
         elif not self.firmware.is_initialized:

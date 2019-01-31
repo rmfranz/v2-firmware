@@ -234,3 +234,13 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("G1 X100 Y100 F7500")
         self.printrun.send_now("G1 F7500")
         self.printrun.send_now("T1")
+
+    def bed_up(self):
+        self.printrun.send_now("T1")
+
+    def bed_down(self):
+        self.printrun.send_now("T1")
+
+    def bed_home(self):
+        self.printrun.send_now("G28 Z")
+        self.printrun.send_now("M114")
