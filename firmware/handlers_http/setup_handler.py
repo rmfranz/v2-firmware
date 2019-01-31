@@ -5,13 +5,24 @@ class SetupHandler(BasicHandler):
     def get(self):
         self.render("setup.html")
 
+class ToFilamentsExtrudersHandler(BasicHandler):
+    def get(self):
+        self.render("filaments_extruders.html", action=self.request.path.split("/")[1])
+
 class FilamentsHandler(BasicHandler):
     def get(self):
-        action = self.request.path.split("/")[1]
+        extruder = self.request.path.split("/")[1]
+        action = self.request.path.split("/")[2]
+        self.render("filaments_type.html", ext_action=action, ext_type=extruder)
+
+class LoadUnloadFilamentsHandler(BasicHandler):
+    def get(self, filament_type):
+        extruder = self.request.path.split("/")[1]
+        action = self.request.path.split("/")[2]
         if action == "load":
-            self.firmware.load_filament()
+            self.firmware.load_filament(extruder)
         elif action == "unload":
-            self.firmware.unload_filament()
+            self.firmware.unload_filament(extruder)
         self.render("filament_action.html", action=action)
 
 class ToFilamentsHandler(BasicHandler):

@@ -36,7 +36,8 @@ class SmoothieFirmware(BaseFirmware):
     def reset(self):
         self.printrun.send_now("reset")
 
-    def load_filament(self):
+    def load_filament(self, extruder):
+        self.choose_extruder(extruder)
         self.printrun.send_now("G21")
         self.printrun.send_now("G91")
         self.printrun.send_now("M109 S220")
@@ -46,7 +47,8 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("G92 E0")
         self.printrun.send_now("M104 S0")
 
-    def unload_filament(self):
+    def unload_filament(self, extruder):
+        self.choose_extruder(extruder)
         self.printrun.send_now("G21")
         self.printrun.send_now("G90")
         self.printrun.send_now("M109 S215")
@@ -204,3 +206,31 @@ class SmoothieFirmware(BaseFirmware):
         os.system("cp /home/pi/config-files/confighotendzoffset /media/smoothie/ && sync")
         os.system("cp /home/pi/config-files/correctionZProbe /media/smoothie/ && sync")
         os.system("sudo umount /media/smoothie")
+
+    def choose_extruder(self, extruder):
+        if extruder == "ext_1":
+            self.move_to_t0()
+        elif extruder == "ext_2":
+            self.move_to_t1()
+
+    def move_to_t0(self):
+        self.printrun.send_now("T0")
+        self.printrun.send_now("G91")
+        self.printrun.send_now("G1 Z3 F7200")
+        self.printrun.send_now("G90")
+        self.printrun.send_now("G1 X200 F7500")
+        self.printrun.send_now("G1 X220 F500")
+        self.printrun.send_now("G1 X128 Y100 F7500")
+        self.printrun.send_now("G1 F7500")
+        self.printrun.send_now("T0")
+
+    def move_to_t1(self):
+        self.printrun.send_now("T0")
+        self.printrun.send_now("G91")
+        self.printrun.send_now("G1 Z3 F7200")
+        self.printrun.send_now("G90")
+        self.printrun.send_now("G1 X0 F7200")
+        self.printrun.send_now("G1 X-12 F500")
+        self.printrun.send_now("G1 X100 Y100 F7500")
+        self.printrun.send_now("G1 F7500")
+        self.printrun.send_now("T1")

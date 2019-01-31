@@ -97,7 +97,7 @@ class SmoothieHandler(PrinterEventHandler):
         return "B:" in data and "T0:" not in data and "T1:" not in data and "A:" not in data
 
     def are_nozzle_temperatures(self, data):
-        return "T0:" in data and "B:" not in data and "T1:" not in data and "A:" not in data
+        return ("T0:" in data or "T1:" in data) and ("B:" not in data and "A:" not in data)
 
     def is_z_probe_triggered(self, data):
         return "Z:" in data
