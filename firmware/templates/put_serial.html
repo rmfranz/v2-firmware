@@ -5,6 +5,24 @@
       <label for="serial">Put the serial number</label>
       <input type="text" class="form-control" name="serial" placeholder="Serial number">
     </div>
-    <button type="submit" style="background-color:#FFB700; width:70px; height: 50px">Submit</button>
+    <button id="submit_button" type="submit" style="background-color:#FFB700; width:70px; height: 50px">Submit</button>
 </form>
+
+<!-- Modal -->
+<div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header" style="background-color:#FFB700;color:black"></div>
+      <div class="modal-body">
+          Espere mientras scargo las configuraciones en la placa
+      </div>
+      </div>
+  </div>
+</div>
+<!-- End Modal -->
+<script>
+$("#submit_button").on("click", function(e){
+    $('#registration').modal('show');
+});
+</script>
 {% end %}

@@ -196,3 +196,11 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("G1 X180 Y10")
         self.printrun.send_now("G30 Z0")
         self.printrun.send_now("G1 Z{}".format(z_probe))
+
+    def put_config(self):
+        os.system("sudo mount /dev/sda1 /media/smoothie -o uid=pi,gid=pi")
+        os.system("cp /home/pi/config-files/config /media/smoothie/ && sync")
+        os.system("cp /home/pi/config-files/confighotend2xyoffset /media/smoothie/ && sync")
+        os.system("cp /home/pi/config-files/confighotendzoffset /media/smoothie/ && sync")
+        os.system("cp /home/pi/config-files/correctionZProbe /media/smoothie/ && sync")
+        os.system("sudo umount /media/smoothie")
