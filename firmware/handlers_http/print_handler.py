@@ -37,7 +37,7 @@ class PreviousPrintHandler(BasicHandler):
 
 class PrintHandler(BasicHandler):
     def get(self):
-        self.firmware.start_print(self.get_cookie("file_path"))
+        self.firmware.start_print(self.get_cookie("file_path"), self.get_cookie("filename"))
         self.render("printing.html", working_on="imprimiendo")
 
     def post(self):

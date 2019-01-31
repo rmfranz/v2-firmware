@@ -62,8 +62,7 @@ class Application(tornado.web.Application):
             (r"/inspect-grid", InspectGridWsHandler),
             (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/assets"}),
         ]
-        tornado.web.Application.__init__(self, handlers,
-                                         autoreload=True, template_path="/home/pi/templates/")
+        tornado.web.Application.__init__(self, handlers, template_path="/home/pi/templates/")
         #Put FirmwareDirector, this is wrong
         self.firmware = SmoothieFirmware()
 

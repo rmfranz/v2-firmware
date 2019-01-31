@@ -101,7 +101,7 @@ class printcore():
         self.layerchangecb = None  # impl (wholeline)
         self.errorcb = None  # impl (wholeline)
         self.startcb = None  # impl ()
-        self.endcb = None  # impl ()
+        self.endcb = self.endcb  # impl ()
         self.onlinecb = None  # impl ()
         self.loud = False  # emit sent and received lines to terminal
         self.tcp_streaming_mode = False
@@ -120,6 +120,7 @@ class printcore():
             self.connect(port, baud)
         self.xy_feedrate = None
         self.z_feedrate = None
+        self.gcode_list = []
 
     def addEventHandler(self, handler):
         '''
@@ -132,6 +133,14 @@ class printcore():
     def initEventHandlers(self):
         for handler in self.event_handler:
             handler.init_ws()
+
+    def endcb(self):
+        if self.gcode_list:
+            self.startprint(self.gcode_list[0])
+            del self.gcode_list[0]
+
+    def append_gcode(self, gcode):
+        self.gcode_list.append(gcode)
 
     def logError(self, error):
         for handler in self.event_handler:

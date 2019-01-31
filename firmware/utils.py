@@ -1,5 +1,6 @@
 import os, fnmatch
 from subprocess import check_output, call
+from printcore_modified import gcoder
 
 def mount_usb(uuid_board):
     #TODO: Check if more than one
@@ -54,3 +55,11 @@ def connect_to_wifi(network_name, password=None):
         connect_private_wifi(network_name, password)
     else:
         connect_public_wifi(network_name)
+
+def split_file_for_print(printrun):
+    os.system("split -l 500000 /home/pi/temp/first/pt2.gcode /home/pi/temp/splited/")
+    for filename in sorted(os.listdir("/home/pi/temp/splited")):
+        gcode = gcoder.LightGCode([i.strip() for i in open("/home/pi/temp/splited/{}".format(filename))])
+        printrun.append_gcode(gcode)
+    os.system("rm /home/pi/temp/first/pt2.gcode")
+    os.system("rm /home/pi/temp/splited/*")

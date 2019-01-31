@@ -1,10 +1,13 @@
 from printcore_modified.printcore import printcore
 from printcore_modified.plugins.smoothie_event_handler import SmoothieHandler as handler
-from firmware.firmware import BaseFirmware
 from gcodes_loader.gcodes_loading import patch_and_split_gcodes
 from printcore_modified import gcoder
+from firmware.firmware import BaseFirmware
+from utils import split_file_for_print
 import os
 import json
+import tornado
+import os
 
 class SmoothieFirmware(BaseFirmware):
 
@@ -57,12 +60,21 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.cancelprint()
         self.printrun.send_now("G28")
         self.printrun.send_now("M104 S0")
+        self.printrun.send_now("M104 T1 S0")
         self.printrun.send_now("M140 S0")
 
-    def start_print(self, gcode_path):
-        with open(gcode_path) as f:
-            gcode = gcoder.LightGCode(patch_and_split_gcodes(f))
-            self.printrun.startprint(gcode)
+    def start_print(self, gcode_path, filename):
+        #with open(gcode_path) as f:
+        #    gcode = gcoder.LightGCode(patch_and_split_gcodes(f))
+        #    self.printrun.startprint(gcode)
+        os.system("cp {} /home/pi/temp/".format(gcode_path))
+        os.system("(head -100 > /home/pi/temp/first/pt1.gcode; cat > /home/pi/temp/first/pt2.gcode) < /home/pi/temp/{}".format(filename))
+        os.system("rm /home/pi/temp/{}".format(filename))
+        gcode = gcoder.LightGCode([i.strip() for i in open('/home/pi/temp/first/pt1.gcode')])
+        self.printrun.startprint(gcode)
+        os.system("rm /home/pi/temp/first/pt1.gcode")
+        executor = tornado.concurrent.futures.ThreadPoolExecutor(5)
+        tornado.ioloop.IOLoop.current().run_in_executor(executor, split_file_for_print, self.printrun)
     
     def t0_zoffset_calibration(self):
         with open(self.OFFSET_PATH) as f:
