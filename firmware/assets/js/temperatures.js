@@ -1,4 +1,4 @@
-var ip = "127.0.0.1"
+var ip = "192.168.0.23"
 
 var t0 = 0
 var t1 = 0
@@ -59,8 +59,10 @@ function set_temperatures(data) {
     var nozzle_type = nozzle.substring(nozzle.lastIndexOf("T") + 1, nozzle.lastIndexOf(":")).trim();
     if(nozzle_type == 0) {
       t0 = temp;
+      update_temperatures();
     } else if(nozzle_type == 1) {
       t1 = temp;
+      update_temperatures();
     }
     $("#printing_action").text("Heating nozzle: " + temp)
  };

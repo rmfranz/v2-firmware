@@ -1,6 +1,7 @@
 import os, fnmatch
 from subprocess import check_output, call
 from printcore_modified import gcoder
+import itertools
 
 def mount_usb(uuid_board):
     if not check_output("ls /media/usb", shell=True, universal_newlines=True):
@@ -65,3 +66,21 @@ def split_file_for_print(printrun):
         printrun.append_gcode(gcode)
     os.system("rm /home/pi/temp/first/pt2.gcode")
     os.system("rm /home/pi/temp/splited/*")
+
+def grouper(iterable, n):
+    it = iter(iterable)
+    while True:
+        chunk = tuple(itertools.islice(it, n))
+        if not chunk:
+            return
+        yield chunk
+
+def split_gcode_for_print(cosa):
+    patched_gcode = cosa[0]
+    printrun = cosa[1]
+    lasts = list(itertools.islice(patched_gcode, 100, len(patched_gcode)))
+    grouper_func = grouper(lasts, 500000)
+    chuncks = list(grouper_func)
+    for chunk in chuncks:
+        gcode = gcoder.LightGCode(chunk)
+        printrun.append_gcode(gcode)

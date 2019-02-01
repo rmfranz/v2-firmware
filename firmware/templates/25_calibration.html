@@ -2,24 +2,24 @@
 {% block content %}
 <main>
     <h1>Grid Calibration</h1>
-    <ul id="grid">
-        <li>
-            <a id="25_points_calibration">
-                <img src="/static/images/icons/buildplate-icon-big.svg" alt="">
-                <h3>Calibrate</h3>
+    <div class="grid">
+        <div class="btn first-two-cols full-height">
+            <a id="25_points_calibration" href="#">
+                <img src="static/images/icons/buildplate-icon-big.svg" alt="">
+                <h1>Calibrate</h1>
             </a>
-        </li>
-        <li>
-            <a id="reset_grid">
+        </div>
+        <div class="btn top-row right">
+            <a href="#" id="reset_grid">
                 <h3>Reset</h3>
             </a>
-        </li>
-        <li class="smallbutton">
-            <a id="inspect_grid_points">
+        </div>
+        <div class="btn bottom-row right">
+            <a href="#" id="inspect_grid_points">
                 <h3>Inspect</h3>
             </a>
-        </li>
-    </ul>
+        </div>
+    </div>
 </main>
 
 <footer>

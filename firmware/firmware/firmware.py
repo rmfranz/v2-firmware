@@ -21,9 +21,15 @@ class BaseFirmware:
         self.mac_addres_checked = False
         self.is_initialized = False
         self.printrun = None
+        self.file_path = None
+        self.filename = None
 
     def init_ws_handler(self):
         self.printrun.initEventHandlers()
+
+    def set_file_to_print(self, file_path, filename):
+        self.file_path = file_path
+        self.filename = filename
     
     def check_mac_address(self):
         """

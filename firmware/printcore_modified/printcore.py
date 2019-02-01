@@ -446,6 +446,7 @@ class printcore():
         self.paused = False
         self.mainqueue = None
         self.clear = True
+        self.gcode_list = []
 
     # run a simple script if it exists, no multithreading
     def runSmallScript(self, filename):

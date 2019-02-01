@@ -38,19 +38,18 @@ class TemperaturesHandler(BasicHandler):
 
 class PreviousPrintHandler(BasicHandler):
     def get(self):
-        filename = self.get_cookie("filename")
+        filename = self.firmware.filename
         self.render("previousPrint.html", filename=filename)
 
 class PrintHandler(BasicHandler):
     def get(self):
-        self.firmware.start_print(self.get_cookie("file_path"), self.get_cookie("filename"))
-        self.render("printing.html", working_on="imprimiendo")
+        self.firmware.start_print()
+        self.render("printing.html", filename=self.firmware.filename)
 
     def post(self):
         file_path = self.get_body_argument("file_path")
         filename = self.get_body_argument("filename")
-        self.set_cookie("file_path", file_path)
-        self.set_cookie("filename", filename)
+        self.firmware.set_file_to_print(file_path, filename)
         self.write("ok")
 
 class PauseHandler(BasicHandler):
