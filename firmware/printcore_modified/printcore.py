@@ -101,7 +101,7 @@ class printcore():
         self.layerchangecb = None  # impl (wholeline)
         self.errorcb = None  # impl (wholeline)
         self.startcb = None  # impl ()
-        self.endcb = self.endcb  # impl ()
+        self.endcb = None  # impl ()
         self.onlinecb = None  # impl ()
         self.loud = False  # emit sent and received lines to terminal
         self.tcp_streaming_mode = False
@@ -120,7 +120,6 @@ class printcore():
             self.connect(port, baud)
         self.xy_feedrate = None
         self.z_feedrate = None
-        self.gcode_list = []
 
     def addEventHandler(self, handler):
         '''
@@ -133,14 +132,6 @@ class printcore():
     def initEventHandlers(self):
         for handler in self.event_handler:
             handler.init_ws()
-
-    def endcb(self):
-        if not self.paused and self.gcode_list:
-            self.startprint(self.gcode_list[0])
-            del self.gcode_list[0]
-
-    def append_gcode(self, gcode):
-        self.gcode_list.append(gcode)
 
     def logError(self, error):
         for handler in self.event_handler:
@@ -431,7 +422,7 @@ class printcore():
         self.lineno = 0
         self.resendfrom = -1
         self._send("M110", -1, True)
-        if not gcode or not gcode.lines:
+        if not gcode: # or not gcode.lines:
             return True
         self.clear = False
         resuming = (startindex != 0)
@@ -446,7 +437,6 @@ class printcore():
         self.paused = False
         self.mainqueue = None
         self.clear = True
-        self.gcode_list = []
 
     # run a simple script if it exists, no multithreading
     def runSmallScript(self, filename):
@@ -602,26 +592,29 @@ class printcore():
             self.priqueue.task_done()
             return
         if self.printing and self.queueindex < len(self.mainqueue):
-            (layer, line) = self.mainqueue.idxs(self.queueindex)
-            gline = self.mainqueue.all_layers[layer][line]
-            if self.queueindex > 0:
-                (prev_layer, prev_line) = self.mainqueue.idxs(self.queueindex - 1)
-                if prev_layer != layer:
-                    for handler in self.event_handler:
-                        try: handler.on_layerchange(layer)
-                        except: logging.error(traceback.format_exc())
-            if self.layerchangecb and self.queueindex > 0:
-                (prev_layer, prev_line) = self.mainqueue.idxs(self.queueindex - 1)
-                if prev_layer != layer:
-                    try: self.layerchangecb(layer)
-                    except: self.logError(traceback.format_exc())
+            #(layer, line) = self.mainqueue.idxs(self.queueindex)
+            #gline = self.mainqueue.all_layers[layer][line]
+            #MARTIN
+            gline = self.mainqueue[self.queueindex]
+            #if self.queueindex > 0:
+            #    (prev_layer, prev_line) = self.mainqueue.idxs(self.queueindex - 1)
+            #    if prev_layer != layer:
+            #        for handler in self.event_handler:
+            #            try: handler.on_layerchange(layer)
+            #            except: logging.error(traceback.format_exc())
+            #if self.layerchangecb and self.queueindex > 0:
+            #    (prev_layer, prev_line) = self.mainqueue.idxs(self.queueindex - 1)
+            #    if prev_layer != layer:
+            #        try: self.layerchangecb(layer)
+            #        except: self.logError(traceback.format_exc())
             for handler in self.event_handler:
                 try: handler.on_preprintsend(gline, self.queueindex, self.mainqueue)
                 except: logging.error(traceback.format_exc())
             if self.preprintsendcb:
                 if self.queueindex + 1 < len(self.mainqueue):
-                    (next_layer, next_line) = self.mainqueue.idxs(self.queueindex + 1)
-                    next_gline = self.mainqueue.all_layers[next_layer][next_line]
+                    #(next_layer, next_line) = self.mainqueue.idxs(self.queueindex + 1)
+                    #next_gline = self.mainqueue.all_layers[next_layer][next_line]
+                    next_gline = self.mainqueue[self.queueindex + 1]
                 else:
                     next_gline = None
                 gline = self.preprintsendcb(gline, next_gline)
@@ -629,7 +622,7 @@ class printcore():
                 self.queueindex += 1
                 self.clear = True
                 return
-            tline = gline.raw
+            tline = gline
             if tline.lstrip().startswith(";@"):  # check for host command
                 self.process_host_command(tline)
                 self.queueindex += 1
@@ -637,7 +630,7 @@ class printcore():
                 return
 
             # Strip comments
-            tline = gcoder.gcode_strip_comment_exp.sub("", tline).strip()
+            #tline = gcoder.gcode_strip_comment_exp.sub("", tline).strip()
             if tline:
                 self._send(tline, self.lineno, True)
                 self.lineno += 1
