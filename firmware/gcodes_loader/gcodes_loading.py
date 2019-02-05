@@ -52,15 +52,15 @@ def load_switching_to_t1_gcodes():
     return load_patch_file(GCODES_PATHES_FOLDER + TOOL_SWITCH_TO_T1_FILE_NAME)
 
 
-def load_leveling_gcodes(parent=None):
+def load_leveling_gcodes(z_offset, parent=None):
     gcodes = load_patch_file(GCODES_PATHES_FOLDER + LEVELING_FILE_NAME)
     t0_switching = load_switching_to_t0_gcodes()
     t0_index = gcodes.index("T0") + 1
     gcodes[t0_index:t0_index] = t0_switching
     print("voy a insertar el levelling")
-    #gcodes.insert(-1,  "G30 Z-" + "1.2")
+    gcodes.insert(-1,  "G30 Z-" + z_offset)
     print("lo inserte")
-    logger.info("Leveling offset from db:" + "1.2")
+    logger.info("Leveling offset from db:" + z_offset)
     return gcodes
 
 
@@ -79,10 +79,10 @@ def apply_coord_re_to_line(coord_name, line, parent):
 
 
 #TODO refactor this mess
-def patch_and_split_gcodes(gcodes_file, parent=None):
+def patch_and_split_gcodes(gcodes_file, z_offset, parent=None):
     switching_to_t0_gcodes = load_switching_to_t0_gcodes()
     switching_to_t1_gcodes = load_switching_to_t1_gcodes()
-    leveling_gcodes = load_leveling_gcodes(parent)
+    leveling_gcodes = load_leveling_gcodes(z_offset, parent)
     gcodes = collections.deque()
     leveling_was_added = False
     X_coord = None

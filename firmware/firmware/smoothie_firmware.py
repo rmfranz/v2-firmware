@@ -41,11 +41,12 @@ class SmoothieFirmware(BaseFirmware):
         self.choose_extruder(extruder)
         self.printrun.send_now("G21")
         self.printrun.send_now("G91")
+        self.printrun.send_now("G92 E0")
         self.printrun.send_now("M109 S220")
+        self.printrun.send_now("G1 E500 F4000")
+        self.printrun.send_now("G1 E78 F80")
         self.printrun.send_now("G92 E0")
-        self.printrun.send_now("G1 E400 F3000")
-        self.printrun.send_now("G1 E200 F900")
-        self.printrun.send_now("G92 E0")
+        self.printrun.send_now("G4 P35000")
         self.printrun.send_now("M104 S0")
 
     def unload_filament(self, extruder):
@@ -53,10 +54,12 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("G21")
         self.printrun.send_now("G90")
         self.printrun.send_now("M109 S215")
-        self.printrun.send_now("G90 E0")
-        self.printrun.send_now("G1 E-1 F200")
+        self.printrun.send_now("G92 E0")
+        self.printrun.send_now("G1 E-4 F100")
+        self.printrun.send_now("M109 S180")
+        self.printrun.send_now("G4 P20000")
         self.printrun.send_now("G1 E-599 F5000")
-        self.printrun.send_now("G90 E0")
+        self.printrun.send_now("G92 E0")
         self.printrun.send_now("M104 S0")
 
     def cancel(self):
@@ -67,21 +70,25 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("M140 S0")
 
     def start_print(self):
-        #with open(self.file_path) as f:
-        #    gcode = gcoder.LightGCode(patch_and_split_gcodes(f))
-        #    self.printrun.startprint(gcode)
-        os.system("cp {} /home/pi/temp/".format(self.file_path))
-        os.system("(head -100 > /home/pi/temp/first/pt1.gcode; cat > /home/pi/temp/first/pt2.gcode) < /home/pi/temp/{}".format(self.filename))
-        os.system("rm /home/pi/temp/{}".format(self.filename))
-        gcode = gcoder.LightGCode([i.strip() for i in open('/home/pi/temp/first/pt1.gcode')])
+        with open(self.OFFSET_PATH) as f:
+            config_json = json.load(f)
+        with open(self.file_path) as f:
+            gcode = patch_and_split_gcodes(f, config_json["t0_zoffset"])
         self.printrun.startprint(gcode)
-        os.system("rm /home/pi/temp/first/pt1.gcode")
-        executor = tornado.concurrent.futures.ThreadPoolExecutor(5)
-        tornado.ioloop.IOLoop.current().run_in_executor(executor, split_file_for_print, self.printrun)
+        #os.system("cp {} /home/pi/temp/".format(self.file_path))
+        #os.system("(head -100 > /home/pi/temp/first/pt1.gcode; cat > /home/pi/temp/first/pt2.gcode) < /home/pi/temp/{}".format(self.filename))
+        #os.system("rm /home/pi/temp/{}".format(self.filename))
+        #gcode = gcoder.LightGCode([i.strip() for i in open('/home/pi/temp/first/pt1.gcode')])
+        #self.printrun.startprint(gcode)
+        #os.system("rm /home/pi/temp/first/pt1.gcode")
+        #executor = tornado.concurrent.futures.ThreadPoolExecutor(5)
+        #tornado.ioloop.IOLoop.current().run_in_executor(executor, split_file_for_print, self.printrun)
 
     def start_print_memory(self):
+        with open(self.OFFSET_PATH) as f:
+            config_json = json.load(f)
         with open(self.file_path) as f:
-            patched_gcode = patch_and_split_gcodes(f)
+            patched_gcode = patch_and_split_gcodes(f, config_json["t0_zoffset"])
         first = list(itertools.islice(patched_gcode, 0, 100))
         gcode = gcoder.LightGCode(first)
         self.printrun.startprint(gcode)
@@ -161,13 +168,14 @@ class SmoothieFirmware(BaseFirmware):
         else:
             config_json["t0_zoffset"] = z_offset_t0
             config_json["t1_zoffset"] = z_offset_t1
-        config_file = "/home/pi/config-files/confighotendzoffset"        
-        os.system("sudo mount /dev/sda1 /media/smoothie -o uid=pi,gid=pi")
-        with open(config_file, "w") as f:
-            f.write("extruder.hotend1.z_offset {}\n".format(str(z_offset_t0)))
-            f.write("extruder.hotend2.z_offset {}".format(str(z_offset_t1)))
-        os.system("cp {} /media/smoothie/confighotendzoffset && sync".format(config_file))
-        response = os.system("sudo umount /media/smoothie")
+        #config_file = "/home/pi/config-files/confighotendzoffset"        
+        #os.system("sudo mount /dev/sda1 /media/smoothie -o uid=pi,gid=pi")
+        #with open(config_file, "w") as f:
+        #    f.write("extruder.hotend1.z_offset {}\n".format(str(z_offset_t0)))
+        #    f.write("extruder.hotend2.z_offset {}".format(str(z_offset_t1)))
+        #os.system("cp {} /media/smoothie/confighotendzoffset && sync".format(config_file))
+        #response = os.system("sudo umount /media/smoothie")
+        response = 0
         if response == 0:
             with open(self.OFFSET_PATH, 'w') as f:
                 json.dump(config_json, f)
