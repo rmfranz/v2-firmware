@@ -11,6 +11,7 @@ from handlers_http.connection_handler import *
 from handlers_websocket.temperatures_ws_handler import *
 from handlers_websocket.calibration_ws_handler import *
 from handlers_http.setup_handler import *
+from handlers_http.build_plate_handler import *
 from firmware.smoothie_firmware import SmoothieFirmware
 import logging
 import pickle
@@ -27,7 +28,14 @@ class Application(tornado.web.Application):
             (r"/setup", SetupHandler),
             (r"/advanced", AdvancedHandler),
             (r"/manual-controls", ToManualControlHandler),
+            (r"/back-manual-controls", BackPlateHandler),
             (r"/build-plate-controls", ToBuildPlateControlHandler),
+            (r"/homming", HomeHandler),
+            (r"/plate-up", PlateUpHandler),
+            (r"/plate-down", PlateDownHandler),
+            (r"/plate-home", PlateHomeHandler),
+            (r"/bed-temp/([0-9]+)", PlateTemperatureHandler),
+            (r"/plate-select-temp", ToPlateTemperatureHandler),
             (r"/print", PrintHandler),
             (r"/pausa", PauseHandler),
             (r"/resume", ResumeHandler),

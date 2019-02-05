@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+        <h1>Select Filament</h1>
+        <div class="grid">
+            <div class="btn top left">
+                <a href="/bed-temp/95">
+                    <h3>ABS ~ 95°C</h3>
+                </a>
+            </div>
+            <div class="btn top center">
+                <a href="/bed-temp/70">
+                    <h3>Flex (PU) ~ 70°C</h3>
+                </a>
+            </div>
+            <div class="btn top right">
+                <a href="/bed-temp/95">
+                    <h3>HIPS ~ 95°C</h3>
+                </a>
+            </div>
+            <div class="btn middle left">
+                <a href="/bed-temp/85">
+                    <h3>Nylon ~ 85°C</h3>
+                </a>
+            </div>
+            <div class="btn middle center">
+                <a href="/bed-temp/70">
+                    <h3>PETG ~ 70°C</h3>
+                </a>
+            </div>
+            <div class="btn middle right">
+                <a href="/bed-temp/60">
+                    <h3>PLA Tough ~ 60°C</h3>
+                </a>
+            </div>
+            <div class="btn bottom left">
+                <a href="/bed-temp/60">
+                    <h3>PLA+ ~ 60°C</h3>
+                </a>
+            </div>
+            <div class="btn bottom center">
+                <a href="/bed-temp/50">
+                    <h3>PVA ~ 50°C</h3>
+                </a>
+            </div>
+            <div class="btn bottom center">
+                <a href="/bed-temp/0">
+                    <h3>OFF ~ 0°C</h3>
+                </a>
+            </div>
+        </div>
+</main>
+<footer>
+    <a id="back" class="button" href="/build-plate-controls"></a>
+    <div class="slogan"></div>
+</footer>
+</body>
+{% end %}

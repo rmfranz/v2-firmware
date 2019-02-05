@@ -37,10 +37,6 @@ class ToManualControlHandler(BasicHandler):
     def get(self):
         self.render("manual_ctl_select.html")
 
-class ToBuildPlateControlHandler(BasicHandler):
-    def get(self):
-        self.render("plate_control.html")
-
 class SetBoardUuidHandler(BasicHandler):
     def get(self):
         if not self.firmware.hardware_json["board_uuid"]:
