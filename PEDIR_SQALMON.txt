@@ -1,0 +1,4 @@
+instalar pigpio
+sudo mount -o remount,rw /
+sudo apt-get install pigpio
+sudo pigpiod -p 8889

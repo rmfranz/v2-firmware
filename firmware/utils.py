@@ -84,3 +84,10 @@ def split_gcode_for_print(cosa):
     for chunk in chuncks:
         gcode = gcoder.LightGCode(chunk)
         printrun.append_gcode(gcode)
+
+def get_extruder(extruder):
+    if extruder == "ext_1":
+        extruder = "T0"
+    elif extruder == "ext_2":
+        extruder = "T1"
+    return extruder

@@ -15,3 +15,12 @@ class BackPlateHandler(BasicHandler):
         self.firmware.bed_temperature(0)
         self.firmware.homming()
         self.render("manual_ctl_select.html")
+
+class BackExtruderHandler(BasicHandler):
+    def get(self):
+        self.firmware.heat_extruder(0, "T0")
+        self.firmware.heat_extruder(0, "T1")
+        self.firmware.homming()
+        self.clear_cookie("extruder")
+        self.clear_cookie("extruder_temp")
+        self.render("manual_ctl_select.html")

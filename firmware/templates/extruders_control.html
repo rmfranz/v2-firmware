@@ -2,34 +2,34 @@
 {% block content %}
 <main>
     <h1>Extruders</h1>
-    <ul>
+    <ul class="first_attemp">
         <li>
-            <a href="manualControlsExtrudersTemp.html">
+            <a href="/ext_2">
                 <img src="static/images/icons/heat-filament-2-icon.svg" alt="">
             </a>
         </li>
         <li>
-            <a href="#">
+            <a id="t1_extrude" href="#">
                 <img src="static/images/icons/filament-up-icon.svg" alt="">
             </a>
         </li>
         <li>
-            <a href="#">
+            <a id="t1_retract" href="#">
                 <img src="static/images/icons/filament-down-icon.svg" alt="">
             </a>
         </li>
         <li>
-            <a href="manualControlsExtrudersTemp.html">
+            <a href="/ext_1">
                 <img src="static/images/icons/heat-filament-1-icon.svg" alt="">
             </a>
         </li>
         <li>
-            <a href="#">
+            <a id="t0_extrude" href="#">
                 <img src="static/images/icons/filament-up-icon.svg" alt="">
             </a>
         </li>
         <li>
-            <a href="#">
+            <a id="t0_retract" href="#">
                 <img src="static/images/icons/filament-down-icon.svg" alt="">
             </a>
         </li>
@@ -37,8 +37,11 @@
 </main>
 
 <footer>
-    <a id="back" class="button" href="javascript:history.back()"></a>
+    <a id="back" class="button" href="/back-extruder"></a>
     <div class="slogan"></div>
 </footer>
 </body>
+<script>
+    var in_extruder_control = true;
+</script>
 {% end %}

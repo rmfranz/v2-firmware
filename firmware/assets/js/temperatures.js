@@ -1,4 +1,4 @@
-var ip = "192.168.0.23"
+var ip = "127.0.0.1"
 
 var t0 = 0
 var t1 = 0
@@ -7,22 +7,22 @@ var amb = 0
 
 function update_temperatures() {
    if(t0 == 0){
-      $("#t0").text("")
+      $("#t0").text("27")
    } else {
       $("#t0").text(t0)
    }
    if(t1 == 0){
-      $("#t1").text("")
+      $("#t1").text("28")
    } else {
       $("#t1").text(t1)
    }
    if(bed == 0){
-      $("#plate").text("")
+      $("#plate").text("27")
    } else {
       $("#plate").text(bed)
    }
    if(amb == 0){
-      $("#amb").text("")
+      $("#amb").text("28")
    } else {
       $("#amb").text(amb)
    }
@@ -80,3 +80,49 @@ function set_temperatures(data) {
  }
 
  set_board_uuid();
+
+ if(typeof in_extruder_control !== 'undefined'){
+   var extruder = "T0";
+   var temp = 0;
+
+   $.ajax({url: "/get-extruder-options", 
+      success: function(result){
+         extruder = result["extruder"]
+         temp = parseInt(result["extruder_temp"])
+      },
+      async: false
+   });
+
+   /*if(temp != 0) {
+      var check_ext_temp = function () {
+         if(t0 >= temp || t1 >= temp){
+            console.info("listooooooooooooooo")
+         } else {
+            setTimeout(check_ext_temp, 20000);
+         }
+      };
+      check_ext_temp();
+   }*/
+   if(temp != 0) {
+      $("#t0_extrude").click(function () {
+         if(t0 >= temp){
+            $.get("/ext_1/extrude");
+         }
+      });
+      $("#t0_retract").click(function () {
+         if(t0 >= temp){
+            $.get("/ext_1/retract");
+         }
+      });
+      $("#t1_extrude").click(function () {
+         if(t1 >= temp){
+            $.get("/ext_2/extrude");
+         }
+      });
+      $("#t1_retract").click(function () {
+         if(t1 >= temp){
+            $.get("/ext_2/retract");
+         }
+      });
+   }
+ }

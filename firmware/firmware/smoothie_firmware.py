@@ -264,3 +264,16 @@ class SmoothieFirmware(BaseFirmware):
     
     def bed_temperature(self, temp):
         self.printrun.send_now("M140 S{}".format(temp))
+
+    def heat_extruder(self, temp, extruder):
+        self.printrun.send_now("M104 S{} {}".format(temp, extruder))
+
+    def extrude(self, extruder):
+        self.printrun.send_now(extruder)
+        self.printrun.send_now("G1 E10 F500")
+        self.printrun.send_now("G92 E0")
+
+    def retract(self, extruder):
+        self.printrun.send_now(extruder)
+        self.printrun.send_now("G1 E-10 F500")
+        self.printrun.send_now("G92 E0")
