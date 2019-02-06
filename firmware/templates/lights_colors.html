@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+        <h1>Select a Beautiful Color</h1>
+        <div class="grid">
+            <div class="btn top left">
+                <a id="red" href="#">
+                    <h3>Red</h3>
+                </a>
+            </div>
+            <div class="btn top center">
+                <a id="blue" href="#">
+                    <h3>Blue</h3>
+                </a>
+            </div>
+            <div class="btn top right">
+                <a id="green" href="#">
+                    <h3>Green</h3>
+                </a>
+            </div>
+            <div class="btn middle left">
+                <a id="other" href="#">
+                    <h3>Other</h3>
+                </a>
+            </div>
+            <div class="btn middle center">
+                <a id="off" href="#">
+                    <h3>Off</h3>
+                </a>
+            </div>
+        </div>
+</main>
+<footer>
+    <a id="back" class="button" href="/manual-controls"></a>
+    <div class="slogan"></div>
+</footer>
+<script src="/static/js/lights.js"></script>
+</body>
+{% end %}

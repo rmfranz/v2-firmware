@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+        <h1>Select Filament</h1>
+        <div class="grid">
+            <div class="btn top left">
+                <a href="/{{ext_type}}/{{ext_action}}/1">
+                    <h3>ABS ~ 240°C</h3>
+                </a>
+            </div>
+            <div class="btn top center">
+                <a href="/{{ext_type}}/{{ext_action}}/1">
+                    <h3>Flex (PU) ~ 235°C</h3>
+                </a>
+            </div>
+            <div class="btn top right">
+                <a href="/{{ext_type}}/{{ext_action}}/1">
+                    <h3>HIPS ~ 240°C</h3>
+                </a>
+            </div>
+            <div class="btn middle left">
+                <a href="/{{ext_type}}/{{ext_action}}/1">
+                    <h3>Nylon ~ 240°C</h3>
+                </a>
+            </div>
+            <div class="btn middle center">
+                <a href="/{{ext_type}}/{{ext_action}}/1">
+                    <h3>PETG ~ 240°C</h3>
+                </a>
+            </div>
+            <div class="btn middle right">
+                <a href="/{{ext_type}}/{{ext_action}}/1">
+                    <h3>PLA Tough ~ 215°C</h3>
+                </a>
+            </div>
+            <div class="btn bottom left">
+                <a href="/{{ext_type}}/{{ext_action}}/1">
+                    <h3>PLA+ ~ 205°C</h3>
+                </a>
+            </div>
+            <div class="btn bottom center">
+                <a href="/{{ext_type}}/{{ext_action}}/1">
+                    <h3>PVA ~ 195°C</h3>
+                </a>
+            </div>
+        </div>
+</main>
+<footer>
+    <a id="back" class="button" href="/{{ext_action}}"></a>
+    <div class="slogan"></div>
+</footer>
+</body>
+{% end %}

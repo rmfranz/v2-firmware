@@ -1,5 +1,6 @@
 from handlers_http.basic_handler import BasicHandler
 from utils import mount_usb, get_gcodes_from_usb
+import tornado
 
 class PrintSelectionHandler(BasicHandler):
     def get(self):
@@ -50,6 +51,11 @@ class PrintHandler(BasicHandler):
         file_path = self.get_body_argument("file_path")
         filename = self.get_body_argument("filename")
         self.firmware.set_file_to_print(file_path, filename)
+        self.write("ok")
+
+class PrintNowHandler(BasicHandler):
+    def get(self):
+        self.firmware.start_print()
         self.write("ok")
 
 class PauseHandler(BasicHandler):

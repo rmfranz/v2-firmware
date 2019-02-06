@@ -10,12 +10,16 @@ from handlers_http.back_handler import *
 from handlers_http.connection_handler import *
 from handlers_websocket.temperatures_ws_handler import *
 from handlers_websocket.calibration_ws_handler import *
+from handlers_websocket.print_ws_handler import *
 from handlers_http.setup_handler import *
 from handlers_http.build_plate_handler import *
+from handlers_http.lights_handler import *
+from handlers_http.extruders_handler import *
 from firmware.smoothie_firmware import SmoothieFirmware
 import logging
 import pickle
 import os
+from firmware.gpio import Gpio
 
 define("template_folder", default="templates/", help="Folder to use")
 
@@ -36,7 +40,9 @@ class Application(tornado.web.Application):
             (r"/plate-home", PlateHomeHandler),
             (r"/bed-temp/([0-9]+)", PlateTemperatureHandler),
             (r"/plate-select-temp", ToPlateTemperatureHandler),
+            (r"/extruders-controls", ToExtrudersControlHandler),
             (r"/print", PrintHandler),
+            (r"/print-now", PrintNowHandler),
             (r"/pausa", PauseHandler),
             (r"/resume", ResumeHandler),
             (r"/cancelar", CancelHandler),
@@ -75,20 +81,30 @@ class Application(tornado.web.Application):
             (r"/ext_2/unload/([0-9]+)", LoadUnloadFilamentsHandler),
             (r"/back-filaments-selection", BackLoadUnloadHandler),
             (r"/connectivity", ConnectivityHandler),
+            (r"/lights", ToLightsHandler),
+            (r"/lights/red", LightsHandler),
+            (r"/lights/green", LightsHandler),
+            (r"/lights/blue", LightsHandler),
+            (r"/lights/other", LightsHandler),
+            (r"/lights/off", LightsHandler),
             (r"/temperatures", TemperaturesWsHandler),
             (r"/heating-bed", HeatingBedWsHandler),
             (r"/heating-nozzle", HeatingNozzleWsHandler),
             (r"/probe-complete", ProbeCompleteWsHandler),
             (r"/z-probe", ZProbeWsHandler),
             (r"/inspect-grid", InspectGridWsHandler),
+            (r"/waiting-file", WaitingFileWsHandler),
             (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/assets"}),
         ]
         tornado.web.Application.__init__(self, handlers, template_path="/home/pi/templates/")
         #Put FirmwareDirector, this is wrong
         self.firmware = SmoothieFirmware()
+        self.gpio = Gpio()
 
 class HomeHandler(BasicHandler):
     def get(self):
+        if not self.application.gpio.is_initialized:
+            self.application.gpio.initialize()
         if not self.firmware.check_mac_address():
             self.render("put_serial.html")        
         elif not self.firmware.check_version():
