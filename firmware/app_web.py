@@ -15,6 +15,7 @@ from handlers_http.setup_handler import *
 from handlers_http.build_plate_handler import *
 from handlers_http.lights_handler import *
 from handlers_http.extruders_handler import *
+from handlers_http.network_handler import *
 from firmware.smoothie_firmware import SmoothieFirmware
 import logging
 import pickle
@@ -91,6 +92,9 @@ class Application(tornado.web.Application):
             (r"/ext_2/unload/([0-9]+)", LoadUnloadFilamentsHandler),
             (r"/back-filaments-selection", BackLoadUnloadHandler),
             (r"/connectivity", ConnectivityHandler),
+            (r"/network-info", ToInfoHandler),
+            (r"/ssh-enable", EnableSSHHandler),
+            (r"/ssh-disable", DisableSSHHandler),
             (r"/lights", ToLightsHandler),
             (r"/lights/red", LightsHandler),
             (r"/lights/green", LightsHandler),

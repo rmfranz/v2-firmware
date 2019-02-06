@@ -1,31 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
 <main>
-    <h1>Info</h1>
+    <h1>Info, SSH: {{ssh}}</h1>
     <div class="grid">
         <div id="infobold" class="top left-half">
             <span>IP Address:</span>
         </div>
         <div id="infolight" class="top right-half">
-            192.168.0.66
+            {{ip_local}}
         </div>
         <div id="infobold" class="middle left-half">
-            Serial Number:
+            Ip publica
         </div>
         <div id="infolight" class="middle right-half">
-            XXXXXXXXXXXX
-        </div>        
+            {{ip_public}}
+        </div>
         <div id="infobold" class="bottom left-half">
-            Software Version:
+            <div class="btn top left">
+                <a href="/ssh-enable">
+                    <h3>Enable SSH</h3>
+                </a>
+            </div>
         </div>
         <div id="infolight" class="bottom right-half">
-            v0.1.67
-        </div>   
+            <div class="btn top center">
+                <a href="/ssh-disable">
+                    <h3>Disable SSH</h3>
+                </a>
+            </div>
+        </div>
     </div>
 </main>
 
 <footer>
-    <a id="back" class="button" href="javascript:history.back()"></a>
+    <a id="back" class="button" href="/connectivity"></a>
     <div class="slogan"></div>
 </footer>
 

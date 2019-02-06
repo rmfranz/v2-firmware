@@ -9,7 +9,7 @@ class FirmwareDirector:
 
 class BaseFirmware:
 
-    HARDWARE_JSON_FOLDER = "firmware/firmware_jsons/hardware.json"
+    HARDWARE_JSON_FOLDER = "/home/pi/config-files/hardware.json"
 
     def __init__(self):
         with open("firmware/firmware_jsons/version.json") as f:
