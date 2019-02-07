@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <div class="container">
+        <h1>Basic</h1>
+        <ul class="menu">
+            <li class="btn">
+                <a href="#">
+                    <img src="static/images/icons/placeholder-icon.png" alt="">
+                    <h3>Serial Number</h3>
+                </a>
+            </li>
+            <li class="btn">
+                <a href="/software-update">
+                    <img src="static/images/icons/update-sub-icon.svg" alt="">
+                    <h3>Software Update</h3>
+                </a>
+            </li> 
+            <li class="btn">
+                <a href="#">
+                    <img src="static/images/icons/placeholder-icon.png" alt="">
+                    <h3>Language</h3>
+                </a>
+            </li>       
+            <li class="btn">
+                <a href="#">
+                    <img src="static/images/icons/sound-sub-icon.svg" alt="">
+                    <h3>Volume</h3>
+                </a>
+            </li> 
+        </ul>
+    </div>
+</main>
+
+<footer>
+    <a id="back" class="button" href="/setup"></a>
+    <div class="slogan"></div>
+</footer>
+</body>
+{% end %}

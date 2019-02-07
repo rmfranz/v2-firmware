@@ -32,6 +32,9 @@ class Application(tornado.web.Application):
             (r"/set-board-uuid", SetBoardUuidHandler),
             (r"/setup", SetupHandler),
             (r"/advanced", AdvancedHandler),
+            (r"/basic", ToBasicHandler),
+            (r"/software-update", ToUpdateHandler),
+            (r"/make-update", UpdateHandler),
             (r"/manual-controls", ToManualControlHandler),
             (r"/back-manual-controls", BackPlateHandler),
             (r"/build-plate-controls", ToBuildPlateControlHandler),
@@ -132,7 +135,7 @@ class SerialHandler(BasicHandler):
     def post(self):
         serial = self.get_body_argument("serial")
         self.firmware.set_serial(serial)
-        #self.firmware.put_config()
+        self.firmware.put_config()
         self.render("put_version.html", version_list=self.firmware.get_version_list())
 
 class VersionHandler(BasicHandler):

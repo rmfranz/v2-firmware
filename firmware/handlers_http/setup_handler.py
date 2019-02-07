@@ -1,5 +1,6 @@
 from handlers_http.basic_handler import BasicHandler
 from tornado.options import options
+import os
 
 class SetupHandler(BasicHandler):
     def get(self):
@@ -41,4 +42,18 @@ class SetBoardUuidHandler(BasicHandler):
     def get(self):
         if not self.firmware.hardware_json["board_uuid"]:
             self.firmware.set_board_info()
+        self.write("ok")
+
+class ToBasicHandler(BasicHandler):
+    def get(self):
+        self.render("basic.html")
+
+class ToUpdateHandler(BasicHandler):
+    def get(self):
+        self.render("updates.html")
+
+class UpdateHandler(BasicHandler):
+    def get(self):
+        os.system("git pull origin master")
+        os.system("sudo reboot -h now")
         self.write("ok")

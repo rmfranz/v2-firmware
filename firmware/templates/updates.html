@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <ul class="first_attemp">
+        <li>
+            <a id="update" href="#">
+                <img src="static/images/icons/update-sub-icon.svg" alt="">
+                <h3>Make Update</h3>
+            </a>
+        </li>
+    </ul>
+</main>
+
+<footer>
+    <a id="back" class="button" href="/basic"></a>
+    <div class="slogan"></div>
+</footer>
+<!-- Modal -->
+<div class="modal fade" id="update" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header" style="background-color:#FFB700;color:black"> </div>
+            <div class="modal-body">
+                Espere mientras se actualiza el software
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+</body>
+<script>
+$("#update").on("click", function() {
+    $('#updateModal').modal('show');
+    $.get( "/make-update" );
+});
+</script>
+{% end %}

@@ -168,17 +168,15 @@ class SmoothieFirmware(BaseFirmware):
         else:
             config_json["t0_zoffset"] = z_offset_t0
             config_json["t1_zoffset"] = z_offset_t1
-        #config_file = "/home/pi/config-files/confighotendzoffset"        
-        #os.system("sudo mount /dev/sda1 /media/smoothie -o uid=pi,gid=pi")
-        #with open(config_file, "w") as f:
-        #    f.write("extruder.hotend1.z_offset {}\n".format(str(z_offset_t0)))
-        #    f.write("extruder.hotend2.z_offset {}".format(str(z_offset_t1)))
-        #os.system("cp {} /media/smoothie/confighotendzoffset && sync".format(config_file))
-        #response = os.system("sudo umount /media/smoothie")
-        response = 0
-        if response == 0:
-            with open(self.OFFSET_PATH, 'w') as f:
-                json.dump(config_json, f)
+        config_file = "/home/pi/config-files/confighotendzoffset"        
+        with open(self.OFFSET_PATH, 'w') as f:
+            json.dump(config_json, f)
+        os.system("sudo mount /dev/sda1 /media/smoothie -o uid=pi,gid=pi")
+        with open(config_file, "w") as f:
+            #f.write("extruder.hotend1.z_offset {}\n".format(str(z_offset_t0)))
+            f.write("extruder.hotend2.z_offset {}".format(str(z_offset_t1)))
+        os.system("cp {} /media/smoothie/confighotendzoffset && sync".format(config_file))
+        response = os.system("sudo umount /media/smoothie")
         return response
 
     def calibration_25_points_until_complete(self):
@@ -223,6 +221,7 @@ class SmoothieFirmware(BaseFirmware):
         os.system("cp /home/pi/config-files/confighotend2xyoffset /media/smoothie/ && sync")
         os.system("cp /home/pi/config-files/confighotendzoffset /media/smoothie/ && sync")
         os.system("cp /home/pi/config-files/correctionZProbe /media/smoothie/ && sync")
+        os.system("cp /home/pi/config-files/on_boot.gcode /media/smoothie/ && sync")
         os.system("sudo umount /media/smoothie")
 
     def choose_extruder(self, extruder):
