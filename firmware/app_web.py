@@ -111,9 +111,9 @@ class Application(tornado.web.Application):
             (r"/z-probe", ZProbeWsHandler),
             (r"/inspect-grid", InspectGridWsHandler),
             (r"/waiting-file", WaitingFileWsHandler),
-            (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/assets"}),
+            (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/v2-firmware/firmware/assets"}),
         ]
-        tornado.web.Application.__init__(self, handlers, template_path="/home/pi/templates/")
+        tornado.web.Application.__init__(self, handlers, template_path="/home/pi/v2-firmware/firmware/templates/")
         #Put FirmwareDirector, this is wrong
         self.firmware = SmoothieFirmware()
         self.gpio = Gpio()
