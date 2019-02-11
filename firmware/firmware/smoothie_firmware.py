@@ -72,7 +72,7 @@ class SmoothieFirmware(BaseFirmware):
     def start_print(self):
         with open(self.OFFSET_PATH) as f:
             config_json = json.load(f)
-        with open(self.file_path) as f:
+        with open(self.file_path, errors='ignore') as f:
             gcode = patch_and_split_gcodes(f, config_json["t0_zoffset"])
         self.printrun.startprint(gcode)
         #os.system("cp {} /home/pi/temp/".format(self.file_path))
