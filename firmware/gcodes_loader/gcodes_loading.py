@@ -14,7 +14,7 @@ import pickle
 DEBUG = False # the code below will switch this to True automaticaly if this file is __main__
 
 CURRENT_PATH = os.getcwd() + "/"
-GCODES_PATHES_FOLDER = CURRENT_PATH
+GCODES_PATHES_FOLDER = "/home/pi/v2-firmware/firmware/gcodes_loader/"
 PATH_TO_DB = CURRENT_PATH + "../databasesqlite/db/Prefs.db"
 LEVELING_FILE_NAME = "levelling.gcode"
 HOMING_FILE_NAME = "homing.gcode"
