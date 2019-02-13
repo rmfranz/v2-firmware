@@ -55,5 +55,5 @@ class ToUpdateHandler(BasicHandler):
 class UpdateHandler(BasicHandler):
     def get(self):
         os.system("git pull origin master")
-        os.system("sudo reboot -h now")
+        #os.system("sudo reboot -h now")
         self.write("ok")
