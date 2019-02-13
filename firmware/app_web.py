@@ -113,7 +113,8 @@ class Application(tornado.web.Application):
             (r"/waiting-file", WaitingFileWsHandler),
             (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/v2-firmware/firmware/assets"}),
         ]
-        tornado.web.Application.__init__(self, handlers, template_path="/home/pi/v2-firmware/firmware/templates/")
+        tornado.web.Application.__init__(self, handlers, template_path="/home/pi/v2-firmware/firmware/templates/", autoreload=True,
+            compiled_template_cache=False, static_hash_cache=False)
         #Put FirmwareDirector, this is wrong
         self.firmware = SmoothieFirmware()
         self.gpio = Gpio()
