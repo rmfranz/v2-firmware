@@ -57,7 +57,6 @@ class UpdateHandler(BasicHandler):
         os.system("git pull origin master")
         if self.application.gpio.is_initialized:
             self.application.gpio.stop()
-            self.application.gpio.is_initialized = False
         os.system("sudo killall pigpiod")
         os.system("sudo reboot -h now")
         self.write("ok")

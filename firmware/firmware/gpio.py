@@ -12,6 +12,10 @@ class Gpio:
         self.gpio = pigpio.pi(port=8889)
         self.is_initialized = True
 
+    def stop(self):
+        self.gpio.stop()
+        self.is_initialized = False
+
     def lights_off(self):
         self.gpio.write(17, 0)
         self.gpio.write(27, 0)
