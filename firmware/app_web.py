@@ -136,7 +136,7 @@ class SerialHandler(BasicHandler):
     def post(self):
         serial = self.get_body_argument("serial")
         self.firmware.set_serial(serial)
-        self.firmware.put_config()
+        #self.firmware.put_config()
         self.render("put_version.html", version_list=self.firmware.get_version_list())
 
 class VersionHandler(BasicHandler):

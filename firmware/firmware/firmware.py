@@ -45,6 +45,9 @@ class BaseFirmware:
             self.write_hardware_json()
         return check
 
+    def get_macaddress(self):
+        return self.hardware_json["mac_address_eth0"]
+
     def check_version(self):
         return self.hardware_json["hw_version"]
     
