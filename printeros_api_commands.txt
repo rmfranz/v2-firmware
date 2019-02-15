@@ -1,0 +1,7 @@
+{'printer_id': '55122', 'is_link': True, 'job_id': '725136', 'filename': 'NECK_STUDY_2348365_repaired_2348366.gcode', 'payload': 'https://live3dprinteros.blob.core.windows.net/file/2348371?se=2019-02-15T19%3A17%3A22Z&sr=b&sp=r&sig=98wWp%2BZLO%2B63t3cW%2Fbdv4rd0oq7cCCPkuxmkhUwx11E%3D&sv=2014-02-14', 'renders': {'gcode': 'https://live3dprinteros.blob.core.windows.net/render/616cbaf29cc34805d4fe437d4536ca22f832f2121b38a4fac395fbce21254f71.png', 'stl': 'https://live3dprinteros.blob.core.windows.net/render/a3b153dcb6bf75365ce5a5cab3171a1dce32b81c48c3813e8db74cc957f52fb2.png'}, 'user_id': '140666', 'printing_duration': 46314, 'command': 'gcodes', 'number': 2}
+
+{'command': 'cancel', 'number': 3}
+
+{'command': 'unpause', 'number': 14}
+
+{'command': 'pause', 'number': 13}

@@ -13,7 +13,7 @@ class InitHandler(RequestHandler):
         http_client = httpclient.HTTPClient()
         headers = {'Content-Type': 'application/json'}
         body = {"VID": "0KDK", "PID": "0001", "SNR": "00000000000000", 
-            "mac": "43:65:54:66", "type": "K_PORTRAIT", "version": "",
+            "mac": "b827ecf9a6b5", "type": "K_PORTRAIT", "version": "",
             "registration_code_ttl": 20}
         http_client = httpclient.HTTPClient()
         resp = http_client.fetch(URL_CLOUD, method='POST', raise_error=False,
