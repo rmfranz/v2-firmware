@@ -16,3 +16,6 @@ def get_auth(registration_code, mac_address, url, controller):
         controller.auth_token_caller.stop()
     else:
         print("no tengo un choto: {}".format(resp_dict))
+
+def cloud_service_resp(response):
+    print(response)

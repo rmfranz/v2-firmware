@@ -2,6 +2,7 @@ from tornado import httpclient
 import json
 from tornado.ioloop import PeriodicCallback
 import tornado
+from websocket import create_connection
 
 class PeriodicController:
 
@@ -22,6 +23,13 @@ class PeriodicController:
         self.api_caller = PeriodicCallback(self.command_request, 2000)
         self.state = "ready"
         self.headers = {'Content-Type': 'application/json'}
+        self.commander = {
+            "gcodes": self.on_print,
+            "pause": self.on_pause,
+            "unpause": self.on_resume,
+            "cancel": self.on_cancel
+        }
+        self.ws_url = "ws://127.0.0.1:8888/cloud"
 
 
     def set_auth_token_caller(self, caller):
@@ -81,6 +89,35 @@ class PeriodicController:
                     headers=self.headers, body=json.dumps(req))
         resp_dict = json.loads(resp_reg.body.decode('utf-8'))
         print(resp_dict)
+        if "command" in resp_dict:
+            self.commander[resp_dict["command"]](resp_dict)
+
+    def on_print(self, resp_dict):
+        self.state = "downloading"
+        request = httpclient.HTTPRequest(url=resp_dict["payload"], streaming_callback=self.on_chunk,
+                    request_timeout=3600)
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch(request, self.on_download_done)
+        self.create_connection_and_send("gcodes")
+        
+    def on_pause(self, resp_dict):
+        self.state = "pause"
+        self.create_connection_and_send("pause")
+
+    def on_resume(self, resp_dict):
+        self.state = "printing"
+        self.create_connection_and_send("unpause")
+
+    def on_cancel(self, resp_dict):
+        self.state = "ready"
+        self.create_connection_and_send("cancel")
+
+    def on_chunk(self, chunk):
+        with open("/home/pi/cloud/cloud.gcode", "ab+") as f:
+            f.write(chunk)
+
+    def on_download_done(self):
+        self.state = "printing"
 
     def on_temp_message(self, msg):
         temps = msg.split("@")
@@ -123,3 +160,8 @@ class PeriodicController:
         self.t1_target = t1_target
         self.bed_target = bed_target
         self.amber_target = amber_target
+
+    def create_connection_and_send(self, data):
+        ws = create_connection(self.ws_url)
+        ws.send(data.strip())
+        ws.close()
