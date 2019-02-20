@@ -126,6 +126,7 @@ class PeriodicController:
 
     def on_download_done(self):
         self.state = "printing"
+        self.create_connection_and_send("download_done")
 
     def on_temp_message(self, msg):
         temps = msg.split("@")

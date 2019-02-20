@@ -33,6 +33,19 @@
         </header>
     
     {% block content %} {% end %}
+<!-- Modal -->
+<div class="modal fade" id="waitModal" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header" style="background-color:#FFB700;color:black"> </div>
+        <div style="font-size: 25pt;padding-top: 1px;padding-bottom: 2px;" class="modal-body" id="modal-body">
+            <span>Estoy cargando el archivo, por favor espere. Esto puede tomar un tiempo</span>
+        </div>
+        <div class="modal-footer">
+    </div>
+    </div>
+</div>
+</div>
    <script src="/static/js/temperatures.js"></script>
    <script src="/static/js/cloud_commands.js"></script>
 </html> 
