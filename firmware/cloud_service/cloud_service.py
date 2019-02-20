@@ -18,6 +18,8 @@ class InitHandler(RequestHandler):
         data = json_decode(utf8(self.request.body))
         print(data["registration_code"])
         pc = PeriodicCallback(lambda: self.application.periodic_controller.get_auth(data["registration_code"]), 5000)
+        if self.application.periodic_controller.auth_token_caller:
+            self.application.periodic_controller.stop_auth_token_caller()
         self.application.periodic_controller.set_auth_token_caller(pc)
         self.application.periodic_controller.start_auth_token_caller()
         self.write("ok")
