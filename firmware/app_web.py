@@ -17,6 +17,7 @@ from handlers_http.build_plate_handler import *
 from handlers_http.lights_handler import *
 from handlers_http.extruders_handler import *
 from handlers_http.network_handler import *
+from handlers_http.cloud_handler import *
 from firmware.smoothie_firmware import SmoothieFirmware
 import logging
 import pickle
@@ -34,6 +35,7 @@ class Application(tornado.web.Application):
             (r"/setup", SetupHandler),
             (r"/advanced", AdvancedHandler),
             (r"/basic", ToBasicHandler),
+            (r"/to-cloud", GetRegistrationCodeHandler),
             (r"/software-update", ToUpdateHandler),
             (r"/make-update", UpdateHandler),
             (r"/manual-controls", ToManualControlHandler),
