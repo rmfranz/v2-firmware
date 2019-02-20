@@ -19,7 +19,7 @@ class GetRegistrationCodeHandler(BasicHandler):
             registration_code = resp_dict["registration_code"]
             async_http_client = httpclient.AsyncHTTPClient()
             async_http_client.fetch("http://127.0.0.1:9000/init", method='POST', raise_error=False,
-                headers=headers, body=json.dumps(body), callback=cloud_service_resp)
+                headers=headers, body=json.dumps({"registration_code": registration_code}), callback=cloud_service_resp)
             self.render("cloud.html", registration_code=registration_code)
         else:
             self.render("cloud.html", registration_code="Error on API")
