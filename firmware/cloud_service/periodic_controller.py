@@ -33,6 +33,7 @@ class PeriodicController:
             "cancel": self.on_cancel
         }
         self.ws_url = "ws://127.0.0.1:8888/cloud"
+        self.ws_initialized = False
         if self.auth_token:
             self.api_caller.start()
 
@@ -63,6 +64,7 @@ class PeriodicController:
             self.write_hardware_json()
             self.stop_auth_token_caller()
             self.api_caller.start()
+            self.create_connection_and_send("connected")
         else:
             print("There is nothing: {}".format(resp_dict))
 

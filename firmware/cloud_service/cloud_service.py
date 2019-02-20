@@ -24,11 +24,24 @@ class InitHandler(RequestHandler):
         self.application.periodic_controller.start_auth_token_caller()
         self.write("ok")
 
+class InitWebsocketsHandler(RequestHandler):
+    def get(self):
+        if not self.application.periodic_controller.ws_initialized:
+            websocket_connect("ws://127.0.0.1:8888/temperatures", 
+                on_message_callback=self.application.periodic_controller.on_temp_message)
+            websocket_connect("ws://127.0.0.1:8888/heating-bed", 
+                on_message_callback=self.application.periodic_controller.on_bed_heating_message)
+            websocket_connect("ws://127.0.0.1:8888/heating-nozzle", 
+                on_message_callback=self.application.periodic_controller.on_nozzle_heating_message)
+            self.application.periodic_controller.ws_initialized = True
+        self.write("ok")
+
 class Application(tornado.web.Application):
 
     def __init__(self):
         handlers = [
             (r"/init", InitHandler),
+            (r"/init-websockets", InitHandler),
         ]
         tornado.web.Application.__init__(self, handlers, autoreload=True)
         self.periodic_controller = PeriodicController()
@@ -37,9 +50,6 @@ if __name__ == "__main__":
     app = Application()
     parse_command_line()
     app.listen(9000)
-    websocket_connect("ws://127.0.0.1:8888/temperatures", on_message_callback=app.periodic_controller.on_temp_message)
-    websocket_connect("ws://127.0.0.1:8888/heating-bed", on_message_callback=app.periodic_controller.on_bed_heating_message)
-    websocket_connect("ws://127.0.0.1:8888/heating-nozzle", on_message_callback=app.periodic_controller.on_nozzle_heating_message)
     try:
         logging.info('Starting app')
         tornado.ioloop.IOLoop.current().start()

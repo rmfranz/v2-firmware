@@ -19,6 +19,7 @@ from handlers_http.extruders_handler import *
 from handlers_http.network_handler import *
 from handlers_http.cloud_handler import *
 from firmware.smoothie_firmware import SmoothieFirmware
+from tornado import httpclient
 import logging
 import pickle
 import os
@@ -125,6 +126,8 @@ class Application(tornado.web.Application):
 
 class HomeHandler(BasicHandler):
     def get(self):
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch("http://127.0.0.1:9000/init-websockets")
         if not self.application.gpio.is_initialized:
             self.application.gpio.initialize()
         if not self.firmware.check_mac_address():
