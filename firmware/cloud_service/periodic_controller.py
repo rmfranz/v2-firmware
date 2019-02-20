@@ -49,7 +49,7 @@ class PeriodicController:
     @tornado.gen.coroutine
     def get_auth(self, registration_code):        
         body_with_registration = {"VID": "0KDK", "PID": "0001", "SNR": "00000000000000",
-            "mac": self.hardware_json["mac_address_eth0"], "type": "K_PORTRAIT",  "version": "", 
+            "mac": self.hardware_json["mac_address_eth0"].replace(":", ""), "type": "K_PORTRAIT",  "version": "", 
             "registration_code_ttl": 20,  "registration_code": registration_code}
         request = httpclient.HTTPRequest(url=self.url_cloud, method='POST',
                     headers=self.headers, body=json.dumps(body_with_registration))
