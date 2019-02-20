@@ -41,7 +41,7 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/init", InitHandler),
-            (r"/init-websockets", InitHandler),
+            (r"/init-websockets", InitWebsocketsHandler),
         ]
         tornado.web.Application.__init__(self, handlers, autoreload=True)
         self.periodic_controller = PeriodicController()
