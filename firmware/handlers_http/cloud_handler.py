@@ -9,7 +9,7 @@ class GetRegistrationCodeHandler(BasicHandler):
     def get(self):
         headers = {'Content-Type': 'application/json'}
         body = {"VID": "0KDK", "PID": "0001", "SNR": "00000000000000", 
-            "mac": self.firmware.get_macaddress(), "type": "K_PORTRAIT", "version": "",
+            "mac": self.firmware.get_macaddress().replace(":", ""), "type": "K_PORTRAIT", "version": "",
             "registration_code_ttl": 20}
         http_client = httpclient.HTTPClient()
         resp = http_client.fetch(URL_CLOUD, method='POST', raise_error=False,
