@@ -6,7 +6,7 @@ import logging
 from tornado.ioloop import PeriodicCallback
 from periodic_controller import PeriodicController
 from cloud_utils import get_auth
-from tornado.escape import json_decode
+from tornado.escape import json_decode, utf8
 from tornado.websocket import websocket_connect
 
 def on_message(msg):
@@ -15,7 +15,7 @@ def on_message(msg):
 class InitHandler(RequestHandler):
     def post(self):
         #registration_code = self.get_body_argument("registration_code")
-        data = json_decode(self.request.body)
+        data = json_decode(utf8(self.request.body))
         print(data["registration_code"])
         pc = PeriodicCallback(lambda: self.application.periodic_controller.get_auth(data["registration_code"]), 5000)
         self.application.periodic_controller.set_auth_token_caller(pc)
