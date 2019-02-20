@@ -6,7 +6,11 @@ from websocket import create_connection
 
 class PeriodicController:
 
+    HARDWARE_JSON_FOLDER = "/home/pi/config-files/hardware.json"
+
     def __init__(self):
+        with open(self.HARDWARE_JSON_FOLDER) as f:
+            self.hardware_json = json.load(f)
         self.auth_token_caller = None
         self.t0 = 24
         self.t1 = 24
@@ -18,8 +22,7 @@ class PeriodicController:
         self.amber_target = 0
         self.url_cloud = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/register"
         self.url_command = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/command"
-        self.mac_address = "b797ecf9a6b5"
-        self.auth_token = None
+        self.auth_token = self.hardware_json["auth_token"]
         self.api_caller = PeriodicCallback(self.command_request, 2000)
         self.state = "ready"
         self.headers = {'Content-Type': 'application/json'}
@@ -30,6 +33,8 @@ class PeriodicController:
             "cancel": self.on_cancel
         }
         self.ws_url = "ws://127.0.0.1:8888/cloud"
+        if self.auth_token:
+            self.api_caller.start()
 
 
     def set_auth_token_caller(self, caller):
@@ -44,7 +49,7 @@ class PeriodicController:
     @tornado.gen.coroutine
     def get_auth(self, registration_code):        
         body_with_registration = {"VID": "0KDK", "PID": "0001", "SNR": "00000000000000",
-            "mac": self.mac_address, "type": "K_PORTRAIT",  "version": "", 
+            "mac": self.hardware_json["mac_address_eth0"], "type": "K_PORTRAIT",  "version": "", 
             "registration_code_ttl": 20,  "registration_code": registration_code}
         request = httpclient.HTTPRequest(url=self.url_cloud, method='POST',
                     headers=self.headers, body=json.dumps(body_with_registration))
@@ -53,9 +58,9 @@ class PeriodicController:
         response = yield async_http_client.fetch(request, raise_error=False)
         resp_dict = json.loads(response.body.decode('utf-8'))
         if response.code == 200 and "auth_token" in resp_dict:
-            #guardar en algun lado
             self.auth_token = resp_dict["auth_token"]
-            print("token: {}".format(self.auth_token))
+            self.hardware_json["auth_token"] = resp_dict["auth_token"]
+            self.write_hardware_json()
             self.stop_auth_token_caller()
             self.api_caller.start()
         else:
@@ -64,11 +69,12 @@ class PeriodicController:
     def on_done_auth(self, response):
         resp_dict = json.loads(response.body.decode('utf-8'))
         if response.code == 200 and "auth_token" in resp_dict:
-            #guardar en algun lado
             self.auth_token = resp_dict["auth_token"]
-            print("token: {}".format(self.auth_token))
+            self.hardware_json["auth_token"] = resp_dict["auth_token"]
+            self.write_hardware_json()
             self.stop_auth_token_caller()
             self.api_caller.start()
+            self.create_connection_and_send("connected")
         else:
             print("There is nothing: {}".format(resp_dict))
 
@@ -165,3 +171,7 @@ class PeriodicController:
         ws = create_connection(self.ws_url)
         ws.send(data.strip())
         ws.close()
+
+    def write_hardware_json(self):
+        with open(self.HARDWARE_JSON_FOLDER, 'w') as f:
+                json.dump(self.hardware_json, f)

@@ -18,5 +18,7 @@ ws_cloud.onmessage = function (evt) {
         $('#resume').toggle( false );
     } else if (command == "cancel") {
         window.location.href = "/cancelar";
+    } else if (command == "connected") {
+        window.location.href = "/setup";
     }
 };

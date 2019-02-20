@@ -18,4 +18,5 @@ def get_auth(registration_code, mac_address, url, controller):
         print("no tengo un choto: {}".format(resp_dict))
 
 def cloud_service_resp(response):
+    # TODO: Capturar error
     print(response)
