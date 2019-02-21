@@ -110,7 +110,7 @@ class PeriodicController:
         self.create_connection_and_send("gcodes")
         
     def on_pause(self, resp_dict):
-        self.state = "pause"
+        self.state = "paused"
         self.create_connection_and_send("pause")
 
     def on_resume(self, resp_dict):
