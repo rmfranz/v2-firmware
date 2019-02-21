@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="128.941px" height="128.943px" viewBox="0 0 128.941 128.943" enable-background="new 0 0 128.941 128.943"
+	 xml:space="preserve">
+<rect x="0.581" y="0.581" fill="none" stroke="#E5007E" stroke-width="1.1623" stroke-miterlimit="10" width="127.779" height="127.781"/>
+<g>
+	<g id="Group_347" transform="translate(23.178 -14)">
+		<g id="extruder-2-icon-big" transform="translate(104.888 138)">
+			<g id="Group_261_12_">
+				<g id="Group_255_17_">
+					<g id="Group_254_13_" transform="translate(10.378 17.831)">
+						
+							<path id="Line_343" fill="none" stroke="#E2231A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+							M-51.317-39.958v-6.399"/>
+					</g>
+					
+						<ellipse id="Ellipse_171" fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="-10.387" cy="-66.926" rx="3.623" ry="3.623"/>
+					
+						<path id="Path_318_11_" fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+						M-41.329-77.159c-3.9-24.982,31.374-27.697,31.374-0.036"/>
+				</g>
+			</g>
+		</g>
+		<g id="Group_346" transform="translate(62.822 153.365)">
+			
+				<path id="Path_159_1_" fill="none" stroke="#E2231A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M-46.245-87.983l13.185,22.844l12.964,22.45c1.903,2.621-1.371,5.184-2.543,5.177h-52.299c-3.226,0.334-3.805-3.771-3.217-4.788
+				l13.186-22.843l12.964-22.451c1.324-2.955,5.176-1.402,5.756-0.392L-46.245-87.983z"/>
+			
+				<path id="Path_160_1_" fill="none" stroke="#E2231A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M-49.461-69.728c-2.359,6.361-1.74,8.802,0.212,13.798c1.953,4.996-1.143,10.498-1.143,10.498"/>
+			
+				<path id="Path_161_1_" fill="none" stroke="#E2231A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M-40.31-55.93c1.945,4.987-1.136,10.498-1.136,10.498"/>
+			
+				<path id="Path_162_1_" fill="none" stroke="#E2231A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M-58.582-55.93c1.945,4.987-1.135,10.498-1.135,10.498"/>
+		</g>
+	</g>
+	<g id="Group_255_20_">
+		<g id="Group_254_15_" transform="translate(5.765 25.517)">
+			<g id="Group_331_14_">
+				
+					<path id="Line_365_12_" fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+					M80.975,43.373V30.649"/>
+			</g>
+		</g>
+		
+			<path id="Rectangle_261_15_" fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M76.975,46.902H95.5c3.792,0,6.864,3.073,6.864,6.863v18.527c0,3.791-3.072,6.863-6.864,6.863H76.975
+			c-3.791,0-6.864-3.072-6.864-6.863V53.766C70.11,49.976,73.184,46.902,76.975,46.902z"/>
+		
+			<path id="Path_319_15_" fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M91.196,79.576l-0.21,4.462l-4.249,3.607l-4.242-3.607l-0.211-4.462"/>
+	</g>
+</g>
+</svg>

@@ -156,6 +156,7 @@ class VersionHandler(BasicHandler):
 if __name__ == "__main__":
     app = Application()
     parse_command_line()
+    tornado.locale.load_translations("/home/pi/v2-firmware/translations")
     app.listen(8888)
     try:
         logging.info('Starting app')

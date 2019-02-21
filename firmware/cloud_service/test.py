@@ -30,17 +30,49 @@ class InitHandler(RequestHandler):
             print(resp_dict)
             self.write("no ok")
 
+def cloud_service_resp(re):
+    print(re)
+
+class GetRegistrationCodeHandler(RequestHandler):
+    def get(self):
+        headers = {'Content-Type': 'application/json'}
+        body = {"VID": "0KDK", "PID": "0001", "SNR": "00000000000000", 
+            "mac": "b8:27:eb:86:58:b2".replace(":", ""), "type": "K_PORTRAIT", "version": "",
+            "registration_code_ttl": 20}
+        http_client = httpclient.HTTPClient()
+        resp = http_client.fetch(URL_CLOUD, method='POST', raise_error=False,
+                headers=headers, body=json.dumps(body))
+        if resp.code == 200:
+            resp_dict = json.loads(resp.body.decode('utf-8'))
+            body = {"registration_code": resp_dict["registration_code"]}
+            async_http_client = httpclient.AsyncHTTPClient()
+            async_http_client.fetch("http://127.0.0.1:9000/init", method='POST', raise_error=False,
+                headers=headers, body=json.dumps(body), callback=cloud_service_resp)
+            self.write("ok")
+        else:
+            self.write("ok")
+
+class TranslationHandler(RequestHandler):
+    def get(self):
+        self.render("index.html")
+    
+    def get_user_locale(self):
+        #TODO: sacar de un json
+        return tornado.locale.get("en_US")
+
 class Application(tornado.web.Application):
 
     def __init__(self):
         handlers = [
-            (r"/", InitHandler),
+            (r"/", GetRegistrationCodeHandler),
+            (r"/translation", TranslationHandler),
         ]
-        tornado.web.Application.__init__(self, handlers, autoreload=True)
+        tornado.web.Application.__init__(self, handlers, autoreload=True, template_path="../templates/")
 
 if __name__ == "__main__":
     app = Application()
     parse_command_line()
+    tornado.locale.load_translations("../../translations")
     app.listen(9001)
     try:
         logging.info('Starting app')

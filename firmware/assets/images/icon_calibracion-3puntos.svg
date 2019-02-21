@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 84.344 84.345" enable-background="new 0 0 84.344 84.345" xml:space="preserve">
+<g id="XMLID_6_">
+	<g>
+		<path d="M57.019,42.176h7.25c0,12.21-9.89,22.1-22.1,22.1v-7.24C50.369,57.036,57.019,50.386,57.019,42.176z"/>
+		<path d="M57.019,42.176h-14.85v-14.85C50.369,27.326,57.019,33.976,57.019,42.176z"/>
+		<path d="M42.169,42.176v14.86c-8.2,0-14.85-6.65-14.85-14.86H42.169z"/>
+		<path d="M42.169,20.076v7.25c-8.2,0-14.85,6.65-14.85,14.85h-7.25C20.069,29.976,29.959,20.076,42.169,20.076z"/>
+	</g>
+	<g>
+		
+			<circle fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="42.169" cy="42.176" r="22.1"/>
+		<path fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M57.019,42.176c0-8.2-6.65-14.85-14.85-14.85s-14.85,6.65-14.85,14.85c0,8.21,6.65,14.86,14.85,14.86S57.019,50.386,57.019,42.176
+			z"/>
+		
+			<polyline fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			42.169,74.726 42.169,64.276 42.169,57.036 42.169,42.176 42.169,27.326 42.169,20.076 42.169,9.626 		"/>
+		
+			<polyline fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			9.619,42.176 20.069,42.176 27.319,42.176 42.169,42.176 57.019,42.176 64.269,42.176 74.719,42.176 		"/>
+	</g>
+</g>
+</svg>

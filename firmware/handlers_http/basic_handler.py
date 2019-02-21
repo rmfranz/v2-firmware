@@ -1,6 +1,7 @@
 from tornado.web import RequestHandler
 from printcore_modified import gcoder
 import pickle
+import tornado
 
 class BasicHandler(RequestHandler):
 
@@ -8,3 +9,7 @@ class BasicHandler(RequestHandler):
     
     def prepare(self):
         self.firmware = self.application.firmware
+
+    def get_user_locale(self):
+        #TODO: sacar de un json
+        return tornado.locale.get("en_US")
