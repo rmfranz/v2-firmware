@@ -3,6 +3,7 @@ import json
 from tornado.ioloop import PeriodicCallback
 import tornado
 from websocket import create_connection
+import os
 
 class PeriodicController:
 
@@ -117,6 +118,7 @@ class PeriodicController:
         self.create_connection_and_send("unpause")
 
     def on_cancel(self, resp_dict):
+        os.remove("/home/pi/cloud/cloud.gcode")
         self.state = "ready"
         self.create_connection_and_send("cancel")
 
@@ -124,7 +126,7 @@ class PeriodicController:
         with open("/home/pi/cloud/cloud.gcode", "ab+") as f:
             f.write(chunk)
 
-    def on_download_done(self):
+    def on_download_done(self, response):
         self.state = "printing"
         self.create_connection_and_send("download_done")
 
