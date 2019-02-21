@@ -153,10 +153,10 @@ class PeriodicController:
         temp = msg[msg.index(":") + 1 : msg.index("/")].strip()
         nozzle_type = msg[msg.index("T") + 1 : msg.index(":")].strip()
         target = msg[msg.index("/") + 1 : msg.index("@")].strip()
-        if nozzle_type == 0:
+        if nozzle_type == '0':
             self.t0 = temp
             self.t0_target = target
-        elif nozzle_type == 1:
+        elif nozzle_type == '1':
             self.t1 = temp
             self.t1_target = target
 
