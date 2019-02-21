@@ -1,20 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
 <main class="k-main">
     <section class="k-grid k-grid--1x2asim">
-        <div class="k-grid-item">
-        <a id="print" href="/local-files-selection">
-            <img class="k-grid-item__img" src="/static/images/icon_imprimir.svg"/>
-            <p  class="k-grid-item__p .k-grid-item__p--big">{{ _("home_print") }}</p>
+        <a class="k-grid-item" href="/local-files-selection">
+        <img class="k-grid-item__img" src="/static/images/icon_imprimir.svg" />
+        <p class="k-grid-item__p k-grid-item__p--big">{{ _("home_print") }}</p>
         </a>
-        </div>
-        <div class="k-grid-item">
-        <a id="setup" href="/setup">
-            <img class="k-grid-item__img" src="/static/images/icon_configuracion.svg"/>
-            <p  class="k-grid-item__p .k-grid-item__p--big">{{ _("home_settings") }}</p>
+        <a class="k-grid-item" href="/setup">
+        <img class="k-grid-item__img" src="/static/images/icon_configuracion.svg" />
+        <p class="k-grid-item__p k-grid-item__p--big">{{ _("home_settings") }}</p>
         </a>
-        </div>
     </section>
 </main>
 
