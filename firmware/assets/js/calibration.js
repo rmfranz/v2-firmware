@@ -99,7 +99,7 @@ $("#inspect_grid_points").on("click", function() {
     $.ajax({url: "/show-grid", success: function(result){
         console.info(result)
     }});
-    $('#grid_modal').modal('show');
+    $('#grid_modal').toggleClass( "k-modal-overlay--visible" );
 });
 
 $("#reset_grid").on("click", function() {

@@ -1,66 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 128.9 128.9" style="enable-background:new 0 0 128.9 128.9;" xml:space="preserve">
+	 width="128.9px" height="128.9px" viewBox="0 0 128.9 128.9" style="enable-background:new 0 0 128.9 128.9;" xml:space="preserve"
+	>
 <style type="text/css">
-	.st0{fill:none;stroke:#E2231A;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-	.st1{fill:none;stroke:#020202;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st0{fill:none;}
+	.st1{fill:none;stroke:#E2231A;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#020202;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 </style>
+<rect x="0.6" y="0.6" class="st0" width="127.8" height="127.8"/>
 <g id="Group_398" transform="translate(-17316 -1515)">
 	<g id="Group_374" transform="rotate(180 8758.612 1078.75)">
-		<path id="Path_502" class="st0" d="M158.2,559.7l15.3-14.2l15.6,14.4"/>
-		<path id="Line_416" class="st0" d="M173.6,550v60.6"/>
+		<path id="Path_502" class="st1" d="M158.2,559.7l15.3-14.2l15.6,14.4"/>
+		<path id="Line_416" class="st1" d="M173.6,550v60.6"/>
 	</g>
 	<g id="Group_375" transform="translate(17433.559 1893.714)">
-		<path id="Line_353_3_" class="st1" d="M-62.7-283.2v-31.7"/>
+		<path id="Line_353_3_" class="st2" d="M-62.7-283.2v-31.7"/>
 		<g id="Group_303_3_">
-			<ellipse id="Ellipse_173_6_" class="st1" cx="-31.7" cy="-314.7" rx="31" ry="31"/>
-			<ellipse id="Ellipse_176_6_" class="st1" cx="-31.7" cy="-314.7" rx="8.9" ry="8.9"/>
+			<ellipse id="Ellipse_173_6_" class="st2" cx="-31.7" cy="-314.7" rx="31" ry="31"/>
+			<ellipse id="Ellipse_176_6_" class="st2" cx="-31.7" cy="-314.7" rx="8.9" ry="8.9"/>
 			<g id="Group_264_6_" transform="translate(13.767 4.563)">
-				<path id="Path_323_6_" class="st1" d="M-53.2-334.3c0.5,0.9,1.7,1.3,2.7,1c3.3-1.3,7-1.3,10.4,0c1,0.4,2.1,0,2.7-1l2.4-4.3
+				<path id="Path_323_6_" class="st2" d="M-53.2-334.3c0.5,0.9,1.7,1.3,2.7,1c3.3-1.3,7-1.3,10.4,0c1,0.4,2.1,0,2.7-1l2.4-4.3
 					c0.6-1,0.2-2.3-0.8-2.9c-0.1,0-0.2-0.1-0.3-0.1c-5.9-2.4-12.5-2.4-18.4,0c-1.1,0.5-1.6,1.8-1.1,2.9c0,0,0,0,0,0.1L-53.2-334.3z"
 					/>
 			</g>
 			<g id="Group_265_6_" transform="translate(13.665 30.138)">
-				<path id="Path_324_6_" class="st1" d="M-37.5-329.7c-0.5-0.9-1.7-1.3-2.7-1c-3.3,1.3-7,1.3-10.4,0c-1-0.4-2.1,0-2.7,1l-2.4,4.3
+				<path id="Path_324_6_" class="st2" d="M-37.5-329.7c-0.5-0.9-1.7-1.3-2.7-1c-3.3,1.3-7,1.3-10.4,0c-1-0.4-2.1,0-2.7,1l-2.4,4.3
 					c-0.6,1-0.2,2.3,0.8,2.8c0.1,0,0.2,0.1,0.3,0.1c5.9,2.4,12.5,2.4,18.4,0c1.1-0.5,1.6-1.8,1.1-2.9c0,0,0,0,0-0.1L-37.5-329.7z"/>
 			</g>
 			<g id="Group_266_6_" transform="translate(4.563 13.665)">
-				<path id="Path_325_6_" class="st1" d="M-51.3-320.5c0.9-0.5,1.3-1.7,1-2.6c-1.3-3.3-1.3-7,0-10.4c0.4-1,0-2.1-1-2.6l-4.3-2.4
+				<path id="Path_325_6_" class="st2" d="M-51.3-320.5c0.9-0.5,1.3-1.7,1-2.6c-1.3-3.3-1.3-7,0-10.4c0.4-1,0-2.1-1-2.6l-4.3-2.4
 					c-1-0.6-2.3-0.2-2.8,0.8c0,0.1-0.1,0.2-0.1,0.3c-2.4,5.9-2.4,12.5,0,18.4c0.5,1.1,1.8,1.6,2.9,1.1c0,0,0,0,0.1,0L-51.3-320.5z"
 					/>
 			</g>
 			<g id="Group_267_6_" transform="translate(30.138 13.767)">
-				<path id="Path_326_6_" class="st1" d="M-46.7-336.2c-0.9,0.5-1.3,1.7-1,2.7c1.3,3.3,1.3,7,0,10.4c-0.4,1,0,2.1,1,2.7l4.3,2.4
+				<path id="Path_326_6_" class="st2" d="M-46.7-336.2c-0.9,0.5-1.3,1.7-1,2.7c1.3,3.3,1.3,7,0,10.4c-0.4,1,0,2.1,1,2.7l4.3,2.4
 					c1,0.6,2.3,0.2,2.8-0.8c0-0.1,0.1-0.2,0.1-0.3c2.4-5.9,2.4-12.5,0-18.4c-0.5-1.1-1.8-1.6-2.9-1.1c0,0,0,0-0.1,0L-46.7-336.2z"/>
 			</g>
 		</g>
 	</g>
 	<g id="Group_378" transform="rotate(180 8758.612 1078.75)">
-		<path id="Path_502-2" class="st0" d="M158.2,559.7l15.3-14.2l15.6,14.4"/>
-		<path id="Line_416-2" class="st0" d="M173.6,550v60.6"/>
+		<path id="Path_502-2" class="st1" d="M158.2,559.7l15.3-14.2l15.6,14.4"/>
+		<path id="Line_416-2" class="st1" d="M173.6,550v60.6"/>
 	</g>
 	<g id="Group_379" transform="translate(17433.559 1893.714)">
-		<path id="Line_353-2" class="st0" d="M-62.7-283.2v-31.7"/>
+		<path id="Line_353-2" class="st1" d="M-62.7-283.2v-31.7"/>
 		<g id="Group_303-2">
-			<ellipse id="Ellipse_173-2" class="st1" cx="-31.7" cy="-314.7" rx="31" ry="31"/>
-			<ellipse id="Ellipse_176-2" class="st1" cx="-31.7" cy="-314.7" rx="8.9" ry="8.9"/>
+			<ellipse id="Ellipse_173-2" class="st2" cx="-31.7" cy="-314.7" rx="31" ry="31"/>
+			<ellipse id="Ellipse_176-2" class="st2" cx="-31.7" cy="-314.7" rx="8.9" ry="8.9"/>
 			<g id="Group_264-2" transform="translate(13.767 4.563)">
-				<path id="Path_323-2" class="st1" d="M-53.2-334.3c0.5,0.9,1.7,1.3,2.7,1c3.3-1.3,7-1.3,10.4,0c1,0.4,2.1,0,2.7-1l2.4-4.3
+				<path id="Path_323-2" class="st2" d="M-53.2-334.3c0.5,0.9,1.7,1.3,2.7,1c3.3-1.3,7-1.3,10.4,0c1,0.4,2.1,0,2.7-1l2.4-4.3
 					c0.6-1,0.2-2.3-0.8-2.9c-0.1,0-0.2-0.1-0.3-0.1c-5.9-2.4-12.5-2.4-18.4,0c-1.1,0.5-1.6,1.8-1.1,2.9c0,0,0,0,0,0.1L-53.2-334.3z"
 					/>
 			</g>
 			<g id="Group_265-2" transform="translate(13.665 30.138)">
-				<path id="Path_324-2" class="st1" d="M-37.5-329.7c-0.5-0.9-1.7-1.3-2.7-1c-3.3,1.3-7,1.3-10.4,0c-1-0.4-2.1,0-2.7,1l-2.4,4.3
+				<path id="Path_324-2" class="st2" d="M-37.5-329.7c-0.5-0.9-1.7-1.3-2.7-1c-3.3,1.3-7,1.3-10.4,0c-1-0.4-2.1,0-2.7,1l-2.4,4.3
 					c-0.6,1-0.2,2.3,0.8,2.8c0.1,0,0.2,0.1,0.3,0.1c5.9,2.4,12.5,2.4,18.4,0c1.1-0.5,1.6-1.8,1.1-2.9c0,0,0,0,0-0.1L-37.5-329.7z"/>
 			</g>
 			<g id="Group_266-2" transform="translate(4.563 13.665)">
-				<path id="Path_325-2" class="st1" d="M-51.3-320.5c0.9-0.5,1.3-1.7,1-2.6c-1.3-3.3-1.3-7,0-10.4c0.4-1,0-2.1-1-2.6l-4.3-2.4
+				<path id="Path_325-2" class="st2" d="M-51.3-320.5c0.9-0.5,1.3-1.7,1-2.6c-1.3-3.3-1.3-7,0-10.4c0.4-1,0-2.1-1-2.6l-4.3-2.4
 					c-1-0.6-2.3-0.2-2.8,0.8c0,0.1-0.1,0.2-0.1,0.3c-2.4,5.9-2.4,12.5,0,18.4c0.5,1.1,1.8,1.6,2.9,1.1c0,0,0,0,0.1,0L-51.3-320.5z"
 					/>
 			</g>
 			<g id="Group_267-2" transform="translate(30.138 13.767)">
-				<path id="Path_326-2" class="st1" d="M-46.7-336.2c-0.9,0.5-1.3,1.7-1,2.7c1.3,3.3,1.3,7,0,10.4c-0.4,1,0,2.1,1,2.7l4.3,2.4
+				<path id="Path_326-2" class="st2" d="M-46.7-336.2c-0.9,0.5-1.3,1.7-1,2.7c1.3,3.3,1.3,7,0,10.4c-0.4,1,0,2.1,1,2.7l4.3,2.4
 					c1,0.6,2.3,0.2,2.8-0.8c0-0.1,0.1-0.2,0.1-0.3c2.4-5.9,2.4-12.5,0-18.4c-0.5-1.1-1.8-1.6-2.9-1.1c0,0,0,0-0.1,0L-46.7-336.2z"/>
 			</g>
 		</g>
