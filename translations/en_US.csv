@@ -57,6 +57,8 @@ config_extras , Extras
 back , Back
 config_calibration , Calibration
 config_cloud , Cloud
+config_connectivity, Connectivity
+config_advanced, Advanced
 
 filaments_menu_title , Filaments
 filaments_menu_load , Load filament

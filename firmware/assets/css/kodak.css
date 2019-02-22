@@ -18,6 +18,11 @@
   box-sizing: border-box;
 }
 
+a {
+  color: black;
+  text-decoration: none; /* no underline */
+}
+
 body{ /*sets body as a flex container*/
   width: 100vw;
   height: 100vh; 
