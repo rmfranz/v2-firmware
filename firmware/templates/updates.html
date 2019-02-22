@@ -1,32 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-    <ul class="first_attemp">
-        <li>
-            <a id="update" href="#">
-                <img src="static/images/icons/update-sub-icon.svg" alt="">
-                <h3>Make Update</h3>
-            </a>
-        </li>
-    </ul>
+<main class="k-main">
+    <section class="k-dialog k-dialog--center">
+        <h2 class="k-dialog__h2">{{_("info_update")}}</h2>
+        <p>{{_("info_swversion")}} <strong>?</strong></p>
+        <p><strong>? {{_("info_updateavailable")}}</strong></p>
+        <button id="update" class="k-dialog__button">{{_("extras_update")}}</button>
+    </section>
 </main>
 
-<footer>
-    <a id="back" class="button" href="/basic"></a>
-    <div class="slogan"></div>
+<footer class="k-footer">
+    <a href="/advanced" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" />
+        </button>
+    </a>
 </footer>
+
 <!-- Modal -->
-<div id ="updateModal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
+<div id="updateModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
             <div class="modal-header" style="background-color:#FFB700;color:black"> </div>
             <div class="modal-body">
-                Espere mientras se actualiza el software
-            </div>
+                {{_("waitForReboot")}}
             </div>
         </div>
     </div>
-    <!-- End Modal -->
+</div>
+<!-- End Modal -->
 </body>
 <script src="/static/js/updates.js"></script>
 {% end %}
