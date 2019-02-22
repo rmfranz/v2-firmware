@@ -94,6 +94,9 @@ filaments_retracting_info , Make sure that filament is retracting.
 filaments_released , Please remove the spool
 filaments_released_info , Filament should be released by now.
 filaments_retracting_extruder , Retracting filament
+filament_auto_load_message, Este proceso es automático. Espere a que se complete y vuelva a la pantalla anterior
+filament_auto_load, Load Material
+filament_auto_unload, Unload Material
 
 network_title , Networking
 network_password , Password

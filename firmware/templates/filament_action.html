@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-    <h1>{{ action }} Filaments</h1>
-    <p>Este procedimiento es automatico, espere y vuelva a la pantalla anterior</p>
-    <h3 id="printing_action"></h3>
-</main>
+<main class="k-main">
+        <div class="k-modal-2">
+          <p class="k-modal__p k-modal__p--big">{{_(action)}}</p>
+          <p class="k-modal__warning">{{material}}</p>
+          <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">{{_("filament_auto_load_message")}}</p>
+        </div>
+      </main>
+
 <footer class="k-footer">
     <a href="/setup" class="k-footer-left">
         <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" />

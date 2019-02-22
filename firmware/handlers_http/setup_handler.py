@@ -24,11 +24,14 @@ class LoadUnloadFilamentsHandler(BasicHandler):
     def get(self, filament_type):
         extruder = self.request.path.split("/")[1]
         action = self.request.path.split("/")[2]
+        material = "PLAT"
         if action == "load":
             self.firmware.load_filament(extruder)
+            action = "filament_auto_load"
         elif action == "unload":
             self.firmware.unload_filament(extruder)
-        self.render("filament_action.html", action=action)
+            action = "filament_auto_unload"
+        self.render("filament_action.html", action=action, material=material)
 
 class ToFilamentsHandler(BasicHandler):
     def get(self):
