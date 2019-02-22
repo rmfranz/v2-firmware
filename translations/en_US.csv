@@ -133,6 +133,11 @@ instructions_modal_title_Cal25step2 , Raise the build plate using the arrow butt
 instructions_modal_text_Cal25_continue , Continue
 calibration_buildplate_step1 , Step 1
 calibration_buildplate_step2 , Step 2
+calibration_xy, XY Offset
+calibration_wait, Espere mientras se realiza la calibración
+calibration_make, Calibrate
+calibration_reset, Reset
+calibration_inspect, Inspect
 
 calibration_wizard_title , Calibration wizard
 waiting_for_initial_movements , Wait for initial movements to finish.

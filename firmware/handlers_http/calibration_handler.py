@@ -5,7 +5,7 @@ import json
 class BuildPlateCalibrationHandler(BasicHandler):
     
     def get(self):
-        #Aca hay que poner la qué calibración va
+        #TODO: Aca hay que poner la qué calibración va
         self.render("25_calibration.html")
 
 class CalibrationHandler(BasicHandler):

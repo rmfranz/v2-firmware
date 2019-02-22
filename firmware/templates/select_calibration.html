@@ -1,31 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-    <h1>Calibration</h1>
-    <ul class="first_attemp">
-        <li>
-            <a href="/build-plate-calibration">
-                <img src="/static/images/icons/buildplate-icon-big.svg" alt="">
-                <h3>Build Plate</h3>
-            </a>
-        </li>
-        <li>
-            <a href="/z-offset-calibration">
-                <img src="/static/images/icons/z-offset-icon-big.svg" alt="">
-                <h3>Z Offset</h3>
-            </a>
-        </li>        
-        <li>
-            <a href="/xy-offset-calibration">
-                <img src="/static/images/icons/nozzle-icon-big.svg" alt="">
-                <h3>Nozzle Offset</h3>
-            </a>
-        </li> 
-    </ul>
+<main class="k-main">
+    <section class="k-grid k-grid--1x3 k-grid--1x3-titled k-grid--1x3-titled-3">
+        <a href="/build-plate-calibration" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_calibracion-cama.svg"/> <p
+                class="k-grid-item__p">{{_("calibration_z_probe")}}</p>
+        </a>
+        <a href="/z-offset-calibration" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_control-extrusor.svg"/> <p
+                class="k-grid-item__p">{{_("calibration_z_offset")}}</p>
+        </a>
+        <a href="/xy-offset-calibration" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_calibracion-z.svg"/> <p
+                class="k-grid-item__p">{{_("calibration_xy")}}</p>
+        </a>
+    </section>
 </main>
 
-<footer>
-    <a id="back" class="button" href="/setup"></a>
-    <div class="slogan"></div>
+<footer class="k-footer">
+    <a href="/setup" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" />
+        </button>
+    </a>
 </footer>
+</body>
 {% end %}

@@ -1,41 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-    <h1>Grid Calibration</h1>
-    <div class="grid">
-        <div class="btn first-two-cols full-height">
-            <a id="25_points_calibration" href="#">
-                <img src="static/images/icons/buildplate-icon-big.svg" alt="">
-                <h1>Calibrate</h1>
-            </a>
-        </div>
-        <div class="btn top-row right">
-            <a href="#" id="reset_grid">
-                <h3>Reset</h3>
-            </a>
-        </div>
-        <div class="btn bottom-row right">
-            <a href="#" id="inspect_grid_points">
-                <h3>Inspect</h3>
-            </a>
-        </div>
+<main class="k-main">
+    <section class="k-grid k-grid--1x3 k-grid--1x3-titled k-grid--1x3-titled-3">
+        <h3 class="k-grid--1x3-titled-full">Build plate calibration</h3>
+        <a id="25_points_calibration" href="#" class="k-grid-item">
+            <img class="k-grid-item__img" src="static/images/icon_calibracion-cama.svg" />
+            <p class="k-grid-item__p">{{_("calibration_make")}}</p>
+        </a>
+        <a href="#" id="reset_grid" class="k-grid-item">
+            <img class="k-grid-item__img" src="static/images/icon_calibracion-reset.svg" />
+            <p class="k-grid-item__p">{{_("calibration_reset")}}</p>
+        </a>
+        <a href="#" id="inspect_grid_points" class="k-grid-item">
+            <img class="k-grid-item__img" src="static/images/icon_calibracion-inspeccionar.svg" />
+            <p class="k-grid-item__p">{{_("calibration_inspect")}}</p>
+        </a>
+    </section>
+    <div class="k-help-btn">
+        <img src="static/images/icon_ayuda.svg" />
     </div>
 </main>
 
-<footer>
-    <a id="back" class="button" href="/back-calibration-selection"></a>
-    <div class="slogan"></div>
-    <a id="forward" class="button" href="/save-25-calibration">Save</a>
+<footer class="k-footer">
+    <a href="/back-calibration-selection" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="img/icon_flecha-back.svg" /> </button>
+    </a>
+    <a href="/save-25-calibration" class="k-footer-right">
+        <button class="k-footer__btn k-footer__btn--yellow k-footer__btn--wide">{{_("calibration_save")}} </button>
+    </a>
 </footer>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-        <div class="modal-header" style="background-color:#FFB700;color:black"> </div>
-        <div class="modal-body">
-            Espere mientras se realiza la calibración
-        </div>
+            <div class="modal-header" style="background-color:#FFB700;color:black"> </div>
+            <div class="modal-body">
+                {{_("calibration_wait")}}
+            </div>
         </div>
     </div>
 </div>
@@ -44,10 +46,10 @@
 <div class="modal fade" id="grid_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-        <div class="modal-header" style="background-color:#FFB700;color:black"> </div>
-        <div class="modal-body">
-            <div id="grid_inspect"></div>
-        </div>
+            <div class="modal-header" style="background-color:#FFB700;color:black"> </div>
+            <div class="modal-body">
+                <div id="grid_inspect"></div>
+            </div>
         </div>
     </div>
 </div>
