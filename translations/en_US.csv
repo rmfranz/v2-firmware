@@ -60,6 +60,7 @@ config_cloud , Cloud
 config_connectivity, Connectivity
 config_advanced, Advanced
 config_nozzle_size, Nozzle Size
+config_motors, Turn off motors
 
 filaments_menu_title , Filaments
 filaments_menu_load , Load filament

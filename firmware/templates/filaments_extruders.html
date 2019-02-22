@@ -1,27 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-    <h1>Load Filaments</h1>
-    <ul class="first_attemp">
-        <li>
-            <a href="/ext_2/{{action}}">
-                <img src="static/images/icons/extruder-2-offset-icon-big.svg" alt="">
-                <h3>Extruder II</h3>
-            </a>
-        </li>
-        <li>
-            <a href="/ext_1/{{action}}">
-                <img src="static/images/icons/extruder-1-offset-icon-big.svg" alt="">
-                <h3>Extruder I</h3>
-            </a>
-        </li>
-    </ul>
+<main class="k-main">
+    <section class="k-grid k-grid--1x2">
+        <a href="/ext_1/{{action}}" class="k-grid-item">
+            <img class="k-grid-item__img" src="static/images/icon_nozzle1.svg" />
+            <p class="k-grid-item__p .k-grid-item__p--big">{{_("extruder")}} 1</p>
+        </a>
+        <a href="/ext_2/{{action}}" class="k-grid-item">
+            <img class="k-grid-item__img" src="static/images/icon_nozzle2.svg" />
+            <p class="k-grid-item__p .k-grid-item__p--big">{{_("extruder")}} 2</p>
+        </a>
+    </section>
 </main>
 
-<footer>
-    <a id="back" class="button" href="/filaments-selection"></a>
-    <div class="slogan"></div>
+<footer class="k-footer">
+    <a href="/filaments-selection" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" />
+        </button>
+    </a>
 </footer>
-
 </body>
 {% end %}

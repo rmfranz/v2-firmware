@@ -1,26 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-    <h1>Filaments</h1>
-    <ul class="first_attemp">
-        <li>
-            <a href="/load">
-                <img src="static/images/icons/load-filament-big.svg" alt="">
-                <h3>Load Filaments</h3>
-            </a>
-        </li>
-        <li>
-            <a href="/unload">
-                <img src="static/images/icons/unload-filament-big.svg" alt="">
-                <h3>Unload Filaments</h3>
-            </a>
-        </li>
-    </ul>
+<main class="k-main">
+    <section class="k-grid k-grid--1x2">
+        <a href="/load" class="k-grid-item">
+            <img class="k-grid-item__img" src="static/images/icon_filamento-carga.svg" />
+            <p class="k-grid-item__p .k-grid-item__p--big">{{_("filaments_menu_load")}}</p>
+        </a>
+        <a href="/unload" class="k-grid-item">
+            <img class="k-grid-item__img" src="static/images/icon_filamento-descarga.svg" />
+            <p class="k-grid-item__p .k-grid-item__p--big">{{_("filaments_menu_unload")}}</p>
+        </a>
+    </section>
 </main>
 
-<footer>
-    <a id="back" class="button" href="/setup"></a>
-    <div class="slogan"></div>
+<footer class="k-footer">
+    <a href="/setup" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" />
+        </button>
+    </a>
 </footer>
 </body>
 {% end %}
