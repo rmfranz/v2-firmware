@@ -1,25 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-    <h1>Advanced</h1>
-    <ul class="first_attemp">
-        <li>
-            <a href="/manual-controls">
-                <img src="static/images/icons/manual-controls-sub-menu.svg" alt="">
-                <h3>Manual Controls</h3>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <img src="static/images/icons/tools-sub-icon.svg" alt="">
-                <h3>Nozzles Size</h3>
-            </a>
-        </li>        
-    </ul>
-    </main>
-    <footer>
-        <a id="back" class="button" href="/setup"></a>
-        <div class="slogan"></div>
-    </footer>
+<main class="k-main">
+    <section class="k-grid k-grid--2x3asim">
+        <a href="/manual-controls" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_control-manual.svg"/> <p class="k-grid-item__p">Manual
+            controls</p>
+        </a>
+        <a href="#" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_tamano-nozzle.svg"/> <p class="k-grid-item__p">Nozzle
+            size</p>
+        </a>
+        <a href="#" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_apagar-motores.svg"/> <p class="k-grid-item__p ">Turn
+            off motors</p>
+        </a>
+        <a href="#" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_info.svg"/> <p class="k-grid-item__p">Info</p>
+        </a>
+        <a href="/software-update" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_actualizar.svg"/> <p class="k-grid-item__p">Update
+            </p>
+        </a>
+    </section>
+</main>
+
+<footer class="k-footer">
+    <a href="/setup" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" />
+        </button>
+    </a>
+</footer>
 </body>
 {% end %}
