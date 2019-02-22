@@ -1,34 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="128.943px" height="128.942px" viewBox="0 0 128.943 128.942" enable-background="new 0 0 128.943 128.942"
-	 xml:space="preserve">
+	 viewBox="0 0 128.9 128.9" style="enable-background:new 0 0 128.9 128.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#E2231A;stroke-width:4.3592;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#020202;stroke-width:4.3592;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#020202;stroke-width:5.1103;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
 <g>
-	
-		<path id="Path_319_6_" fill="none" stroke="#E2231A" stroke-width="4.3592" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-		M67.864,104.029l-0.404,8.523l-8.117,6.891l-8.105-6.891l-0.402-8.523"/>
+	<path id="Path_319_6_" class="st0" d="M67.9,104l-0.4,8.5l-8.1,6.9l-8.1-6.9l-0.4-8.5"/>
 	<g id="Group_255_13_" transform="translate(11530 448)">
-		
-			<circle id="Ellipse_171_2_" fill="none" stroke="#020202" stroke-width="4.3592" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="-11411.571" cy="-387.035" r="6.932"/>
-		
-			<path id="Path_318_5_" fill="none" stroke="#020202" stroke-width="4.3592" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-			M-11470.763-406.598c-7.461-47.787,60.021-52.982,60.021-0.068"/>
+		<circle id="Ellipse_171_2_" class="st1" cx="-11411.6" cy="-387" r="6.9"/>
+		<path id="Path_318_5_" class="st1" d="M-11470.8-406.6c-7.5-47.8,60-53,60-0.1"/>
 	</g>
 	<g id="Group_254_6_" transform="translate(5.765 25.517)">
 		<g id="Group_331_8_">
-			
-				<path id="Line_365_7_" fill="none" stroke="#020202" stroke-width="5.1103" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-				M60.267,58.093v-24.31"/>
-			
-				<path id="Line_366_6_" fill="none" stroke="#020202" stroke-width="5.1103" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-				M45.525,58.093v-24.31"/>
+			<path id="Line_365_7_" class="st2" d="M60.3,58.1V33.8"/>
+			<path id="Line_366_6_" class="st2" d="M45.5,58.1V33.8"/>
 		</g>
 	</g>
-	
-		<path id="Rectangle_261_6_" fill="none" stroke="#020202" stroke-width="5.1103" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-		M40.688,41.602h35.398c7.242,0,13.113,5.871,13.113,13.113v35.398c0,7.24-5.871,13.113-13.113,13.113H40.688
-		c-7.24,0-13.113-5.873-13.113-13.113V54.715C27.575,47.473,33.448,41.602,40.688,41.602z"/>
+	<path id="Rectangle_261_6_" class="st2" d="M40.7,41.6h35.4c7.2,0,13.1,5.9,13.1,13.1v35.4c0,7.2-5.9,13.1-13.1,13.1H40.7
+		c-7.2,0-13.1-5.9-13.1-13.1V54.7C27.6,47.5,33.4,41.6,40.7,41.6z"/>
 </g>
-<rect x="0.581" y="0.581" fill="none" stroke="#E5007E" stroke-width="1.1623" stroke-miterlimit="10" width="127.781" height="127.78"/>
 </svg>

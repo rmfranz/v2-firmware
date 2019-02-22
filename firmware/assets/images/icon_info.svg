@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="84.344px" height="84.345px" viewBox="0 0 84.344 84.345" enable-background="new 0 0 84.344 84.345" xml:space="preserve">
+	 viewBox="0 0 84.3 84.3" style="enable-background:new 0 0 84.3 84.3;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#E2231A;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#020202;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
 <g>
 	<g id="Group_328_1_" transform="translate(227.697 -63.776)">
-		
-			<ellipse id="Ellipse_196_1_" fill="none" stroke="#E2231A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="-185.525" cy="90.765" rx="4.588" ry="4.588"/>
-		
-			<path id="Path_492_1_" fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-			M-189.68,101.158h10.642v5.969h-2.337v12.455h2.47v5.969h-13.238v-5.969h2.464V101.158L-189.68,101.158z"/>
+		<ellipse id="Ellipse_196_1_" class="st0" cx="-185.5" cy="90.8" rx="4.6" ry="4.6"/>
+		<path id="Path_492_1_" class="st1" d="M-189.7,101.2h10.6v6h-2.3v12.5h2.5v6h-13.2v-6h2.5L-189.7,101.2L-189.7,101.2z"/>
 	</g>
-	
-		<circle fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="42.172" cy="42.088" r="27.955"/>
+	<circle class="st1" cx="42.2" cy="42.1" r="28"/>
 </g>
-<rect x="0.38" y="0.38" fill="none" stroke="#E5007E" stroke-width="0.7603" stroke-miterlimit="10" width="83.584" height="83.585"/>
 </svg>

@@ -1,62 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="128.941px" height="128.942px" viewBox="0 0 128.941 128.942" enable-background="new 0 0 128.941 128.942"
-	 xml:space="preserve">
+	 viewBox="0 0 128.9 128.9" style="enable-background:new 0 0 128.9 128.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#020202;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#E2231A;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
 <g>
 	<g id="Group_411_2_" transform="translate(-4077.454 -1554.734)">
 		<g id="Group_261_10_" transform="translate(14837.5 2197.511)">
 			<g id="Group_255_14_">
 				<g id="Group_254_11_" transform="translate(5.765 25.517)">
 					<g id="Group_331_11_">
-						
-							<path id="Line_294_6_" fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-							M-10734.667-587.931v-17.793"/>
-						
-							<path id="Line_366_8_" fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-							M-10726.153-587.931v-17.793"/>
+						<path id="Line_294_6_" class="st0" d="M-10734.7-587.9v-17.8"/>
+						<path id="Line_366_8_" class="st0" d="M-10726.2-587.9v-17.8"/>
 					</g>
 				</g>
-				
-					<path id="Rectangle_261_11_" fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-					M-10736.523-593.16h22.707c6.184,0,11.197,5.014,11.197,11.197v22.707c0,6.184-5.014,11.197-11.197,11.197h-22.707
-					c-6.184,0-11.197-5.014-11.197-11.197v-22.707C-10747.721-588.146-10742.707-593.16-10736.523-593.16z"/>
-				
-					<path id="Path_319_11_" fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-					M-10718.236-547.471l-0.295,6.238l-5.941,5.043l-5.932-5.043l-0.293-6.238"/>
+				<path id="Rectangle_261_11_" class="st0" d="M-10736.5-593.2h22.7c6.2,0,11.2,5,11.2,11.2v22.7c0,6.2-5,11.2-11.2,11.2h-22.7
+					c-6.2,0-11.2-5-11.2-11.2V-582C-10747.7-588.1-10742.7-593.2-10736.5-593.2z"/>
+				<path id="Path_319_11_" class="st0" d="M-10718.2-547.5l-0.3,6.2l-5.9,5l-5.9-5l-0.3-6.2"/>
 			</g>
 		</g>
 	</g>
-	
-		<path id="Path_504_1_" fill="none" stroke="#E2231A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-		M18.001,116.488h95.064"/>
+	<path id="Path_504_1_" class="st1" d="M18,116.5h95.1"/>
 	<g id="Group_412_1_" transform="translate(-4040.454 -1560.734)">
 		<g id="Group_261-2_1_" transform="translate(14837.5 2197.511)">
 			<g id="Group_255-2_1_">
 				<g id="Group_254-2_1_" transform="translate(5.765 25.517)">
 					<g id="Group_331-2_1_">
-						
-							<path id="Line_366-2_1_" fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-							M-10708.765-581.931v-17.792"/>
+						<path id="Line_366-2_1_" class="st0" d="M-10708.8-581.9v-17.8"/>
 					</g>
 				</g>
-				
-					<path id="Rectangle_261-2_1_" fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-					M-10714.336-587.16h22.707c6.184,0,11.197,5.014,11.197,11.197v22.707c0,6.185-5.014,11.197-11.197,11.197h-22.707
-					c-6.186,0-11.197-5.013-11.197-11.197v-22.707C-10725.533-582.146-10720.521-587.16-10714.336-587.16z"/>
-				
-					<path id="Path_319-2_1_" fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-					M-10696.049-541.471l-0.295,6.238l-5.941,5.043l-5.932-5.043l-0.293-6.238"/>
-				
-					<path id="Path_505_1_" fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-					M-10702.979-587.16v-9.1c0-5.6,1.246-17.342,8.115-20.316"/>
+				<path id="Rectangle_261-2_1_" class="st0" d="M-10714.3-587.2h22.7c6.2,0,11.2,5,11.2,11.2v22.7c0,6.2-5,11.2-11.2,11.2h-22.7
+					c-6.2,0-11.2-5-11.2-11.2V-576C-10725.5-582.1-10720.5-587.2-10714.3-587.2z"/>
+				<path id="Path_319-2_1_" class="st0" d="M-10696-541.5l-0.3,6.2l-5.9,5l-5.9-5l-0.3-6.2"/>
+				<path id="Path_505_1_" class="st0" d="M-10703-587.2v-9.1c0-5.6,1.2-17.3,8.1-20.3"/>
 			</g>
 		</g>
 	</g>
-	
-		<path id="Path_506_1_" fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-		M34.88,49.617v-9.1c0-5.6,1.246-17.342,8.115-20.316"/>
+	<path id="Path_506_1_" class="st0" d="M34.9,49.6v-9.1c0-5.6,1.2-17.3,8.1-20.3"/>
 </g>
-<rect x="0.581" y="0.581" fill="none" stroke="#E5007E" stroke-width="1.1623" stroke-miterlimit="10" width="127.779" height="127.78"/>
 </svg>

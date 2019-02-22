@@ -1,17 +1,17 @@
 @font-face {
   font-family: 'graphik-l';
-  src: url('fonts/graphik-l.ttf')  format('truetype');
+  src: url('/static/fonts/graphik-l.ttf')  format('truetype');
 }
 
 @font-face {
   font-family: 'graphik-m';
-  src: url('fonts/graphik-m.ttf')  format('truetype');
+  src: url('/static/fonts/graphik-m.ttf')  format('truetype');
 }
 
 
 @font-face {
   font-family: 'graphik-sb';
-  src: url('fonts/graphik-sb.ttf')  format('truetype');
+  src: url('/static/fonts/graphik-sb.ttf')  format('truetype');
 }
 
 *, *::after{
@@ -37,6 +37,7 @@ ul{
 
 a{
   list-style-type: none;
+  text-decoration: none;
   color: black;
 }
 
