@@ -91,7 +91,7 @@ $("#25_points_calibration").on("click", function() {
     $.ajax({url: "/points-25-calibration", success: function(result){
         console.info(result)
     }});
-    $('#myModal').modal('show')
+    $('#calibration_wait').toggleClass( "k-modal-overlay--visible" );
 });
 
 $("#inspect_grid_points").on("click", function() {
@@ -148,16 +148,33 @@ $("#save_xyoffset").on("click", function() {
 
 var ws_z_probe = new WebSocket("ws://" + ip + ":8888/z-probe");
 ws_z_probe.onmessage = function (evt) {
-    $('#myModal').modal('hide');    
+    //$('#myModal').modal('hide');    
+    $("#calibration_wait").toggleClass( "k-modal-overlay--visible" );
 };
 
 var ws_25_points_calibration = new WebSocket("ws://" + ip + ":8888/probe-complete");
 ws_25_points_calibration.onmessage = function (evt) {
-    $('#myModal').modal('hide');
-    $('#grid_modal').modal('show');
+    /*$('#myModal').modal('hide');
+    $('#grid_modal').modal('show');*/
+    $("#calibration_wait").toggleClass( "k-modal-overlay--visible" );
+    $("#grid_modal").toggleClass( "k-modal-overlay--visible" );
 };
 
 var inspect_grid = new WebSocket("ws://" + ip + ":8888/inspect-grid");
 inspect_grid.onmessage = function (evt) {
-    $( "#grid_inspect" ).append( "<p>" + evt.data + "</p>" );    
+    var list = evt.data.split(" ")
+    var append_td = "<tr>"
+    for (var i = 0; i < list.length; i++) {
+        append_td += "<td>" + list[i] + "</td>";
+    }
+    append_td += "</tr>"
+    $( "#grid_inspect" ).append(append_td);    
 };
+
+$("#calibration_wait_close").on("click", function() {
+    $("#calibration_wait").toggleClass( "k-modal-overlay--visible" );
+});
+
+$("#grid_modal_close").on("click", function() {
+    $("#grid_modal").toggleClass( "k-modal-overlay--visible" );
+});

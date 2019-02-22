@@ -30,30 +30,36 @@
     </a>
 </footer>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color:#FFB700;color:black"> </div>
-            <div class="modal-body">
-                {{_("calibration_wait")}}
+<!-- New modals -->
+<section id="calibration_wait" class="k-modal-overlay">
+    <div class="k-modal">
+        <button id="calibration_wait_close" class="k-modal__close">
+            <img src="static/images/icon_cancelar.svg" />
+        </button>
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">{{_("calibration_wait")}}
+                </p>
             </div>
         </div>
     </div>
-</div>
-<!-- End Modal -->
-<!-- Modal -->
-<div class="modal fade" id="grid_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color:#FFB700;color:black"> </div>
-            <div class="modal-body">
-                <div id="grid_inspect"></div>
+</section>
+
+<section id="grid_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <button id="grid_modal_close" class="k-modal__close">
+            <img src="static/images/icon_cancelar.svg" />
+        </button>
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <table id="grid_inspect" class="k-table">
+                </table>
             </div>
         </div>
     </div>
-</div>
-<!-- End Modal -->
+</section>
+
+<!-- End New modals -->
 </body>
 <script src="/static/js/calibration.js"></script>
 {% end %}
