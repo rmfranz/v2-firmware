@@ -58,6 +58,9 @@ $("#t0_btn").on("click", function() {
         url: "/t0-calibration",
         success: function (result) {
             $("#zoffset").text(t0_offset);
+            if(!$( "#t1_btn" ).hasClass("k-grid-item--grey")){
+                $('#t1_btn').toggleClass( "k-grid-item--grey" );
+            }
             $('#change_extruder').toggleClass( "k-modal-overlay--visible" );
         }
     });
@@ -70,6 +73,9 @@ $("#t1_btn").on("click", function() {
         url: "/t1-calibration",
         success: function (result) {
             $("#zoffset").text(t1_offset);
+            if(!$( "#t0_btn" ).hasClass("k-grid-item--grey")){
+                $('#t0_btn').toggleClass( "k-grid-item--grey" );
+            }
             $('#change_extruder').toggleClass( "k-modal-overlay--visible" );
         }
     });
