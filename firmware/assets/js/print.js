@@ -1,12 +1,12 @@
 $('.file_selected').click(function () {
-    $("#waitModal").toggleClass("k-modal-overlay--visible");
     $.post("/print", { file_path: $(this).data('path'), filename: $(this).data('filename') })
-        .done(function (data) {
-            window.location.href = "/confirm-print";
-        });
+    .done(function (data) {
+        window.location.href = "/confirm-print";
+    });
 });
 
 $("#print").click(function () {
+    $("#waitModal").toggleClass("k-modal-overlay--visible");
     window.location.href = "/print";
 });
 
