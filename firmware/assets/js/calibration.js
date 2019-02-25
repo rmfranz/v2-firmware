@@ -1,3 +1,4 @@
+$("#change_extruder").toggleClass( "k-modal-overlay--visible" );
 var ip = "127.0.0.1";
 var t0_activate =  true;
 function get_offsets() {

@@ -184,6 +184,8 @@ confirm_no , No
 confirm_pause , Are you sure you want to pause this print?
 monitor_resume , Resume
 monitor_rate , Rate
+print_load_file_popup_title, Espere mientras se carga el archivo. 
+print_load_file_popup_body, Esto puede tomar un tiempo
 
 nozzle_intro , Select nozzle diameter currently installed.
 nozzle_modal_title , Set nozzle size

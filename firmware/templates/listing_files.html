@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main class="k-main">
+    <section class="k-block">
+        {% for key, value in items.items() %}
+        <div class="k-block-2 file_selected" data-path="{{value}}" data-filename="{{ key }}">
+            <div class="k-block-2__left">
+                <div class="k-block-2__img-container">
+                </div>
+                <p>{{ key }}</p>
+            </div>
+        </div>
+        {% end %}
+    </section>
+</main>
+<p>{{error}}</p>
+<footer class="k-footer">
+    <a href="/print-selection" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
+    <!-- Implementar despues
+    <div class="k-footer-right">
+      <button class="k-footer__btn k-footer__btn--yellow"> 
+        <img src="/static/images/icon_vista-lista.svg"/>
+      </button>  
+      <button class="k-footer__btn k-footer__btn--grey"> 
+        <img src="/static/images/icon_vista-miniatura.svg"/>
+      </button>  
+    </div>
+    -->
+</footer>
+<script>
+    var printing = false;
+</script>
+<script src="/static/js/print.js"></script>
+</body>
+{% end %}

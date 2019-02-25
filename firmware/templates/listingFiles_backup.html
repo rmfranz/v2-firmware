@@ -1,18 +1,21 @@
 {% extends "base.html" %}
-{% block content %} 
+{% block content %}
 <main id="cont">
-<ul id="file_list">
-    {% for key, value in items.items() %}
-    <li data-path="{{value}}" data-filename="{{ key }}">
-        {{ key }}
-    </li>
-    {% end %}
-</ul>
-<p>{{error}}</p>
+    <ul id="file_list">
+        {% for key, value in items.items() %}
+        <li data-path="{{value}}" data-filename="{{ key }}">
+            {{ key }}
+        </li>
+        {% end %}
+    </ul>
+    <p>{{error}}</p>
 </main>
 <footer>
     <a id="back" class="button" href="/local-files-selection"></a>
 </footer>
+<script>
+    var printing = false;
+</script>
 <script src="/static/js/print.js"></script>
 </body>
 {% end %}

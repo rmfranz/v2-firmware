@@ -1,80 +1,70 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-    <div class="monitor-container">
-        <div>
-            <div class="monitor-header">
-                {{filename}}
-            </div>
-            
-            <div class="monitor-progress">
-                <div id="printing_action"></div>
-                <!--<uib-progressbar class="monitor-progress-bar"></uib-progressbar>-->
-                <span style="position: absolute; right: 0; color: white; font-family: Graphik-Semibold; font-size: 28px; line-height: 42px; margin-right: 5px">100%</span>
-            </div>
+<main class="k-main">
+    <section class="k-printing">
+        <div class="k-printing-main">
+            <h2 class="k-printing-main__h2">{{filename}}</h2>
+            <progress class="k-printing-main__progress" max="100" value="43"></progress>
+            <ul class="k-printing-main__ul">
+                <li class="k-printing-main__li">
+                    <img src="img/icon_imprimir-tiempo.svg" />
+                    {{_("monitor_elapsedtime")}}: <label id="hours">00</label>:<label id="minutes">00</label>:<label
+                        id="seconds">00</label> hs
+                </li>
+                <!-- ?
+          <li class="k-printing-main__li">
+            <img src="img/icon_imprimir-tiempo.svg"/>
+            Printing time: 00:00 hs
+          </li>
+          -->
+            </ul>
+        </div>
+        <!-- agregar en caso que sea con preview, el layout se adapta automáticamente
 
-            <div class="progress-numeric">
-                <div class="clock-small-icon"></div>
-                <div id="timer"></div>
-            </div>
+      <div class="k-printing-preview">
+        <div class="k-printing-preview__img">
+          
         </div>
-        <div class="status-preview">
-            <img class="model-preview" src="#" alt="" width="300" height="100%">
-            <div class="monitor-status">Monitor status</div>
-            </div>
-        </div>
-    </div>
+      </div>
+
+      -->
+    </section>
 </main>
-
-<footer>
-    <a id="cancel" class="button" href="#" data-toggle="modal" data-target="#cancelModal">Cancel</a>
-    <div class="slogan"></div>
-    <div id="forward" class="button"><a id="pausa" href="#" >Pause</a></div>
-    <div id="forward" class="button"><a id="resume" href="#" style="display:none;">Resume</a></div>
+<footer class="k-footer">
+    <div class="k-footer-left">
+        <button id="cancel" class="k-footer__btn k-footer__btn--red "> <img src="static/images/icon_flecha-back.svg" />
+        </button>
+    </div>
+    <div class="k-footer-right">
+        <button id="pausa" class="k-footer__btn k-footer__btn--yellow k-footer__btn--wide">
+            <img src="static/images/icon_pausa.svg" />
+            {{_("monitor_pause")}}
+        </button>
+        <button id="resume" class="k-footer__btn k-footer__btn--yellow k-footer__btn--wide" style="display:none;">
+            <img src="static/images/icon_pausa.svg" />
+            {{_("monitor_resume")}}
+        </button>
+    </div>
 </footer>
-<!-- Cancel modal-->
-<div class="modal fade" id="cancelModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header" style="background-color:#FFB700;color:black">
-        </div>
-        <div style="font-size: 25pt;padding-top: 1px;padding-bottom: 2px;" class="modal-body" id="modal-body">
-            ¿Desea cancelar?
-        </div>
-        <div class="modal-footer">
-            <button type="button" data-dismiss="modal" style="background-color:#FFB700; width:70px; height: 50px">No</button>
-            <a href="/cancelar" style="padding: 15px; background-color:#FFB700;">Si</a>
-        </div>
+<section class="k-modal-overlay">
+    <div class="k-modal">
+        <button class="k-modal__close">
+            <img src="static/images/icon_cancelar.svg" />
+        </button>
+        <div class="k-modal-4">
+            <div class="k-modal-4__top">
+                <p class="k-modal__p k-modal__p--big k-modal__p--center">{{_("confirm_cancel")}}</p>
+            </div>
+            <div class="k-modal-4__bottom">
+                <a href="/cancelar" class="k-modal-4__button k-modal-4__button--red">{{_("confirm_yes")}}</a>
+                <button class="k-modal-4__button k-modal-4__button--yellow">{{_("confirm_no")}}</button>
+            </div>
         </div>
     </div>
-</div>
-</body>
+</section>
 <script>
-countDownDate = new Date();
-// Update the count down every 1 second
-var x = setInterval(function() {
-    // Get todays date and time
-    var now = new Date().getTime();
-    // Find the distance between now an the count down date
-    var distance = now - countDownDate.getTime();
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    // Output the result in an element with id="demo"
-    document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-}, 1000);
-
-$('#pausa').click(function(){
-    $.get( "/pausa" );
-    $('#pausa').toggle( false );
-    $('#resume').toggle( true );
-});
-$('#resume').click(function(){
-    $.get( "/resume" );
-    $('#pausa').toggle( true );
-    $('#resume').toggle( false );
-});
+    var printing = true;
 </script>
+<script src="/static/js/print.js"></script>
+</body>
 {% end %}

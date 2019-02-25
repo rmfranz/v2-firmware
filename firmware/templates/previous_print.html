@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="k-main">
+    <section class="k-printing">
+        <div class="k-printing-main">
+            <h2 class="k-printing-main__h2">{{filename}}</h2>
+            <!--
+        <ul class="k-printing-main__ul">
+          <li class="k-printing-main__li"><img src="/static/images/icon_imprimir-tiempo.svg"/>Calculating</li>
+          <li class="k-printing-main__li"><img src="/static/images/icon_imprimir-ext1.svg"/>Preset on file</li>
+          <li class="k-printing-main__li"><img src="/static/images/icon_imprimir-ext2.svg"/>Preset on file</li>
+          <li class="k-printing-main__li"><img src="/static/images/icon_imprimir-cama.svg"/>Preset on file</li>
+        </ul>
+        -->
+        </div>
+        <!-- agregar en caso que sea con preview, el layout se adapta automáticamente
+      <div class="k-printing-preview">
+        <div class="k-printing-preview__img">
+        </div>
+      </div>
+      -->
+    </section>
+</main>
+
+<footer class="k-footer">
+    <a href="/listing-files/1" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
+    <div class="k-footer-right">
+        <button id="print" class="k-footer__btn k-footer__btn--yellow k-footer__btn--wide">
+            <img src="/static/images/icon_comenzar-impresion.svg" />
+            {{_("job_print")}}
+        </button>
+    </div>
+</footer>
+<script>
+    var printing = false;
+</script>
+<script src="/static/js/print.js"></script>
+</body>
+{% end %}

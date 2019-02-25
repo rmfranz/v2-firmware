@@ -4,7 +4,7 @@ import tornado
 
 class PrintSelectionHandler(BasicHandler):
     def get(self):
-        self.render("printSelection.html", working_on="haciendo nada")
+        self.render("print_selection.html")
 
 class LocalFilesSelectionHandler(BasicHandler):
     def get(self):
@@ -13,7 +13,6 @@ class LocalFilesSelectionHandler(BasicHandler):
 class ListingFilesHandler(BasicHandler):
     def get(self, listing_id):
         items = []
-        print("listing id: {}".format(listing_id))
         if listing_id == "1":
             try:
                 result = mount_usb(self.firmware.hardware_json["board_uuid"])
@@ -29,7 +28,7 @@ class ListingFilesHandler(BasicHandler):
                 error = "Hubo un error"
         elif listing_id == "2":
             b = ""
-        self.render("listingFiles.html", items=items, error=error)
+        self.render("listing_files.html", items=items, error=error)
 
 class TemperaturesHandler(BasicHandler):
     def get(self):
@@ -40,7 +39,7 @@ class TemperaturesHandler(BasicHandler):
 class PreviousPrintHandler(BasicHandler):
     def get(self):
         filename = self.firmware.filename
-        self.render("previousPrint.html", filename=filename)
+        self.render("previous_print.html", filename=filename)
 
 class PrintHandler(BasicHandler):
     def get(self):

@@ -1,52 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="/static/css/kodak.css">
-        <link rel="stylesheet" href="/static/css/modal.css">
-        <link rel="stylesheet" href="/static/css/keyboardui.css">
-        <!--<link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">-->
-        <script src="/static/js/jquery-3.2.1.min.js"></script>
-        <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-        <!-- keyboard widget css & script -->
-        <link href="/static/Keyboard-master/css/keyboard.css" rel="stylesheet">
-        <script src="/static/Keyboard-master/js/jquery.keyboard.js"></script>
-        <!-- css for the preview keyset extension -->
-        <link href="/static/Keyboard-master/css/keyboard-previewkeyset.css" rel="stylesheet">
-        <script src="/static/Keyboard-master/js/jquery.keyboard.extension-extender.js"></script>
-    </head>
-    <body>
-        <header class="k-header">
-            <div class="k-header-container">
+
+<head>
+    <link rel="stylesheet" href="/static/css/kodak.css">
+    <link rel="stylesheet" href="/static/css/modal.css">
+    <link rel="stylesheet" href="/static/css/keyboardui.css">
+    <!--<link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">-->
+    <script src="/static/js/jquery-3.2.1.min.js"></script>
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <!-- keyboard widget css & script -->
+    <link href="/static/Keyboard-master/css/keyboard.css" rel="stylesheet">
+    <script src="/static/Keyboard-master/js/jquery.keyboard.js"></script>
+    <!-- css for the preview keyset extension -->
+    <link href="/static/Keyboard-master/css/keyboard-previewkeyset.css" rel="stylesheet">
+    <script src="/static/Keyboard-master/js/jquery.keyboard.extension-extender.js"></script>
+</head>
+
+<body>
+    <header class="k-header">
+        <div class="k-header-container">
             <div class="k-header-left">
                 <img src="/static/images/logo-52.svg" height="70px">
             </div>
             <ul class="k-header-center">
-                <li><img src="/static/images/icon_ext2-apagado.svg"><div id="t1"></div></li>
-                <li><img src="/static/images/icon_ext1-apagado.svg"><div id="t0"></div></li>
-                <li><img src="/static/images/icon_cama-apagado.svg"><div id="plate"></div></li>
-                <li><img src="/static/images/icon_camara.svg"><div id="amb"></div></li>
+                <li><img src="/static/images/icon_ext2-apagado.svg">
+                    <div id="t1"></div>
+                </li>
+                <li><img src="/static/images/icon_ext1-apagado.svg">
+                    <div id="t0"></div>
+                </li>
+                <li><img src="/static/images/icon_cama-apagado.svg">
+                    <div id="plate"></div>
+                </li>
+                <li><img src="/static/images/icon_camara.svg">
+                    <div id="amb"></div>
+                </li>
             </ul>
             <ul class="k-header-right">
                 <li><img src="/static/images/icon_wifi-conectado.svg"></li>
                 <li><img src="/static/images/icon_nube-conectada.svg"></li>
             </ul>
-            </div>
-        </header>
+        </div>
+    </header>
 
     {% block content %} {% end %}
-<!-- Modal -->
-<div class="modal fade" id="waitModal" tabindex="-1" role="dialog">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-    <div class="modal-header" style="background-color:#FFB700;color:black"> </div>
-        <div style="font-size: 25pt;padding-top: 1px;padding-bottom: 2px;" class="modal-body" id="modal-body">
-            <span>Estoy cargando el archivo, por favor espere. Esto puede tomar un tiempo</span>
+    <!-- New modals -->
+    <section class="k-modal-overlay">
+        <div class="k-modal">
+            <button class="k-modal__close">
+                <img src="img/icon_cancelar.svg" />
+            </button>
+            <div class="k-modal-container">
+                <div class="k-modal-2">
+                    <img class="k-spinner-container__spinner" src="img/icon_loader.svg" />
+                    <h2 class="k-modal__title k-modal__title--big">{{_("print_load_file_popup_title")}}</h2>
+                    <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                        {{_("print_load_file_popup_body")}}</p>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-    </div>
-    </div>
-</div>
-</div>
-   <script src="/static/js/temperatures.js"></script>
-   <script src="/static/js/cloud_commands.js"></script>
-</html> 
+    </section>
+    <script src="/static/js/temperatures.js"></script>
+    <script src="/static/js/cloud_commands.js"></script>
+
+</html>
