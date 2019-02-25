@@ -33,10 +33,19 @@ $('#pausa').click(function () {
     $('#pausa').toggle(false);
     $('#resume').toggle(true);
 });
+
 $('#resume').click(function () {
     $.get("/resume");
     $('#pausa').toggle(true);
     $('#resume').toggle(false);
+});
+
+$('#cancel').click(function () {
+    $("#cancel_modal").toggleClass("k-modal-overlay--visible");
+});
+
+$('#cancel_modal_close').click(function () {
+    $("#cancel_modal").toggleClass("k-modal-overlay--visible");
 });
 
 function pad(val) {
