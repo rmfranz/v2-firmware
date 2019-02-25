@@ -1,52 +1,61 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
+<main class="k-main">
+    <section class="k-grid k-grid--1x2 k-grid--1x2-titled">
+        <h3>{{_("calibration_xy")}}</h3>
 
-  <h1>XY Offset Calibration</h1>
-  <div class="grid">
-      <div id="value" class="top-row left-half"><input id="xoffset" type="text" style="font-size: 50px" size="4"/></div>
-      <div id="value" class="bottom-row left-half"><input id="yoffset" type="text" style="font-size: 50px" size="4"/></div>
-      <div class="btn y-calibration top">
-          <a id="y_plus_button" href="#">
-              <img src="static/images/icons/arrow-up.svg">
-          </a>
-      </div>
-      <div class="btn x-calibration-left middle">
-          <a id="x_minus_button" href="#">
-              <img src="static/images/icons/arrow-up.svg" style="  transform: rotate(-90deg);">
-          </a>
-      </div>
-      <div class="btn x-calibration-right middle">
-          <a id="x_plus_button" href="#">
-              <img src="static/images/icons/arrow-up.svg" style="  transform: rotate(90deg);">
-          </a>
-      </div>
-      <div class="btn y-calibration bottom">
-          <a id="y_minus_button" href="#">
-              <img src="static/images/icons/arrow-down.svg">
-          </a>
-      </div>
-  </div>
+        <div class="k-grid-item  k-grid-item--buttoned k-grid-item--buttoned-h">
+            <button id="x_plus_button" class="k-grid-item__button k-grid-item__button--left">
+                <img src="static/images/icon_flecha-izq.svg" />
+            </button>
+            <div class="k-grid-item__center">X: <div id="xoffset"></div>
+            </div>
+            <button id="x_minus_button" class="k-grid-item__button k-grid-item__button--left">
+                <img src="static/images/icon_flecha-der.svg" />
+            </button>
+        </div>
+
+        <div class="k-grid-item  k-grid-item--buttoned k-grid-item--buttoned-y">
+            <button id="y_plus_button" class="k-grid-item__button k-grid-item__button--left">
+                <img src="static/images/icon_flecha-arriba.svg" />
+            </button>
+            <div class="k-grid-item__center">Y: <div id="yoffset"></div>
+            </div>
+            <button id="y_minus_button" class="k-grid-item__button k-grid-item__button--left">
+                <img src="static/images/icon_flecha-abajo.svg" />
+            </button>
+        </div>
+    </section>
+    <div class="k-help-btn">
+        <img src="static/images/icon_ayuda.svg" />
+    </div>
 </main>
-<footer>
-  <a id="back" class="button" href="/back-calibration-selection"></a>
-  <div class="slogan">
-      <a id="tooltip" class="button" href="#"></a>
-  </div>
-  <div id="forward" class="button"><a id="save_xyoffset" href="#">Save</a></div>
+
+<footer class="k-footer">
+    <a class="k-footer-left" href="/back-calibration-selection">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="static/images/icon_flecha-back.svg" /> </button>
+    </a>
+    <div class="k-footer-right">
+        <button class="k-footer__btn k-footer__btn--yellow k-footer__btn--wide"
+            id="save_xyoffset">{{_("calibration_save")}}</button>
+    </div>
 </footer>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header" style="background-color:#FFB700;color:black"> </div>
-      <div class="modal-body">
-        Espere mientras se resetea la maquina
-      </div>
-      </div>
-  </div>
-</div>
-<!-- End Modal -->
+
+<!-- New modals -->
+<section id="calibration_reset" class="k-modal-overlay">
+    <div class="k-modal">
+        <button id="calibration_reset_close" class="k-modal__close">
+            <img src="static/images/icon_cancelar.svg" />
+        </button>
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("calibration_reset_board")}}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
 <script src="/static/js/calibration.js"></script>
 {% end %}

@@ -19,21 +19,21 @@ function get_offsets() {
 }
 
 var {t0_offset, t1_offset, t1_yoffset, t1_xoffset} = get_offsets();
-$("#zoffset").val(t0_offset);
-$("#yoffset").val(t1_yoffset);
-$("#xoffset").val(t1_xoffset);
+$("#zoffset").text(t0_offset);
+$("#yoffset").text(t1_yoffset);
+$("#xoffset").text(t1_xoffset);
 
 $("#plus_button").on("click", function() {
     $.ajax({url: "/z-offset-up", success: function(result){
         console.info(result)
     }});
-    var oldValue = $("#zoffset").val();
+    var oldValue = $("#zoffset").text();
     if (t0_activate) {
         t0_offset = Number((parseFloat(oldValue) + 0.025).toFixed(3));
-        $("#zoffset").val(t0_offset);
+        $("#zoffset").text(t0_offset);
     } else {
         t1_offset = Number((parseFloat(oldValue) + 0.025).toFixed(3));
-        $("#zoffset").val(t1_offset);
+        $("#zoffset").text(t1_offset);
     }
 });
 
@@ -41,34 +41,36 @@ $("#minus_button").on("click", function() {
     $.ajax({url: "/z-offset-down", success: function(result){
         console.info(result)
     }});
-    var oldValue = $("#zoffset").val();
+    var oldValue = $("#zoffset").text();
     if (t0_activate) {
         t0_offset = Number((parseFloat(oldValue) - 0.025).toFixed(3));
-        $("#zoffset").val(t0_offset);
+        $("#zoffset").text(t0_offset);
     } else {
         t1_offset = Number((parseFloat(oldValue) - 0.025).toFixed(3));
-        $("#zoffset").val(t1_offset);
+        $("#zoffset").text(t1_offset);
     }
 });
 
 $("#t0_btn").on("click", function() {
-    $('#myModal').modal('show')
+    $('#change_extruder').toggleClass( "k-modal-overlay--visible" );
     t0_activate = true;
     $.ajax({
         url: "/t0-calibration",
         success: function (result) {
-            $("#zoffset").val(t0_offset);
+            $("#zoffset").text(t0_offset);
+            $('#change_extruder').toggleClass( "k-modal-overlay--visible" );
         }
     });
 });
 
 $("#t1_btn").on("click", function() {
-    $('#myModal').modal('show')
+    $('#change_extruder').toggleClass( "k-modal-overlay--visible" );
     t0_activate = false;
     $.ajax({
         url: "/t1-calibration",
         success: function (result) {
-            $("#zoffset").val(t1_offset);
+            $("#zoffset").text(t1_offset);
+            $('#change_extruder').toggleClass( "k-modal-overlay--visible" );
         }
     });
 });
@@ -77,13 +79,14 @@ $("#save_zoffset").on("click", function() {
     $.post( "/z-offset-calibration", { zoffset_t0: t0_offset, zoffset_t1: t1_offset })
     .done(function( data ) {
         if(data == "ok"){
-            $('#myModal').modal('hide');
+            $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
             window.location.href = "/back-calibration-selection";
         } else {
-            $('#myModal').modal('hide');
+            //TODO: mostrar error
+            $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
         }
     });
-    $('#myModal').modal('show')
+    $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
 });
 
 $("#25_points_calibration").on("click", function() {
@@ -109,40 +112,41 @@ $("#reset_grid").on("click", function() {
 });
 
 $("#x_plus_button").on("click", function() {
-    var oldValue = $("#xoffset").val();
+    var oldValue = $("#xoffset").text();
     t1_xoffset = Number((parseFloat(oldValue) + 0.05).toFixed(2));
-    $("#xoffset").val(t1_xoffset);
+    $("#xoffset").text(t1_xoffset);
 });
 
 $("#x_minus_button").on("click", function() {
-    var oldValue = $("#xoffset").val();
+    var oldValue = $("#xoffset").text();
     t1_xoffset = Number((parseFloat(oldValue) - 0.05).toFixed(2))
-    $("#xoffset").val(t1_xoffset);
+    $("#xoffset").text(t1_xoffset);
 });
 
 $("#y_plus_button").on("click", function() {
-    var oldValue = $("#yoffset").val();
+    var oldValue = $("#yoffset").text();
     t1_yoffset = Number((parseFloat(oldValue) + 0.05).toFixed(2));
-    $("#yoffset").val(t1_yoffset);
+    $("#yoffset").text(t1_yoffset);
 });
 
 $("#y_minus_button").on("click", function() {
-    var oldValue = $("#yoffset").val();
+    var oldValue = $("#yoffset").text();
     t1_yoffset = Number((parseFloat(oldValue) - 0.05).toFixed(2));
-    $("#yoffset").val(t1_yoffset);
+    $("#yoffset").text(t1_yoffset);
 });
 
 $("#save_xyoffset").on("click", function() {
     $.post( "/xy-offset-calibration", { yoffset: t1_yoffset, xoffset: t1_xoffset })
     .done(function( data ) {
         if(data == "ok"){
-            $('#myModal').modal('hide');
+            $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
             window.location.href = "/back-calibration-selection";
         } else {
-            $('#myModal').modal('hide');
+            //TODO: mostrar error!!
+            $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
         }
     });
-    $('#myModal').modal('show')
+    $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
 });
 
 
@@ -177,4 +181,12 @@ $("#calibration_wait_close").on("click", function() {
 
 $("#grid_modal_close").on("click", function() {
     $("#grid_modal").toggleClass( "k-modal-overlay--visible" );
+});
+
+$("#calibration_reset_close").on("click", function() {
+    $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
+});
+
+$("#change_extruder_close").on("click", function() {
+    $("#change_extruder").toggleClass( "k-modal-overlay--visible" );
 });

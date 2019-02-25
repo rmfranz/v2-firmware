@@ -1,56 +1,68 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-    <h1>Z Offset Calibration</h1>
-    <div class="grid">
-        <div class="left full-height">
-            Instructions how to calibrate Z offset
-        </div>
-        <div class="btn top-row center">
-            <a id="t1_btn" href="#">
-                <img src="static/images/icons/extruder-2-offset-icon-big.svg" alt="">
-                <h3>Extruder II</h3>
-            </a>
-        </div>
-        <div class="btn bottom-row center">
-            <a id="t0_btn" href="#">
-                <img src="static/images/icons/extruder-1-offset-icon-big.svg" alt="">
-                <h3>Extruder I</h3>
-            </a>   
-        </div>
-        <div class="btn top right">
-            <a id="plus_button" href="#">
-                <img src="static/images/icons/arrow-up.svg">
-            </a>
-        </div>
-        <div id="value" class="middle right"><input id="zoffset" type="text" style="font-size: 50px" size="4"/> </div>
-        <div class="btn bottom right">
-            <a id="minus_button" href="#">
-                <img src="static/images/icons/arrow-down.svg">
-            </a>    
-        </div>
+<main class="k-main">
+    <section class="k-grid k-grid--1x3 k-grid--1x3-titled k-grid--1x3-titled-3">
+      <h3 class="k-grid--1x3-titled-full">{{_("calibration_z_offset")}}</h3>
+      <div id="t0_btn" class="k-grid-item">
+        <img class="k-grid-item__img" src="img/icon_nozzle1.svg"/>
+        <p  class="k-grid-item__p">{{_("calibration_hotend_1")}}</p>
+      </div>
+      <div id="t1_btn" class="k-grid-item k-grid-item--grey">
+        <img class="k-grid-item__img" src="img/icon_nozzle2.svg"/>
+        <p  class="k-grid-item__p">{{_("calibration_hotend_2")}}</p>
+      </div>
+      <div class="k-grid-item  k-grid-item--buttoned k-grid-item--buttoned-y">
+        <button id="plus_button" class="k-grid-item__button k-grid-item__button--left">
+          <img src="img/icon_flecha-arriba.svg"/>
+        </button>
+        <div id="zoffset" class="k-grid-item__center"></div>
+        <button id="minus_button" class="k-grid-item__button k-grid-item__button--left">
+          <img src="img/icon_flecha-abajo.svg"/>
+        </button>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="k-footer">
+    <a  href="/back-calibration-selection" class="k-footer-left">
+      <button class="k-footer__btn k-footer__btn--red "> <img src="img/icon_flecha-back.svg"/> </button>  
+    </a>
+    <div class="k-footer-right">
+      <button id="save_zoffset" class="k-footer__btn k-footer__btn--yellow k-footer__btn--wide">{{_("calibration_save")}}</button>  
     </div>
-</main>
+  </footer>
 
-<footer>
-    <a id="back" class="button" href="/back-calibration-selection"></a>
-    <div class="slogan">
-        <a id="tooltip" class="button" href="#"></a>
+<!-- New modals -->
+<section id="calibration_reset" class="k-modal-overlay">
+    <div class="k-modal">
+        <button id="calibration_reset_close" class="k-modal__close">
+            <img src="static/images/icon_cancelar.svg" />
+        </button>
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("calibration_reset_board")}}
+                </p>
+            </div>
+        </div>
     </div>
-    <div id="forward" class="button"><a id="save_zoffset" href="#">Save</a></div>
-</footer>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header" style="background-color:#FFB700;color:black"> </div>
-      <div class="modal-body">
-          Espere mientras se resetea la maquina
-      </div>
-      </div>
-  </div>
-</div>
-<!-- End Modal -->
+</section>
+
+<section id="change_extruder" class="k-modal-overlay">
+    <div class="k-modal">
+        <button id="change_extruder_close" class="k-modal__close">
+            <img src="static/images/icon_cancelar.svg" />
+        </button>
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("calibration_extruder_change")}}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 </body>
 <script src="/static/js/calibration.js"></script>
 {% end %}
