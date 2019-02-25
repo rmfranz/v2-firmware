@@ -53,6 +53,7 @@ $("#minus_button").on("click", function() {
 
 $("#t0_btn").on("click", function() {
     $('#change_extruder').toggleClass( "k-modal-overlay--visible" );
+    $('#t0_btn').toggleClass( "k-grid-item--grey" );
     t0_activate = true;
     $.ajax({
         url: "/t0-calibration",
@@ -61,13 +62,13 @@ $("#t0_btn").on("click", function() {
             if(!$( "#t1_btn" ).hasClass("k-grid-item--grey")){
                 $('#t1_btn').toggleClass( "k-grid-item--grey" );
             }
-            $('#change_extruder').toggleClass( "k-modal-overlay--visible" );
         }
     });
 });
 
 $("#t1_btn").on("click", function() {
     $('#change_extruder').toggleClass( "k-modal-overlay--visible" );
+    $('#t1_btn').toggleClass( "k-grid-item--grey" );
     t0_activate = false;
     $.ajax({
         url: "/t1-calibration",
@@ -76,7 +77,6 @@ $("#t1_btn").on("click", function() {
             if(!$( "#t0_btn" ).hasClass("k-grid-item--grey")){
                 $('#t0_btn').toggleClass( "k-grid-item--grey" );
             }
-            $('#change_extruder').toggleClass( "k-modal-overlay--visible" );
         }
     });
 });
@@ -159,7 +159,7 @@ $("#save_xyoffset").on("click", function() {
 var ws_z_probe = new WebSocket("ws://" + ip + ":8888/z-probe");
 ws_z_probe.onmessage = function (evt) {
     //$('#myModal').modal('hide');    
-    $("#calibration_wait").toggleClass( "k-modal-overlay--visible" );
+    $("#change_extruder").toggleClass( "k-modal-overlay--visible" );
 };
 
 var ws_25_points_calibration = new WebSocket("ws://" + ip + ":8888/probe-complete");
