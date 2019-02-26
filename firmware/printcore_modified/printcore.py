@@ -457,7 +457,9 @@ class printcore():
         if not self.printing: return False
         self.paused = True
         self.printing = False
-
+        for handler in self.event_handler:
+            try: handler.on_end_before_join()
+            except: logging.error(traceback.format_exc())
         # try joining the print thread: enclose it in try/except because we
         # might be calling it from the thread itself
         try:

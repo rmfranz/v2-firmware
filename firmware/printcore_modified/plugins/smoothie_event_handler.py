@@ -15,7 +15,6 @@
 
 from .eventhandler import PrinterEventHandler
 from websocket import create_connection
-from urllib.request import urlopen
 
 class SmoothieHandler(PrinterEventHandler):
     '''
@@ -82,12 +81,12 @@ class SmoothieHandler(PrinterEventHandler):
         self.printing = True
         self.__write("on_start", "true" if resume else "false")
         
-    def on_end(self):
+    def on_end(self):      
+        self.__write("on_end")
+
+    def on_end_before_join(self):
         self.printing = False
-        print("go to page")
-        urlopen("http://127.0.0.1:8888/test-print")
-        print("hit to teh pag")
-        #self.create_connection_and_send("ws://127.0.0.1:8888/print-finished", "print_finished")        
+        self.create_connection_and_send("ws://127.0.0.1:8888/print-finished", "print_finished")        
         self.__write("on_end")
         
     def on_layerchange(self, layer):

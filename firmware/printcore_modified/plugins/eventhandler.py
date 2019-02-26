@@ -99,6 +99,12 @@ class PrinterEventHandler:
         Called when printing ends.
         '''
         pass
+
+    def on_end_before_join(self):
+        '''
+        Called when printing ends before thread join
+        '''
+        pass
     
     def on_layerchange(self, layer):
         '''
