@@ -455,11 +455,11 @@ class printcore():
         """Pauses the print, saving the current position.
         """
         if not self.printing: return False
+        for handler in self.event_handler:
+            try: handler.on_pause()
+            except: logging.error(traceback.format_exc())
         self.paused = True
         self.printing = False
-        for handler in self.event_handler:
-            try: handler.on_end_before_join()
-            except: logging.error(traceback.format_exc())
         # try joining the print thread: enclose it in try/except because we
         # might be calling it from the thread itself
         try:
@@ -471,7 +471,6 @@ class printcore():
                 self.logError(traceback.format_exc())
         except:
             self.logError(traceback.format_exc())
-
         self.print_thread = None
 
         # saves the status
@@ -486,6 +485,9 @@ class printcore():
         """Resumes a paused print.
         """
         if not self.paused: return False
+        for handler in self.event_handler:
+            try: handler.on_resume()
+            except: logging.error(traceback.format_exc())
         if self.paused:
             # restores the status
             self.send_now("G90")  # go to absolute coordinates

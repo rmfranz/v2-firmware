@@ -24,6 +24,8 @@ import logging
 import pickle
 import os
 from firmware.gpio import Gpio
+from utils import check_file_print_finished
+from tornado.ioloop import PeriodicCallback
 
 define("template_folder", default="templates/", help="Folder to use")
 
@@ -128,6 +130,7 @@ class Application(tornado.web.Application):
         #Put FirmwareDirector, this is wrong
         self.firmware = SmoothieFirmware()
         self.gpio = Gpio()
+        self.print_finished_controller = PeriodicCallback(check_file_print_finished, 1000)
 
 class HomeHandler(BasicHandler):
     def get(self):

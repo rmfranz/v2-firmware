@@ -23,6 +23,7 @@ class SmoothieHandler(PrinterEventHandler):
     
     def __init__(self):
         self.printing = False
+        self.paused = False
         
     def check_origin(self, origin):
         return True
@@ -82,11 +83,9 @@ class SmoothieHandler(PrinterEventHandler):
         self.__write("on_start", "true" if resume else "false")
         
     def on_end(self):      
-        self.__write("on_end")
-
-    def on_end_before_join(self):
-        self.printing = False
-        self.create_connection_and_send("ws://127.0.0.1:8888/print-finished", "print_finished")        
+        #self.create_connection_and_send("ws://127.0.0.1:8888/print-finished", "print_finished")
+        if not self.paused:
+            open('/home/pi/print_end_status/end_print', 'a').close()
         self.__write("on_end")
         
     def on_layerchange(self, layer):
@@ -97,6 +96,12 @@ class SmoothieHandler(PrinterEventHandler):
     
     def on_printsend(self, gline):
         self.__write("on_printsend", gline)
+
+    def on_pause(self):
+        self.paused = True
+
+    def on_resume(self):
+        self.paused = False
 
     def are_temperatures(self, data):
         return "ok" in data and "T0:" in data and "T1:" in data and "B:" in data and "A:" in data

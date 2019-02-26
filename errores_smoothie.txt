@@ -61,3 +61,8 @@ TypeError: object of type 'NoneType' has no len()
 on_recv         - !!
 on_recv         - !!
 on_recv         - !!
+
+
+---------------------------------------------------------------------
+
+on_error        - Not connected to printer.

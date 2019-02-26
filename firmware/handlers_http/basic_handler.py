@@ -9,6 +9,7 @@ class BasicHandler(RequestHandler):
     
     def prepare(self):
         self.firmware = self.application.firmware
+        self.print_finished_controller = self.application.print_finished_controller
 
     def get_user_locale(self):
         #TODO: sacar de un json

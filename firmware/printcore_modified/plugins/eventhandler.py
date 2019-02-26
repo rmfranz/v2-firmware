@@ -99,12 +99,6 @@ class PrinterEventHandler:
         Called when printing ends.
         '''
         pass
-
-    def on_end_before_join(self):
-        '''
-        Called when printing ends before thread join
-        '''
-        pass
     
     def on_layerchange(self, layer):
         '''
@@ -129,6 +123,18 @@ class PrinterEventHandler:
         Called whenever a line is sent to the printer.
         
         @param gline: The line send to the printer.
+        '''
+        pass
+        
+    def on_pause(self):
+        '''
+        Called when pause.
+        '''
+        pass
+
+    def on_resume(self):
+        '''
+        Called when resume.
         '''
         pass
         

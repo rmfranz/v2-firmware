@@ -55,6 +55,7 @@ class PrintHandler(BasicHandler):
 class PrintNowHandler(BasicHandler):
     def get(self):
         self.firmware.start_print()
+        self.print_finished_controller.start()
         self.write("ok")
 
 class PauseHandler(BasicHandler):
@@ -70,11 +71,13 @@ class ResumeHandler(BasicHandler):
 
 class CancelHandler(BasicHandler):
     def get(self):
-        self.firmware.cancel() 
+        self.firmware.cancel()
+        self.print_finished_controller.stop()
         self.render("index.html", working_on="cancelado")
 
 class PrintFinishedHandler(BasicHandler):
     def get(self):
+        self.print_finished_controller.stop()
         time_printing = self.get_cookie("time_printing")
         self.render("print_finished.html", filename=self.firmware.filename, time_printing=time_printing)
 

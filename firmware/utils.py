@@ -2,6 +2,7 @@ import os, fnmatch
 from subprocess import check_output, call
 from printcore_modified import gcoder
 import itertools
+from websocket import create_connection
 
 def mount_usb(uuid_board):
     if not check_output("ls /media/usb", shell=True, universal_newlines=True):
@@ -91,3 +92,10 @@ def get_extruder(extruder):
     elif extruder == "ext_2":
         extruder = "T1"
     return extruder
+
+def check_file_print_finished():
+    if os.path.exists("/home/pi/print_end_status/end_print"):
+        ws = create_connection("ws://127.0.0.1:8888/print-finished")
+        ws.send("print_finished")
+        ws.close()
+        os.system("rm /home/pi/print_end_status/*")
