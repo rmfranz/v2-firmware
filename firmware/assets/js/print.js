@@ -1,5 +1,5 @@
+var ip = "127.0.0.1";
 var paused = false;
-
 $('.file_selected').click(function () {
     $.post("/print", { file_path: $(this).data('path'), filename: $(this).data('filename') })
         .done(function (data) {
