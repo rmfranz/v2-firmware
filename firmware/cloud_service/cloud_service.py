@@ -36,12 +36,18 @@ class InitWebsocketsHandler(RequestHandler):
             self.application.periodic_controller.ws_initialized = True
         self.write("ok")
 
+class StartPrintControllerHandler(RequestHandler):
+    def get(self):
+        self.application.periodic_controller.print_finished_controller.start()
+        self.write("ok")
+
 class Application(tornado.web.Application):
 
     def __init__(self):
         handlers = [
             (r"/init", InitHandler),
             (r"/init-websockets", InitWebsocketsHandler),
+            (r"/init-print", StartPrintControllerHandler),
         ]
         tornado.web.Application.__init__(self, handlers, autoreload=True)
         self.periodic_controller = PeriodicController()

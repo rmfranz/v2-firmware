@@ -1,5 +1,7 @@
 import json
 from tornado import httpclient
+import os
+from websocket import create_connection
 
 def get_auth(registration_code, mac_address, url, controller):
     headers = {'Content-Type': 'application/json'}

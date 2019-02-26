@@ -129,8 +129,7 @@ class Application(tornado.web.Application):
             compiled_template_cache=False, static_hash_cache=False)
         #Put FirmwareDirector, this is wrong
         self.firmware = SmoothieFirmware()
-        self.gpio = Gpio()
-        self.print_finished_controller = PeriodicCallback(check_file_print_finished, 1000)
+        self.gpio = Gpio()        
 
 class HomeHandler(BasicHandler):
     def get(self):

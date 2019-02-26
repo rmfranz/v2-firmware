@@ -1,6 +1,7 @@
 from handlers_http.basic_handler import BasicHandler
 from utils import mount_usb, get_gcodes_from_usb
 import tornado
+from tornado import httpclient
 
 class PrintSelectionHandler(BasicHandler):
     def get(self):
@@ -44,7 +45,10 @@ class PreviousPrintHandler(BasicHandler):
 class PrintHandler(BasicHandler):
     def get(self):
         self.firmware.start_print()
-        self.print_finished_controller.start()
+        #self.print_finished_controller.start()
+        http_client = httpclient.HTTPClient()
+        resp_reg = http_client.fetch("http://127.0.0.1:9000/init-print", method='GET', raise_error=False)
+        print(resp_reg.body.decode('utf-8'))
         self.render("printing.html", filename=self.firmware.filename)
 
     def post(self):

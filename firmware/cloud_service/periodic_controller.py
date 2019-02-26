@@ -35,6 +35,7 @@ class PeriodicController:
         }
         self.ws_url = "ws://127.0.0.1:8888/cloud"
         self.ws_initialized = False
+        self.print_finished_controller = PeriodicCallback(self.check_file_print_finished, 1000)
         if self.auth_token:
             self.api_caller.start()
 
@@ -176,6 +177,17 @@ class PeriodicController:
         ws = create_connection(self.ws_url)
         ws.send(data.strip())
         ws.close()
+
+    def check_file_print_finished(self):
+        if os.path.exists("/home/pi/print_end_status/end_print"):
+            print("!!!!!!!!!!!!! creo la conexion")
+            ws = create_connection("ws://127.0.0.1:8888/print-finished")
+            print("!!!!!!!!!!!!! termine")
+            ws.send("print_finished")
+            print("!!!!!!!!!!!!! envie")
+            ws.close()
+            os.system("rm /home/pi/print_end_status/*")
+            self.print_finished_controller.stop()
 
     def write_hardware_json(self):
         with open(self.HARDWARE_JSON_FOLDER, 'w') as f:

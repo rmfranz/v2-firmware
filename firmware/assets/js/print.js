@@ -94,7 +94,7 @@ if (printing) {
     ws_line_sended.onmessage = function (evt) {
         ++line;
         if(totalLines != 0){
-            $('#progress_bar').value = parseInt((line * 100) / totalLines)
+            $('#progress_bar').attr("value", parseInt((line * 100) / totalLines));
         } else {
             console.log("totalLines error")
         }
