@@ -44,6 +44,7 @@ class PreviousPrintHandler(BasicHandler):
 class PrintHandler(BasicHandler):
     def get(self):
         self.firmware.start_print()
+        self.print_finished_controller.start()
         self.render("printing.html", filename=self.firmware.filename)
 
     def post(self):

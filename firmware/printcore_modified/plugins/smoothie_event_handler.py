@@ -86,6 +86,7 @@ class SmoothieHandler(PrinterEventHandler):
         #self.create_connection_and_send("ws://127.0.0.1:8888/print-finished", "print_finished")
         if not self.paused:
             open('/home/pi/print_end_status/end_print', 'a').close()
+            self.printing = False
         self.__write("on_end")
         
     def on_layerchange(self, layer):
