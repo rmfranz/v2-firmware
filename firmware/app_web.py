@@ -64,6 +64,8 @@ class Application(tornado.web.Application):
             (r"/pausa", PauseHandler),
             (r"/resume", ResumeHandler),
             (r"/cancelar", CancelHandler),
+            (r"/print-end", PrintFinishedHandler),
+            (r"/print-total-lines", GetTotalLinesHandler),
             (r"/get-temperatures", TemperaturesHandler),
             (r"/print-selection", PrintSelectionHandler),
             (r"/local-files-selection", LocalFilesSelectionHandler),
@@ -115,6 +117,8 @@ class Application(tornado.web.Application):
             (r"/z-probe", ZProbeWsHandler),
             (r"/inspect-grid", InspectGridWsHandler),
             (r"/waiting-file", WaitingFileWsHandler),
+            (r"/print-finished", PrintFinishedWsHandler),
+            (r"/line-sended", LineSendedWsHandler),
             (r"/cloud", CloudWsHandler),
             (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/v2-firmware/firmware/assets"}),
         ]

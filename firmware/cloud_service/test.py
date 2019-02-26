@@ -60,12 +60,18 @@ class TranslationHandler(RequestHandler):
         #TODO: sacar de un json
         return tornado.locale.get("en_US")
 
+class AlgoHandler(RequestHandler):
+    def get(self):
+        l = [5,6,5,343,7,45,6,7,78,8,86,5,4]
+        self.write(str(len(l)))
+
 class Application(tornado.web.Application):
 
     def __init__(self):
         handlers = [
             (r"/", GetRegistrationCodeHandler),
             (r"/translation", TranslationHandler),
+            (r"/a", AlgoHandler)
         ]
         tornado.web.Application.__init__(self, handlers, autoreload=True, template_path="../templates/")
 

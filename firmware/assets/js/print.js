@@ -1,8 +1,10 @@
+var paused = false;
+
 $('.file_selected').click(function () {
     $.post("/print", { file_path: $(this).data('path'), filename: $(this).data('filename') })
-    .done(function (data) {
-        window.location.href = "/confirm-print";
-    });
+        .done(function (data) {
+            window.location.href = "/confirm-print";
+        });
 });
 
 $("#print").click(function () {
@@ -29,12 +31,14 @@ var x = setInterval(function () {
 */
 
 $('#pausa').click(function () {
+    paused = true;
     $.get("/pausa");
     $('#pausa').toggle(false);
     $('#resume').toggle(true);
 });
 
 $('#resume').click(function () {
+    paused = false;
     $.get("/resume");
     $('#pausa').toggle(true);
     $('#resume').toggle(false);
@@ -58,13 +62,41 @@ function pad(val) {
 }
 
 function setTime() {
-    ++totalSeconds;
-    secondsLabel.innerHTML = pad(totalSeconds % 60);
-    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
-    hoursLabel.innerHTML = pad(parseInt(totalSeconds / 3600));
+    if(!paused){        
+        ++totalSeconds;
+        secondsLabel.innerHTML = pad(totalSeconds % 60);
+        minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+        hoursLabel.innerHTML = pad(parseInt(totalSeconds / 3600));
+    }
 }
 
-if(printing){
+if (printing) {
+    var line = 0;
+    var totalLines = 0;
+    $.ajax({
+        url: "/print-total-lines",
+        success: function (result) {
+            totalLines = parseInt(result)
+        },
+        async: false
+    });
+    var ws_print_finished = new WebSocket("ws://" + ip + ":8888/print-finished");
+    ws_print_finished.onmessage = function (evt) {
+        var time = document.getElementById("hours").innerHTML + ":" + document.getElementById("minutes").innerHTML;
+        $.post("/print-end", { time_printing: time})
+            .done(function (data) {
+                window.location.href = "/print-end";
+            });
+    };
+    var ws_line_sended = new WebSocket("ws://" + ip + ":8888/line-sended");
+    ws_line_sended.onmessage = function (evt) {
+        ++line;
+        if(totalLines != 0){
+            $('#progress_bar').value = parseInt((line * 100) / totalLines)
+        } else {
+            console.log("totalLines error")
+        }
+    };
     var minutesLabel = document.getElementById("minutes");
     var secondsLabel = document.getElementById("seconds");
     var hoursLabel = document.getElementById("hours");

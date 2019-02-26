@@ -1,0 +1,63 @@
+ERRORES:
+
+on_send         - M105
+INFO:tornado.access:200 GET /get-temperatures (192.168.0.15) 4.51ms
+on_error        - Can't write to printer (disconnected ?):
+Traceback (most recent call last):
+  File "/home/pi/.conda/envs/printrun/lib/python3.4/site-packages/serial/serialposix.py", line 537, in write
+    n = os.write(self.fd, d)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/prueba/printcore_modified/printcore.py", line 677, in _send
+    self.printer.write((command + "\n").encode('ascii'))
+  File "/home/pi/.conda/envs/printrun/lib/python3.4/site-packages/serial/serialposix.py", line 571, in write
+    raise SerialException('write failed: {}'.format(e))
+serial.serialutil.SerialException: write failed: [Errno 5] Input/output error
+
+ERROR:root:Can't write to printer (disconnected ?):
+Traceback (most recent call last):
+  File "/home/pi/.conda/envs/printrun/lib/python3.4/site-packages/serial/serialposix.py", line 537, in write
+    n = os.write(self.fd, d)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/prueba/printcore_modified/printcore.py", line 677, in _send
+    self.printer.write((command + "\n").encode('ascii'))
+  File "/home/pi/.conda/envs/printrun/lib/python3.4/site-packages/serial/serialposix.py", line 571, in write
+    raise SerialException('write failed: {}'.format(e))
+serial.serialutil.SerialException: write failed: [Errno 5] Input/output error
+
+
+------------------------------------------------------
+
+
+on_recv         - ok
+on_error        - Print thread died due to the following error:
+Traceback (most recent call last):
+  File "/home/pi/test/PrintrunMartin/printcore.py", line 543, in _print
+    self._sendnext()
+  File "/home/pi/test/PrintrunMartin/printcore.py", line 590, in _sendnext
+    if self.printing and self.queueindex < len(self.mainqueue):
+TypeError: object of type 'NoneType' has no len()
+
+[E 190109 15:38:06 printcore:140] Print thread died due to the following error:
+    Traceback (most recent call last):
+      File "/home/pi/test/PrintrunMartin/printcore.py", line 543, in _print
+        self._sendnext()
+      File "/home/pi/test/PrintrunMartin/printcore.py", line 590, in _sendnext
+        if self.printing and self.queueindex < len(self.mainqueue):
+    TypeError: object of type 'NoneType' has no len()
+    
+    
+
+----------------------------------------------------------
+
+
+on_recv         - !!
+on_recv         - !!
+on_recv         - !!

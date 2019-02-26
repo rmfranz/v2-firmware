@@ -74,6 +74,7 @@ class SmoothieFirmware(BaseFirmware):
             config_json = json.load(f)
         with open(self.file_path, errors='ignore') as f:
             gcode = patch_and_split_gcodes(f, config_json["t0_zoffset"])
+        self.total_lines = len(gcode)
         self.printrun.startprint(gcode)
         #os.system("cp {} /home/pi/temp/".format(self.file_path))
         #os.system("(head -100 > /home/pi/temp/first/pt1.gcode; cat > /home/pi/temp/first/pt2.gcode) < /home/pi/temp/{}".format(self.filename))

@@ -4,7 +4,7 @@
     <section class="k-printing">
         <div class="k-printing-main">
             <h2 class="k-printing-main__h2">{{filename}}</h2>
-            <progress class="k-printing-main__progress" max="100" value="43"></progress>
+            <progress id="progress_bar" class="k-printing-main__progress" max="100" value="0"></progress>
             <ul class="k-printing-main__ul">
                 <li class="k-printing-main__li">
                     <img src="img/icon_imprimir-tiempo.svg" />
@@ -34,7 +34,7 @@
     <div class="k-footer-left">
         <div class="k-footer-left">
             <button id="cancel" class="k-footer__btn k-footer__btn--red k-footer__btn--wide"> <img src="/static/images/icon_cancelar.svg" />
-                Cancel </button>
+                {{_("monitor_cancel")}} </button>
         </div>
     </div>
     <div class="k-footer-right">

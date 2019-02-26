@@ -72,3 +72,17 @@ class CancelHandler(BasicHandler):
     def get(self):
         self.firmware.cancel() 
         self.render("index.html", working_on="cancelado")
+
+class PrintFinishedHandler(BasicHandler):
+    def get(self):
+        time_printing = self.get_cookie("time_printing")
+        self.render("print_finished.html", filename=self.firmware.filename, time_printing=time_printing)
+
+    def post(self):
+        time_printing = self.get_body_argument("time_printing")
+        self.set_cookie("time_printing", time_printing)
+        self.write("ok")
+
+class GetTotalLinesHandler(BasicHandler):
+    def get(self):
+        self.write(str(self.firmware.total_lines))
