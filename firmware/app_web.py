@@ -61,6 +61,7 @@ class Application(tornado.web.Application):
             (r"/ext_2/([0-9]+)", ExtruderTemperatureHandler),
             (r"/print", PrintHandler),
             (r"/print-now", PrintNowHandler),
+            (r"/test-print", TestHandler),
             (r"/pausa", PauseHandler),
             (r"/resume", ResumeHandler),
             (r"/cancelar", CancelHandler),

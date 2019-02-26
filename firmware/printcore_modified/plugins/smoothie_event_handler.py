@@ -15,6 +15,7 @@
 
 from .eventhandler import PrinterEventHandler
 from websocket import create_connection
+from urllib.request import urlopen
 
 class SmoothieHandler(PrinterEventHandler):
     '''
@@ -22,7 +23,7 @@ class SmoothieHandler(PrinterEventHandler):
     '''
     
     def __init__(self):
-        pass
+        self.printing = False
         
     def check_origin(self, origin):
         return True
@@ -43,7 +44,8 @@ class SmoothieHandler(PrinterEventHandler):
         self.__write("on_init")
         
     def on_send(self, command, gline):
-        self.create_connection_and_send("ws://127.0.0.1:8888/line-sended", command.strip())
+        if self.printing:
+            self.create_connection_and_send("ws://127.0.0.1:8888/line-sended", command.strip())
         self.__write("on_send", command)
     
     def on_recv(self, line):
@@ -77,10 +79,15 @@ class SmoothieHandler(PrinterEventHandler):
         self.__write("on_temp", line)
     
     def on_start(self, resume):
+        self.printing = True
         self.__write("on_start", "true" if resume else "false")
         
     def on_end(self):
-        self.create_connection_and_send("ws://127.0.0.1:8888/print-finished", "print_finished")        
+        self.printing = False
+        print("go to page")
+        urlopen("http://127.0.0.1:8888/test-print")
+        print("hit to teh pag")
+        #self.create_connection_and_send("ws://127.0.0.1:8888/print-finished", "print_finished")        
         self.__write("on_end")
         
     def on_layerchange(self, layer):
@@ -122,4 +129,3 @@ class SmoothieHandler(PrinterEventHandler):
         ws = create_connection(url)
         ws.send(data.strip())
         ws.close()
-

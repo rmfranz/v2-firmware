@@ -86,3 +86,8 @@ class PrintFinishedHandler(BasicHandler):
 class GetTotalLinesHandler(BasicHandler):
     def get(self):
         self.write(str(self.firmware.total_lines))
+
+class TestHandler(BasicHandler):
+    def get(self):
+        print("me pegaron")
+        self.write("ok")
