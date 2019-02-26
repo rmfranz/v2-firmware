@@ -22,7 +22,7 @@ class SmoothieHandler(PrinterEventHandler):
     '''
     
     def __init__(self):
-        self.printing = False
+        pass
         
     def check_origin(self, origin):
         return True
@@ -43,8 +43,7 @@ class SmoothieHandler(PrinterEventHandler):
         self.__write("on_init")
         
     def on_send(self, command, gline):
-        if self.printing:
-            self.create_connection_and_send("ws://127.0.0.1:8888/line-sended", command.strip())
+        self.create_connection_and_send("ws://127.0.0.1:8888/line-sended", command.strip())
         self.__write("on_send", command)
     
     def on_recv(self, line):
@@ -78,11 +77,9 @@ class SmoothieHandler(PrinterEventHandler):
         self.__write("on_temp", line)
     
     def on_start(self, resume):
-        self.printing = True
         self.__write("on_start", "true" if resume else "false")
         
     def on_end(self):
-        self.printing = False
         self.create_connection_and_send("ws://127.0.0.1:8888/print-finished", "print_finished")        
         self.__write("on_end")
         
