@@ -82,11 +82,13 @@ if (printing) {
     });
     var ws_print_finished = new WebSocket("ws://" + ip + ":8888/print-finished");
     ws_print_finished.onmessage = function (evt) {
-        var time = document.getElementById("hours").innerHTML + ":" + document.getElementById("minutes").innerHTML;
-        $.post("/print-end", { time_printing: time})
-            .done(function (data) {
-                window.location.href = "/print-end";
-            });
+        if(!paused){
+            var time = document.getElementById("hours").innerHTML + ":" + document.getElementById("minutes").innerHTML;
+            $.post("/print-end", { time_printing: time})
+                .done(function (data) {
+                    window.location.href = "/print-end";
+                });
+        }
     };
     var ws_line_sended = new WebSocket("ws://" + ip + ":8888/line-sended");
     ws_line_sended.onmessage = function (evt) {
