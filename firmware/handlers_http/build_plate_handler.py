@@ -22,7 +22,18 @@ class PlateHomeHandler(BasicHandler):
 
 class ToPlateTemperatureHandler(BasicHandler):
     def get(self):
-        self.render("bed_temperatures.html")
+        mat_temps = {
+            "ABS ~ 95°C": 95,
+            "Flex (PU) ~ 70°C": 70,
+            "HIPS ~ 95°C": 95,
+            "Nylon ~ 85°C": 85,
+            "PETG ~ 70°C": 70,
+            "PLA Tough ~ 60°C": 60,
+            "PLA+ ~ 60°C": 60,
+            "PVA ~ 50°C": 50,
+            "OFF ~ 0°C": 0,
+        }
+        self.render("bed_temperatures.html", mat_temps=mat_temps)
 
 class PlateTemperatureHandler(BasicHandler):
     def get(self, temp):

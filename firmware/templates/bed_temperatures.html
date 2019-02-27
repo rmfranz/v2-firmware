@@ -1,58 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-        <h1>Select Filament</h1>
-        <div class="grid">
-            <div class="btn top left">
-                <a href="/bed-temp/95">
-                    <h3>ABS ~ 95°C</h3>
-                </a>
-            </div>
-            <div class="btn top center">
-                <a href="/bed-temp/70">
-                    <h3>Flex (PU) ~ 70°C</h3>
-                </a>
-            </div>
-            <div class="btn top right">
-                <a href="/bed-temp/95">
-                    <h3>HIPS ~ 95°C</h3>
-                </a>
-            </div>
-            <div class="btn middle left">
-                <a href="/bed-temp/85">
-                    <h3>Nylon ~ 85°C</h3>
-                </a>
-            </div>
-            <div class="btn middle center">
-                <a href="/bed-temp/70">
-                    <h3>PETG ~ 70°C</h3>
-                </a>
-            </div>
-            <div class="btn middle right">
-                <a href="/bed-temp/60">
-                    <h3>PLA Tough ~ 60°C</h3>
-                </a>
-            </div>
-            <div class="btn bottom left">
-                <a href="/bed-temp/60">
-                    <h3>PLA+ ~ 60°C</h3>
-                </a>
-            </div>
-            <div class="btn bottom center">
-                <a href="/bed-temp/50">
-                    <h3>PVA ~ 50°C</h3>
-                </a>
-            </div>
-            <div class="btn bottom right">
-                <a href="/bed-temp/0">
-                    <h3>OFF ~ 0°C</h3>
-                </a>
-            </div>
-        </div>
+<main class="k-main">
+    <section class="k-grid k-grid--3x3">
+        {% for key, value in mat_temps.items() %}
+        <a href="/bed-temp/{{value}}" class="k-grid-item">
+            <p class="k-grid-item__p k-grid-item__p--big">{{key}}</p>
+        </a>
+        {% end %}
+    </section>
 </main>
-<footer>
-    <a id="back" class="button" href="/build-plate-controls"></a>
-    <div class="slogan"></div>
+<footer class="k-footer">
+    <a href="/build-plate-controls" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" />
+        </button>
+    </a>
 </footer>
 </body>
 {% end %}

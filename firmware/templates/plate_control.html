@@ -1,34 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-    <h1>Build Plate</h1>
-    <ul class="first_attemp">
-        <li>
-            <a id="plate-up" href="#">
-                <img src="static/images/icons/buildplate-up-icon.svg" alt="">
-            </a>
-        </li>
-        <li>
-            <a id="plate-home" href="#">
-                <img src="static/images/icons/buildplate-home-icon.svg" alt="">
-            </a>
-        </li>
-        <li>
-            <a id="plate-down" href="#">
-                <img src="static/images/icons/buildplate-down-icon.svg" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="/plate-select-temp">
-                <img src="static/images/icons/buildplate-HEAT-icon.svg" alt="">
-            </a>
-        </li>
-    </ul>
+<main class="k-main">
+    <section class="k-grid k-grid--2x2">
+        <a id="plate-up" href="#" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_control-cama-arriba.svg" />
+        </a>
+        <a href="/plate-select-temp" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_control-cama-temp.svg" />
+        </a>
+        <a id="plate-down" href="#" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_control-cama-abajo.svg" />
+        </a>
+        <a id="plate-home" href="#" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_control-cama-home.svg" />
+        </a>
+    </section>
 </main>
-
-<footer>
-    <a id="back" class="button" href="/back-manual-controls"></a>
-    <div class="slogan"></div>
+<footer class="k-footer">
+    <a href="/back-manual-controls" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
 </footer>
 <script src="/static/js/manual_control.js"></script>
 </body>

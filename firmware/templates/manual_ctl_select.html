@@ -1,32 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-    <h1>Manual Controls</h1>
-    <ul class="first_attemp">
-        <li>
-            <a href="/build-plate-controls">
-                <img src="static/images/icons/buildplate-icon.png" alt="">
-                <h3>Build Plate</h3>
-            </a>
-        </li>
-        <li>
-            <a href="/extruders-controls">
-                <img src="static/images/icons/extruders-icon.png" alt="">
-                <h3>Extruders</h3>
-            </a>
-        </li>
-        <li>
-            <a href="/lights">
-                <img src="static/images/icons/lights-icon-on.svg" alt="">
-                <h3>Lights</h3>
-            </a>
-        </li>
-    </ul>
+<main class="k-main">
+    <section class="k-grid k-grid--1x3 k-grid--1x3-titled k-grid--1x3-titled-3">
+        <h3 class="k-grid--1x3-titled-full">{{_("mcontrol_title")}}</h3>
+
+        <a href="/build-plate-controls" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_control-cama.svg" />
+            <p class="k-grid-item__p">{{_("manualcontrol_buildplate")}}</p>
+        </a>
+
+        <a href="/extruders-controls" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_control-extrusor.svg" />
+            <p class="k-grid-item__p">{{_("manualcontrol_extruders")}}</p>
+        </a>
+
+        <a href="#" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_luz-prendida.svg" />
+            <p class="k-grid-item__p">{{_("manualcontrol_light")}}</p>
+        </a>
+        <!-- para versión de luz apagada 
+              <div class="k-grid-item k-grid-item--grey">
+                <img class="k-grid-item__img" src="/static/images/icon_luz-apagada.svg"/>
+                <p  class="k-grid-item__p">{{_("manualcontrol_light")}}</p>
+              </div>
+              -->
+    </section>
 </main>
 
-    <footer>
-        <a id="back" class="button" href="/advanced"></a>
-        <div class="slogan"></div>
-    </footer>
+<footer class="k-footer">
+    <a href="/advanced" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
+</footer>
 </body>
 {% end %}
