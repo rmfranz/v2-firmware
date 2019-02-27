@@ -334,6 +334,11 @@ a{
   grid-column: span 2;
 }
 
+/* takes out spacing between icon and text for these specific grid layouts */
+.k-grid--2x3 > .k-grid-item p, .k-grid--2x3asim > .k-grid-item p{
+  margin: 0;
+}
+
 .k-grid--2x3asim > .k-grid-item:nth-child(4),
 .k-grid--2x3asim > .k-grid-item:nth-child(5){
   grid-column: span 3;
@@ -733,7 +738,7 @@ a{
 /* FOOTER STYLES */
 .k-footer{
   background-color: #EBEBEA;
-  height: 60pf; width: 100%;
+  height: 60px; width: 100%;
 }
 
 /*defaults to short red, modifier to yellow long*/
