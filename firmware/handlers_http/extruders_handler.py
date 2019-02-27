@@ -25,7 +25,18 @@ class ToExtruderTemperatureHandler(BasicHandler):
     def get(self):
         extruder = self.request.path.split("/")[1]
         self.firmware.choose_extruder(extruder)
-        self.render("extruder_temp.html", extruder=extruder)
+        mat_temps = {
+            "ABS ~ 240°C": 240,
+            "Flex (PU) ~ 235°C": 235,
+            "HIPS ~ 240°C": 240,
+            "Nylon ~ 240°C": 240,
+            "PETG ~ 240°C": 240,
+            "PLA Tough ~ 215°C": 215,
+            "PLA+ ~ 205°C": 205,
+            "PVA ~ 195°C": 195,
+            "OFF ~ 0°C": 0,
+        }
+        self.render("extruder_temp.html", extruder=extruder, mat_temps=mat_temps)
 
 class ExtruderTemperatureHandler(BasicHandler):
     def get(self, temp):
