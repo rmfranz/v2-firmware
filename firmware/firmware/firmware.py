@@ -74,6 +74,9 @@ class BaseFirmware:
         #return list(self.version_json)
         return ["KPA1"]
     
+    def get_serial_number(self):
+        return self.hardware_json["serial_number"]
+
     def write_hardware_json(self):
         with open(self.HARDWARE_JSON_FOLDER, 'w') as f:
                 json.dump(self.hardware_json, f)

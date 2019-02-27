@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="k-main">
+    <section class="k-block">
+        <div class="k-block-2 k-block-2--full">
+            <p class="k-block-2-left">{{_("info_printeraddress")}}</p>
+            <p class="k-block-2-right">{{ip_local}}</p>
+        </div>
+        <div class="k-block-2 k-block-2--full">
+            <p class="k-block-2-left">{{_("info_printeraddress_ethernet")}}</p>
+            <p class="k-block-2-right">{{ip_public}}</p>
+        </div>
+    </section>
+</main>
+<!--
+
+        <div id="infobold" class="bottom left-half">
+            <div class="btn top left">
+                <a href="/ssh-enable">
+                    <h3>Enable SSH</h3>
+                </a>
+            </div>
+        </div>
+        <div id="infolight" class="bottom right-half">
+            <div class="btn top center">
+                <a href="/ssh-disable">
+                    <h3>Disable SSH</h3>
+                </a>
+            </div>
+        </div>
+
+      -->
+<footer class="k-footer">
+    <a href="/connectivity" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
+</footer>
+
+
+</body>
+{% end %}

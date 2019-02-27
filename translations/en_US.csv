@@ -51,6 +51,7 @@ platform ,
 
 config_title , Settings
 config_internet , Internet
+config_wifi, Wifi
 
 config_filaments , Filaments
 config_extras , Extras
@@ -156,6 +157,7 @@ change_language , Change language
 info_printeraddress , IP address
 info_serialnumber , Serial Number
 info_swversion , Software version
+info_hwversion , Hardware version
 info_updateavailable , Update available
 waitForUpdate , Updating {}%
 waitForReboot , Wait for reboot.

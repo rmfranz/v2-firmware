@@ -1,41 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-    <h1>Info, SSH: {{ssh}}</h1>
-    <div class="grid">
-        <div id="infobold" class="top left-half">
-            <span>IP Address:</span>
+<main class="k-main">
+    <section class="k-block">
+        <div class="k-block-2 k-block-2--full">
+            <p class="k-block-2-left">{{_("info_serialnumber")}}</p>
+            <p class="k-block-2-right">{{serial}}</p>
         </div>
-        <div id="infolight" class="top right-half">
-            {{ip_local}}
+        <div class="k-block-2 k-block-2--full">
+            <p class="k-block-2-left">{{_("info_swversion")}}</p>
+            <p class="k-block-2-right">{{soft_version}}</p>
         </div>
-        <div id="infobold" class="middle left-half">
-            Ip publica
+        <div class="k-block-2 k-block-2--full">
+            <p class="k-block-2-left">{{_("info_hwversion")}}</p>
+            <p class="k-block-2-right">{{hard_version}}</p>
         </div>
-        <div id="infolight" class="middle right-half">
-            {{ip_public}}
-        </div>
-        <div id="infobold" class="bottom left-half">
-            <div class="btn top left">
-                <a href="/ssh-enable">
-                    <h3>Enable SSH</h3>
-                </a>
-            </div>
-        </div>
-        <div id="infolight" class="bottom right-half">
-            <div class="btn top center">
-                <a href="/ssh-disable">
-                    <h3>Disable SSH</h3>
-                </a>
-            </div>
-        </div>
-    </div>
+    </section>
 </main>
-
-<footer>
-    <a id="back" class="button" href="/connectivity"></a>
-    <div class="slogan"></div>
+<footer class="k-footer">
+    <a href="/advanced" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
 </footer>
+
 
 </body>
 {% end %}

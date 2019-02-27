@@ -1,32 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-    <h1>Connectivity</h1>
-    <ul class="first_attemp">
-        <li>
-            <a href="/wifi-connection">
-                <img src="/static/images/icons/wifi-sub-icon.svg" alt="">
-                <h3>Wifi</h3>
-            </a>
-        </li>
-        <li>
-            <a href="/network-info">
-                <img src="/static/images/icons/info-sub-icon.svg" alt="">
-                <h3>Network info</h3>
-            </a>
-        </li>
-        <li>
-            <a href="/to-cloud">
-                <img src="/static/images/icons/cloud-sub-icon.svg" alt="">
-                <h3>Cloud</h3>
-            </a>
-        </li> 
-    </ul>
+<main class="k-main">
+    <section class="k-grid k-grid--1x3">
+        <a href="/wifi-connection" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_conectividad-wifi.svg" />
+            <p class="k-grid-item__p">{{_("config_wifi")}}</p>
+        </a>
+        <a href="/network-info" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_conectividad-info_de_red.svg" />
+            <p class="k-grid-item__p">{{_("info_network")}}</p>
+        </a>
+        <a href="/to-cloud" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_conectividad-nube.svg" />
+            <p class="k-grid-item__p ">{{_("config_cloud")}}</p>
+        </a>
+    </section>
 </main>
 
-<footer>
-    <a id="back" class="button" href="/setup"></a>
-    <div class="slogan"></div>
+<footer class="k-footer">
+    <a href="/setup" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
 </footer>
 </body>
 {% end %}

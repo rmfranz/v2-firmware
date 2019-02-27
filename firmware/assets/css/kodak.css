@@ -41,7 +41,6 @@ a{
   text-decoration: none;
 }
 
-
 .k-header{
   background-color: #020202;
 }
@@ -298,7 +297,6 @@ a{
 
 .k-grid--1x3-titled-3{
   grid-auto-flow: column;
-  width: 660px;
 }
 
 .k-grid--1x3-titled h3{
@@ -338,6 +336,12 @@ a{
 .k-grid--2x3 > .k-grid-item p, .k-grid--2x3asim > .k-grid-item p{
   margin: 0;
 }
+
+.k-grid--2x3 > .k-grid-item, .k-grid--2x3asim > .k-grid-item{
+ padding: 20px 0; 
+}
+
+/* ----------- */
 
 .k-grid--2x3asim > .k-grid-item:nth-child(4),
 .k-grid--2x3asim > .k-grid-item:nth-child(5){
@@ -416,6 +420,7 @@ a{
 .k-grid-item__p{
   margin: 14px 0 0 0;
   text-align:center;
+  padding: 0 10px;
 }
 
 .k-grid-item__p--big{
@@ -455,6 +460,12 @@ a{
   justify-content: space-between;
   align-items:center;
 }
+
+/*modifier for no scrollbars*/
+.k-block-2--full{
+  background:#EBEBEA;
+}
+
 
 .k-block-2:first-child{
   margin:0;
@@ -942,6 +953,6 @@ a{
 /* help button */
 .k-help-btn{
   position:absolute;
-  bottom: 10px; 
-  right: 10px;
+  bottom: 0; 
+  right: 0;
 }

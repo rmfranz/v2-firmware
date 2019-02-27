@@ -63,3 +63,7 @@ class UpdateHandler(BasicHandler):
         os.system("sudo killall pigpiod")
         os.system("sudo reboot -h now")
         self.write("ok")
+
+class ToInfoHandler(BasicHandler):
+    def get(self):
+        self.render("info.html", serial=self.firmware.get_serial_number(), soft_version="V2", hard_version="V2")
