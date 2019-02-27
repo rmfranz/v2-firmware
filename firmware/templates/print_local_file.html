@@ -1,34 +1,22 @@
 {% extends "base.html" %}
-{% block content %} 
-<main>
-    <div class="container">
-        <h1>Print from Local file</h1>
-        <ul class="menu first_attemp">
-            <li class="btn">
-                <a href="/listing-files/1">
-                    <img src="static/images/icons/usb-icon-big.svg" alt="">
-                    <h3>USB</h3>
-                </a>
-            </li>
-            <li class="btn">
-                <a href="#">
-                    <img src="static/images/icons/sample-icon-big.svg" alt="">
-                    <h3>Sample file</h3>
-                </a>
-            </li>
-            <li class="btn">
-                <a href="#">
-                    <img src="static/images/icons/calibrate-icon-big.svg" alt="">
-                    <h3>Calibration file</h3>
-                </a>
-            </li>
-        </ul>
-    </div>
+{% block content %}
+<main class="k-main">
+    <section class="k-grid k-grid--1x2">
+        <a href="/listing-files/2" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_imprimir-muestras.svg" />
+            <p class="k-grid-item__p .k-grid-item__p--big">{{_("files_samples")}}</p>
+        </a>
+        <a href="/listing-files/3" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_imprimir-calibracion.svg" />
+            <p class="k-grid-item__p .k-grid-item__p--big">{{_("files_calibration")}}</p>
+        </a>
+    </section>
 </main>
 
-<footer>
-    <a id="back" class="button" href="/home"></a>
-    <div class="slogan"></div>
+<footer class="k-footer">
+    <div class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </div>
 </footer>
 
 </body>

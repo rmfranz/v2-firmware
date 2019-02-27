@@ -1,5 +1,5 @@
 from handlers_http.basic_handler import BasicHandler
-from utils import mount_usb, get_gcodes_from_usb
+from utils import mount_usb, get_gcodes_from_usb, get_gcodes_from_sample, get_gcodes_from_calibration
 import tornado
 from tornado import httpclient
 
@@ -13,6 +13,12 @@ class LocalFilesSelectionHandler(BasicHandler):
 
 class ListingFilesHandler(BasicHandler):
     def get(self, listing_id):
+        """
+            When listing:
+                1 -> usb
+                2 -> samples
+                3 -> calibration    
+        """
         items = []
         if listing_id == "1":
             try:
@@ -28,7 +34,11 @@ class ListingFilesHandler(BasicHandler):
                 items = {}
                 error = "Hubo un error"
         elif listing_id == "2":
-            b = ""
+           items = get_gcodes_from_sample()
+           error = ""
+        elif listing_id == "3":
+           items = get_gcodes_from_calibration()
+           error = ""
         self.render("listing_files.html", items=items, error=error)
 
 class TemperaturesHandler(BasicHandler):

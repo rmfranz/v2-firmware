@@ -23,6 +23,22 @@ def get_gcodes_from_usb():
         dict_of_files.update({file: os.path.join(dirpath, file) for file in filenames if fnmatch.fnmatch(file, pattern)})
     return dict_of_files
 
+def get_gcodes_from_sample():
+    dirName = "/home/pi/v2-firmware/Samples"
+    pattern = "*.gcode"
+    dict_of_files = {}
+    for (dirpath, dirnames, filenames) in os.walk(dirName):
+        dict_of_files.update({file: os.path.join(dirpath, file) for file in filenames if fnmatch.fnmatch(file, pattern)})
+    return dict_of_files
+
+def get_gcodes_from_calibration():
+    dirName = "/home/pi/v2-firmware/calibrationObjects"
+    pattern = "*.gcode"
+    dict_of_files = {}
+    for (dirpath, dirnames, filenames) in os.walk(dirName):
+        dict_of_files.update({file: os.path.join(dirpath, file) for file in filenames if fnmatch.fnmatch(file, pattern)})
+    return dict_of_files
+
 def scan_wlan():
     """
     There is an alternative with iw, but gives other result string
