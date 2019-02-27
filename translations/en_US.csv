@@ -239,3 +239,10 @@ print_selection_local , Print from local file
 
 cancel_popup_title , Cancelling the print.
 cancel_popup_body , Please wait.
+
+help_25_calibration_title, Calibrate
+help_25_calibration_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
+help_25_reset_title, Reset
+help_25_reset_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
+help_25_inspect_title, Inspect
+help_25_inspect_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus

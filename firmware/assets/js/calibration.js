@@ -197,3 +197,11 @@ $("#calibration_reset_close").on("click", function() {
 $("#change_extruder_close").on("click", function() {
     $("#change_extruder").toggleClass( "k-modal-overlay--visible" );
 });
+
+$("#help_calibration").on("click", function() {
+    $("#help_calibration_modal").toggleClass( "k-modal-overlay--visible" );
+});
+
+$("#help_calibration_modal_close").on("click", function() {
+    $("#help_calibration_modal").toggleClass( "k-modal-overlay--visible" );
+});
