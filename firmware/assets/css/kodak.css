@@ -37,8 +37,8 @@ ul{
 
 a{
   list-style-type: none;
-  text-decoration: none;
   color: black;
+  text-decoration: none;
 }
 
 
@@ -352,7 +352,7 @@ a{
   justify-content: center;
   background: #F9B621;
   border-radius: 10px;
-  padding:20px;
+  padding:5px;
 }
 
 .k-grid-item--split{
@@ -405,11 +405,11 @@ a{
 }
 
 .k-grid-item__img{
-  margin: 0 0 15px 0;
+  margin: 0;
 }
 
 .k-grid-item__p{
-  margin: 0;
+  margin: 14px 0 0 0;
   text-align:center;
 }
 
