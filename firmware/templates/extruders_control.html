@@ -1,79 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-    <h1>Extruders</h1>
-    <ul class="first_attemp">
-        <li>
-            <a href="/ext_2">
-                <img src="/static/images/icons/heat-filament-2-icon.svg" alt="">
-            </a>
-        </li>
-        <li>
-            <a id="t1_extrude" href="#">
-                <img src="/static/images/icons/filament-up-icon.svg" alt="">
-            </a>
-        </li>
-        <li>
-            <a id="t1_retract" href="#">
-                <img src="/static/images/icons/filament-down-icon.svg" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="/ext_1">
-                <img src="/static/images/icons/heat-filament-1-icon.svg" alt="">
-            </a>
-        </li>
-        <li>
-            <a id="t0_extrude" href="#">
-                <img src="/static/images/icons/filament-up-icon.svg" alt="">
-            </a>
-        </li>
-        <li>
-            <a id="t0_retract" href="#">
-                <img src="/static/images/icons/filament-down-icon.svg" alt="">
-            </a>
-        </li>
-    </ul>
+<main class="k-main">
+  <section class="k-grid k-grid--2x3">
+    <a href="/ext_1" class="k-grid-item">
+      <img class="k-grid-item__img" src="/static/images/icon_control-hotend1.svg" />
+    </a>
+    <a id="t0_extrude" href="#" class="k-grid-item">
+      <img class="k-grid-item__img" src="/static/images/icon_control-extruir.svg" />
+    </a>
+    <a id="t0_retract" href="#" class="k-grid-item">
+      <img class="k-grid-item__img" src="/static/images/icon_control-retraer.svg" />
+    </a>
+    <a href="/ext_2" class="k-grid-item">
+      <img class="k-grid-item__img" src="/static/images/icon_control-hotend2.svg" />
+    </a>
+    <a id="t1_extrude" href="#" class="k-grid-item">
+      <img class="k-grid-item__img" src="/static/images/icon_control-extruir.svg" />
+    </a>
+    <a id="t1_retract" href="#" class="k-grid-item">
+      <img class="k-grid-item__img" src="/static/images/icon_control-retraer.svg" />
+    </a>
+  </section>
 </main>
 
-<footer>
-    <a id="back" class="button" href="/back-extruder"></a>
-    <div class="slogan"></div>
+<footer class="k-footer">
+  <a href="/back-extruder" class="k-footer-left">
+    <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+  </a>
 </footer>
-
-
-
-
-<main class="k-main">
-        <section class="k-grid k-grid--2x3">
-          <a href="/ext_1" class="k-grid-item">
-            <img class="k-grid-item__img" src="/static/images/icon_control-hotend1.svg"/>
-          </a>
-          <a id="t0_extrude" href="#" class="k-grid-item">
-            <img class="k-grid-item__img" src="/static/images/icon_control-extruir.svg"/>
-          </a>
-          <a id="t0_retract" href="#" class="k-grid-item">
-            <img class="k-grid-item__img" src="/static/images/icon_control-retraer.svg"/>
-          </a>
-          <a href="/ext_2" class="k-grid-item">
-            <img class="k-grid-item__img" src="/static/images/icon_control-hotend2.svg"/>
-          </a>
-          <a id="t1_extrude" href="#" class="k-grid-item">
-            <img class="k-grid-item__img" src="/static/images/icon_control-extruir.svg"/>
-          </a>
-          <a id="t1_retract" href="#"class="k-grid-item">
-            <img class="k-grid-item__img" src="/static/images/icon_control-retraer.svg"/>
-          </a>
-        </section>
-      </main>
-      
-      <footer class="k-footer">
-        <a href="/back-extruder" class="k-footer-left">
-          <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg"/> </button>  
-        </a>
-      </footer>
 </body>
 <script>
-    var in_extruder_control = true;
+  var in_extruder_control = true;
 </script>
 {% end %}
