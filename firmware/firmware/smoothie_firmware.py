@@ -24,12 +24,12 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun = printcore("/dev/ttyACM0", 115200)
         print("Conecte la impresora")
         self.printrun.addEventHandler(handler())
-        if not os.path.isdir(path):
-            os.makedirs(path)
-        if not os.listdir(path):
-            os.system("rm {}/*".format(path))
-        #self.printrun.initEventHandlers()
         self.is_initialized = True
+        #if not os.path.isdir(path):
+        #    os.makedirs(path)
+        #if not os.listdir(path):
+        #    os.system("rm {}/*".format(path))
+        #self.printrun.initEventHandlers()
 
     def homming(self):
         self.printrun.send_now("G28")

@@ -46,9 +46,9 @@ class PrintHandler(BasicHandler):
     def get(self):
         self.firmware.start_print()
         #self.print_finished_controller.start()
-        http_client = httpclient.HTTPClient()
-        resp_reg = http_client.fetch("http://127.0.0.1:9000/init-print", method='GET', raise_error=False)
-        print(resp_reg.body.decode('utf-8'))
+        #http_client = httpclient.HTTPClient()
+        #resp_reg = http_client.fetch("http://127.0.0.1:9000/init-print", method='GET', raise_error=False)
+        #print(resp_reg.body.decode('utf-8'))
         self.render("printing.html", filename=self.firmware.filename)
 
     def post(self):
@@ -60,7 +60,6 @@ class PrintHandler(BasicHandler):
 class PrintNowHandler(BasicHandler):
     def get(self):
         self.firmware.start_print()
-        self.print_finished_controller.start()
         self.write("ok")
 
 class PauseHandler(BasicHandler):
@@ -77,12 +76,10 @@ class ResumeHandler(BasicHandler):
 class CancelHandler(BasicHandler):
     def get(self):
         self.firmware.cancel()
-        self.print_finished_controller.stop()
         self.render("index.html", working_on="cancelado")
 
 class PrintFinishedHandler(BasicHandler):
     def get(self):
-        self.print_finished_controller.stop()
         time_printing = self.get_cookie("time_printing")
         self.render("print_finished.html", filename=self.firmware.filename, time_printing=time_printing)
 

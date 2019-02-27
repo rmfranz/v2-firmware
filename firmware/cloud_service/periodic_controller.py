@@ -186,7 +186,7 @@ class PeriodicController:
             ws.send("print_finished")
             print("!!!!!!!!!!!!! envie")
             ws.close()
-            os.system("rm /home/pi/print_end_status/*")
+            os.system("sudo rm /home/pi/print_end_status/*")
             self.print_finished_controller.stop()
 
     def write_hardware_json(self):

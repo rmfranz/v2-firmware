@@ -15,6 +15,10 @@
 
 from .eventhandler import PrinterEventHandler
 from websocket import create_connection
+import os
+from tornado.websocket import websocket_connect
+import tornado
+import asyncio
 
 class SmoothieHandler(PrinterEventHandler):
     '''
@@ -44,8 +48,6 @@ class SmoothieHandler(PrinterEventHandler):
         self.__write("on_init")
         
     def on_send(self, command, gline):
-        if self.printing:
-            self.create_connection_and_send("ws://127.0.0.1:8888/line-sended", command.strip())
         self.__write("on_send", command)
     
     def on_recv(self, line):
@@ -83,10 +85,10 @@ class SmoothieHandler(PrinterEventHandler):
         self.__write("on_start", "true" if resume else "false")
         
     def on_end(self):      
-        #self.create_connection_and_send("ws://127.0.0.1:8888/print-finished", "print_finished")
         if not self.paused:
-            open('/home/pi/print_end_status/end_print', 'a').close()
+            self.create_connection_and_send("ws://127.0.0.1:8888/print-finished", "print_finished")
             self.printing = False
+        #    os.system("sudo touch /home/pi/print_end_status/end_print")
         self.__write("on_end")
         
     def on_layerchange(self, layer):
@@ -96,6 +98,8 @@ class SmoothieHandler(PrinterEventHandler):
         self.__write("on_preprintsend", gline)
     
     def on_printsend(self, gline):
+        if self.printing:
+            self.create_connection_and_send("ws://127.0.0.1:8888/line-sended", command.strip())
         self.__write("on_printsend", gline)
 
     def on_pause(self):
@@ -131,6 +135,16 @@ class SmoothieHandler(PrinterEventHandler):
             return False
     
     def create_connection_and_send(self, url, data):
-        ws = create_connection(url)
-        ws.send(data.strip())
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        loop.run_until_complete( self.create_connection_and_send_async(url, data))
+        loop.close()
+        #ws = create_connection(url)
+        #ws.send(data.strip())
+        #ws.close()
+
+    @tornado.gen.coroutine
+    def create_connection_and_send_async(self, url, data):
+        ws = yield websocket_connect(url)
+        ws.write_message(data.strip())
         ws.close()
