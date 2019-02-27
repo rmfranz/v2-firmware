@@ -19,6 +19,6 @@ $('#plate-down').click(function () {
 
 $('#plate-home').click(function () {
     $.ajax({url: "/plate-home", success: function(result){
-        console.info(result)
+        plate_position = 235;
     }, async: false});
 });
