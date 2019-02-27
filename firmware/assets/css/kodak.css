@@ -307,12 +307,12 @@ a{
 }
 
 .k-grid--1x3-titled-3 h3{
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .k-grid--1x3-titled-3 h3.k-grid--1x3-titled-full{
   grid-column: 1 / -1;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .k-grid--2x2{
@@ -444,40 +444,53 @@ a{
 .k-block-2{
   margin: 10px 0;
   padding: 0;
-  background: #EBEBEA;
+  background-image: linear-gradient(to right, #EBEBEA 98%, white 98%, white);
   font-size: 20px;
   display:flex;
   justify-content: space-between;
   align-items:center;
 }
 
+.k-block-2:first-child{
+  margin:0;
+}
+
 .k-block-2 p{
   margin-left: 15px; 
   margin-right: 15px;
+  word-break: break-all;
+  
+  /* para convertir a corte con elipsis 
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 365px;
+  
+  */
 }
 
 .k-block-2__left{
   justify-content: flex-start;
   display: flex;
-  flex-basis: 50%;
   align-items: center;
 }
 
 .k-block-2__right{
   justify-content: flex-end;
   display: flex;
-  flex-basis: 50%;
   align-items: center;
   margin-right: 15px;
 }
 
-.k-block-2__right{
+.k-block-2__right p{
   width: 110px;
+  text-align: right;
 }
 
-
 .k-block-2__img-container{
-  width: 64px; 
+  width: 64px;
+  flex: 0 0 auto;
   height: 64px;
   background: #35A8DF;
   margin-right: 15px;

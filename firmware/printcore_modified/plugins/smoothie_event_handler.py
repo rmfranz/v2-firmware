@@ -99,7 +99,7 @@ class SmoothieHandler(PrinterEventHandler):
     
     def on_printsend(self, gline):
         if self.printing:
-            self.create_connection_and_send("ws://127.0.0.1:8888/line-sended", command.strip())
+            self.create_connection_and_send("ws://127.0.0.1:8888/line-sended", gline.strip())
         self.__write("on_printsend", gline)
 
     def on_pause(self):
