@@ -3,6 +3,7 @@ from subprocess import check_output, call
 from printcore_modified import gcoder
 import itertools
 from websocket import create_connection
+import time
 
 def mount_usb(uuid_board):
     if not check_output("ls /media/usb", shell=True, universal_newlines=True):
@@ -58,6 +59,7 @@ def connect_public_wifi(network_name):
     os.system("sudo wpa_cli save_config")
     os.system("sudo wpa_cli -i wlan0 reconfigure")
     os.system("sudo mount -o remount,ro /")
+    time.sleep(5)
     return wifi_connected()
 
 def connect_private_wifi(network_name, password):
@@ -70,6 +72,7 @@ def connect_private_wifi(network_name, password):
     os.system("sudo wpa_cli save_config")
     os.system("sudo wpa_cli -i wlan0 reconfigure")
     os.system("sudo mount -o remount,ro /")
+    time.sleep(5)
     return wifi_connected()
 
 def wifi_connected():
