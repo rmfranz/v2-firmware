@@ -5,12 +5,12 @@ import os
 
 class ToNetworkInfoHandler(BasicHandler):
     def get(self):
-        try:
-            ip_public = urlopen('http://ip.42.pl/raw').read()
-        except:
-            ip_public = ""
+        #try:
+        #    ip_public = urlopen('http://ip.42.pl/raw').read()
+        #except:
+        #    ip_public = ""
         ip_local = check_output("hostname -I", shell=True, universal_newlines=True).strip()
-        self.render("network_info.html", ip_public=ip_public, ip_local=ip_local, ssh=self.get_cookie("ssh", default="disable"))
+        self.render("network_info.html", ip_public=ip_local, ip_local=ip_local, ssh=self.get_cookie("ssh", default="disable"))
 
 class EnableSSHHandler(BasicHandler):
     def get(self):

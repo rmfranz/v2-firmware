@@ -1,9 +1,31 @@
-$('#wifi_list li').click(function () {
+$('.wifi_selected').click(function () {
     var wifiname = $(this).data('wifiname');
     $("#network_name").val(wifiname);
-    $('#wifi_modal').modal('show');
+    $("#network_name_title").text(wifiname);
+    $('#wifi_modal').toggleClass('k-modal-overlay--visible');
 });
 
+$("#cancel_modal").click(function () {
+    $('#wifi_modal').toggleClass('k-modal-overlay--visible');
+});
+
+$("#confirm").click(function () {
+    var network_name = $("#network_name").val();
+    var password = $("#keyboard").val();
+    $.ajax({
+        url: "/wifi-connection",
+        method: "POST",
+        success: function (result) {
+            if(network_name == result){
+                $('#wifi_icons').prepend('<img src="/static/images/icon-tilde_verde.svg" />')
+                $('#wifi_modal').toggleClass('k-modal-overlay--visible');
+            } else {
+                $("#connection_error").text("Error de conexión,<br/>vuelva a intentarlo")                
+            }
+        },
+        async: false
+    });
+});
 /*
 $('#keyboard')
 .keyboard({

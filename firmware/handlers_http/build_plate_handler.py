@@ -1,4 +1,5 @@
 from handlers_http.basic_handler import BasicHandler
+import collections
 
 class ToBuildPlateControlHandler(BasicHandler):
     def get(self):
@@ -33,6 +34,8 @@ class ToPlateTemperatureHandler(BasicHandler):
             "PVA ~ 50°C": 50,
             "OFF ~ 0°C": 0,
         }
+        mat_temps = collections.OrderedDict(sorted(mat_temps.items()))
+        mat_temps.move_to_end('OFF ~ 0°C')
         self.render("bed_temperatures.html", mat_temps=mat_temps)
 
 class PlateTemperatureHandler(BasicHandler):

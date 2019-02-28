@@ -58,6 +58,7 @@ def connect_public_wifi(network_name):
     os.system("sudo wpa_cli save_config")
     os.system("sudo wpa_cli -i wlan0 reconfigure")
     os.system("sudo mount -o remount,ro /")
+    return wifi_connected()
 
 def connect_private_wifi(network_name, password):
     network_number = int(check_output("wpa_cli add_network | grep -v \"Selected interface 'p2p-dev-wlan0'\"", shell=True, universal_newlines=True))
@@ -69,12 +70,17 @@ def connect_private_wifi(network_name, password):
     os.system("sudo wpa_cli save_config")
     os.system("sudo wpa_cli -i wlan0 reconfigure")
     os.system("sudo mount -o remount,ro /")
+    return wifi_connected()
+
+def wifi_connected():
+    return check_output("iwgetid wlan0 --raw", shell=True, universal_newlines=True).strip()
 
 def connect_to_wifi(network_name, password=None):
     if password:
-        connect_private_wifi(network_name, password)
+        result = connect_private_wifi(network_name, password)
     else:
-        connect_public_wifi(network_name)
+        result = connect_public_wifi(network_name)
+    return result
 
 def split_file_for_print(printrun):
     os.system("split -l 500000 /home/pi/temp/first/pt2.gcode /home/pi/temp/splited/")

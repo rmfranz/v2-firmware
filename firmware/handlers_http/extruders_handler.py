@@ -1,5 +1,6 @@
 from handlers_http.basic_handler import BasicHandler
 from utils import get_extruder
+import collections
 
 class ToExtrudersControlHandler(BasicHandler):
     def get(self):
@@ -36,6 +37,8 @@ class ToExtruderTemperatureHandler(BasicHandler):
             "PVA ~ 195°C": 195,
             "OFF ~ 0°C": 0,
         }
+        mat_temps = collections.OrderedDict(sorted(mat_temps.items()))
+        mat_temps.move_to_end('OFF ~ 0°C')
         self.render("extruder_temp.html", extruder=extruder, mat_temps=mat_temps)
 
 class ExtruderTemperatureHandler(BasicHandler):

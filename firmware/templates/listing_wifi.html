@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="k-main">
+    <h2 class="k-main__h2">{{_("config_wifi")}}</h2>
+    <section class="k-block">
+        {% for name in wifi_list %}
+        <div class="wifi_selected" data-wifiname="{{name}}" class="k-block-2">
+            <div class="k-block-2__left">
+                <p>{{ name }}</p>
+            </div>
+            <div id="wifi_icons" class="k-block-2__right">
+                {% if name == selected %}
+                <img src="/static/images/icon-tilde_verde.svg" />
+                {% end %}
+                <img src="/static/images/icon_wifi-bloqueado.svg" />
+                <img src="/static/images/icon_wifi-senal4.svg" />
+            </div>
+        </div>
+        {% end %}
+    </section>
+</main>
+
+<footer class="k-footer">
+    <a href="/advanced" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
+    <!--
+    <div class="k-footer-right">
+      <button class="k-footer__btn k-footer__btn--grey k-footer__btn--wide"> <img src="/static/images/icon_wifi-desactivar.svg"/> </button>  
+    </div>
+    -->
+</footer>
+<!-- MODAL -->
+<section id="wifi_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <button class="k-modal__close">
+            <img src="img/icon_cancelar.svg" />
+        </button>
+        <div class="k-modal-4">
+            <div class="k-modal-4__top">
+                <p class="k-modal__p k-modal__p--big k-modal__p--center">{{_("connect_modal_title")}}</p>
+                <p id="network_name_title" class="k-modal__warning k-modal__warning--grey"></p>
+                <input id="keyboard" type="text" class="form-control" name="password" placeholder="password">
+                <input id="network_name" type="hidden" class="form-control" name="network_name">
+                <p id="connection_error" class="k-modal__p k-modal__p--big k-modal__p--center"></p>
+            </div>
+            <div class="k-modal-4__bottom">
+                <button id="cancel_modal"
+                    class="k-modal-4__button k-modal-4__button--red">{{_("connect_cancel")}}</button>
+                <button id="confirm" class="k-modal-4__button k-modal-4__button--yellow">{{_("connect")}}</button>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="/static/js/wifi_connection.js"></script>
+</body>
+{% end %}

@@ -1,18 +1,19 @@
 from handlers_http.basic_handler import * 
-from utils import scan_wlan, connect_to_wifi
+from utils import scan_wlan, connect_to_wifi, wifi_connected
 
 class WifiConnectionHandler(BasicHandler):
 
     def get(self):
-        cosa = scan_wlan()
-        print(cosa)
-        self.render("listingWifi.html", wifi_list=cosa, selected=None)
+        wifi_list = scan_wlan()
+        selected = wifi_connected()
+        self.render("listing_wifi.html", wifi_list=wifi_list, selected=selected)
 
     def post(self):
         network_name = self.get_body_argument("network_name")
         password = self.get_body_argument("password", default=None)
-        connect_to_wifi(network_name, password)
-        self.render("listingWifi.html", wifi_list=scan_wlan(), selected=network_name)
+        result = connect_to_wifi(network_name, password)
+        #self.render("listing_wifi.html", wifi_list=scan_wlan(), selected=network_name)
+        self.write(result)
 
 class ConnectivityHandler(BasicHandler):
 
