@@ -18,7 +18,7 @@ class ErrorWsHandler(WebSocketHandler):
     def on_message(self, message):
         logging.info("message: {}".format(message))
         #TODO: Modificar el mensaje
-        [con.write_message("ERR001") for con in self.connections]
+        [con.write_message(message) for con in self.connections]
     
     @classmethod
     def broadcast(cls, message):

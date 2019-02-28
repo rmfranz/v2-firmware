@@ -28,6 +28,7 @@ class SmoothieHandler(PrinterEventHandler):
     def __init__(self):
         self.printing = False
         self.paused = False
+        self.in_error = False
         
     def check_origin(self, origin):
         return True
@@ -63,6 +64,9 @@ class SmoothieHandler(PrinterEventHandler):
             self.create_connection_and_send("ws://127.0.0.1:8888/probe-complete", line.strip())
         elif self.is_for_grid(line.strip()):
             self.create_connection_and_send("ws://127.0.0.1:8888/inspect-grid", line.strip())
+        elif self.is_error(line.strip()) and not self.in_error:
+            self.create_connection_and_send("ws://127.0.0.1:8888/error-handler", "ERR002")
+            self.in_error = True
         self.__write("on_recv", line.strip())
     
     def on_connect(self):
@@ -72,7 +76,8 @@ class SmoothieHandler(PrinterEventHandler):
         self.__write("on_disconnect")
     
     def on_error(self, error):
-        self.create_connection_and_send("ws://127.0.0.1:8888/error-handler", error.strip())
+        self.create_connection_and_send("ws://127.0.0.1:8888/error-handler", "ERR001")
+        self.in_error = True
         self.__write("on_error", error)
         
     def on_online(self):
@@ -134,6 +139,9 @@ class SmoothieHandler(PrinterEventHandler):
             return True
         except (ValueError, TypeError):
             return False
+
+    def is_error(self, data):
+        return "ERROR" in data or "!!" in data or "HALT" in data
     
     def create_connection_and_send(self, url, data):
         loop = asyncio.new_event_loop()
