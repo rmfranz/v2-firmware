@@ -135,7 +135,7 @@ $('#keyboard').keyboard({
 
     // *** change keyboard language & look ***
     display: {
-'bksp'   :  "<img src='../assets/delete.png'>",
+'bksp'   :  "<img src='/static/images/delete.png'>",
 'accept' : 'return',
 'normal' : 'ABC',
 'meta1'  : '.?123',
