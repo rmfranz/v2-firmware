@@ -23,3 +23,17 @@ $('#off').click(function () {
         console.info(result)
     }});
 });
+
+$("#lights_switch").click(function () {
+    if(lights_on) {
+        $.ajax({url: "/lights/off", success: function(result){
+            $("#lights").attr("src","/static/images/icon_luz-apagada.svg");
+        }});
+        lights_on = false;
+    } else {
+        $.ajax({url: "/lights/blue", success: function(result){
+            $("#lights").attr("src","/static/images/icon_luz-prendida.svg");
+        }});
+        lights_on = true;
+    }
+});

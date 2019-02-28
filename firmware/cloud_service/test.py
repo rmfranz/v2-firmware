@@ -54,7 +54,7 @@ class GetRegistrationCodeHandler(RequestHandler):
 
 class TranslationHandler(RequestHandler):
     def get(self):
-        self.render("index.html")
+        self.render("index.html", lights_on="true")
     
     def get_user_locale(self):
         #TODO: sacar de un json

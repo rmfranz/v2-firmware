@@ -39,7 +39,10 @@ class ToFilamentsHandler(BasicHandler):
 
 class ToManualControlHandler(BasicHandler):
     def get(self):
-        self.render("manual_ctl_select.html")
+        lights_on = "true"
+        if not self.application.gpio.lights_on:
+            lights_on = "false"
+        self.render("manual_ctl_select.html", lights_on=lights_on)
 
 class SetBoardUuidHandler(BasicHandler):
     def get(self):

@@ -14,8 +14,8 @@
             <p class="k-grid-item__p">{{_("manualcontrol_extruders")}}</p>
         </a>
 
-        <a href="#" class="k-grid-item">
-            <img class="k-grid-item__img" src="/static/images/icon_luz-prendida.svg" />
+        <a href="#" id="lights_switch" class="k-grid-item">
+            <img id="lights" class="k-grid-item__img" src="/static/images/icon_luz-prendida.svg" />
             <p class="k-grid-item__p">{{_("manualcontrol_light")}}</p>
         </a>
         <!-- para versión de luz apagada 
@@ -33,4 +33,8 @@
     </a>
 </footer>
 </body>
+<script>
+var lights_on = {{lights_on}};
+</script>
+<script src="/static/js/lights.js"></script>
 {% end %}

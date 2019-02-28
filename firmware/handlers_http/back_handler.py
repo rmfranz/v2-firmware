@@ -14,7 +14,10 @@ class BackPlateHandler(BasicHandler):
     def get(self):
         self.firmware.bed_temperature(0)
         #self.firmware.homming()
-        self.render("manual_ctl_select.html")
+        lights_on = "true"
+        if not self.application.gpio.lights_on:
+            lights_on = "false"
+        self.render("manual_ctl_select.html", lights_on=lights_on)
 
 class BackExtruderHandler(BasicHandler):
     def get(self):
@@ -23,4 +26,7 @@ class BackExtruderHandler(BasicHandler):
         #self.firmware.homming()
         self.clear_cookie("extruder")
         self.clear_cookie("extruder_temp")
-        self.render("manual_ctl_select.html")
+        lights_on = "true"
+        if not self.application.gpio.lights_on:
+            lights_on = "false"
+        self.render("manual_ctl_select.html", lights_on=lights_on)
