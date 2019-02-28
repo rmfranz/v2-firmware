@@ -12,6 +12,7 @@ from handlers_websocket.temperatures_ws_handler import *
 from handlers_websocket.calibration_ws_handler import *
 from handlers_websocket.print_ws_handler import *
 from handlers_websocket.cloud_ws_handler import *
+from handlers_websocket.error_ws_handler import *
 from handlers_http.setup_handler import *
 from handlers_http.build_plate_handler import *
 from handlers_http.lights_handler import *
@@ -124,6 +125,7 @@ class Application(tornado.web.Application):
             (r"/print-finished", PrintFinishedWsHandler),
             (r"/line-sended", LineSendedWsHandler),
             (r"/cloud", CloudWsHandler),
+            (r"/error-handler", ErrorWsHandler),
             (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/v2-firmware/firmware/assets"}),
         ]
         tornado.web.Application.__init__(self, handlers, template_path="/home/pi/v2-firmware/firmware/templates/", autoreload=True,

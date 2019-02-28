@@ -61,7 +61,25 @@
             </div>
         </div>
     </section>
+
+    <section id="error_modal" class="k-modal-overlay">
+        <div class="k-modal">
+            <button id="error_modal_close" class="k-modal__close">
+                <img src="/static/images/icon_cancelar.svg" />
+            </button>
+            <div class="k-modal-container">
+                <div class="k-modal-2">
+                    <img class="k-modal-2__img" src="/static/images/icon_alerta.svg" />
+                    <p class="k-modal__p k-modal__p--big">{{_("errors_modal_title")}}</p>
+                    <p id="error_code" class="k-modal__warning"></p>
+                    <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">{{_("error")}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script src="/static/js/temperatures.js"></script>
     <script src="/static/js/cloud_commands.js"></script>
+    <script src="/static/js/error_handler.js"></script>
 
 </html>

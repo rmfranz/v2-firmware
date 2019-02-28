@@ -8,7 +8,7 @@ errors_modal_title , Connection failure
 errors_printer_status , 
 Disconnected , Unable to connect.
 Connecting , 
-Error , 
+error , Reinicie la impresora y si vuelve a ocurrir contactese con el servicio técnico
 errors_modal_disconnected , Check your connection and reboot printer.
 
 warnings_modal_title , Important
