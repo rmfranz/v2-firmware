@@ -12,6 +12,8 @@ $("#cancel_modal").click(function () {
 $("#confirm").click(function () {
     var network_name = $("#network_name").val();
     var password = $("#keyboard").val();
+    $( "#confirm" ).removeClass( "k-modal-4__button--yellow" );
+    $( "#confirm" ).addClass( "k-modal-4__button--grey" );
     $.ajax({
         url: "/wifi-connection",
         method: "POST",
@@ -21,7 +23,7 @@ $("#confirm").click(function () {
                 $('#wifi_icons').prepend('<img src="/static/images/icon-tilde_verde.svg" />')
                 $('#wifi_modal').toggleClass('k-modal-overlay--visible');
             } else {
-                $("#connection_error").text("Error de conexión,<br/>vuelva a intentarlo")                
+                $("#connection_error").text("Error de conexión, vuelva a intentarlo")                
             }
         },
         async: false

@@ -963,6 +963,10 @@ a{
   background: #E2211C;
 }
 
+.k-modal-4__button--grey{
+  background: #EBEBEA;
+}
+
 /* help button */
 .k-help-btn{
   position:absolute;
