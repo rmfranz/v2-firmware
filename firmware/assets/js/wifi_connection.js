@@ -15,7 +15,9 @@ $("#confirm").click(function () {
     $.ajax({
         url: "/wifi-connection",
         method: "POST",
+        data: {network_name: network_name, password: password},
         success: function (result) {
+            alert(result)
             if(network_name == result){
                 $('#wifi_icons').prepend('<img src="/static/images/icon-tilde_verde.svg" />')
                 $('#wifi_modal').toggleClass('k-modal-overlay--visible');

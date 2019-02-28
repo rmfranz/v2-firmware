@@ -338,7 +338,7 @@ a{
 }
 
 .k-grid--2x3 > .k-grid-item, .k-grid--2x3asim > .k-grid-item{
- padding: 20px 0; 
+ padding: 10px 0; 
 }
 
 /* ----------- */
@@ -439,6 +439,10 @@ a{
   overflow: auto;
 }
 
+.k-block--shortened{
+  max-height: 290px;
+}
+
 .k-block__p{
   margin: 10px 0;
   padding: 10px;
@@ -461,6 +465,14 @@ a{
   align-items:center;
 }
 
+.k-block-2--centered{
+  justify-content: center;
+}
+
+.k-block-2--yellow{
+  background-image: linear-gradient(to right, #F9B621 98%, white 98%, white);
+}
+
 /*modifier for no scrollbars*/
 .k-block-2--full{
   background:#EBEBEA;
@@ -470,6 +482,7 @@ a{
 .k-block-2:first-child{
   margin:0;
 }
+
 
 .k-block-2 p{
   margin-left: 15px; 
