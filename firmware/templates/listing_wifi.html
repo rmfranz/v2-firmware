@@ -4,7 +4,7 @@
     <h2 class="k-main__h2">{{_("config_wifi")}}</h2>
     <section class="k-block k-block--shortened">
         {% for name in wifi_list %}
-        <div class="wifi_selected" data-wifiname="{{name}}" class="k-block-2">
+        <div data-wifiname="{{name}}" class="k-block-2 wifi_selected">
             <div class="k-block-2__left">
                 <p>{{ name }}</p>
             </div>
@@ -39,8 +39,8 @@
             <div class="k-modal-4__top">
                 <p class="k-modal__p k-modal__p--big k-modal__p--center">{{_("connect_modal_title")}}</p>
                 <p id="network_name_title" class="k-modal__warning k-modal__warning--grey"></p>
-                <input id="keyboard" type="text" class="form-control" name="password" placeholder="password">
-                <input id="network_name" type="hidden" class="form-control" name="network_name">
+                <input id="keyboard" type="text" class="form-control" name="password" placeholder="password" />
+                <input id="network_name" type="hidden" class="form-control" name="network_name" />
                 <p id="connection_error" class="k-modal__p k-modal__p--big k-modal__p--center"></p>
             </div>
             <div class="k-modal-4__bottom">
@@ -54,26 +54,3 @@
 <script src="/static/js/wifi_connection.js"></script>
 </body>
 {% end %}
-
-
-<main class="k-main">
-    <h2 class="k-main__h2">Wifi</h2>
-    <section class="k-block k-block--shortened">
-        <div class="k-block-2">
-            <div class="k-block-2__left">
-                <p>WIFI-NETWORK-1234</p>
-            </div>
-            <div class="k-block-2__right">
-                <img src="img/icon-tilde_verde.svg" />
-                <img src="img/icon_wifi-bloqueado.svg" />
-                <img src="img/icon_wifi-se%C3%B1al3.svg" />
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer class="k-footer">
-    <div class="k-footer-left">
-        <button class="k-footer__btn k-footer__btn--red "> <img src="img/icon_flecha-back.svg" /> </button>
-    </div>
-</footer>
