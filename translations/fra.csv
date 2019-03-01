@@ -1,0 +1,228 @@
+powered_by, Optimisé par
+hello, Bonjour!
+lets_get_started, Commençons!
+we_will_guide_you_1, Nous allons vous guider pour avoir la meilleure
+we_will_guide_you_2, expérience possible.
+
+errors_modal_title, Échec de connexion
+errors_printer_status, 
+Disconnected, Connexion impossible.
+Connecting, 
+Error, 
+errors_modal_disconnected, Vérifiez votre connexion et veuillez redémarrer l'imprimante.
+
+warnings_modal_title, Important
+warnings_modal_ok, Ok
+
+
+setup_internet, Cliquez sur Suivant pour configurer l'internet.
+
+download_updates, Cliquez sur Suivant pour télécharger les mises à jour.
+
+connect_to_the_cloud, Cliquez sur Suivant pour vous connecter au Cloud.
+
+load_filament, Cliquez sur Suivant pour charger le filament ou, autrement, Ignorer.
+onboarding_skip, Ignorer
+onboarding_next, Suivant
+
+home_title, Accueil
+home_print, Imprimer
+home_settings, Configuration
+home_message_1, Bonjour, je suis prêt à imprimer.
+home_message_2, Rendez-vous sur https://cloud.smart3d.tech pour imprimer.
+
+files_title, Fichiers
+files_intro, Sélectionnez un objet à imprimer.
+files_pendrive, Clé USB
+files_samples, Fichiers locaux
+files_calibration, Objets de calibrage
+loadingFiles, 
+nofilesfound, Aucun fichier trouvé
+
+mcontrol_title, Contrôle manuel
+prepprint_leftnozzle, 
+prepprint_rightnozzle, 
+manualcontrol_buildplate, Plateau d'impression
+kodak_filament, Filaments KODAK
+other_filament, Autres filaments
+manualcontrol_extruders, Extrudeuses
+manualcontrol_light, Lumières
+platform, 
+
+config_title, Configuration
+config_internet, Internet
+
+config_filaments, Filaments
+config_extras, Extras
+back, Arrière
+config_calibration, Calibrage
+config_cloud, Nuage
+
+filaments_menu_title, Filaments
+filaments_menu_load, Charger le filament
+filaments_menu_unload, Décharger le filament
+
+filamentsetup_title, Configuration du filament
+add_filament, Nouveau filament
+filament_name, Nom
+filament_temp, Température du filament (ºC)
+bed_temp, Température du plateau (ºC)
+is_KODAK, Est-ce KODAK ?
+f_true, Oui
+f_false, Non
+newfilament_failure, Impossible de créer le filament. Veuillez réessayer.
+filament_confirm_delete, Êtes-vous sûr de vouloir supprimer ce filament?
+filament_delete, Supprimer le filament
+
+extruder, Extrudeuse
+extruder_loaded, Chargé
+filaments_heating, Veuillez patienter pendant le chauffage
+filaments_extruding, En attente d'extrusion ...
+filaments_extruding_info, Assurez-vous que le filament s'introduit correctement. Cliquez sur Suivant lorsque vous verrez sortir le filament extrudé.
+filaments_clean, Veuillez retirer le plastique en excès.
+filaments_clean_info, Le plastique devrait être en cours d'extrusion.
+loading_filaments_select, Sélectionnez le type de filament.
+filaments_heating_extruder, Hotend en cours de chauffage
+filaments_please_wait, Veuillez patienter.
+filaments_done, Terminé
+filaments_retracting, Veuillez patienter.
+filaments_retracting_info, Assurez-vous que le filament est bien en cours de rétraction.
+filaments_released, Veuillez retirer la bobine.
+filaments_released_info, Le filament devrait maintenant être sorti de l'extrudeuse.
+filaments_retracting_extruder, Filament en cours de rétraction
+
+network_title, Réseaux
+network_password, Mot de passe
+network_connect_failure, Échec de connexion (erreur de mot de passe ?)
+connect_modal_title, Se connecter à un réseau
+connected, Connecté
+forget, Oublier
+connect_cancel, Annuler
+connect, Connecter
+connecting, Connexion en cours…
+network_choose, Sélectionner un réseau
+
+language_title, Langue
+language_intro, Veuillez sélectionner la langue d'affichage:
+es, Español
+en, English
+fr, Français
+de, Deutsche
+it, Italiano
+
+calibration_title, Calibrage
+calibration_z_offset, Calibrage axe Z
+calibration_z_probe, Calibrage du plateau
+calibration_nozzle, Calibrage de la buse
+calibration_offset_z, Calibrage axe Z
+calibration_probe_triggered, Capteur activé
+calibration_saving, Sauvegarde en cours…
+calibration_save, Enregistrer
+calibration_offset_x, Calibrage axe X
+calibration_offset_y, Calibrage axe Y
+instructions_modal_title_Zoffset, Élevez le plateau jusqu’à qu’il entre en contact avec la buse.
+instructions_modal_title_Cal25step1, Attendre jusqu'à la tête d'impression s'arrête au centre des axes XY.
+instructions_modal_title_Cal25step2, Élevez le plateau avec les flèches jusqu’à qu’il entre en contact avec la buse. Puis cliquez sur Enregistrer.
+instructions_modal_text_Cal25_continue, Continuer
+calibration_buildplate_step1, Étape 1
+calibration_buildplate_step2, Étape 2
+
+calibration_wizard_title, Assistant de calibrage
+waiting_for_initial_movements, Patientez jusqu'à la fin des premiers mouvements.
+done, Terminé
+
+offset_P1, Calibrage P1
+offset_P2, Calibrage P2
+offset_P3, Calibrage P3
+
+info_title, Information de l'imprimante
+change_language, Changer la langue
+info_printeraddress, Adresse IP:
+info_serialnumber, Numéro de série:
+info_swversion, Version du software:
+info_updateavailable, Mise à jour disponible
+waitForUpdate, {{percentage}}% mis à jour
+waitForReboot, Veuillez patienter pendant le redémarrage.
+info_update, Mettre à jour la version
+info_confirm_update, Voulez-vous mettre à jour de {{from }} à {{ to }}?
+info_network, Réseau:
+info_printeraddress_ethernet, Adresse IP:
+info_language, Langue:
+
+backupForLeft, Réserver pour extrudeuse gauche
+presetOnFile, Température préréglée dans le fichier
+Off (0ºC), Hors ligne
+Calculating..., Calcul en cours…
+nozzleDisconnected, Buse déconnectée
+noFilesFound, Insérez la clé USB et attendez que le fichiers sont chargés.
+
+monitor_printingtime, Temps d'impression:
+monitor_elapsedtime, Temps écoulé
+monitor_pause, Mettre en pause
+monitor_paused, En pause
+monitor_cancel, Annuler
+monitor_printdone, Impression terminée
+confirm_cancel, Voulez-vous annuler l'impression?
+confirm_yes, Oui
+confirm_no, Non
+confirm_pause, Êtes-vous sûr de vouloir suspendre l'impression?
+monitor_resume, Reprendre
+monitor_rate, Évaluer
+
+nozzle_intro, Indiquez les diamètres des buses actuellement installées.
+nozzle_modal_title, Définir le diamètre de la buse
+
+cloud_title, KODAK 3D Cloud
+
+cloud_intro, Utilisez ce code pour enregistrer l'imprimante et l'associer à votre compte KODAK 3D Cloud.
+cloud_intro2, Enregistrez-vous sur cloud.smart3d.tech
+queue_empty, Votre imprimante est en ligne et prête à imprimer. Pour commencer à imprimer, connectez- vous à votre compte Cloud.
+delete_from_cloud, Supprimer l'imprimante du Nuage
+confirm_delete_from_cloud, Êtes-vous sûr de vouloir supprimer ce dispositif du Nuage?
+job_date, Date de réception:
+job_email, Email:
+job_duration, Durée de l'impression:
+job_material, Type de matériau:
+job_layer_height, Hauteur:
+job_weight, Poids:
+job_notes, Notes:
+job_preview, Aperçu:
+registration_success, Imprimante connectée
+job_size, Taille du fichier:
+cloud_unregister, Supprimer imprimante
+cloud_disconnect, Déconnecter
+cloud_connect, Connecter
+job_cancel, Supprimer de la queue d'impression
+job_print, Imprimer
+
+extras_title, Extras
+extras_controls, Commandes
+extras_tools, Outils
+extras_info, Info
+extras_update, Mettre à jour
+extras_sound, Son
+
+sound_message, Régler le niveau sonore.
+sound_off, Hors ligne
+sound_max, Maximum
+sound_volume, Volume
+
+updates_updating, Mise à jour vers
+custom_version, Version personnalisée
+updates_latest, Vous avez la dernière version.
+updates_updating_footer, Important: N'éteignez pas l'imprimante pendant la mise à jour.
+updates_success, Mise à jour réussie. Veuilllez patienter pendant le redémarrage.
+
+print_selection_title, Imprimer
+print_selection_cloud, Imprimer à partir du Nuage
+print_selection_local, Imprimer un fichier local
+
+cancel_popup_title, J'annule l'impression.
+cancel_popup_body, Veuillez patienter.
+
+help_25_calibration_title, Calibrate
+help_25_calibration_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
+help_25_reset_title, Reset
+help_25_reset_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
+help_25_inspect_title, Inspect
+help_25_inspect_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus

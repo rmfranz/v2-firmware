@@ -11,5 +11,4 @@ class BasicHandler(RequestHandler):
         self.firmware = self.application.firmware
 
     def get_user_locale(self):
-        #TODO: sacar de un json
-        return tornado.locale.get("en_US")
+        return tornado.locale.get(self.firmware.user_conf_json["language"])

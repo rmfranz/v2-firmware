@@ -104,3 +104,8 @@ class BaseFirmware:
 
     def resume(self):
         self.printrun.resume()
+
+    def set_language(self, language):
+        self.user_conf_json["language"] = language
+        with open(self.USER_CONF_JSON_FOLDER, 'w') as f:
+            json.dump(self.user_conf_json, f)

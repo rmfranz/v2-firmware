@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="k-main">
+    <h2 class="k-main__h2">{{_("language_title")}}</h2>
+    <section class="k-block">
+        <p data-lang="eng" class="k-block__p k-block__p--selected lang">English</p>
+        <p data-lang="esp" class="k-block__p lang">Español</p>
+        <p data-lang="fra" class="k-block__p lang">Française</p>
+        <p data-lang="ita" class="k-block__p lang">Italiano</p>
+    </section>
+</main>
+<footer class="k-footer">
+    <a href="/home" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
+</footer>
+</body>
+<script src="/static/js/language.js"></script>
+{% end %}

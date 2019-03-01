@@ -119,6 +119,7 @@ class Application(tornado.web.Application):
             (r"/turn-on-motors", TurnOnMotorsHandler),
             (r"/nozzles", NozzlesHandler),
             (r"/nozzle/([0-9]+)", NozzleChangeHandler),
+            (r"/language", LanguageHandler),
             (r"/temperatures", TemperaturesWsHandler),
             (r"/heating-bed", HeatingBedWsHandler),
             (r"/heating-nozzle", HeatingNozzleWsHandler),

@@ -90,3 +90,12 @@ class NozzlesHandler(BasicHandler):
 class NozzleChangeHandler(BasicHandler):
     def get(self, nozzle):
         self.render("nozzle_sizes.html", nozzle=nozzle)
+
+class LanguageHandler(BasicHandler):
+    def get(self):
+        self.render("language.html")
+
+    def post(self):
+        language = self.get_body_argument("language")
+        self.firmware.set_language(language)
+        self.write("ok")

@@ -57,8 +57,9 @@ class TranslationHandler(RequestHandler):
         self.render("index.html", lights_on="true")
     
     def get_user_locale(self):
-        #TODO: sacar de un json
-        return tornado.locale.get("en_US")
+        with open("user_conf.json") as f:
+            cosa = json.load(f)
+        return tornado.locale.get(cosa["languaje"])
 
 class AlgoHandler(RequestHandler):
     def get(self):
