@@ -93,7 +93,7 @@ class NozzleChangeHandler(BasicHandler):
 
 class LanguageHandler(BasicHandler):
     def get(self):
-        self.render("language.html")
+        self.render("language.html", lang=self.firmware.user_conf_json["language"])
 
     def post(self):
         language = self.get_body_argument("language")
