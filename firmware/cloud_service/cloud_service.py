@@ -51,7 +51,8 @@ class Application(tornado.web.Application):
             (r"/init-websockets", InitWebsocketsHandler),
             (r"/unregister", InitWebsocketsHandler),
         ]
-        tornado.web.Application.__init__(self, handlers, autoreload=True)
+        #tornado.web.Application.__init__(self, handlers, autoreload=True)
+        tornado.web.Application.__init__(self, handlers)
         self.periodic_controller = PeriodicController()
 
 if __name__ == "__main__":
