@@ -10,12 +10,15 @@ class FirmwareDirector:
 class BaseFirmware:
 
     HARDWARE_JSON_FOLDER = "/home/pi/config-files/hardware.json"
+    USER_CONF_JSON_FOLDER = "/home/pi/config-files/user_conf.json"
 
     def __init__(self):
         with open("firmware/firmware_jsons/version.json") as f:
             self.version_json = json.load(f)
         with open(self.HARDWARE_JSON_FOLDER) as f:
             self.hardware_json = json.load(f)
+        with open(self.USER_CONF_JSON_FOLDER) as f:
+            self.user_conf_json = json.load(f)
         with open("firmware/firmware_jsons/filaments.json") as f:
             self.filaments_json = json.load(f)
         self.mac_addres_checked = False

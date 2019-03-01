@@ -80,3 +80,13 @@ class TurnOnMotorsHandler(BasicHandler):
     def get(self):
         self.firmware.turn_on_motors()
         self.write("ok")
+
+class NozzlesHandler(BasicHandler):
+    def get(self):
+        nozzle_1 = self.firmware.user_conf_json["nozzle_1"]
+        nozzle_2 = self.firmware.user_conf_json["nozzle_2"]
+        self.render("nozzles.html", nozzle_1=nozzle_1, nozzle_2=nozzle_2)
+
+class NozzleChangeHandler(BasicHandler):
+    def get(self, nozzle):
+        self.render("nozzle_sizes.html", nozzle=nozzle)
