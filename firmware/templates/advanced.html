@@ -10,8 +10,8 @@
             <img class="k-grid-item__img" src="/static/images/icon_tamano-nozzle.svg"/> 
             <p class="k-grid-item__p">{{_("config_nozzle_size")}}</p>
         </a>
-        <a href="#" class="k-grid-item">
-            <img class="k-grid-item__img" src="/static/images/icon_apagar-motores.svg"/> 
+        <a href="#" id="motors_switch" class="k-grid-item">
+            <img id="motors" class="k-grid-item__img" src="/static/images/icon_apagar-motores.svg"/> 
             <p class="k-grid-item__p ">{{_("config_motors")}}</p>
         </a>
         <a href="/info" class="k-grid-item">
@@ -32,4 +32,5 @@
     </a>
 </footer>
 </body>
+<script src="/static/js/motors.js"></script>
 {% end %}

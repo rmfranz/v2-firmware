@@ -287,3 +287,9 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now(extruder)
         self.printrun.send_now("G1 E-10 F500")
         self.printrun.send_now("G92 E0")
+
+    def turn_off_motors(self):
+        self.printrun.send_now("M18")
+
+    def turn_on_motors(self):
+        self.printrun.send_now("M17")

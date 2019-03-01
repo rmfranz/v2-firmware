@@ -70,3 +70,13 @@ class UpdateHandler(BasicHandler):
 class ToInfoHandler(BasicHandler):
     def get(self):
         self.render("info.html", serial=self.firmware.get_serial_number(), soft_version="V2", hard_version="V2")
+
+class TurnOffMotorsHandler(BasicHandler):
+    def get(self):
+        self.firmware.turn_off_motors()
+        self.write("ok")
+
+class TurnOnMotorsHandler(BasicHandler):
+    def get(self):
+        self.firmware.turn_on_motors()
+        self.write("ok")
