@@ -36,9 +36,11 @@ class InitWebsocketsHandler(RequestHandler):
             self.application.periodic_controller.ws_initialized = True
         self.write("ok")
 
-class StartPrintControllerHandler(RequestHandler):
+class UnregisterHandler(RequestHandler):
     def get(self):
-        self.application.periodic_controller.print_finished_controller.start()
+        self.application.periodic_controller.api_caller.stop()
+        self.application.periodic_controller.user_conf_json["auth_token"] = ""
+        self.application.periodic_controller.write_user_conf_json()
         self.write("ok")
 
 class Application(tornado.web.Application):
@@ -47,7 +49,7 @@ class Application(tornado.web.Application):
         handlers = [
             (r"/init", InitHandler),
             (r"/init-websockets", InitWebsocketsHandler),
-            (r"/init-print", StartPrintControllerHandler),
+            (r"/unregister", InitWebsocketsHandler),
         ]
         tornado.web.Application.__init__(self, handlers, autoreload=True)
         self.periodic_controller = PeriodicController()

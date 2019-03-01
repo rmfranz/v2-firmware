@@ -40,6 +40,7 @@ class Application(tornado.web.Application):
             (r"/advanced", AdvancedHandler),
             (r"/basic", ToBasicHandler),
             (r"/to-cloud", GetRegistrationCodeHandler),
+            (r"/cloud-unregister", UnregisterHandler),
             (r"/software-update", ToUpdateHandler),
             (r"/make-update", UpdateHandler),
             (r"/manual-controls", ToManualControlHandler),

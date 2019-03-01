@@ -2,16 +2,20 @@ from tornado import httpclient
 import json
 from tornado.ioloop import PeriodicCallback
 import tornado
-from websocket import create_connection
 import os
+from tornado.websocket import websocket_connect
+import asyncio
 
 class PeriodicController:
 
     HARDWARE_JSON_FOLDER = "/home/pi/config-files/hardware.json"
+    USER_CONF_JSON_FOLDER = "/home/pi/config-files/user_conf.json"
 
     def __init__(self):
         with open(self.HARDWARE_JSON_FOLDER) as f:
             self.hardware_json = json.load(f)
+        with open(self.USER_CONF_JSON_FOLDER) as f:
+            self.user_conf_json = json.load(f)
         self.auth_token_caller = None
         self.t0 = 24
         self.t1 = 24
@@ -23,7 +27,7 @@ class PeriodicController:
         self.amber_target = 0
         self.url_cloud = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/register"
         self.url_command = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/command"
-        self.auth_token = self.hardware_json["auth_token"]
+        self.auth_token = self.user_conf_json["auth_token"]
         self.api_caller = PeriodicCallback(self.command_request, 2000)
         self.state = "ready"
         self.headers = {'Content-Type': 'application/json'}
@@ -35,7 +39,6 @@ class PeriodicController:
         }
         self.ws_url = "ws://127.0.0.1:8888/cloud"
         self.ws_initialized = False
-        self.print_finished_controller = PeriodicCallback(self.check_file_print_finished, 1000)
         if self.auth_token:
             self.api_caller.start()
 
@@ -62,8 +65,8 @@ class PeriodicController:
         resp_dict = json.loads(response.body.decode('utf-8'))
         if response.code == 200 and "auth_token" in resp_dict:
             self.auth_token = resp_dict["auth_token"]
-            self.hardware_json["auth_token"] = resp_dict["auth_token"]
-            self.write_hardware_json()
+            self.user_conf_json["auth_token"] = resp_dict["auth_token"]
+            self.write_user_conf_json()
             self.stop_auth_token_caller()
             self.api_caller.start()
             self.create_connection_and_send("connected")
@@ -174,21 +177,21 @@ class PeriodicController:
         self.amber_target = amber_target
 
     def create_connection_and_send(self, data):
-        ws = create_connection(self.ws_url)
-        ws.send(data.strip())
-        ws.close()
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        loop.run_until_complete( self.create_connection_and_send_async(data))
+        loop.close()
 
-    def check_file_print_finished(self):
-        if os.path.exists("/home/pi/print_end_status/end_print"):
-            print("!!!!!!!!!!!!! creo la conexion")
-            ws = create_connection("ws://127.0.0.1:8888/print-finished")
-            print("!!!!!!!!!!!!! termine")
-            ws.send("print_finished")
-            print("!!!!!!!!!!!!! envie")
-            ws.close()
-            os.system("sudo rm /home/pi/print_end_status/*")
-            self.print_finished_controller.stop()
+    @tornado.gen.coroutine
+    def create_connection_and_send_async(self, data):
+        ws = yield websocket_connect(self.ws_url)
+        ws.write_message(data.strip())
+        ws.close()
 
     def write_hardware_json(self):
         with open(self.HARDWARE_JSON_FOLDER, 'w') as f:
                 json.dump(self.hardware_json, f)
+
+    def write_user_conf_json(self):
+        with open(self.USER_CONF_JSON_FOLDER, 'w') as f:
+                json.dump(self.user_conf_json, f)

@@ -1,9 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>{{registration_code}}</h1>
-<footer>
-    <a id="back" class="button" href="/connectivity"></a>
-    <div class="slogan"></div>
-</footer>
-</body>
+{% if registration_code %}
+<main class="k-main">
+    <section class="k-dialog">
+      <h2 class="k-dialog__h2 k-dialog__h2--center">{{_("cloud_title")}}</h2>
+      <p>{{_("cloud_intro")}}</p>
+      <p>{{_("cloud_intro2")}}</p>
+      <button class="k-dialog__button">{{registration_code}}</button>
+    </section>
+  </main>
+{% else %}
+<main class="k-main">
+    <section class="k-dialog">
+      <h2 class="k-dialog__h2 k-dialog__h2--center">{{_("cloud_title")}}</h2>
+      <p>{{_("queue_empty")}}</p>
+      <a href="/cloud-unregister" class="k-dialog__button">{{("cloud_unregister")}}</a>
+    </section>
+  </main>
 {% end %}
+  <footer class="k-footer">
+    <a href="/connectivity" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" />
+        </button>
+    </a>
+  </footer>
+</body>
+  {% end %}
