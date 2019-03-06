@@ -176,6 +176,12 @@ class PeriodicController:
         self.bed_target = bed_target
         self.amber_target = amber_target
 
+    def local_mode_on(self):
+        self.state = "local_mode"
+
+    def local_mode_off(self):
+        self.state = "ready"
+
     def create_connection_and_send(self, data):
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)

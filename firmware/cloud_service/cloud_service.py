@@ -43,13 +43,25 @@ class UnregisterHandler(RequestHandler):
         self.application.periodic_controller.write_user_conf_json()
         self.write("ok")
 
+class DisconnectHandler(RequestHandler):
+    def get(self):
+        self.application.periodic_controller.local_mode_on()
+        self.write("ok")
+
+class ReconnectHandler(RequestHandler):
+    def get(self):
+        self.application.periodic_controller.local_mode_off()
+        self.write("ok")
+
 class Application(tornado.web.Application):
 
     def __init__(self):
         handlers = [
             (r"/init", InitHandler),
             (r"/init-websockets", InitWebsocketsHandler),
-            (r"/unregister", InitWebsocketsHandler),
+            (r"/unregister", UnregisterHandler),
+            (r"/disconnect", DisconnectHandler),
+            (r"/reconnect", ReconnectHandler),
         ]
         #tornado.web.Application.__init__(self, handlers, autoreload=True)
         tornado.web.Application.__init__(self, handlers)

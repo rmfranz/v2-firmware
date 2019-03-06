@@ -66,3 +66,18 @@ on_recv         - !!
 ---------------------------------------------------------------------
 
 on_error        - Not connected to printer.
+
+---------------------------------------------------------------------
+
+on_recv         - ERROR: MINTEMP or MAXTEMP triggered on T1. Check your temperature sensors!
+on_recv         - HALT asserted - reset or M999 required
+
+
+----------------------------------------------------------------------
+
+guarda con estas cosas raras de git:
+
+pi@raspberrypi:~/v2-firmware$ git status
+error: object file .git/objects/e3/28526cf07546d4d6f58ab48bba5aacb1915b78 is empty
+error: object file .git/objects/e3/28526cf07546d4d6f58ab48bba5aacb1915b78 is empty
+fatal: loose object e328526cf07546d4d6f58ab48bba5aacb1915b78 (stored in .git/objects/e3/28526cf07546d4d6f58ab48bba5aacb1915b78) is corrupt

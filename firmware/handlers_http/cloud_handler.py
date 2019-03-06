@@ -31,4 +31,10 @@ class UnregisterHandler(BasicHandler):
     def get(self):
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/unregister", method='GET', raise_error=False, callback=cloud_service_resp)
-        self.redirect("/connectivity")
+        self.redirect("/to-cloud")
+
+class DisconnectHandler(BasicHandler):
+    def get(self):
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch("http://127.0.0.1:9000/disconnect", method='GET', raise_error=False, callback=cloud_service_resp)
+        self.redirect("/to-cloud")
