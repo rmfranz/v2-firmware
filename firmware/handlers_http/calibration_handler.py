@@ -41,6 +41,7 @@ class Points3Calibration(BasicHandler):
 class ZOffsetCalibrationHandler(BasicHandler):
     
     def get(self):
+        self.firmware.homming()
         self.firmware.t0_zoffset_calibration()
         self.render("z_offset_calibration.html")
 

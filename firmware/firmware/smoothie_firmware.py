@@ -105,7 +105,7 @@ class SmoothieFirmware(BaseFirmware):
     def t0_zoffset_calibration(self):
         with open(self.OFFSET_PATH) as f:
             config_json = json.load(f)
-        self.printrun.send_now("G28")
+        #self.printrun.send_now("G28")
         self.printrun.send_now("T0")
         self.printrun.send_now("G91")
         self.printrun.send_now("G1 Z3 F7200")
@@ -120,7 +120,7 @@ class SmoothieFirmware(BaseFirmware):
     def t1_zoffset_calibration(self):
         with open(self.OFFSET_PATH) as f:
             config_json = json.load(f)
-        self.printrun.send_now("G28")
+        #self.printrun.send_now("G28")
         self.printrun.send_now("T0")
         self.printrun.send_now("G1 X100 Y100 F7600")
         self.printrun.send_now("G1 Z10 F7500")
