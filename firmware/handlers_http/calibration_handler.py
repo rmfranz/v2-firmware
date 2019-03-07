@@ -42,7 +42,9 @@ class ZOffsetCalibrationHandler(BasicHandler):
     
     def get(self):
         self.firmware.homming()
-        self.firmware.t0_zoffset_calibration()
+        with open(self.firmware.OFFSET_PATH) as f:
+            config_json = json.load(f)
+        self.firmware.t0_zoffset_calibration(config_json["t0_zoffset"])
         self.render("z_offset_calibration.html")
 
     def post(self):
