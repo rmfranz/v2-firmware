@@ -2,6 +2,7 @@ from handlers_http.basic_handler import BasicHandler
 from utils import mount_usb, get_gcodes_from_usb, get_gcodes_from_sample, get_gcodes_from_calibration
 import tornado
 from tornado import httpclient
+import os
 
 class PrintSelectionHandler(BasicHandler):
     def get(self):
@@ -26,7 +27,10 @@ class ListingFilesHandler(BasicHandler):
                 print("resultado: {}".format(result))
                 if result == 0:
                     items = get_gcodes_from_usb()
-                    error = ""
+                    if not items:
+                        error = "error"
+                    else:
+                        error = ""
                 else:
                     items = {}
                     error = "No se pudo montar el usb"
@@ -35,10 +39,10 @@ class ListingFilesHandler(BasicHandler):
                 error = "Hubo un error"
         elif listing_id == "2":
            items = get_gcodes_from_sample()
-           error = ""
+           error = "error"
         elif listing_id == "3":
            items = get_gcodes_from_calibration()
-           error = ""
+           error = "error"
         self.render("listing_files.html", items=items, error=error)
 
 class TemperaturesHandler(BasicHandler):
@@ -54,12 +58,15 @@ class PreviousPrintHandler(BasicHandler):
 
 class PrintHandler(BasicHandler):
     def get(self):
-        self.firmware.start_print()
-        #self.print_finished_controller.start()
-        #http_client = httpclient.HTTPClient()
-        #resp_reg = http_client.fetch("http://127.0.0.1:9000/init-print", method='GET', raise_error=False)
-        #print(resp_reg.body.decode('utf-8'))
-        self.render("printing.html", filename=self.firmware.filename)
+        if os.path.exists(self.firmware.file_path):
+            self.firmware.start_print()
+            #self.print_finished_controller.start()
+            #http_client = httpclient.HTTPClient()
+            #resp_reg = http_client.fetch("http://127.0.0.1:9000/init-print", method='GET', raise_error=False)
+            #print(resp_reg.body.decode('utf-8'))
+            self.render("printing.html", filename=self.firmware.filename)
+        else:
+            self.render("listing_files.html", items=[], error="error")
 
     def post(self):
         file_path = self.get_body_argument("file_path")

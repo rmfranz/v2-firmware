@@ -2,14 +2,18 @@
 {% block content %}
 <main class="k-main">
     <section class="k-block">
-        {% for key, value in items.items() %}
-        <div class="k-block-2 file_selected" data-path="{{value}}" data-filename="{{ key }}">
-            <div class="k-block-2__left">
-                <div class="k-block-2__img-container">
+        {% if error %}
+            <p>{{_("nofilesfound")}}</p>
+        {% else %}
+            {% for key, value in items.items() %}
+            <div class="k-block-2 file_selected" data-path="{{value}}" data-filename="{{ key }}">
+                <div class="k-block-2__left">
+                    <div class="k-block-2__img-container">
+                    </div>
+                    <p>{{ key }}</p>
                 </div>
-                <p>{{ key }}</p>
             </div>
-        </div>
+            {% end %}
         {% end %}
     </section>
 </main>
