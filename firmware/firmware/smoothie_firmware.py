@@ -200,6 +200,7 @@ class SmoothieFirmware(BaseFirmware):
 
     def reset_grid(self):
         self.printrun.send_now("M561")
+        self.printrun.send_now("M500")
         self.printrun.send_now("G28")
 
     def move_to_p1(self, z_probe):
