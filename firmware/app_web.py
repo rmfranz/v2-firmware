@@ -42,6 +42,8 @@ class Application(tornado.web.Application):
             (r"/to-cloud", GetRegistrationCodeHandler),
             (r"/cloud-unregister", UnregisterHandler),
             (r"/cloud-disconnect", DisconnectHandler),
+            (r"/cloud-reconnect", ReconnectHandler),
+            (r"/set-user-cloud-pref", SetUserCloudHanlder),
             (r"/software-update", ToUpdateHandler),
             (r"/make-update", UpdateHandler),
             (r"/manual-controls", ToManualControlHandler),

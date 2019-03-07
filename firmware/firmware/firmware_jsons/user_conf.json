@@ -2,5 +2,6 @@
     "nozzle_1": "0.4",
     "nozzle_2": "0.4",
     "language": "eng",
-    "auth_token": ""
+    "auth_token": "",
+    "cloud_pref": "disconnected"
 }

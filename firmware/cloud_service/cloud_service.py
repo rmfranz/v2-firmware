@@ -39,8 +39,6 @@ class InitWebsocketsHandler(RequestHandler):
 class UnregisterHandler(RequestHandler):
     def get(self):
         self.application.periodic_controller.api_caller.stop()
-        self.application.periodic_controller.user_conf_json["auth_token"] = ""
-        self.application.periodic_controller.write_user_conf_json()
         self.write("ok")
 
 class DisconnectHandler(RequestHandler):

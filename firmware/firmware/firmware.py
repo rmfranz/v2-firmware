@@ -84,6 +84,10 @@ class BaseFirmware:
         with open(self.HARDWARE_JSON_FOLDER, 'w') as f:
                 json.dump(self.hardware_json, f)
     
+    def refresh_user_conf(self):
+        with open(self.USER_CONF_JSON_FOLDER) as f:
+            self.user_conf_json = json.load(f)
+
     def reconnect(self):
         """
         list directory /dev/ttyACM* because smoothie board should be on

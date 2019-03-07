@@ -19,7 +19,10 @@ ws_cloud.onmessage = function (evt) {
     } else if (command == "cancel") {
         window.location.href = "/cancelar";
     } else if (command == "connected") {
-        $.get("http://127.0.0.1:9000/init-websockets");
-        window.location.href = "/to-cloud";
+        $.get("http://" + ip + ":9000/init-websockets");
+        $.post( "/set-user-cloud-pref", { status: "connected"})
+        .done(function( data ) {
+            window.location.href = "/to-cloud";
+        });        
     }
 };

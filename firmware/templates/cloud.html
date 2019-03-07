@@ -15,8 +15,12 @@
       <h2 class="k-dialog__h2 k-dialog__h2--center">{{_("cloud_title")}}</h2>
       <p>{{_("queue_empty")}}</p>
       <a href="/cloud-unregister" class="k-dialog__button k-dialog__button--shortened k-dialog__button--red">{{("cloud_unregister")}}</a>
+      {% if cloud_pref == "connected" %}
       <a href="/cloud-disconnect" class="k-dialog__button k-dialog__button--shortened">{{_("cloud_disconnect")}}</a>
+      {% end %}
+      {% if cloud_pref == "disconnected" %}
       <a href="/cloud-reconnect" class="k-dialog__button k-dialog__button--shortened">{{_("cloud_connect")}}</a>
+      {% end %}
     </section>
   </main>
 {% end %}

@@ -8,7 +8,7 @@ URL_CLOUD = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/register"
 class GetRegistrationCodeHandler(BasicHandler):
     def get(self):
         if self.firmware.user_conf_json["auth_token"]:
-            self.render("cloud.html", registration_code=None)
+            self.render("cloud.html", registration_code=None, cloud_pref=self.firmware.user_conf_json["cloud_pref"])
         else:
             headers = {'Content-Type': 'application/json'}
             body = {"VID": "0KDK", "PID": "0001", "SNR": "00000000000000", 
@@ -23,18 +23,37 @@ class GetRegistrationCodeHandler(BasicHandler):
                 async_http_client = httpclient.AsyncHTTPClient()
                 async_http_client.fetch("http://127.0.0.1:9000/init", method='POST', raise_error=False,
                     headers=headers, body=json.dumps({"registration_code": registration_code}), callback=cloud_service_resp)
-                self.render("cloud.html", registration_code=registration_code)
+                self.render("cloud.html", registration_code=registration_code, cloud_pref=None)
             else:
-                self.render("cloud.html", registration_code="Error on API")
+                self.render("cloud.html", registration_code="Error on API", cloud_pref=None)
 
 class UnregisterHandler(BasicHandler):
     def get(self):
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/unregister", method='GET', raise_error=False, callback=cloud_service_resp)
+        self.firmware.user_conf_json["auth_token"] = ""
+        self.firmware.refresh_user_conf()
         self.redirect("/to-cloud")
 
 class DisconnectHandler(BasicHandler):
     def get(self):
+        self.firmware.user_conf_json["cloud_pref"] = "disconnected"
+        self.firmware.refresh_user_conf()
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/disconnect", method='GET', raise_error=False, callback=cloud_service_resp)
         self.redirect("/to-cloud")
+
+class ReconnectHandler(BasicHandler):
+    def get(self):
+        self.firmware.user_conf_json["cloud_pref"] = "connected"
+        self.firmware.refresh_user_conf()
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch("http://127.0.0.1:9000/reconnect", method='GET', raise_error=False, callback=cloud_service_resp)
+        self.redirect("/to-cloud")
+
+class SetUserCloudHanlder(BasicHandler):
+    def post(self):
+        status = self.get_body_argument("status")
+        if status == "connected":
+            self.firmware.refresh_user_conf()
+        self.write("ok")
