@@ -59,8 +59,9 @@ $('#cancel_modal_no').click(function () {
 });
 
 $("#cancel_modal_yes").click(function () {
+    $("#cancel_modal").toggleClass("k-modal-overlay--visible");
     $("#wait_cancel_modal").toggleClass("k-modal-overlay--visible");
-    $.get("/cancel");
+    $.get("/cancelar");
     canceling = true;
 });
 
