@@ -132,7 +132,7 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("G1 X0 F7200")
         self.printrun.send_now("G1 X-12 F500")
         self.printrun.send_now("G1 X128 Y100 F7600")
-        self.printrun.send_now("G1 Z{} F7200".format(t1_zoffset]))
+        self.printrun.send_now("G1 Z{} F7200".format(t1_zoffset))
 
     def zoffset_up(self):
         self.printrun.send_now("G91")
