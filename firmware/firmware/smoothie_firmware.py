@@ -108,7 +108,7 @@ class SmoothieFirmware(BaseFirmware):
         #self.printrun.send_now("G28")
         self.printrun.send_now("T0")
         self.printrun.send_now("G91")
-        self.printrun.send_now("G1 Z5 F7200")
+        #self.printrun.send_now("G1 Z5 F7200")
         self.printrun.send_now("G90")
         self.printrun.send_now("G1 X200 F7500")
         self.printrun.send_now("G1 X220 F500")
@@ -241,9 +241,9 @@ class SmoothieFirmware(BaseFirmware):
             self.move_to_t1()
 
     def move_to_t0(self):
+        self.printrun.send_now("G28")
         self.printrun.send_now("T0")
         self.printrun.send_now("G91")
-        self.printrun.send_now("G1 Z3 F7200")
         self.printrun.send_now("G90")
         self.printrun.send_now("G1 X200 F7500")
         self.printrun.send_now("G1 X220 F500")
@@ -252,9 +252,9 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("T0")
 
     def move_to_t1(self):
+        self.printrun.send_now("G28")
         self.printrun.send_now("T0")
         self.printrun.send_now("G91")
-        self.printrun.send_now("G1 Z3 F7200")
         self.printrun.send_now("G90")
         self.printrun.send_now("G1 X0 F7200")
         self.printrun.send_now("G1 X-12 F500")
