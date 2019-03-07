@@ -52,6 +52,10 @@ $('#cancel_modal_close').click(function () {
     $("#cancel_modal").toggleClass("k-modal-overlay--visible");
 });
 
+$('#cancel_modal_no').click(function () {
+    $("#cancel_modal").toggleClass("k-modal-overlay--visible");
+});
+
 function pad(val) {
     var valString = val + "";
     if (valString.length < 2) {
