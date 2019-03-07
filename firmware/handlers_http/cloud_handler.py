@@ -32,13 +32,13 @@ class UnregisterHandler(BasicHandler):
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/unregister", method='GET', raise_error=False, callback=cloud_service_resp)
         self.firmware.user_conf_json["auth_token"] = ""
-        self.firmware.refresh_user_conf()
+        self.firmware.write_user_conf()
         self.redirect("/to-cloud")
 
 class DisconnectHandler(BasicHandler):
     def get(self):
         self.firmware.user_conf_json["cloud_pref"] = "disconnected"
-        self.firmware.refresh_user_conf()
+        self.firmware.write_user_conf()
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/disconnect", method='GET', raise_error=False, callback=cloud_service_resp)
         self.redirect("/to-cloud")
@@ -46,7 +46,7 @@ class DisconnectHandler(BasicHandler):
 class ReconnectHandler(BasicHandler):
     def get(self):
         self.firmware.user_conf_json["cloud_pref"] = "connected"
-        self.firmware.refresh_user_conf()
+        self.firmware.write_user_conf()
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/reconnect", method='GET', raise_error=False, callback=cloud_service_resp)
         self.redirect("/to-cloud")
