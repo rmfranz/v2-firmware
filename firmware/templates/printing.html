@@ -33,7 +33,8 @@
 <footer class="k-footer">
     <div class="k-footer-left">
         <div class="k-footer-left">
-            <button id="cancel" class="k-footer__btn k-footer__btn--red k-footer__btn--wide"> <img src="/static/images/icon_cancelar.svg" />
+            <button id="cancel" class="k-footer__btn k-footer__btn--red k-footer__btn--wide"> <img
+                    src="/static/images/icon_cancelar.svg" />
                 {{_("monitor_cancel")}} </button>
         </div>
     </div>
@@ -58,8 +59,22 @@
                 <p class="k-modal__p k-modal__p--big k-modal__p--center">{{_("confirm_cancel")}}</p>
             </div>
             <div class="k-modal-4__bottom">
-                <a href="/cancelar" class="k-modal-4__button k-modal-4__button--red">{{_("confirm_yes")}}</a>
-                <button id="cancel_modal_no" class="k-modal-4__button k-modal-4__button--yellow">{{_("confirm_no")}}</button>
+                <a id="cancel_modal_yes" class="k-modal-4__button k-modal-4__button--red">{{_("confirm_yes")}}</a>
+                <button id="cancel_modal_no"
+                    class="k-modal-4__button k-modal-4__button--yellow">{{_("confirm_no")}}</button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- New modals -->
+<section id="wait_cancel_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
+                <h2 class="k-modal__title k-modal__title--big">{{_("cancel_popup_title")}}</h2>
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("cancel_popup_body")}}</p>
             </div>
         </div>
     </div>

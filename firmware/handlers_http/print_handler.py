@@ -70,7 +70,10 @@ class PrintHandler(BasicHandler):
 
     def post(self):
         file_path = self.get_body_argument("file_path")
-        filename = self.get_body_argument("filename")
+        try:
+            filename = self.get_body_argument("filename").split(".gcode")[0]
+        except:
+            filename = self.get_body_argument("filename")
         self.firmware.set_file_to_print(file_path, filename)
         self.write("ok")
 
@@ -93,7 +96,8 @@ class ResumeHandler(BasicHandler):
 class CancelHandler(BasicHandler):
     def get(self):
         self.firmware.cancel()
-        self.render("index.html", working_on="cancelado")
+        #self.render("index.html", working_on="cancelado")
+        self.write("ok")
 
 class PrintFinishedHandler(BasicHandler):
     def get(self):
