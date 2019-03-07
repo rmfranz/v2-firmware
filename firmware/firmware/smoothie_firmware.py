@@ -192,6 +192,7 @@ class SmoothieFirmware(BaseFirmware):
 
     def calibration_25_points_for_complete(self):
         self.printrun.send_now("M374")
+        self.printrun.send_now("M500")
         self.printrun.send_now("G28")
 
     def show_grid_25_points(self):
