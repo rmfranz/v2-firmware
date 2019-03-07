@@ -54,10 +54,12 @@ $("#minus_button").on("click", function() {
 
 $("#t0_btn").on("click", function() {
     $('#change_extruder').toggleClass( "k-modal-overlay--visible" );
-    $('#t0_btn').toggleClass( "k-grid-item--grey" );
+    if($( "#t0_btn" ).hasClass("k-grid-item--grey")){
+        $('#t0_btn').toggleClass( "k-grid-item--grey" );
+    }
     t0_activate = true;
     $.ajax({
-        url: "/t0-calibration",
+        url: "/t0-calibration?offset=" + t0_offset,
         success: function (result) {
             $("#zoffset").text(t0_offset);
             if(!$( "#t1_btn" ).hasClass("k-grid-item--grey")){
@@ -69,10 +71,12 @@ $("#t0_btn").on("click", function() {
 
 $("#t1_btn").on("click", function() {
     $('#change_extruder').toggleClass( "k-modal-overlay--visible" );
-    $('#t1_btn').toggleClass( "k-grid-item--grey" );
+    if($( "#t1_btn" ).hasClass("k-grid-item--grey")){
+        $('#t1_btn').toggleClass( "k-grid-item--grey" );
+    }
     t0_activate = false;
     $.ajax({
-        url: "/t1-calibration",
+        url: "/t1-calibration?offset=" + t1_offset,
         success: function (result) {
             $("#zoffset").text(t1_offset);
             if(!$( "#t0_btn" ).hasClass("k-grid-item--grey")){

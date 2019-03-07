@@ -81,13 +81,15 @@ class XYOffsetCalibrationHandler(BasicHandler):
 class ZOffsetT0CalibrationHandler(BasicHandler):
     
     def get(self):
-        self.firmware.t0_zoffset_calibration()
+        offset = self.get_argument('offset', 0.0)
+        self.firmware.t0_zoffset_calibration(offset)
         self.write("ok")
 
 class ZOffsetT1CalibrationHandler(BasicHandler):
     
     def get(self):
-        self.firmware.t1_zoffset_calibration()
+        offset = self.get_argument('offset', 0.0)
+        self.firmware.t1_zoffset_calibration(offset)
         self.write("ok")
 
 class GetOffsetsHandler(BasicHandler):

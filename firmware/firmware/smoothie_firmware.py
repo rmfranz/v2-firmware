@@ -102,36 +102,37 @@ class SmoothieFirmware(BaseFirmware):
         executor = tornado.concurrent.futures.ThreadPoolExecutor(5)
         tornado.ioloop.IOLoop.current().run_in_executor(executor, split_gcode_for_print, [patched_gcode, self.printrun])
     
-    def t0_zoffset_calibration(self):
-        with open(self.OFFSET_PATH) as f:
-            config_json = json.load(f)
+    def t0_zoffset_calibration(self, t0_zoffset):
+        #with open(self.OFFSET_PATH) as f:
+        #    config_json = json.load(f)
         #self.printrun.send_now("G28")
         self.printrun.send_now("T0")
         self.printrun.send_now("G91")
-        self.printrun.send_now("G1 Z3 F7200")
+        self.printrun.send_now("G1 Z5 F7200")
         self.printrun.send_now("G90")
         self.printrun.send_now("G1 X200 F7500")
         self.printrun.send_now("G1 X220 F500")
         self.printrun.send_now("G1 X100 Y100 F7500")
         self.printrun.send_now("G1 Z10 F7500")
         self.printrun.send_now("G30 Z0")
-        self.printrun.send_now("G1 Z{}".format(config_json["t0_zoffset"]))
+        #self.printrun.send_now("G1 Z{}".format(config_json["t0_zoffset"]))
+        self.printrun.send_now("G1 Z{}".format(t0_zoffset))
 
-    def t1_zoffset_calibration(self):
-        with open(self.OFFSET_PATH) as f:
-            config_json = json.load(f)
+    def t1_zoffset_calibration(self, t1_zoffset):
+        #with open(self.OFFSET_PATH) as f:
+        #    config_json = json.load(f)
         #self.printrun.send_now("G28")
         self.printrun.send_now("T0")
         self.printrun.send_now("G1 X100 Y100 F7600")
         self.printrun.send_now("G1 Z10 F7500")
         self.printrun.send_now("G30 Z0")
         self.printrun.send_now("G91")
-        self.printrun.send_now("G1 Z3 F7200")
+        self.printrun.send_now("G1 Z5 F7200")
         self.printrun.send_now("G90")
         self.printrun.send_now("G1 X0 F7200")
         self.printrun.send_now("G1 X-12 F500")
         self.printrun.send_now("G1 X128 Y100 F7600")
-        self.printrun.send_now("G1 Z{} F7200".format(config_json["t1_zoffset"]))
+        self.printrun.send_now("G1 Z{} F7200".format(t1_zoffset]))
 
     def zoffset_up(self):
         self.printrun.send_now("G91")
