@@ -5,6 +5,7 @@ import tornado
 import os
 from tornado.websocket import websocket_connect
 import asyncio
+import functools
 
 class PeriodicController:
 
@@ -183,10 +184,11 @@ class PeriodicController:
         self.state = "ready"
 
     def create_connection_and_send(self, data):
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        loop.run_until_complete( self.create_connection_and_send_async(data))
-        loop.close()
+        tornado.ioloop.IOLoop().run_sync(functools.partial(self.create_connection_and_send_async, data))
+        #loop = asyncio.new_event_loop()
+        #asyncio.set_event_loop(loop)
+        #loop.run_until_complete( self.create_connection_and_send_async(data))
+        #loop.close()
 
     @tornado.gen.coroutine
     def create_connection_and_send_async(self, data):

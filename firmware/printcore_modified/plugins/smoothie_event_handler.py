@@ -19,6 +19,7 @@ import os
 from tornado.websocket import websocket_connect
 import tornado
 import asyncio
+import functools
 
 class SmoothieHandler(PrinterEventHandler):
     '''
@@ -144,13 +145,11 @@ class SmoothieHandler(PrinterEventHandler):
         return "ERROR" in data or "!!" in data or "HALT" in data
     
     def create_connection_and_send(self, url, data):
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        loop.run_until_complete( self.create_connection_and_send_async(url, data))
-        loop.close()
-        #ws = create_connection(url)
-        #ws.send(data.strip())
-        #ws.close()
+        tornado.ioloop.IOLoop().run_sync(functools.partial(self.create_connection_and_send_async, url, data))
+        #loop = asyncio.new_event_loop()
+        #asyncio.set_event_loop(loop)
+        #loop.run_until_complete( self.create_connection_and_send_async(url, data))
+        #loop.close()
 
     @tornado.gen.coroutine
     def create_connection_and_send_async(self, url, data):

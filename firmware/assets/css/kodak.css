@@ -41,6 +41,7 @@ a{
   text-decoration: none;
 }
 
+
 .k-header{
   background-color: #020202;
 }
@@ -71,13 +72,33 @@ a{
   display:flex;
   align-items:center;
 }
+
+.k-header-center li:nth-child(3){
+  margin-left: 30px;
+  margin-right: -16px;
+}
+
+
+.k-header-center__container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height:90%;
+}
+
+.k-header-li__fil{
+  font-family: graphik-l;
+}
 .k-header-center img{
   display:block;
+  padding: 0 10px;
 }
 
 .k-header-right{
   display:flex;
   font-size: 20px;
+  margin-right: 30px;
 }
 
 .k-main{
@@ -662,6 +683,7 @@ a{
   width:100%;
   max-width: 728px;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .k-printing-main{
@@ -739,9 +761,8 @@ a{
   flex-direction: row-reverse;
   justify-content: center;
   align-items:center;
-  position:absolute;
-  bottom: 100px;
-  left:0; right: 0;
+  flex: 0 0 100%;
+  padding-top: 10px;
 }
 
 /*hides the radio buttons*/
@@ -756,7 +777,7 @@ a{
 
 /* sets filled star pseudo-elements */
 .k-rating > label::before{ 
-  content: url("img/icon_estrella-llena.svg");
+  content: url("/static/images/icon_estrella-llena.svg");
   position: absolute;
   opacity: 0;
 }
