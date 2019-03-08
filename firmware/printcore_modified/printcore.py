@@ -434,6 +434,9 @@ class printcore():
     def cancelprint(self):
         self.pause()
         #self.send_now("M26")
+        for handler in self.event_handler:
+            try: handler.on_cancel()
+            except: logging.error(traceback.format_exc())
         self.paused = False
         self.mainqueue = None
         self.clear = True

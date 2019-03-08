@@ -40,6 +40,7 @@ class PeriodicController:
         }
         self.ws_url = "ws://127.0.0.1:8888/cloud"
         self.ws_initialized = False
+        self.ioloop = tornado.ioloop.IOLoop(make_current=False)
         if self.auth_token:
             self.api_caller.start()
 
@@ -196,7 +197,7 @@ class PeriodicController:
         self.state = "ready"
 
     def create_connection_and_send(self, data):
-        tornado.ioloop.IOLoop().run_sync(functools.partial(self.create_connection_and_send_async, data))
+        self.ioloop.run_sync(functools.partial(self.create_connection_and_send_async, data))
         #loop = asyncio.new_event_loop()
         #asyncio.set_event_loop(loop)
         #loop.run_until_complete( self.create_connection_and_send_async(data))

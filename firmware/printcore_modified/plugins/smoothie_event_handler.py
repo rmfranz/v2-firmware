@@ -30,6 +30,7 @@ class SmoothieHandler(PrinterEventHandler):
         self.printing = False
         self.paused = False
         self.in_error = False
+        self.ioloop = tornado.ioloop.IOLoop(make_current=False)
         
     def check_origin(self, origin):
         return True
@@ -115,6 +116,10 @@ class SmoothieHandler(PrinterEventHandler):
     def on_resume(self):
         self.paused = False
 
+    def on_cancel(self):
+        self.paused = False
+        self.printing = False
+
     def are_temperatures(self, data):
         return "ok" in data and "T0:" in data and "T1:" in data and "B:" in data and "A:" in data
     
@@ -145,7 +150,7 @@ class SmoothieHandler(PrinterEventHandler):
         return "ERROR" in data or "!!" in data or "HALT" in data
     
     def create_connection_and_send(self, url, data):
-        tornado.ioloop.IOLoop().run_sync(functools.partial(self.create_connection_and_send_async, url, data))
+        self.ioloop.run_sync(functools.partial(self.create_connection_and_send_async, url, data))
         #loop = asyncio.new_event_loop()
         #asyncio.set_event_loop(loop)
         #loop.run_until_complete( self.create_connection_and_send_async(url, data))

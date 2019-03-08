@@ -137,5 +137,11 @@ class PrinterEventHandler:
         Called when resume.
         '''
         pass
+
+    def on_cancel(self):
+        '''
+        Called when cancel.
+        '''
+        pass
         
         
