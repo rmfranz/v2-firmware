@@ -136,34 +136,46 @@ class PeriodicController:
         self.create_connection_and_send("download_done")
 
     def on_temp_message(self, msg):
-        temps = msg.split("@")
-        self.set_temps(
-            temps[0][temps[0].index(":") + 1 : temps[0].index("/")].strip(),
-            temps[1][temps[1].index(":") + 1 : temps[1].index("/")].strip(),
-            temps[2][temps[2].index(":") + 1 : temps[2].index("/")].strip(),
-            temps[3][temps[3].index(":") + 1 : temps[3].index("/")].strip()
-        )
-        self.set_target_temps(
-            temps[0][temps[0].index("/") + 1 :].strip(),
-            temps[1][temps[1].index("/") + 1 :].strip(),
-            temps[2][temps[2].index("/") + 1 :].strip(),
-            temps[3][temps[3].index("/") + 1 :].strip()
-        )
+        if msg:
+            temps = msg.split("@")
+            self.set_temps(
+                temps[0][temps[0].index(":") + 1 : temps[0].index("/")].strip(),
+                temps[1][temps[1].index(":") + 1 : temps[1].index("/")].strip(),
+                temps[2][temps[2].index(":") + 1 : temps[2].index("/")].strip(),
+                temps[3][temps[3].index(":") + 1 : temps[3].index("/")].strip()
+            )
+            self.set_target_temps(
+                temps[0][temps[0].index("/") + 1 :].strip(),
+                temps[1][temps[1].index("/") + 1 :].strip(),
+                temps[2][temps[2].index("/") + 1 :].strip(),
+                temps[3][temps[3].index("/") + 1 :].strip()
+            )
+        else:
+            async_http_client = httpclient.AsyncHTTPClient()
+            async_http_client.fetch("http://127.0.0.1:9000/init-websockets")
 
     def on_bed_heating_message(self, msg):
-        self.bed = msg[msg.index(":") + 1 : msg.index("/")].strip()
-        self.bed_target = msg[msg.index("/") + 1 : msg.index("@")].strip()
+        if msg:
+            self.bed = msg[msg.index(":") + 1 : msg.index("/")].strip()
+            self.bed_target = msg[msg.index("/") + 1 : msg.index("@")].strip()
+        else:
+            async_http_client = httpclient.AsyncHTTPClient()
+            async_http_client.fetch("http://127.0.0.1:9000/init-websockets")
 
     def on_nozzle_heating_message(self, msg):
-        temp = msg[msg.index(":") + 1 : msg.index("/")].strip()
-        nozzle_type = msg[msg.index("T") + 1 : msg.index(":")].strip()
-        target = msg[msg.index("/") + 1 : msg.index("@")].strip()
-        if nozzle_type == '0':
-            self.t0 = temp
-            self.t0_target = target
-        elif nozzle_type == '1':
-            self.t1 = temp
-            self.t1_target = target
+        if msg:
+            temp = msg[msg.index(":") + 1 : msg.index("/")].strip()
+            nozzle_type = msg[msg.index("T") + 1 : msg.index(":")].strip()
+            target = msg[msg.index("/") + 1 : msg.index("@")].strip()
+            if nozzle_type == '0':
+                self.t0 = temp
+                self.t0_target = target
+            elif nozzle_type == '1':
+                self.t1 = temp
+                self.t1_target = target
+        else:
+            async_http_client = httpclient.AsyncHTTPClient()
+            async_http_client.fetch("http://127.0.0.1:9000/init-websockets")
 
     def set_temps(self, t0, t1, bed, amber):
         self.t0 = t0
