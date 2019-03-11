@@ -26,12 +26,27 @@ class LoadUnloadFilamentsHandler(BasicHandler):
         action = self.request.path.split("/")[2]
         material = "PLAT"
         if action == "load":
-            self.firmware.load_filament(extruder)
+            self.firmware.start_load_filament(extruder)
             action = "filament_auto_load"
         elif action == "unload":
-            self.firmware.unload_filament(extruder)
+            self.firmware.start_unload_filament(extruder)
             action = "filament_auto_unload"
-        self.render("filament_action.html", action=action, material=material)
+        self.render("filament_action.html", action=action, material=material, ext_type=extruder)
+
+class MaintainTempHandler(BasicHandler):
+    def post(self):
+        self.firmware.maintain_temperature(self.get_body_argument("target"))
+        self.write("ok")
+
+class ExtrudeHandler(BasicHandler):
+    def get(self):
+        self.firmware.extrude_filament()
+        self.write("ok")
+
+class RetractHandler(BasicHandler):
+    def get(self):
+        self.firmware.retract_filament()
+        self.write("ok")
 
 class ToFilamentsHandler(BasicHandler):
     def get(self):

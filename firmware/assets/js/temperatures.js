@@ -35,10 +35,37 @@ function set_temperatures(data) {
     bed = temps[2].substring(temps[2].indexOf(":") + 1, temps[2].indexOf("/")).trim()
     amb = temps[3].substring(temps[3].indexOf(":") + 1, temps[3].indexOf("/")).trim()
     update_temperatures();
-    /*$("#t0").text(t0)
-    $("#t1").text(t1)
-    $("#plate").text(bed)
-    $("#amb").text(amb)*/
+    if(filament_action) {
+       if(extruder == "ext_1") {
+         var target = temps[0].substring(temps[0].indexOf("/") + 1).trim()
+         if(t0 >= target && !first_reach) {
+            temp_reach = true;
+            first_reach = true;
+            if(filament_action == "filament_auto_load"){
+               $.get("/extrude")
+            } else if(filament_action == "filament_auto_unload") {
+               $.get("/retract")
+            }
+         }
+         if((t0 < target - 2) && temp_reach) {
+            $.post( "/maintain-temp", {target: target})
+         }
+       } else if(extruder == "ext_2") {
+         var target = temps[1].substring(temps[1].indexOf("/") + 1).trim()
+         if(t1 >= target && !first_reach) {
+            temp_reach = true;
+            first_reach = true;
+            if(filament_action == "filament_auto_load"){
+               $.get("/extrude")
+            } else if(filament_action == "filament_auto_unload") {
+               $.get("/retract")
+            }
+         }
+         if((t1 < target - 2) && temp_reach) {
+            $.post( "/maintain-temp", {target: target})
+         }
+       }
+    }
  }
  var ws_temps = new WebSocket("ws://" + ip + ":8888/temperatures");
  var ws_bed = new WebSocket("ws://" + ip + ":8888/heating-bed");
