@@ -137,3 +137,7 @@ def get_extruder_materials():
            "8" :"PVA"
         }
     return mat_temps
+
+def reset_rpi():
+    os.system("sudo killall pigpiod")
+    os.system("sudo reboot -h now")

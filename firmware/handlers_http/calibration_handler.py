@@ -1,4 +1,5 @@
 from handlers_http.basic_handler import BasicHandler
+from utils import reset_rpi
 import tornado
 import json
 
@@ -55,7 +56,8 @@ class ZOffsetCalibrationHandler(BasicHandler):
         if response == 0:
             self.firmware.reset()
             self.firmware.disconnect()
-            self.firmware.reconnect()
+            tornado.ioloop.IOLoop.current().call_later(delay=10,
+                callback=reset_rpi)
             self.write("ok")
         else:
             self.render("error")
@@ -73,7 +75,8 @@ class XYOffsetCalibrationHandler(BasicHandler):
         if response == 0:
             self.firmware.reset()
             self.firmware.disconnect()
-            self.firmware.reconnect()
+            tornado.ioloop.IOLoop.current().call_later(delay=10,
+                callback=reset_rpi)
             self.write("ok")
         else:
             self.render("error")
