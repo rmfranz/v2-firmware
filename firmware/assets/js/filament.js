@@ -1,8 +1,10 @@
 var time_elapsed = 0;
+var word = "{{_("calibration_save")}}"
 function finish_load_filament() {
+    $('#progress_bar').attr("value", 100);
     var div = '<div class="k-footer-right">'
         + '<a href="/back-load-unload" class="k-footer__btn k-footer__btn--yellow k-footer__btn--wide">'
-        + '{{_("calibration_save")}}</a></div>';
+        + word + '</a></div>';
     $(".k-footer").append(div);
 }
 
