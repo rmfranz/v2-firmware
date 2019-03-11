@@ -28,5 +28,5 @@ $('#cancel_modal_no').click(function () {
 });
 
 $("#cancel_modal_yes").click(function () {
-    window.location.href = "back-load-unload";
+    window.location.href = "/back-load-unload";
 });
