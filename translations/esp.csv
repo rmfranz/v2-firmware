@@ -226,3 +226,5 @@ help_25_reset_title, Reset
 help_25_reset_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
 help_25_inspect_title, Inspect
 help_25_inspect_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
+
+confirm_filament, desea cancelar la carga?

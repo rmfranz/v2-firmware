@@ -12,16 +12,32 @@
       </main>
 
 <footer class="k-footer">
-    <a href="/setup" class="k-footer-left">
-        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" />
+    <a id="cancel_load_unload_filament" class="k-footer-left">
+        <button id="btn_filament_cancel" class="k-footer__btn k-footer__btn--red"> <img src="/static/images/icon_flecha-back.svg" />
         </button>
     </a>
 </footer>
+<!-- New modals -->
+<section id="cancel_modal" class="k-modal-overlay">
+  <div class="k-modal">
+      <div class="k-modal-4">
+          <div class="k-modal-4__top">
+              <p class="k-modal__p k-modal__p--big k-modal__p--center">{{_("confirm_filament")}}</p>
+          </div>
+          <div class="k-modal-4__bottom">
+              <a id="cancel_modal_yes" class="k-modal-4__button k-modal-4__button--red">{{_("confirm_yes")}}</a>
+              <button id="cancel_modal_no"
+                  class="k-modal-4__button k-modal-4__button--yellow">{{_("confirm_no")}}</button>
+          </div>
+      </div>
+  </div>
+</section>
 </body>
 <script>
 var in_filament = true;
 var temp_reach = false;
 var first_reach = false;
+var can_cancel = true;
 var extruder = "{{ext_type}}";
 var filament_action = "{{action}}";
 </script>

@@ -28,6 +28,21 @@ function update_temperatures() {
    }
 }
 
+function extrude_retract(){
+   if(filament_action == "filament_auto_load"){
+      $.get("/extrude");
+      can_cancel = false;
+      $("#btn_filament_cancel").toggleClass("k-footer__btn--red");
+      $("#btn_filament_cancel").toggleClass("k-footer__btn--grey");
+      load_filament_wait();
+   } else if(filament_action == "filament_auto_unload") {
+      $.get("/retract")
+      can_cancel = false;
+      $("#btn_filament_cancel").toggleClass("k-footer__btn--red");
+      $("#btn_filament_cancel").toggleClass("k-footer__btn--grey");
+   }
+}
+
 function set_temperatures(data) {
     var temps = data.split("@")
     t0 = temps[0].substring(temps[0].indexOf(":") + 1, temps[0].indexOf("/")).trim()
@@ -40,13 +55,8 @@ function set_temperatures(data) {
          var target = temps[0].substring(temps[0].indexOf("/") + 1).trim()
          if(parseFloat(t0) >= parseFloat(target) && !first_reach) {
             temp_reach = true;
-            first_reach = true;
-            if(filament_action == "filament_auto_load"){
-               $.get("/extrude");
-               load_filament_wait();
-            } else if(filament_action == "filament_auto_unload") {
-               $.get("/retract")
-            }
+            first_reach = true;            
+            extrude_retract();
          }
          if((parseFloat(t0) < (parseFloat(target) - 2)) && temp_reach) {
             $.post( "/maintain-temp", {target: target})
@@ -56,12 +66,7 @@ function set_temperatures(data) {
          if(parseFloat(t1) >= parseFloat(target) && !first_reach) {
             temp_reach = true;
             first_reach = true;
-            if(filament_action == "filament_auto_load"){
-               $.get("/extrude");
-               load_filament_wait();
-            } else if(filament_action == "filament_auto_unload") {
-               $.get("/retract")
-            }
+            extrude_retract();
          }
          if((parseFloat(t1) < (parseFloat(target) - 2)) && temp_reach) {
             $.post( "/maintain-temp", {target: target})

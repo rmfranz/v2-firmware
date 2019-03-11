@@ -30,3 +30,9 @@ class BackExtruderHandler(BasicHandler):
         if not self.application.gpio.lights_on:
             lights_on = "false"
         self.render("manual_ctl_select.html", lights_on=lights_on)
+
+class BackLoadUnloadActionHandler(BasicHandler):
+    def get(self):
+        self.firmware.heat_extruder(0)
+        self.firmware.homming()
+        self.redirect("/setup")
