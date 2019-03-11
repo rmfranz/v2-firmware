@@ -131,8 +131,10 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.pause()
         self.printrun.send_now("G91")
         self.printrun.send_now("G1 Z 5")
+        self.printrun.send_now("G91")
+        self.printrun.send_now("G0 E-5.5 F1500")
         self.printrun.send_now("G90")
-        self.printrun.send_now("G1 X170")
+        self.printrun.send_now("G1 X100 Y200 F4000")
 
     def start_print_memory(self):
         with open(self.OFFSET_PATH) as f:
