@@ -42,7 +42,8 @@ function set_temperatures(data) {
             temp_reach = true;
             first_reach = true;
             if(filament_action == "filament_auto_load"){
-               $.get("/extrude")
+               $.get("/extrude");
+               load_filament_wait();
             } else if(filament_action == "filament_auto_unload") {
                $.get("/retract")
             }
@@ -56,7 +57,8 @@ function set_temperatures(data) {
             temp_reach = true;
             first_reach = true;
             if(filament_action == "filament_auto_load"){
-               $.get("/extrude")
+               $.get("/extrude");
+               load_filament_wait();
             } else if(filament_action == "filament_auto_unload") {
                $.get("/retract")
             }
