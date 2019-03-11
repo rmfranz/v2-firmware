@@ -94,7 +94,6 @@ $("#save_zoffset").on("click", function() {
     $.post( "/z-offset-calibration", { zoffset_t0: t0_offset, zoffset_t1: t1_offset })
     .done(function( data ) {
         if(data == "ok"){
-            $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
             setTimeout(finish_calibration, 30000);
         } else {
             $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
@@ -154,7 +153,6 @@ $("#save_xyoffset").on("click", function() {
     $.post( "/xy-offset-calibration", { yoffset: t1_yoffset, xoffset: t1_xoffset })
     .done(function( data ) {
         if(data == "ok"){
-            $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
             setTimeout(finish_calibration, 30000);
         } else {
             $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
