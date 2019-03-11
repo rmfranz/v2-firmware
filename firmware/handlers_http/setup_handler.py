@@ -1,5 +1,6 @@
 from handlers_http.basic_handler import BasicHandler
 from tornado.options import options
+from utils import get_extruder_materials
 import os
 
 class SetupHandler(BasicHandler):
@@ -18,13 +19,13 @@ class FilamentsHandler(BasicHandler):
     def get(self):
         extruder = self.request.path.split("/")[1]
         action = self.request.path.split("/")[2]
-        self.render("filaments_type.html", ext_action=action, ext_type=extruder)
+        self.render("filaments_type.html", ext_action=action, ext_type=extruder, mat_temps=get_extruder_materials())
 
 class LoadUnloadFilamentsHandler(BasicHandler):
     def get(self, filament_type):
         extruder = self.request.path.split("/")[1]
         action = self.request.path.split("/")[2]
-        material = "PLAT"
+        material = get_extruder_materials()[filament_type]
         if action == "load":
             self.firmware.start_load_filament(extruder)
             action = "filament_auto_load"
@@ -41,6 +42,11 @@ class MaintainTempHandler(BasicHandler):
 class ExtrudeHandler(BasicHandler):
     def get(self):
         self.firmware.extrude_filament()
+        self.write("ok")
+
+class ExtrudeOneMoreHandler(BasicHandler):
+    def get(self):
+        self.firmware.extrude_one_more()
         self.write("ok")
 
 class RetractHandler(BasicHandler):

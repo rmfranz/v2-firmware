@@ -912,6 +912,21 @@ a{
   border-radius: 10px;
 }
 
+.k-modal__grey{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  background: #EBEBEA;
+  text-align: center;
+  font-family: graphik-sb;
+  font-size: 30px;
+  text-transform: capitalize;
+  margin:10px; 
+  width: 360px;
+  height: 65px;
+  border-radius: 10px;
+}
+
 .k-modal__input{
   display: flex;
   align-items:center;

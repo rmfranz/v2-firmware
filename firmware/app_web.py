@@ -110,6 +110,7 @@ class Application(tornado.web.Application):
             (r"/maintain-temp", MaintainTempHandler),
             (r"/extrude", ExtrudeHandler),
             (r"/retract", RetractHandler),
+            (r"/extrude-more", ExtrudeOneMoreHandler),
             (r"/back-load-unload", BackLoadUnloadActionHandler),
             (r"/back-filaments-selection", BackLoadUnloadHandler),
             (r"/connectivity", ConnectivityHandler),

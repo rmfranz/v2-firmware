@@ -2,33 +2,11 @@
 {% block content %}
 <main class="k-main">
     <section class="k-grid k-grid--3x3">
-        <a href="/{{ext_type}}/{{ext_action}}/1" class="k-grid-item">
-            <p class="k-grid-item__p k-grid-item__p--big">ABS</p>
+        {% for key, value in mat_temps.items() %}
+        <a href="/{{ext_type}}/{{ext_action}}/{{key}}" class="k-grid-item">
+            <p class="k-grid-item__p k-grid-item__p--big">{{value}}</p>
         </a>
-        <a href="/{{ext_type}}/{{ext_action}}/1" class="k-grid-item">
-            <p class="k-grid-item__p k-grid-item__p--big">FLEX</p>
-        </a>
-        <a href="/{{ext_type}}/{{ext_action}}/1" class="k-grid-item">
-            <p class="k-grid-item__p k-grid-item__p--big">HIPS</p>
-        </a>
-        <a href="/{{ext_type}}/{{ext_action}}/1" class="k-grid-item">
-            <p class="k-grid-item__p k-grid-item__p--big">Nylon 6</p>
-        </a>
-        <a href="/{{ext_type}}/{{ext_action}}/1" class="k-grid-item">
-            <p class="k-grid-item__p k-grid-item__p--big">Nylon 12</p>
-        </a>
-        <a href="/{{ext_type}}/{{ext_action}}/1" class="k-grid-item">
-            <p class="k-grid-item__p k-grid-item__p--big">PETG</p>
-        </a>
-        <a href="/{{ext_type}}/{{ext_action}}/1" class="k-grid-item">
-            <p class="k-grid-item__p k-grid-item__p--big">PLA Tough</p>
-        </a>
-        <a href="/{{ext_type}}/{{ext_action}}/1" class="k-grid-item">
-            <p class="k-grid-item__p k-grid-item__p--big">PLA+</p>
-        </a>
-        <a href="/{{ext_type}}/{{ext_action}}/1" class="k-grid-item">
-            <p class="k-grid-item__p k-grid-item__p--big">PVA</p>
-        </a>
+        {% end %}
     </section>
 </main>
 
