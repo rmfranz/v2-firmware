@@ -55,8 +55,7 @@ class ZOffsetCalibrationHandler(BasicHandler):
         if response == 0:
             self.firmware.reset()
             self.firmware.disconnect()
-            tornado.ioloop.IOLoop.current().call_later(delay=20,
-                callback=self.firmware.reconnect)
+            self.firmware.reconnect()
             self.write("ok")
         else:
             self.render("error")
@@ -74,8 +73,7 @@ class XYOffsetCalibrationHandler(BasicHandler):
         if response == 0:
             self.firmware.reset()
             self.firmware.disconnect()
-            tornado.ioloop.IOLoop.current().call_later(delay=20,
-                callback=self.firmware.reconnect)
+            self.firmware.reconnect()
             self.write("ok")
         else:
             self.render("error")

@@ -19,6 +19,10 @@ function get_offsets() {
     return {t0_offset, t1_offset, t1_yoffset, t1_xoffset}
 }
 
+function finish_calibration() {
+    window.location.href = "/back-calibration-selection";
+}
+
 var {t0_offset, t1_offset, t1_yoffset, t1_xoffset} = get_offsets();
 $("#zoffset").text(t0_offset);
 $("#yoffset").text(t1_yoffset);
@@ -91,10 +95,10 @@ $("#save_zoffset").on("click", function() {
     .done(function( data ) {
         if(data == "ok"){
             $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
-            window.location.href = "/back-calibration-selection";
+            setTimeout(finish_calibration, 30000);
         } else {
-            //TODO: mostrar error
             $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
+            $("#calibration_error").toggleClass( "k-modal-overlay--visible" );
         }
     });
     $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
@@ -151,10 +155,10 @@ $("#save_xyoffset").on("click", function() {
     .done(function( data ) {
         if(data == "ok"){
             $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
-            window.location.href = "/back-calibration-selection";
+            setTimeout(finish_calibration, 30000);
         } else {
-            //TODO: mostrar error!!
             $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
+            $("#calibration_error").toggleClass( "k-modal-overlay--visible" );
         }
     });
     $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );

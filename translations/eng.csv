@@ -143,6 +143,7 @@ calibration_reset_board, Espere mientras se resetea la maquina
 calibration_hotend_1, Hotend 1
 calibration_hotend_2, Hotend 2
 calibration_extruder_change, Espere mientras se posiciona el cabezal
+calibration_error, There was an error. Contact with technical support
 
 calibration_wizard_title , Calibration wizard
 waiting_for_initial_movements , Wait for initial movements to finish.

@@ -27,6 +27,7 @@ class BaseFirmware:
         self.file_path = None
         self.filename = None
         self.total_lines = 0
+        self.ioloop = tornado.ioloop.IOLoop(make_current=False)
 
     def init_ws_handler(self):
         self.printrun.initEventHandlers()
@@ -93,6 +94,9 @@ class BaseFirmware:
             json.dump(self.user_conf_json, f)
 
     def reconnect(self):
+        self.ioloop.call_later(delay=20, callback=self.printrun_connect)
+
+    def printrun_connect(self):
         """
         list directory /dev/ttyACM* because smoothie board should be on
         /dev/ttyACM0 or /dev/ttyACM1 and there should not be anything else there
@@ -101,8 +105,7 @@ class BaseFirmware:
         if dev_list:
             self.printrun.connect(port=dev_list[0])
         else:
-            tornado.ioloop.IOLoop.current().call_later(delay=20,
-                callback=self.reconnect)
+            self.ioloop.call_later(delay=20, callback=self.printrun_connect)
 
     def disconnect(self):
         self.printrun.disconnect()
