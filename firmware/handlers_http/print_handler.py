@@ -26,23 +26,20 @@ class ListingFilesHandler(BasicHandler):
                 result = mount_usb(self.firmware.hardware_json["board_uuid"])
                 print("resultado: {}".format(result))
                 if result == 0:
-                    items = get_gcodes_from_usb()
-                    if not items:
-                        error = "error"
-                    else:
-                        error = ""
+                    items = get_gcodes_from_usb()                    
                 else:
                     items = {}
                     error = "No se pudo montar el usb"
             except:
                 items = {}
-                error = "Hubo un error"
         elif listing_id == "2":
            items = get_gcodes_from_sample()
-           error = "error"
         elif listing_id == "3":
            items = get_gcodes_from_calibration()
-           error = "error"
+        if not items:
+            error = "error"
+        else:
+            error = ""
         self.render("listing_files.html", items=items, error=error)
 
 class TemperaturesHandler(BasicHandler):
