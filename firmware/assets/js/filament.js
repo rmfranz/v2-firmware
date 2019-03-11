@@ -1,5 +1,4 @@
 var time_elapsed = 0;
-var word = "{{_("calibration_save")}}"
 function finish_load_filament() {
     $('#progress_bar').attr("value", 100);
     var div = '<div class="k-footer-right">'
