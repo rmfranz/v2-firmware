@@ -35,10 +35,10 @@ function set_temperatures(data) {
     bed = temps[2].substring(temps[2].indexOf(":") + 1, temps[2].indexOf("/")).trim()
     amb = temps[3].substring(temps[3].indexOf(":") + 1, temps[3].indexOf("/")).trim()
     update_temperatures();
-    if(filament_action) {
+    if(typeof in_filament !== 'undefined') {
        if(extruder == "ext_1") {
          var target = temps[0].substring(temps[0].indexOf("/") + 1).trim()
-         if(t0 >= target && !first_reach) {
+         if(parseFloat(t0) >= parseFloat(target) && !first_reach) {
             temp_reach = true;
             first_reach = true;
             if(filament_action == "filament_auto_load"){
@@ -52,7 +52,7 @@ function set_temperatures(data) {
          }
        } else if(extruder == "ext_2") {
          var target = temps[1].substring(temps[1].indexOf("/") + 1).trim()
-         if(t1 >= target && !first_reach) {
+         if(parseFloat(t1) >= parseFloat(target) && !first_reach) {
             temp_reach = true;
             first_reach = true;
             if(filament_action == "filament_auto_load"){
@@ -72,7 +72,7 @@ function set_temperatures(data) {
  var ws_nozzle = new WebSocket("ws://" + ip + ":8888/heating-nozzle");
  ws_temps.onmessage = function (evt) {
     set_temperatures(evt.data);
-    if(canceling){
+    if(typeof canceling !== 'undefined'){
       //$("#wait_cancel_modal").toggleClass("k-modal-overlay--visible");
       window.location.href = "/home";
     }

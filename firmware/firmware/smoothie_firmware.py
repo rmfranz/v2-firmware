@@ -83,7 +83,7 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("G1 E500 F4000")
         self.printrun.send_now("G1 E78 F80")
         self.printrun.send_now("G92 E0")
-        self.printrun.send_now("M104 S0")
+        #self.printrun.send_now("M104 S0")
 
 
     def retract_filament(self):
@@ -93,7 +93,7 @@ class SmoothieFirmware(BaseFirmware):
         #self.printrun.send_now("G4 P20000")
         self.printrun.send_now("G1 E-599 F5000")
         self.printrun.send_now("G92 E0")
-        self.printrun.send_now("M104 S0")
+        #self.printrun.send_now("M104 S0")
 
     def maintain_temperature(self, temp):
         self.printrun.send_now("M104 S{}".format(temp))
