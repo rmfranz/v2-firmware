@@ -44,6 +44,11 @@ function extrude_retract(){
    }
 }
 
+function heating_temp(temp, target) {
+   var perc = Math.round((temp/target)*100);
+   $('#progress_bar_temp').attr("value", perc);
+}
+
 function set_temperatures(data) {
     var temps = data.split("@")
     t0 = temps[0].substring(temps[0].indexOf(":") + 1, temps[0].indexOf("/")).trim()
@@ -54,6 +59,7 @@ function set_temperatures(data) {
     if(typeof in_filament !== 'undefined') {
        if(extruder == "ext_1") {
          var target = temps[0].substring(temps[0].indexOf("/") + 1).trim()
+         heating_temp(parseFloat(t0), parseFloat(target));
          if(parseFloat(t0) >= parseFloat(target) && !first_reach) {
             temp_reach = true;
             first_reach = true;            
@@ -64,6 +70,7 @@ function set_temperatures(data) {
          }
        } else if(extruder == "ext_2") {
          var target = temps[1].substring(temps[1].indexOf("/") + 1).trim()
+         heating_temp(parseFloat(t1), parseFloat(target));
          if(parseFloat(t1) >= parseFloat(target) && !first_reach) {
             temp_reach = true;
             first_reach = true;
