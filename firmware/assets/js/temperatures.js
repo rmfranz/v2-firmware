@@ -47,7 +47,7 @@ function set_temperatures(data) {
                $.get("/retract")
             }
          }
-         if((t0 < target - 2) && temp_reach) {
+         if((parseFloat(t0) < (parseFloat(target) - 2)) && temp_reach) {
             $.post( "/maintain-temp", {target: target})
          }
        } else if(extruder == "ext_2") {
@@ -61,7 +61,7 @@ function set_temperatures(data) {
                $.get("/retract")
             }
          }
-         if((t1 < target - 2) && temp_reach) {
+         if((parseFloat(t1) < (parseFloat(target) - 2)) && temp_reach) {
             $.post( "/maintain-temp", {target: target})
          }
        }
