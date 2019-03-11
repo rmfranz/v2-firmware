@@ -130,7 +130,7 @@ class SmoothieFirmware(BaseFirmware):
     def pause(self):
         self.printrun.pause()
         self.printrun.send_now("G91")
-        self.printrun.send_now("G1 Z-5")
+        self.printrun.send_now("G1 Z 5")
         self.printrun.send_now("G90")
         self.printrun.send_now("G1 X170")
         if self.printrun.pauseRelative:
