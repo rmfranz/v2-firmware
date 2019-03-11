@@ -127,6 +127,17 @@ class SmoothieFirmware(BaseFirmware):
         #executor = tornado.concurrent.futures.ThreadPoolExecutor(5)
         #tornado.ioloop.IOLoop.current().run_in_executor(executor, split_file_for_print, self.printrun)
 
+    def pause(self):
+        self.printrun.pause()
+        self.printrun.send_now("G91")
+        self.printrun.send_now("G1 Z-5")
+        self.printrun.send_now("G90")
+        self.printrun.send_now("G1 X170")
+        if self.printrun.pauseRelative:
+            self.printrun.send_now("G91")
+        else:
+            self.printrun.send_now("G90")
+
     def start_print_memory(self):
         with open(self.OFFSET_PATH) as f:
             config_json = json.load(f)
