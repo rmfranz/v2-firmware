@@ -313,6 +313,10 @@ class SmoothieFirmware(BaseFirmware):
     def heat_extruder(self, temp, extruder):
         self.printrun.send_now("M104 S{} {}".format(temp, extruder))
 
+    def cold_extruders(self):
+        self.printrun.send_now("M104 S0 T0")
+        self.printrun.send_now("M104 S0 T1")
+
     def extrude(self, extruder):
         self.printrun.send_now(extruder)
         self.printrun.send_now("G1 E10 F500")

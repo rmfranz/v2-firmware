@@ -33,6 +33,6 @@ class BackExtruderHandler(BasicHandler):
 
 class BackLoadUnloadActionHandler(BasicHandler):
     def get(self):
-        self.firmware.heat_extruder(0)
+        self.firmware.cold_extruders()
         self.firmware.homming()
         self.redirect("/setup")
