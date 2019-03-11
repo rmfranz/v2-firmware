@@ -40,6 +40,7 @@ function extrude_retract(){
       can_cancel = false;
       $("#btn_filament_cancel").toggleClass("k-footer__btn--red");
       $("#btn_filament_cancel").toggleClass("k-footer__btn--grey");
+      finish_load_filament();
    }
 }
 
