@@ -141,3 +141,23 @@ def get_extruder_materials():
 def reset_rpi():
     os.system("sudo killall pigpiod")
     os.system("sudo reboot -h now")
+
+def get_sd():
+    '''
+    Frist get the list of devs and UUID from OS:
+    ['/dev/mmcblk0p4: UUID="16231e2a-a5bd-4198-8054-09950ae8e24f"', '/dev/sda1: UUID="ECCD-8D60"', '/dev/sdb1: UUID="F8DF-6CD3"']
+    Second give me the list of devs
+    [l.split(':', 1)[0].split("/")[-1] for l in info]  ['mmcblk0p4', 'sda1', 'sdb1']
+    Third the list of UUID
+    [l.split(':', 1)[1].split("=")[-1].replace('"', '') for l in info] ['16231e2a-a5bd-4198-8054-09950ae8e24f', 'ECCD-8D60', 'F8DF-6CD3']
+    Finally put all together in a dict
+    '''
+    info = check_output("sudo blkid -sUUID", shell=True, universal_newlines=True).splitlines()
+    return {l.split(':', 1)[1].split("=")[-1].replace('"', '') : l.split(':', 1)[0].split("/")[-1] for l in info if ':' in l}
+
+def get_sd_smoothie(info, uuid):
+    sd = None
+    for key, value in info.items():
+        if key != uuid and "sd" in value:
+            sd = value
+    return sd

@@ -60,17 +60,20 @@
 </section>
 
 <section id="calibration_error" class="k-modal-overlay">
-    <div class="k-modal">
-      <div class="k-modal-container">
-        <div class="k-modal-2">
-          <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
-          <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
-            {{_("calibration_error")}}
-          </p>
-        </div>
+  <div class="k-modal">
+    <button id="help_calibration_modal_close" class="k-modal__close">
+      <img src="/static/images/icon_cancelar.svg" />
+    </button>
+    <div class="k-modal-container">
+      <div class="k-modal-2">
+        <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
+        <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+          {{_("calibration_error")}}
+        </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 </body>
 <script src="/static/js/calibration.js"></script>

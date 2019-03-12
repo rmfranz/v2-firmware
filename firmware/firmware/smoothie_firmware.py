@@ -3,7 +3,7 @@ from printcore_modified.plugins.smoothie_event_handler import SmoothieHandler as
 from gcodes_loader.gcodes_loading import patch_and_split_gcodes
 from printcore_modified import gcoder
 from firmware.firmware import BaseFirmware
-from utils import split_file_for_print, grouper, split_gcode_for_print
+from utils import split_file_for_print, grouper, split_gcode_for_print, get_sd_smoothie, get_sd
 import os
 import json
 import tornado
@@ -194,8 +194,12 @@ class SmoothieFirmware(BaseFirmware):
             config_json = json.load(f)
         config_json["t1_xoffset"] = x_offset
         config_json["t1_yoffset"] = y_offset
-        config_file = "/home/pi/config-files/confighotend2xyoffset"        
-        os.system("sudo mount /dev/sda1 /media/smoothie -o uid=pi,gid=pi")
+        config_file = "/home/pi/config-files/confighotend2xyoffset"
+        info = get_sd()
+        sd = get_sd_smoothie(info, self.hardware_json["board_uuid"])
+        if not sd:
+            return 1
+        os.system("sudo mount /dev/{} /media/smoothie -o uid=pi,gid=pi".format(sd))
         with open(config_file, "w") as f:
             f.write("extruder.hotend2.y_offset {}\n".format(str(y_offset)))
             f.write("extruder.hotend2.x_offset {}".format(str(x_offset)))
@@ -224,7 +228,11 @@ class SmoothieFirmware(BaseFirmware):
         config_file = "/home/pi/config-files/confighotendzoffset"        
         with open(self.OFFSET_PATH, 'w') as f:
             json.dump(config_json, f)
-        os.system("sudo mount /dev/sda1 /media/smoothie -o uid=pi,gid=pi")
+        info = get_sd()
+        sd = get_sd_smoothie(info, self.hardware_json["board_uuid"])
+        if not sd:
+            return 1
+        os.system("sudo mount /dev/{} /media/smoothie -o uid=pi,gid=pi".format(sd))
         with open(config_file, "w") as f:
             #f.write("extruder.hotend1.z_offset {}\n".format(str(z_offset_t0)))
             f.write("extruder.hotend2.z_offset {}".format(str(z_offset_t1)))
