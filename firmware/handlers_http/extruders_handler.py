@@ -25,7 +25,7 @@ class PlateHomeHandler(BasicHandler):
 class ToExtruderTemperatureHandler(BasicHandler):
     def get(self):
         extruder = self.request.path.split("/")[1]
-        self.firmware.choose_extruder(extruder)
+        #self.firmware.choose_extruder(extruder)
         mat_temps = {
             "ABS ~ 240°C": 240,
             "Flex (PU) ~ 235°C": 235,
@@ -45,19 +45,17 @@ class ExtruderTemperatureHandler(BasicHandler):
     def get(self, temp):
         extruder = get_extruder(self.request.path.split("/")[1])
         self.firmware.heat_extruder(temp, extruder)
-        if temp == 0:
-            self.clear_cookie("extruder")
-            self.clear_cookie("extruder_temp")
-        else:
-            self.set_cookie("extruder", extruder)
-            self.set_cookie("extruder_temp", temp)
+        if extruder == "T0":
+            self.set_cookie("t0_temp", temp)
+        elif extruder == "T1":
+            self.set_cookie("t1_temp", temp)
         self.redirect("/extruders-controls")
 
 class GetExtrudersControlHandler(BasicHandler):
     def get(self):
-        extruder = self.get_cookie("extruder", default="T0")
-        extruder_temp = self.get_cookie("extruder_temp", default=0)
-        self.write({"extruder" : extruder, "extruder_temp": extruder_temp})
+        t0_temp = self.get_cookie("t0_temp", default=0)
+        t1_temp = self.get_cookie("t1_temp", default=0)
+        self.write({"t0_temp" : t0_temp, "t1_temp": t1_temp})
 
 class PlateTemperatureHandler(BasicHandler):
     def get(self, temp):

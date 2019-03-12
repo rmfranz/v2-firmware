@@ -124,47 +124,75 @@ function set_temperatures(data) {
  set_board_uuid();
 
  if(typeof in_extruder_control !== 'undefined'){
-   var extruder = "T0";
-   var temp = 0;
+
+   function change_t0_buttons() {
+      $("#t0_extrude").toggleClass("k-grid-item--grey");
+      $("#t0_retract").toggleClass("k-grid-item--grey");
+   }
+
+   function change_t1_buttons() {
+      $("#t1_extrude").toggleClass("k-grid-item--grey");
+      $("#t1_retract").toggleClass("k-grid-item--grey");
+   }
+
+   function btn_changer() {
+      if(t0_temp != 0 && t0 >= (t0_temp - (t0_temp * 0.05))){
+         if($("#t0_extrude").hasClass("k-grid-item--grey") &&
+            $("#t0_retract").hasClass("k-grid-item--grey")){
+            change_t0_buttons()
+         }
+      } else {
+         if(!$("#t0_extrude").hasClass("k-grid-item--grey") &&
+            !$("#t0_retract").hasClass("k-grid-item--grey")){
+            change_t0_buttons()
+         }
+      }
+      
+      if (t1_temp != 0 && t1 >= (t1_temp - (t1_temp * 0.05))) {
+         if($("#t1_extrude").hasClass("k-grid-item--grey") &&
+            $("#t1_retract").hasClass("k-grid-item--grey")){
+            change_t0_buttons()
+         }
+      } else {
+         if(!$("#t1_extrude").hasClass("k-grid-item--grey") &&
+            !$("#t1_retract").hasClass("k-grid-item--grey")){
+            change_t0_buttons()
+         }
+      }
+
+      setTimeout(btn_changer, 2000);
+   }
+
+   var t0_temp = 0;
+   var t1_temp = 0;
 
    $.ajax({url: "/get-extruder-options", 
       success: function(result){
-         extruder = result["extruder"]
-         temp = parseInt(result["extruder_temp"])
+         t0_temp = parseInt(result["t0_temp"])
+         t1_temp = parseInt(result["t1_temp"])
       },
       async: false
    });
+   $("#t0_extrude").click(function () {
+      if(t0_temp != 0 && t0 >= (t0_temp - (t0_temp * 0.05))){
+         $.get("/ext_1/extrude");
+      }
+   });
+   $("#t0_retract").click(function () {
+      if(t0_temp != 0 && t0 >= (t0_temp - (t0_temp * 0.05))){
+         $.get("/ext_1/retract");
+      }
+   });
+   $("#t1_extrude").click(function () {
+      if(t1_temp != 0 && t1 >= (t1_temp - (t1_temp * 0.05))){
+         $.get("/ext_2/extrude");
+      }
+   });
+   $("#t1_retract").click(function () {
+      if(t1_temp != 0 && t1 >= (t1_temp - (t1_temp * 0.05))){
+         $.get("/ext_2/retract");
+      }
+   });
 
-   /*if(temp != 0) {
-      var check_ext_temp = function () {
-         if(t0 >= temp || t1 >= temp){
-            console.info("listooooooooooooooo")
-         } else {
-            setTimeout(check_ext_temp, 20000);
-         }
-      };
-      check_ext_temp();
-   }*/
-   if(temp != 0) {
-      $("#t0_extrude").click(function () {
-         if(t0 >= temp){
-            $.get("/ext_1/extrude");
-         }
-      });
-      $("#t0_retract").click(function () {
-         if(t0 >= temp){
-            $.get("/ext_1/retract");
-         }
-      });
-      $("#t1_extrude").click(function () {
-         if(t1 >= temp){
-            $.get("/ext_2/extrude");
-         }
-      });
-      $("#t1_retract").click(function () {
-         if(t1 >= temp){
-            $.get("/ext_2/retract");
-         }
-      });
-   }
+   btn_changer();   
  }

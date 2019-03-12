@@ -21,11 +21,11 @@ class BackPlateHandler(BasicHandler):
 
 class BackExtruderHandler(BasicHandler):
     def get(self):
-        self.firmware.heat_extruder(0, "T0")
-        self.firmware.heat_extruder(0, "T1")
+        #self.firmware.heat_extruder(0, "T0")
+        #self.firmware.heat_extruder(0, "T1")
         #self.firmware.homming()
-        self.clear_cookie("extruder")
-        self.clear_cookie("extruder_temp")
+        #self.clear_cookie("extruder")
+        #self.clear_cookie("extruder_temp")
         lights_on = "true"
         if not self.application.gpio.lights_on:
             lights_on = "false"
@@ -34,5 +34,5 @@ class BackExtruderHandler(BasicHandler):
 class BackLoadUnloadActionHandler(BasicHandler):
     def get(self):
         self.firmware.cold_extruders()
-        self.firmware.homming()
+        #self.firmware.homming()
         self.redirect("/setup")
