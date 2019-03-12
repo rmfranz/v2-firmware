@@ -30,10 +30,14 @@ class SmoothieHandler(PrinterEventHandler):
         self.printing = False
         self.paused = False
         self.in_error = False
+        self.the_counter = None
         self.ioloop = tornado.ioloop.IOLoop(make_current=False)
         
     def check_origin(self, origin):
         return True
+
+    def set_the_counter(self, the_counter):
+        self.the_counter = the_counter
 
     def open(self):
         print("A client connected.")
@@ -96,6 +100,7 @@ class SmoothieHandler(PrinterEventHandler):
         if not self.paused:
             self.create_connection_and_send("ws://127.0.0.1:8888/print-finished", "print_finished")
             self.printing = False
+            self.the_counter.remove_lines()
         #    os.system("sudo touch /home/pi/print_end_status/end_print")
         self.__write("on_end")
         
@@ -106,8 +111,9 @@ class SmoothieHandler(PrinterEventHandler):
         self.__write("on_preprintsend", gline)
     
     def on_printsend(self, gline):
-        if self.printing:
-            self.create_connection_and_send("ws://127.0.0.1:8888/line-sended", gline.strip())
+        self.the_counter.add_line(gline)
+        #if self.printing:
+        #    self.create_connection_and_send("ws://127.0.0.1:8888/line-sended", gline.strip())
         self.__write("on_printsend", gline)
 
     def on_pause(self):
@@ -119,6 +125,7 @@ class SmoothieHandler(PrinterEventHandler):
     def on_cancel(self):
         self.paused = False
         self.printing = False
+        self.the_counter.remove_lines()
 
     def are_temperatures(self, data):
         return "ok" in data and "T0:" in data and "T1:" in data and "B:" in data and "A:" in data

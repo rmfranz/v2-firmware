@@ -9,6 +9,7 @@ import json
 import tornado
 import os
 import itertools
+from the_counter import TheCounter
 
 class SmoothieFirmware(BaseFirmware):
 
@@ -23,7 +24,10 @@ class SmoothieFirmware(BaseFirmware):
         path = "/home/pi/print_end_status"
         self.printrun = printcore("/dev/ttyACM0", 115200)
         print("Conecte la impresora")
-        self.printrun.addEventHandler(handler())
+        self.the_counter = TheCounter()
+        smoothie_handler = handler()
+        smoothie_handler.set_the_counter(self.the_counter)
+        self.printrun.addEventHandler(smoothie_handler)
         self.is_initialized = True
         #if not os.path.isdir(path):
         #    os.makedirs(path)

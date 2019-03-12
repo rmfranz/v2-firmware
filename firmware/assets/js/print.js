@@ -82,6 +82,19 @@ function setTime() {
     }
 }
 
+function set_progress(totalLines) {
+    $.ajax({
+        url: "/get-line-num",
+        success: function (result) {
+            if(totalLines != 0){
+                $('#progress_bar').attr("value", parseInt((parseInt(result) * 100) / totalLines));
+            } else {
+                console.log("totalLines error")
+            }
+        }
+    });
+}
+
 if (printing) {
     var line = 0;
     var totalLines = 0;
@@ -102,7 +115,7 @@ if (printing) {
                 });
         }
     };
-    var ws_line_sended = new WebSocket("ws://" + ip + ":8888/line-sended");
+    /*var ws_line_sended = new WebSocket("ws://" + ip + ":8888/line-sended");
     ws_line_sended.onmessage = function (evt) {
         ++line;
         if(totalLines != 0){
@@ -110,10 +123,11 @@ if (printing) {
         } else {
             console.log("totalLines error")
         }
-    };
+    };*/
     var minutesLabel = document.getElementById("minutes");
     var secondsLabel = document.getElementById("seconds");
     var hoursLabel = document.getElementById("hours");
     var totalSeconds = 0;
     setInterval(setTime, 1000);
+    setInterval(function() { set_progress(totalLines); }, 3000);
 }
