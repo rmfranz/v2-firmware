@@ -151,12 +151,12 @@ function set_temperatures(data) {
       if (t1_temp != 0 && t1 >= (t1_temp - (t1_temp * 0.05))) {
          if($("#t1_extrude").hasClass("k-grid-item--grey") &&
             $("#t1_retract").hasClass("k-grid-item--grey")){
-            change_t0_buttons()
+            change_t1_buttons()
          }
       } else {
          if(!$("#t1_extrude").hasClass("k-grid-item--grey") &&
             !$("#t1_retract").hasClass("k-grid-item--grey")){
-            change_t0_buttons()
+            change_t1_buttons()
          }
       }
 

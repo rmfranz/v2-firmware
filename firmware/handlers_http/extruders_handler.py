@@ -4,7 +4,6 @@ import collections
 
 class ToExtrudersControlHandler(BasicHandler):
     def get(self):
-        self.firmware.homming()
         self.render("extruders_control.html")
 
 class PlateUpHandler(BasicHandler):
