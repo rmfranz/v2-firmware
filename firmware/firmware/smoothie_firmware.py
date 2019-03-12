@@ -9,7 +9,7 @@ import json
 import tornado
 import os
 import itertools
-from the_counter import TheCounter
+from firmware.the_counter import TheCounter
 
 class SmoothieFirmware(BaseFirmware):
 
