@@ -153,11 +153,4 @@ def get_sd():
     Finally put all together in a dict
     '''
     info = check_output("sudo blkid -sUUID", shell=True, universal_newlines=True).splitlines()
-    return {l.split(':', 1)[1].split("=")[-1].replace('"', '') : l.split(':', 1)[0].split("/")[-1] for l in info if ':' in l}
-
-def get_sd_smoothie(info, uuid):
-    sd = None
-    for key, value in info.items():
-        if key != uuid and "sd" in value:
-            sd = value
-    return sd
+    return {l.split(':', 1)[1].split("=")[-1].replace('"', '').strip() : l.split(':', 1)[0].split("/")[-1].strip() for l in info if ':' in l}

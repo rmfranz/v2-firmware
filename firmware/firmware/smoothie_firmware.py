@@ -196,7 +196,7 @@ class SmoothieFirmware(BaseFirmware):
         config_json["t1_yoffset"] = y_offset
         config_file = "/home/pi/config-files/confighotend2xyoffset"
         info = get_sd()
-        sd = get_sd_smoothie(info, self.hardware_json["board_uuid"])
+        sd = info.get(self.hardware_json["board_uuid"])
         if not sd:
             return 1
         os.system("sudo mount /dev/{} /media/smoothie -o uid=pi,gid=pi".format(sd))
@@ -229,7 +229,7 @@ class SmoothieFirmware(BaseFirmware):
         with open(self.OFFSET_PATH, 'w') as f:
             json.dump(config_json, f)
         info = get_sd()
-        sd = get_sd_smoothie(info, self.hardware_json["board_uuid"])
+        sd = info.get(self.hardware_json["board_uuid"])
         if not sd:
             return 1
         os.system("sudo mount /dev/{} /media/smoothie -o uid=pi,gid=pi".format(sd))

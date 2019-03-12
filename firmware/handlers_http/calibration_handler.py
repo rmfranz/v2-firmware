@@ -59,7 +59,7 @@ class ZOffsetCalibrationHandler(BasicHandler):
             reset_rpi()
             self.write("ok")
         else:
-            self.render("error")
+            self.write("error")
 
 class XYOffsetCalibrationHandler(BasicHandler):
     
@@ -77,7 +77,7 @@ class XYOffsetCalibrationHandler(BasicHandler):
             reset_rpi()
             self.write("ok")
         else:
-            self.render("error")
+            self.write("error")
 
 class ZOffsetT0CalibrationHandler(BasicHandler):
     
