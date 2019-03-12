@@ -3,7 +3,7 @@ from printcore_modified.plugins.smoothie_event_handler import SmoothieHandler as
 from gcodes_loader.gcodes_loading import patch_and_split_gcodes
 from printcore_modified import gcoder
 from firmware.firmware import BaseFirmware
-from utils import split_file_for_print, grouper, split_gcode_for_print, get_sd_smoothie, get_sd
+from utils import split_file_for_print, grouper, split_gcode_for_print, get_sd
 import os
 import json
 import tornado
