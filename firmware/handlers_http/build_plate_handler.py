@@ -3,7 +3,7 @@ import collections
 
 class ToBuildPlateControlHandler(BasicHandler):
     def get(self):
-        self.firmware.homming()
+        #self.firmware.homming()
         self.render("plate_control.html")
 
 class PlateUpHandler(BasicHandler):
