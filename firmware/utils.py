@@ -4,6 +4,7 @@ from printcore_modified import gcoder
 import itertools
 from websocket import create_connection
 import time
+import re
 
 def mount_usb(uuid_board):
     if not check_output("ls /media/usb", shell=True, universal_newlines=True):
@@ -154,3 +155,11 @@ def get_sd():
     '''
     info = check_output("sudo blkid -sUUID", shell=True, universal_newlines=True).splitlines()
     return {l.split(':', 1)[1].split("=")[-1].replace('"', '').strip() : l.split(':', 1)[0].split("/")[-1].strip() for l in info if ':' in l}
+
+def get_volume():
+    out = check_output("amixer get PCM playback", shell=True, universal_newlines=True)
+    regex = r"([\d]+%)"
+    return re.findall(regex, out)[0].split("%")[0]
+
+def set_volume(volume):
+    os.system("amixer set PCM playback {}%".format(volume))

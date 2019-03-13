@@ -1,6 +1,6 @@
 from handlers_http.basic_handler import BasicHandler
 from tornado.options import options
-from utils import get_extruder_materials
+from utils import get_extruder_materials, get_volume, set_volume
 import os
 
 class SetupHandler(BasicHandler):
@@ -94,7 +94,12 @@ class ToInfoHandler(BasicHandler):
 
 class ToSoundHandler(BasicHandler):
     def get(self):
-        self.render("sound.html")
+        self.render("sound.html", volume=get_volume())
+    
+    def post(self):
+        volume = self.get_body_argument("volume")
+        set_volume(volume)
+        self.write(str(get_volume()))
 
 class TurnOffMotorsHandler(BasicHandler):
     def get(self):
