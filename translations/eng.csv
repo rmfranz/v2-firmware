@@ -1,250 +1,251 @@
-powered_by , Powered by
-hello , Hello!
-lets_get_started , Let's get started!
-we_will_guide_you_1 , We will guide you to have the best
-we_will_guide_you_2 , experience possible.
+powered_by, Powered by
+hello, Hello!
+lets_get_started, Let's get started!
+we_will_guide_you_1, We will guide you to have the best
+we_will_guide_you_2, experience possible.
 
-errors_modal_title , Connection failure
-errors_printer_status , 
-Disconnected , Unable to connect.
-Connecting , 
-error , Reinicie la impresora y si vuelve a ocurrir contactese con el servicio técnico
-errors_modal_disconnected , Check your connection and reboot printer.
+errors_modal_title, Connection failure
+errors_printer_status, 
+Disconnected, Unable to connect.
+Connecting, 
+Error, 
+errors_modal_disconnected, Check your connection and reboot printer.
 
-warnings_modal_title , Important
-warnings_modal_ok , Ok
+warnings_modal_title, Important
+warnings_modal_ok, Ok
 
 
-setup_internet , Click Next to set up Internet access.
+setup_internet, Click Next to set up Internet access.
 
-download_updates , Click Next to check for updates.
+download_updates, Click Next to check for updates.
 
-connect_to_the_cloud , Click Next to connect to the Cloud.
+connect_to_the_cloud, Click Next to connect to the Cloud.
 
-load_filament , Click Next to load filament now or click Skip to load it later.
-onboarding_skip , Skip
-onboarding_next , Next
+load_filament, Click Next to load filament now or click Skip to load it later.
+onboarding_skip, Skip
+onboarding_next, Next
 
-home_title , Home
-home_print , Print
-home_settings , Setup
-home_message_1 , Hi, Im ready to print.
-home_message_2 , Please go to https://cloud.smart3d.tech to start printing.
+home_title, Home
+home_print, Print
+home_settings, Setup
+home_message_1, Hi, I'm ready to print.
+home_message_2, Please go to https://cloud.smart3d.tech to start printing.
 
-files_title , Files
-files_intro , Select an object to print.
-files_pendrive , USB flash drive
-files_samples , Local files
-files_calibration , Calibration files
-loadingFiles , 
-nofilesfound , No files found
+files_title, Files
+files_intro, Select an object to print.
+files_pendrive, USB flash drive
+files_samples, Local files
+files_calibration, Calibration files
+loadingFiles, 
+nofilesfound, No files found
 
-mcontrol_title , Manual control
-prepprint_leftnozzle , 
-prepprint_rightnozzle , 
-manualcontrol_buildplate , Build plate
-kodak_filament , KODAK filaments
-other_filament , Other filaments
-manualcontrol_extruders , Extruders
-manualcontrol_light , Lights
-platform , 
+mcontrol_title, Manual control
+prepprint_leftnozzle, 
+prepprint_rightnozzle, 
+manualcontrol_buildplate, Build plate
+kodak_filament, KODAK filaments
+other_filament, Other filaments
+manualcontrol_extruders, Extruders
+manualcontrol_light, Lights
+platform, 
 
-config_title , Settings
-config_internet , Internet
-config_wifi, Wifi
+config_title, Settings
+config_internet, Internet
 
-config_filaments , Filaments
-config_extras , Extras
-back , Back
-config_calibration , Calibration
-config_cloud , Cloud
+config_filaments, Filaments
+config_extras, Extras
+back, Back
+config_calibration, Calibration
+config_cloud, Cloud
+
+filaments_menu_title, Filaments
+filaments_menu_load, Load filament
+filaments_menu_unload, Unload filament
+
+filamentsetup_title, Filament setup
+add_filament, New filament
+filament_name, Name
+filament_temp, Filament temp. (°C)
+bed_temp, Bed temp. (°C)
+is_KODAK, Is KODAK?
+f_true, Yes
+f_false, No
+newfilament_failure, It was not possible to create the filament. Please try again.
+filament_confirm_delete, Are you sure you want to delete this filament?
+filament_delete, Delete filament
+
+extruder, Extruder
+extruder_loaded, Loaded
+filaments_heating, Heating. Please wait...
+filaments_extruding, Waiting for extrusion...
+filaments_extruding_info, Make sure that plastic is getting pulled in. Push Next when you see filament extruding.
+filaments_clean, Please clean extra plastic.
+filaments_clean_info, Plastic should be extruded by now.
+loading_filaments_select, Select the filament type you are loading.
+filaments_heating_extruder, Heating hotend
+filaments_please_wait, Please wait.
+filaments_done, Done
+filaments_retracting, Waiting for release.
+filaments_retracting_info, Make sure that filament is retracting.
+filaments_released, Please remove the spool
+filaments_released_info, Filament should be released by now.
+filaments_retracting_extruder, Retracting filament
+
+network_title, Networking
+network_password, Password
+network_connect_failure, Connection not established (wrong password?)
+connect_modal_title, Connect to network
+connected, Connected
+forget, Forget
+connect_cancel, Cancel
+connect, Connect
+connecting, Connecting...
+network_choose, Choose network
+
+language_title, Language
+language_intro, Select the language to wish to use for the display:
+es, Español
+en, English
+fr, Français
+de, Deutsche
+it, Italiano
+pl, Polski
+
+calibration_title, Calibration
+calibration_z_offset, Z Offset calibration
+calibration_z_probe, Build plate calibration
+calibration_nozzle, Nozzle offset calibration
+calibration_offset_z, Z Offset
+calibration_probe_triggered, Probe triggered
+calibration_saving, Saving...
+calibration_save, Save
+calibration_offset_x, Offset X
+calibration_offset_y, Offset Y
+instructions_modal_title_Zoffset, Raise the build plate until it touches the nozzle.
+instructions_modal_title_Cal25step1, Please wait until the print head stops at the centre of XY axes.
+instructions_modal_title_Cal25step2, Raise the build plate using the arrow buttons until it touches the nozzle. Then click Save.
+instructions_modal_text_Cal25_continue, Continue
+calibration_buildplate_step1, Step 1
+calibration_buildplate_step2, Step 2
+
+calibration_wizard_title, Calibration wizard
+waiting_for_initial_movements, Wait for initial movements to finish.
+done, Done
+
+offset_P1, P1 Offset
+offset_P2, P2 Offset
+offset_P3, P3 Offset
+
+info_title, Printer information
+change_language, Change language
+info_printeraddress, IP address:
+info_serialnumber, Serial Number:
+info_swversion, Software version:
+info_updateavailable, Update available
+waitForUpdate, Updating {{percentage}}%
+waitForReboot, Wait for reboot.
+info_update, Update Version
+info_confirm_update, Are you sure you want to update from {{ from }} to {{ to }}?
+info_network, Network:
+info_printeraddress_ethernet, IP address:
+info_language, Language:
+
+backupForLeft, Backup for left
+presetOnFile, Preset on file
+Off (0ºC), Off
+Calculating..., Calculating...
+nozzleDisconnected, Nozzle disconnected
+noFilesFound, Insert the USB drive and wait for the files to load.
+
+monitor_printingtime, Printing Time:
+monitor_elapsedtime, Elapsed Time:
+monitor_pause, Pause
+monitor_paused, Paused
+monitor_cancel, Cancel
+monitor_printdone, Print Finished
+confirm_cancel, Would you like to cancel this print?
+confirm_yes, Yes
+confirm_no, No
+confirm_pause, Are you sure you want to pause this print?
+monitor_resume, Resume
+monitor_rate, Rate
+
+nozzle_intro, Select nozzle diameter currently installed.
+nozzle_modal_title, Set nozzle size
+
+cloud_title, KODAK 3D Cloud
+
+cloud_intro, Use the following registration token to register this printer for your user on the KODAK 3D Cloud.
+cloud_intro2, Register at cloud.smart3d.tech
+queue_empty, Your printer is online and ready to print. Log into your cloud account to start printing.
+delete_from_cloud, Delete printer from cloud
+confirm_delete_from_cloud, Are you sure delete the cloud registration for this printer?
+job_date, Date received:
+job_email, Email:
+job_duration, Printing time:
+job_material, Material Type:
+job_layer_height, Layer Height:
+job_weight, Weight:
+job_notes, Notes:
+job_preview, Preview
+registration_success, Printer Connected
+job_size, File Size:
+cloud_unregister, Unregister
+cloud_disconnect, Disconnect
+cloud_connect, Connect
+job_cancel, Remove from queue
+job_print, Print
+
+extras_title, Extras
+extras_controls, Controls
+extras_tools, Tools
+extras_info, Info
+extras_update, Update
+extras_sound, Sound
+
+sound_message, Adjust the sound level while we play the music.
+sound_off, Off
+sound_max, Max
+sound_volume, Volume
+
+updates_updating, Updating to
+custom_version, Custom version
+updates_latest, You have the latest version.
+updates_updating_footer, Important: do not turn the printer off while updating.
+updates_success, Update successful. Please wait for reboot.
+
+print_selection_title, Print
+print_selection_cloud, Print from Cloud
+print_selection_local, Print from local file
+
+cancel_popup_title, Cancelling the print.
+cancel_popup_body, Please wait.
+
 config_connectivity, Connectivity
 config_advanced, Advanced
 config_nozzle_size, Nozzle Size
 config_motors, Turn off motors
-
-filaments_menu_title , Filaments
-filaments_menu_load , Load filament
-filaments_menu_unload , Unload filament
-
-filamentsetup_title , Filament setup
-add_filament , New filament
-filament_name , Name
-filament_temp , Filament temp. (°C)
-bed_temp , Bed temp. (°C)
-is_KODAK , Is KODAK?
-f_true , Yes
-f_false , No
-newfilament_failure , It was not possible to create the filament. Please try again.
-filament_confirm_delete , Are you sure you want to delete this filament?
-filament_delete , Delete filament
-
-extruder , Extruder
-extruder_loaded , Loaded
-filaments_heating , Heating. Please wait...
-filaments_extruding , Waiting for extrusion...
-filaments_extruding_info , Make sure that plastic is getting pulled in. Push Next when you see filament extruding.
-filaments_clean , Please clean extra plastic.
-filaments_clean_info , Plastic should be extruded by now.
-loading_filaments_select , Select the filament type you are loading.
-filaments_heating_extruder , Heating hotend
-filaments_please_wait , Please wait.
-filaments_done , Done
-filaments_retracting , Waiting for release.
-filaments_retracting_info , Make sure that filament is retracting.
-filaments_released , Please remove the spool
-filaments_released_info , Filament should be released by now.
-filaments_retracting_extruder , Retracting filament
-filament_auto_load_message, Este proceso es automático. Espere a que se complete y vuelva a la pantalla anterior
+filament_auto_load_message, This is an automatic process, please wait for it to finish and return to the previous screen. 
 filament_auto_load, Load Material
 filament_auto_unload, Unload Material
-
-network_title , Networking
-network_password , Password
-network_connect_failure , Connection not established (wrong password?)
-connect_modal_title , Connect to network
-connected , Connected
-forget , Forget
-connect_cancel , Cancel
-connect , Connect
-connecting , Connecting...
-network_choose , Choose network
-
-language_title , Language
-language_intro , Select the language to wish to use for the display
-es , Español
-en , English
-fr , Français
-de , Deutsche
-it , Italiano
-
-calibration_title , Calibration
-calibration_z_offset , Z Offset calibration
-calibration_z_probe , Build plate calibration
-calibration_nozzle , Nozzle offset calibration
-calibration_offset_z , Z Offset
-calibration_probe_triggered , Probe triggered
-calibration_saving , Saving...
-calibration_save , Save
-calibration_offset_x , Offset X
-calibration_offset_y , Offset Y
-instructions_modal_title_Zoffset , Raise the build plate until it touches the nozzle.
-instructions_modal_title_Cal25step1 , Please wait until the print head stops at the centre of XY axes.
-instructions_modal_title_Cal25step2 , Raise the build plate using the arrow buttons until it touches the nozzle. Then click Save.
-instructions_modal_text_Cal25_continue , Continue
-calibration_buildplate_step1 , Step 1
-calibration_buildplate_step2 , Step 2
 calibration_xy, XY Offset
-calibration_wait, Espere mientras se realiza la calibración
+calibration_wait, Please wait for the calibration sequence to finish.
 calibration_make, Calibrate
 calibration_reset, Reset
 calibration_inspect, Inspect
-calibration_reset_board, Espere mientras se resetea la maquina
-calibration_hotend_1, Hotend 1
-calibration_hotend_2, Hotend 2
-calibration_extruder_change, Espere mientras se posiciona el cabezal
-calibration_error, There was an error. Contact with technical support
-
-calibration_wizard_title , Calibration wizard
-waiting_for_initial_movements , Wait for initial movements to finish.
-done , Done
-
-offset_P1 , P1 Offset
-offset_P2 , P2 Offset
-offset_P3 , P3 Offset
-
-info_title , Printer information
-change_language , Change language
-info_printeraddress , IP address
-info_serialnumber , Serial Number
-info_swversion , Software version
-info_hwversion , Hardware version
-info_updateavailable , Update available
-waitForUpdate , Updating {}%
-waitForReboot , Wait for reboot.
-info_update , Update Version
-info_confirm_update , Are you sure you want to update from {{ from }} to {{ to }}?
-info_network , Network
-info_printeraddress_ethernet , IP address
-info_language , Language
-
-backupForLeft , Backup for left
-presetOnFile , Preset on file
-Off (0ºC) , Off
-Calculating... , Calculating...
-nozzleDisconnected , Nozzle disconnected
-noFilesFound , Insert the USB drive and wait for the files to load.
-
-monitor_printingtime , Printing Time
-monitor_elapsedtime , Elapsed Time
-monitor_pause , Pause
-monitor_paused , Paused
-monitor_cancel , Cancel
-monitor_printdone , Print Finished
-confirm_cancel , Would you like to cancel this print?
-confirm_yes , Yes
-confirm_no , No
-confirm_pause , Are you sure you want to pause this print?
-monitor_resume , Resume
-monitor_rate , Rate
-print_load_file_popup_title, Espere mientras se carga el archivo. 
-print_load_file_popup_body, Esto puede tomar un tiempo
-
-nozzle_intro , Select nozzle diameter currently installed.
-nozzle_modal_title , Set nozzle size
-
-cloud_title , KODAK 3D Cloud
-
-cloud_intro , Use the following registration token to register this printer for your user on the KODAK 3D Cloud.
-cloud_intro2 , Register at cloud.smart3d.tech
-queue_empty , Your printer is online and ready to print. Log into your cloud account to start printing.
-delete_from_cloud , Delete printer from cloud
-confirm_delete_from_cloud , Are you sure delete the cloud registration for this printer?
-job_date , Date received
-job_email , Email
-job_duration , Printing time
-job_material , Material Type
-job_layer_height , Layer Height
-job_weight , Weight
-job_notes , Notes
-job_preview , Preview
-registration_success , Printer Connected
-job_size , File Size
-cloud_unregister , Unregister
-cloud_disconnect , Disconnect
-cloud_connect , Connect
-job_cancel , Remove from queue
-job_print , Print
-
-extras_title , Extras
-extras_controls , Controls
-extras_tools , Tools
-extras_info , Info
-extras_update , Update
-extras_sound , Sound
-
-sound_message , Adjust the sound level while we play the music.
-sound_off , Off
-sound_max , Max
-sound_volume , Volume
-
-updates_updating , Updating to
-custom_version , Custom version
-updates_latest , You have the latest version.
-updates_updating_footer , Important, do not turn the printer off while updating.
-updates_success , Update successful. Please wait for reboot.
-
-print_selection_title , Print
-print_selection_cloud , Print from Cloud
-print_selection_local , Print from local file
-
-cancel_popup_title , Cancelling the print.
-cancel_popup_body , Please wait.
-
+calibration_reset_board, Wait while the printer reboots.
+calibration_hotend_1, Hotend I
+calibration_hotend_2, Hotend II
+calibration_extruder_change, Changing tool, please wait.
+print_load_file_popup, Loading the file, please wait. It may take a little while.
+config_wifi, WiFi
+info_hwversion, Hardware version
 help_25_calibration_title, Calibrate
-help_25_calibration_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
+help_25_calibration_body, 
 help_25_reset_title, Reset
-help_25_reset_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
+help_25_reset_body, 
 help_25_inspect_title, Inspect
-help_25_inspect_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
-confirm_filament, desea cancelar la carga?
+help_25_inspect_body, 
+error, Please restart the printer and if the problem occurs again, contact tech support.
+confirm_filament, Are you sure you want to abort?
+calibration_error, An error occurred. Please contact technical support.

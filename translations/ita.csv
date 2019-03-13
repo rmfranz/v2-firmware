@@ -109,6 +109,7 @@ en, English
 fr, Français
 de, Deutsche
 it, Italiano
+pl, Polski
 
 calibration_title, Calibrazione
 calibration_z_offset, Calibrazione offset Z
@@ -220,9 +221,31 @@ print_selection_local, Stampa un file locale
 cancel_popup_title, Sto annullando la stampa.
 cancel_popup_body, Attendere.
 
-help_25_calibration_title, Calibrate
-help_25_calibration_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
-help_25_reset_title, Reset
-help_25_reset_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
-help_25_inspect_title, Inspect
-help_25_inspect_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
+config_connectivity, Connettività
+config_advanced, Opzioni avanzate
+config_nozzle_size, Diametro ugello
+config_motors, Disattivare motori
+filament_auto_load_message, La procedura é automatica. Attenderne la fine e tornare allo schermo precedente. 
+filament_auto_load, Carica filamento
+filament_auto_unload, Scarica filamento
+calibration_xy, Calibrazione XY
+calibration_wait, Attendere la fine della sequenza di calibrazione.
+calibration_make, Calibra
+calibration_reset, Reimposta
+calibration_inspect, Ispeziona
+calibration_reset_board, Attendere il riavvio della stampante.
+calibration_hotend_1, Hotend I
+calibration_hotend_2, Hotend II
+calibration_extruder_change, Attendere il cambio di ugello.
+print_load_file_popup, Per favore attendere il caricamento del file. Potrebbe essere necessario ancora qualche istante.
+config_wifi, WiFi
+info_hwversion, Versione hardware
+help_25_calibration_title, Calibrare
+help_25_calibration_body, 
+help_25_reset_title, Reimpostare
+help_25_reset_body, 
+help_25_inspect_title, Ispeziona
+help_25_inspect_body, 
+error, Riavviare la stampante. Se il problema persiste, contattare il servizio tecnico.
+confirm_filament, Sei sicuro di voler interrompere l'operazione?
+calibration_error, Errore imprevisto. Contattare il supporto tecnico.

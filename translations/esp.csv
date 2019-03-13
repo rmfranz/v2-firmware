@@ -109,6 +109,7 @@ en, English
 fr, Français
 de, Deutsche
 it, Italiano
+pl, Polski
 
 calibration_title, Calibración
 calibration_z_offset, Compensación eje Z
@@ -126,7 +127,6 @@ instructions_modal_title_Cal25step2, Subir la plataforma con las flechas hasta t
 instructions_modal_text_Cal25_continue, Continuar
 calibration_buildplate_step1, Paso 1
 calibration_buildplate_step2, Paso 2
-calibration_error, There was an error. Contact with technical support
 
 calibration_wizard_title, Asistente de calibración
 waiting_for_initial_movements, Espere a que finalicen los movimientos.
@@ -221,11 +221,31 @@ print_selection_local, Imprimir un archivo local
 cancel_popup_title, Cancelando la impresión.
 cancel_popup_body, Espere.
 
-help_25_calibration_title, Calibrate
-help_25_calibration_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
-help_25_reset_title, Reset
-help_25_reset_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
-help_25_inspect_title, Inspect
-help_25_inspect_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
-
-confirm_filament, desea cancelar la carga?
+config_connectivity, Conectividad
+config_advanced, Opciones avanzadas
+config_nozzle_size, Diámetro de boquilla
+config_motors, Apagar motores
+filament_auto_load_message, Este proceso es automático. Espere a que termine y vuelva a la pantalla anterior.
+filament_auto_load, Cargar filamento
+filament_auto_unload, Descargar filamento
+calibration_xy, Calibración XY
+calibration_wait, Espere mientras se realiza la calibración.
+calibration_make, Calibrar
+calibration_reset, Resetear
+calibration_inspect, Revisar
+calibration_reset_board, Espere mientras se resetea la maquina.
+calibration_hotend_1, Hotend I
+calibration_hotend_2, Hotend II
+calibration_extruder_change, Espere mientras se realiza el cambio de herramienta.
+print_load_file_popup, Estoy cargando el archivo, por favor espere. Esto puede tomar un tiempo.
+config_wifi, WiFi
+info_hwversion, Versión de hardware
+help_25_calibration_title, Calibrar
+help_25_calibration_body, 
+help_25_reset_title, Resetear
+help_25_reset_body, 
+help_25_inspect_title, Revisar
+help_25_inspect_body, 
+error, Reinicie la impresora y si el error vuelve a ocurrir contactese con el servicio técnico.
+confirm_filament, ¿Está seguro de que quiere anular esta operación?
+calibration_error, Ocurrió un error. Póngase en contacto con el soporte técnico.

@@ -704,9 +704,9 @@ a{
   
   /* Get rid of default border in Firefox. */
   border: none;
-  width: 100%;
+  width: 100%; max-width: 728px;
   height: 40px;
-  margin: 25px 0;
+  margin: 25px 0 0 0;
   position: relative;
 }
 
@@ -736,6 +736,7 @@ a{
 .k-printing-main__h2{
   margin-top: 0;
   font-size: 30px;
+  word-break:  break-all;
 }
 
 .k-printing-main__ul{
@@ -912,19 +913,8 @@ a{
   border-radius: 10px;
 }
 
-.k-modal__grey{
-  display: flex;
-  align-items:center;
-  justify-content: center;
+.k-modal__warning--grey{
   background: #EBEBEA;
-  text-align: center;
-  font-family: graphik-sb;
-  font-size: 30px;
-  text-transform: capitalize;
-  margin:10px; 
-  width: 360px;
-  height: 65px;
-  border-radius: 10px;
 }
 
 .k-modal__input{

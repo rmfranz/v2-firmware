@@ -109,6 +109,7 @@ en, English
 fr, Français
 de, Deutsche
 it, Italiano
+pl, Polski
 
 calibration_title, Calibrage
 calibration_z_offset, Calibrage axe Z
@@ -220,9 +221,31 @@ print_selection_local, Imprimer un fichier local
 cancel_popup_title, J'annule l'impression.
 cancel_popup_body, Veuillez patienter.
 
-help_25_calibration_title, Calibrate
-help_25_calibration_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
-help_25_reset_title, Reset
-help_25_reset_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
-help_25_inspect_title, Inspect
-help_25_inspect_body, Lorem ipsum dolor sit amet consectetur adipiscing elit. Etiam pellentesque eu felis et pretium. Morbi eleifend dapibus tellus
+config_connectivity, Connectivité
+config_advanced, Paramètres avancés
+config_nozzle_size, Diamètre buse
+config_motors, Désactiver les moteurs
+filament_auto_load_message, La procédure est automatique. Patientez jusqu'à la fin et revenir à l'écran précédent.
+filament_auto_load, Charger le filament
+filament_auto_unload, Décharger le filament
+calibration_xy, Calibrage XY
+calibration_wait, Patientez jusqu'à la fin de la séquence de calibrage.
+calibration_make, Calibrer
+calibration_reset, Réinitialiser
+calibration_inspect, Inspecter
+calibration_reset_board, Veuillez patienter pendant le redémarrage.
+calibration_hotend_1, Hotend I
+calibration_hotend_2, Hotend II
+calibration_extruder_change, Veuillez patienter pendant le changement d'outil.
+print_load_file_popup, Veuillez patienter pendant le chargement du fichier. Cela peut prendre un peu de temps.
+config_wifi, WiFi
+info_hwversion, Version matérielle
+help_25_calibration_title, Calibrer
+help_25_calibration_body, 
+help_25_reset_title, Réinitialiser
+help_25_reset_body, 
+help_25_inspect_title, Inspecter
+help_25_inspect_body, 
+error, Veuillez redémarrer l'imprimante. Si le problème se reproduit, contactez votre service technique.
+confirm_filament, Voulez-vous vraiment abandonner l'opération actuelle?
+calibration_error, Erreur inattendue. Contactez le support technique.
