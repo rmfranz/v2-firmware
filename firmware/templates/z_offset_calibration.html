@@ -21,7 +21,7 @@
       </button>
     </div>
   </section>
-  <div id="help_calibration" class="k-help-btn">
+  <div id="help_z_calibration" id="help_calibration" class="k-help-btn">
     <img src="/static/images/icon_ayuda.svg" />
 </div>
 </main>
@@ -77,7 +77,15 @@
     </div>
   </div>
 </section>
-
+<section id="help_calibration_modal" class="k-modal-overlay">
+  <div class="k-modal">
+      <button id="help_calibration_modal_close" class="k-modal__close">
+          <img src="/static/images/icon_cancelar.svg" />
+      </button>
+      <div class="k-modal-container">
+      </div>
+  </div>
+</section>
 </body>
 <script src="/static/js/calibration.js"></script>
 {% end %}

@@ -211,3 +211,11 @@ $("#help_calibration").on("click", function() {
 $("#help_calibration_modal_close").on("click", function() {
     $("#help_calibration_modal").toggleClass( "k-modal-overlay--visible" );
 });
+
+$("#help_xy_calibration").on("click", function() {
+    $("#help_calibration_modal").toggleClass( "k-modal-overlay--visible" );
+});
+
+$("#help_z_calibration").on("click", function() {
+    $("#help_calibration_modal").toggleClass( "k-modal-overlay--visible" );
+});
