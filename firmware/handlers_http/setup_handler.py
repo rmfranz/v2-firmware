@@ -92,6 +92,10 @@ class ToInfoHandler(BasicHandler):
     def get(self):
         self.render("info.html", serial=self.firmware.get_serial_number(), soft_version="V2", hard_version="V2")
 
+class ToSoundHandler(BasicHandler):
+    def get(self):
+        self.render("sound.html")
+
 class TurnOffMotorsHandler(BasicHandler):
     def get(self):
         self.firmware.turn_off_motors()

@@ -117,6 +117,7 @@ class Application(tornado.web.Application):
             (r"/connectivity", ConnectivityHandler),
             (r"/network-info", ToNetworkInfoHandler),
             (r"/info", ToInfoHandler),
+            (r"/sound", ToSoundHandler),
             (r"/ssh-enable", EnableSSHHandler),
             (r"/ssh-disable", DisableSSHHandler),
             (r"/lights", ToLightsHandler),
