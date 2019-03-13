@@ -1,5 +1,6 @@
 var ip = "127.0.0.1";
 var paused = false;
+var canceling = false;
 
 $('.file_selected').click(function () {
     $.post("/print", { file_path: $(this).data('path'), filename: $(this).data('filename') })
@@ -61,7 +62,8 @@ $("#cancel_modal_yes").click(function () {
     $("#cancel_modal").toggleClass("k-modal-overlay--visible");
     $("#wait_cancel_modal").toggleClass("k-modal-overlay--visible");
     $.get("/cancelar");
-    window.location.href = "/home";
+    canceling = true;
+    //window.location.href = "/home";
 });
 
 function pad(val) {

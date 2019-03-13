@@ -87,6 +87,10 @@ function set_temperatures(data) {
  var ws_nozzle = new WebSocket("ws://" + ip + ":8888/heating-nozzle");
  ws_temps.onmessage = function (evt) {
     set_temperatures(evt.data);
+    if(typeof canceling !== 'undefined' && canceling){
+       //$("#wait_cancel_modal").toggleClass("k-modal-overlay--visible");
+       window.location.href = "/home";
+     }
  };
  ws_bed.onmessage = function(evt) {
     var bed_data = evt.data
