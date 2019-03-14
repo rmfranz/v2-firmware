@@ -48,6 +48,9 @@ class PeriodicController:
         self.ws_url = "ws://127.0.0.1:8888/cloud"
         self.ws_initialized = False
         self.ioloop = tornado.ioloop.IOLoop(make_current=False)
+        self.camera = picamera.PiCamera()
+        self.camera.rotation = 90
+        self.camera.resolution = "480x640"
         if self.auth_token:
             self.api_caller.start()
             self.camera_caller.start()
@@ -223,14 +226,11 @@ class PeriodicController:
         self.percent = percentage
 
     def take_picture(self):
-        camera = picamera.PiCamera()
-        camera.rotation = 90
-        camera.resolution = "480x640"
         stream = io.BytesIO()
-        camera.capture(stream, format='jpeg', quality=10)
+        self.camera.capture(stream, format='jpeg', quality=10)
         req = {
             'auth_token': self.auth_token, 
-            'image': base64.b64encode(str(stream.getvalue()))
+            'image': str(base64.b64encode(stream.getvalue()))
         }        
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch(self.url_cloud, method='POST',
