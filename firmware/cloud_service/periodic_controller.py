@@ -222,7 +222,8 @@ class PeriodicController:
     @tornado.gen.coroutine
     def set_percentage(self):
         async_http_client = httpclient.AsyncHTTPClient()
-        percentage = yield async_http_client.fetch("http://127.0.0.1:8888/get-percentage")
+        resp = yield async_http_client.fetch("http://127.0.0.1:8888/get-percentage")
+        percentage = json.loads(resp.body.decode('utf-8'))
         self.percent = percentage
 
     @tornado.gen.coroutine
