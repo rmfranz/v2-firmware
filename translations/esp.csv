@@ -148,7 +148,7 @@ info_update, Actualizar versión
 info_confirm_update, ¿Confirma actualizar versión de {{from}} a {{to}}?
 info_network, Red:
 info_printeraddress_ethernet, Direccion IP:
-info_language, Idioma:
+info_language, Idioma
 
 backupForLeft, Continuación del extrusor izq. (I)
 presetOnFile, Temperatura fijada en el archivo

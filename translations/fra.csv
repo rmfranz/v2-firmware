@@ -148,7 +148,7 @@ info_update, Mettre à jour la version
 info_confirm_update, Voulez-vous mettre à jour de {{from }} à {{ to }}?
 info_network, Réseau:
 info_printeraddress_ethernet, Adresse IP:
-info_language, Langue:
+info_language, Langue
 
 backupForLeft, Réserver pour extrudeuse gauche
 presetOnFile, Température préréglée dans le fichier

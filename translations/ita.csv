@@ -148,7 +148,7 @@ info_update, Aggiorna versione
 info_confirm_update, Vuoi aggiornare da {{ from }} a {{ to }}?
 info_network, Rete:
 info_printeraddress_ethernet, Indirizzo IP:
-info_language, Lingua:
+info_language, Lingua
 
 backupForLeft, Backup per ugello sinistro
 presetOnFile, Impostazioni di stampa configurate da .gcode

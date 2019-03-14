@@ -122,7 +122,7 @@ class GetNumLineHandler(BasicHandler):
 class GetPercentage(BasicHandler):
     def get(self):
         try:
-            percentage = (self.firmware.the_counter.count_lines() * 100) / self.firmware.totalLines
+            percentage = (self.firmware.the_counter.count_lines() * 100) / self.firmware.total_lines
         except:
             percentage = 0
         self.write(str(percentage))

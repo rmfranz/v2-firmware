@@ -114,9 +114,12 @@ class PeriodicController:
         async_http_client = httpclient.AsyncHTTPClient()
         resp_reg = yield async_http_client.fetch(self.url_command, method='POST', raise_error=False,
                     headers=self.headers, body=json.dumps(req))
-        resp_dict = json.loads(resp_reg.body.decode('utf-8'))
-        if "command" in resp_dict:
-            self.commander[resp_dict["command"]](resp_dict)
+        try:
+            resp_dict = json.loads(resp_reg.body.decode('utf-8'))
+            if "command" in resp_dict:
+                self.commander[resp_dict["command"]](resp_dict)
+        except:
+            print("error")
 
     def on_print(self, resp_dict):
         self.state = "downloading"
