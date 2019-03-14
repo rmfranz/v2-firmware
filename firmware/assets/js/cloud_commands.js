@@ -17,7 +17,9 @@ ws_cloud.onmessage = function (evt) {
         $('#pausa').toggle( true );
         $('#resume').toggle( false );
     } else if (command == "cancel") {
-        window.location.href = "/cancelar";
+        window.location.href = "/cancel-cloud";
+    } else if (command == "finish") {
+        window.location.href = "/home";
     } else if (command == "connected") {
         $.get("http://" + ip + ":9000/init-websockets");
         $.post( "/set-user-cloud-pref", { status: "connected"})

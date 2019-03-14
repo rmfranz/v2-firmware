@@ -96,6 +96,11 @@ class CancelHandler(BasicHandler):
         #self.render("index.html", working_on="cancelado")
         self.write("ok")
 
+class CancelCloudHandler(BasicHandler):
+    def get(self):
+        self.firmware.cancel()
+        self.redirect("/home")
+
 class PrintFinishedHandler(BasicHandler):
     def get(self):
         time_printing = self.get_cookie("time_printing")
@@ -113,6 +118,14 @@ class GetTotalLinesHandler(BasicHandler):
 class GetNumLineHandler(BasicHandler):
     def get(self):
         self.write(str(self.firmware.the_counter.count_lines()))
+
+class GetPercentage(BasicHandler):
+    def get(self):
+        try:
+            percentage = (self.firmware.the_counter.count_lines() * 100) / self.firmware.totalLines
+        except:
+            percentage = 0
+        self.write(str(percentage))
 
 class TestHandler(BasicHandler):
     def get(self):

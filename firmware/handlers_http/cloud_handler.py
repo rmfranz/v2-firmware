@@ -11,7 +11,7 @@ class GetRegistrationCodeHandler(BasicHandler):
             self.render("cloud.html", registration_code=None, cloud_pref=self.firmware.user_conf_json["cloud_pref"])
         else:
             headers = {'Content-Type': 'application/json'}
-            body = {"VID": "0KDK", "PID": "0001", "SNR": "00000000000000", 
+            body = {"VID": "0KDK", "PID": "0001", "SNR": self.firmware.hardware_json["serial_number"], 
                 "mac": self.firmware.get_macaddress().replace(":", ""), "type": "K_PORTRAIT", "version": "",
                 "registration_code_ttl": 20}
             http_client = httpclient.HTTPClient()

@@ -6,6 +6,9 @@ import os
 from tornado.websocket import websocket_connect
 import asyncio
 import functools
+import picamera
+import io
+import base64
 
 class PeriodicController:
 
@@ -26,10 +29,14 @@ class PeriodicController:
         self.t1_target = 0
         self.bed_target = 0
         self.amber_target = 0
+        self.percent = 0
         self.url_cloud = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/register"
         self.url_command = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/command"
+        self.url_printer = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/camera"
         self.auth_token = self.user_conf_json["auth_token"]
         self.api_caller = PeriodicCallback(self.command_request, 2000)
+        self.api_set_percentage = PeriodicCallback(self.set_percentage, 3000)
+        self.camera_caller = PeriodicCallback(self.take_picture, 2000)
         self.state = "ready"
         self.headers = {'Content-Type': 'application/json'}
         self.commander = {
@@ -43,6 +50,7 @@ class PeriodicController:
         self.ioloop = tornado.ioloop.IOLoop(make_current=False)
         if self.auth_token:
             self.api_caller.start()
+            self.camera_caller.start()
 
 
     def set_auth_token_caller(self, caller):
@@ -56,7 +64,7 @@ class PeriodicController:
 
     @tornado.gen.coroutine
     def get_auth(self, registration_code):        
-        body_with_registration = {"VID": "0KDK", "PID": "0001", "SNR": "00000000000000",
+        body_with_registration = {"VID": "0KDK", "PID": "0001", "SNR": self.hardware_json["serial_number"],
             "mac": self.hardware_json["mac_address_eth0"].replace(":", ""), "type": "K_PORTRAIT",  "version": "", 
             "registration_code_ttl": 20,  "registration_code": registration_code}
         request = httpclient.HTTPRequest(url=self.url_cloud, method='POST',
@@ -71,6 +79,7 @@ class PeriodicController:
             self.write_user_conf_json()
             self.stop_auth_token_caller()
             self.api_caller.start()
+            self.camera_caller.start()
             self.create_connection_and_send("connected")
         else:
             print("There is nothing: {}".format(resp_dict))
@@ -83,6 +92,7 @@ class PeriodicController:
             self.write_hardware_json()
             self.stop_auth_token_caller()
             self.api_caller.start()
+            self.camera_caller.start()
             self.create_connection_and_send("connected")
         else:
             print("There is nothing: {}".format(resp_dict))
@@ -92,10 +102,9 @@ class PeriodicController:
         req = {
             "report": {
             "state": self.state,
-            "percent": "0",
+            "percent": self.percent,
             "temps": [self.bed, self.t1, self.t0, "c" + str(self.amber)],
-            "target_temps": [self.bed_target, self.t1_target, self.t0_target],
-            "fan_speeds": ["0", "0"]
+            "target_temps": [self.bed_target, self.t1_target, self.t0_target]
             },
             "auth_token": self.auth_token
         }
@@ -103,7 +112,6 @@ class PeriodicController:
         resp_reg = yield async_http_client.fetch(self.url_command, method='POST', raise_error=False,
                     headers=self.headers, body=json.dumps(req))
         resp_dict = json.loads(resp_reg.body.decode('utf-8'))
-        print(resp_dict)
         if "command" in resp_dict:
             self.commander[resp_dict["command"]](resp_dict)
 
@@ -127,6 +135,7 @@ class PeriodicController:
         os.remove("/home/pi/cloud/cloud.gcode")
         self.state = "ready"
         self.create_connection_and_send("cancel")
+        self.api_set_percentage.stop()
 
     def on_chunk(self, chunk):
         with open("/home/pi/cloud/cloud.gcode", "ab+") as f:
@@ -135,6 +144,7 @@ class PeriodicController:
     def on_download_done(self, response):
         self.state = "printing"
         self.create_connection_and_send("download_done")
+        self.api_set_percentage.start()
 
     def on_temp_message(self, msg):
         if msg:
@@ -178,6 +188,16 @@ class PeriodicController:
             async_http_client = httpclient.AsyncHTTPClient()
             async_http_client.fetch("http://127.0.0.1:9000/init-websockets")
 
+    def on_finish_print(self, msg):
+        if msg:
+            self.state = "ready"
+            self.create_connection_and_send("finish")
+            self.percent = 100
+            self.api_set_percentage.stop()
+        else:
+            async_http_client = httpclient.AsyncHTTPClient()
+            async_http_client.fetch("http://127.0.0.1:9000/init-websockets")
+
     def set_temps(self, t0, t1, bed, amber):
         self.t0 = t0
         self.t1 = t1
@@ -195,6 +215,26 @@ class PeriodicController:
 
     def local_mode_off(self):
         self.state = "ready"
+
+    @tornado.gen.coroutine
+    def set_percentage(self):
+        async_http_client = httpclient.AsyncHTTPClient()
+        percentage = yield async_http_client.fetch("http://127.0.0.1:8888/get-percentage")
+        self.percent = percentage
+
+    def take_picture(self):
+        camera = picamera.PiCamera()
+        camera.rotation = 90
+        camera.resolution = "480x640"
+        stream = io.BytesIO()
+        camera.capture(stream, format='jpeg', quality=10)
+        req = {
+            'auth_token': self.auth_token, 
+            'image': base64.b64encode(str(stream.getvalue()))
+        }        
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch(self.url_cloud, method='POST',
+                    headers=self.headers, body=json.dumps(req))
 
     def create_connection_and_send(self, data):
         self.ioloop.run_sync(functools.partial(self.create_connection_and_send_async, data))

@@ -33,6 +33,8 @@ class InitWebsocketsHandler(RequestHandler):
                 on_message_callback=self.application.periodic_controller.on_bed_heating_message)
             websocket_connect("ws://127.0.0.1:8888/heating-nozzle", 
                 on_message_callback=self.application.periodic_controller.on_nozzle_heating_message)
+            websocket_connect("ws://127.0.0.1:8888/print-finished", 
+                on_message_callback=self.application.periodic_controller.on_finish_print)
             self.application.periodic_controller.ws_initialized = True
         self.write("ok")
 
