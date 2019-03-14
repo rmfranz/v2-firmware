@@ -32,7 +32,7 @@ class PeriodicController:
         self.percent = 0
         self.url_cloud = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/register"
         self.url_command = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/command"
-        self.url_printer = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/camera"
+        self.url_camera = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/camera"
         self.auth_token = self.user_conf_json["auth_token"]
         self.api_caller = PeriodicCallback(self.command_request, 2000)
         self.api_set_percentage = PeriodicCallback(self.set_percentage, 3000)
@@ -225,16 +225,19 @@ class PeriodicController:
         percentage = yield async_http_client.fetch("http://127.0.0.1:8888/get-percentage")
         self.percent = percentage
 
+    @tornado.gen.coroutine
     def take_picture(self):
         stream = io.BytesIO()
         self.camera.capture(stream, format='jpeg', quality=10)
+        img = base64.b64encode(stream.getvalue()).decode()
         req = {
             'auth_token': self.auth_token, 
-            'image': str(base64.b64encode(stream.getvalue()))
+            'image': img
         }        
         async_http_client = httpclient.AsyncHTTPClient()
-        async_http_client.fetch(self.url_cloud, method='POST',
-                    headers=self.headers, body=json.dumps(req))
+        headers = {'Content-Type': 'application/json', "Content-Length": str(len(img))}
+        async_http_client.fetch(self.url_camera, method='POST',
+                    headers=headers, body=json.dumps(req), raise_error=False)
 
     def create_connection_and_send(self, data):
         self.ioloop.run_sync(functools.partial(self.create_connection_and_send_async, data))
