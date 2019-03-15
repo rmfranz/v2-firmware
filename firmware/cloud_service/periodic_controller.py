@@ -200,6 +200,7 @@ class PeriodicController:
             self.create_connection_and_send("finish")
             self.percent = 100
             self.api_set_percentage.stop()
+            os.remove("/home/pi/cloud/cloud.gcode")
         else:
             async_http_client = httpclient.AsyncHTTPClient()
             async_http_client.fetch("http://127.0.0.1:9000/init-websockets")

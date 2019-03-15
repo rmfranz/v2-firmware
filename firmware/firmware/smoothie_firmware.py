@@ -114,6 +114,8 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("M104 S0")
         self.printrun.send_now("M104 T1 S0")
         self.printrun.send_now("M140 S0")
+        if os.path.exists("/home/pi/cloud/cloud.gcode"):
+            os.remove("/home/pi/cloud/cloud.gcode")
 
     def start_print(self):
         with open(self.OFFSET_PATH) as f:
