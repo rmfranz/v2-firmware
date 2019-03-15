@@ -122,6 +122,8 @@ class PeriodicController:
             print("error")
 
     def on_print(self, resp_dict):
+        if os.path.exists("/home/pi/cloud/cloud.gcode"):
+            os.remove("/home/pi/cloud/cloud.gcode")
         self.state = "downloading"
         request = httpclient.HTTPRequest(url=resp_dict["payload"], streaming_callback=self.on_chunk,
                     request_timeout=3600)
