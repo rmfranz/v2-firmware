@@ -46,6 +46,7 @@ class BaseFirmware:
         self.mac_addres_checked = True
         if not check:
             self.hardware_json["mac_address_eth0"] = get_mac_address(interface="eth0")
+            self.hardware_json["board_uuid"] = "" 
             self.write_hardware_json()
         return check
 

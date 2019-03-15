@@ -7,6 +7,17 @@ import time
 import re
 import tornado
 
+def perform_os_check():
+    if not os.path.exists("/home/pi/config-files"):
+        os.mkdir("/home/pi/config-files")
+        os.system("cp /home/pi/v2-firmware/config_files_board/offsets.json /home/pi/config-files/offsets.json")
+        os.system("cp /home/pi/v2-firmware/config_files_board/hardware.json /home/pi/config-files/hardware.json")
+        os.system("cp /home/pi/v2-firmware/config_files_board/user_conf.json /home/pi/config-files/user_conf.json")
+        os.system("cp /home/pi/v2-firmware/config_files_board/confighotend2xyoffset /home/pi/config-files/confighotend2xyoffset")
+        os.system("cp /home/pi/v2-firmware/config_files_board/confighotendzoffset /home/pi/config-files/confighotendzoffset")
+        os.system("cp /home/pi/v2-firmware/config_files_board/config /home/pi/config-files/config")
+        os.system("cp /home/pi/v2-firmware/config_files_board/on_boot.gcode /home/pi/config-files/on_boot.gcode")
+
 def mount_usb(uuid_board):
     if not check_output("ls /media/usb", shell=True, universal_newlines=True):
         #TODO: Check if more than one

@@ -1,1 +1,6 @@
-{"serial_number": "", "mac_address_eth0": null, "hw_version": "", "board_uuid": ""}
+{
+    "serial_number": "", 
+    "mac_address_eth0": null, 
+    "hw_version": "", 
+    "board_uuid": ""
+}
