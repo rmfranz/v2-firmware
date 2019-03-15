@@ -25,7 +25,7 @@ import logging
 import pickle
 import os
 from firmware.gpio import Gpio
-from utils import check_file_print_finished, perform_os_check
+from utils import check_file_print_finished, perform_os_check, check_premature_os
 from tornado.ioloop import PeriodicCallback
 
 define("template_folder", default="templates/", help="Folder to use")
@@ -149,6 +149,7 @@ class Application(tornado.web.Application):
         #    compiled_template_cache=False, static_hash_cache=False)
         tornado.web.Application.__init__(self, handlers, template_path="/home/pi/v2-firmware/firmware/templates/")
         #perform_os_check()
+        check_premature_os()
         #Put FirmwareDirector, this is wrong
         self.firmware = SmoothieFirmware()
         self.gpio = Gpio()        

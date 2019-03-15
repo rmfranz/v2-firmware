@@ -6,6 +6,7 @@ from websocket import create_connection
 import time
 import re
 import tornado
+import json
 
 def perform_os_check():
     if not os.path.exists("/home/pi/config-files"):
@@ -181,3 +182,12 @@ def get_volume():
 
 def set_volume(volume):
     os.system("amixer set PCM playback {}%".format(volume))
+
+def check_premature_os():
+    if not os.path.exists("/home/pi/premature"):
+        with open("/home/pi/config-files/hardware.json") as f:
+            hardware_json = json.load(f)
+        hardware_json["board_uuid"] = ""
+        with open("/home/pi/config-files/hardware.json", 'w') as f:
+                json.dump(hardware_json, f)
+        os.system("touch /home/pi/premature")
