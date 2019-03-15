@@ -45,8 +45,12 @@ function extrude_retract(){
 }
 
 function heating_temp(temp, target) {
-   var perc = Math.round((temp/target)*100);
-   $('#progress_bar_temp').attr("value", perc);
+   if(filament_action == "load") {
+      var perc = Math.round((temp/target)*50);
+   } else {
+      var perc = Math.round((temp/target)*100);
+   }
+   $('#progress_bar').attr("value", perc);
 }
 
 function set_temperatures(data) {

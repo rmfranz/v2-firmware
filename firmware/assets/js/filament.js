@@ -12,7 +12,7 @@ function finish_load_filament() {
 
 function load_filament_wait() {
     ++time_elapsed;
-    var perc = Math.round((time_elapsed/66)*100);
+    var perc = Math.round(((time_elapsed/66)*50) + 50);
     if(perc == 100){
         finish_load_filament()
     } else {
