@@ -5,6 +5,7 @@ import itertools
 from websocket import create_connection
 import time
 import re
+import tornado
 
 def mount_usb(uuid_board):
     if not check_output("ls /media/usb", shell=True, universal_newlines=True):
@@ -63,27 +64,31 @@ def connect_public_wifi(network_name):
     time.sleep(5)
     return wifi_connected()
 
+@tornado.gen.coroutine
 def connect_private_wifi(network_name, password):
-    network_number = int(check_output("wpa_cli add_network | grep -v \"Selected interface 'p2p-dev-wlan0'\"", shell=True, universal_newlines=True))
-    os.system("sudo mount -o remount,rw /")
-    os.system("sudo wpa_cli set_network {} ssid '\"{}\"'".format(network_number, network_name))
-    os.system("sudo wpa_cli set_network {} psk '\"{}\"'".format(network_number, password))
-    os.system("sudo wpa_cli enable_network {}".format(network_number))
-    os.system("sudo wpa_cli select_network {}".format(network_number))
-    os.system("sudo wpa_cli save_config")
-    os.system("sudo wpa_cli -i wlan0 reconfigure")
-    os.system("sudo mount -o remount,ro /")
-    time.sleep(5)
+    wpa_conf_path = "/home/pi/wpa_supplicant.conf"
+    wpa_conf_raw = "/home/pi/v2-firmware/config_files_board/wpa_supplicant.conf"
+    with open(wpa_conf_raw, 'r') as f:
+        conf = f.read()
+    conf = conf.replace("ssid_replace", network_name)
+    conf = conf.replace("psk_replace", password)
+    with open(wpa_conf_path, 'w') as f:
+        f.write(conf)
+    os.system("sudo pkill -TERM wpa_supplicant")
+    yield tornado.gen.sleep(1)
+    os.system("sudo wpa_supplicant -B -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0 -Dnl80211,wext")
     return wifi_connected()
 
 def wifi_connected():
     return check_output("iwgetid wlan0 --raw", shell=True, universal_newlines=True).strip()
 
+@tornado.gen.coroutine
 def connect_to_wifi(network_name, password=None):
+    result = ''
     if password:
-        result = connect_private_wifi(network_name, password)
-    else:
-        result = connect_public_wifi(network_name)
+        result = yield connect_private_wifi(network_name, password)
+    #else:
+    #    result = connect_public_wifi(network_name)
     return result
 
 def split_file_for_print(printrun):
