@@ -77,9 +77,11 @@ def connect_private_wifi(network_name, password):
     os.system("sudo pkill -TERM wpa_supplicant")
     yield tornado.gen.sleep(1)
     os.system("sudo wpa_supplicant -B -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0 -Dnl80211,wext")
+    yield tornado.gen.sleep(4)
     return wifi_connected()
 
 def wifi_connected():
+    os.system("ifconfig wlan0 up")
     return check_output("iwgetid wlan0 --raw", shell=True, universal_newlines=True).strip()
 
 @tornado.gen.coroutine
