@@ -44,8 +44,8 @@ function extrude_retract(){
    }
 }
 
-function heating_temp(temp, target) {
-   if(filament_action == "load") {
+function                                                                                                          (temp, target) {
+   if(filament_action == "filament_auto_load") {
       var perc = Math.round((temp/target)*50);
    } else {
       var perc = Math.round((temp/target)*100);
