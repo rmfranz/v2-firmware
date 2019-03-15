@@ -106,8 +106,8 @@ class PeriodicController:
             "report": {
             "state": self.state,
             "percent": self.percent,
-            "temps": [self.bed, self.t1, self.t0, "c" + str(self.amber)],
-            "target_temps": [self.bed_target, self.t1_target, self.t0_target]
+            "temps": [self.bed, self.t0, self.t1, "c" + str(self.amber)],
+            "target_temps": [self.bed_target, self.t0_target, self.t1_target]
             },
             "auth_token": self.auth_token
         }
