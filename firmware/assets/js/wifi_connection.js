@@ -12,22 +12,24 @@ $("#cancel_modal").click(function () {
 $("#confirm").click(function () {
     var network_name = $("#network_name").val();
     var password = $("#keyboard").val();
-    $( "#confirm" ).addClass( "k-modal-4__button--grey" );
-    $.ajax({
-        url: "/wifi-connection",
-        method: "POST",
-        data: {network_name: network_name, password: password},
-        success: function (result) {
-            if(network_name == result){
-                window.location.href = "/wifi-connection";
-            } else {
-                $( "#confirm" ).removeClass("k-modal-4__button--grey");
-                //$( "#confirm" ).addClass("k-modal-4__button--yellow");
-                $("#connection_error").text("Error de conexión, vuelva a intentarlo")                
-            }
-        },
-        async: false
-    });
+    $( "#confirm" ).toggleClass( "k-modal-4__button--grey" );
+    setTimeout(function () {
+        $.ajax({
+            url: "/wifi-connection",
+            method: "POST",
+            data: {network_name: network_name, password: password},
+            success: function (result) {
+                if(network_name == result){
+                    window.location.href = "/wifi-connection";
+                } else {
+                    $( "#confirm" ).toggleClass("k-modal-4__button--grey");
+                    //$( "#confirm" ).addClass("k-modal-4__button--yellow");
+                    $("#connection_error").text("Error de conexión, vuelva a intentarlo")                
+                }
+            },
+            async: false
+        });
+    }, 1000);    
 });
 /*
 $('#keyboard')
