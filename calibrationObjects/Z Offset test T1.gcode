@@ -11,13 +11,11 @@ G90                             ;Absolute coordinates mode
 M82                             ;Absolute extrusion mode
 M107                            ;Turn off layer fans
 M140 S60                        ;Start bed warm up
-M104 S203 T1
-M109 S175 T0                    ;
+M104 S215 T1
 G28                             ;Home and auto-leveling
-M104 S0 T0
 T1                              ;Tool change
 G1 X0.0 Y0.0 F7200          ;Purge position
-M109 S203 T1                    ;Tool warm up
+M109 S215 T1                    ;Tool warm up
 M190 S60                        ;
 G92 E0.0                        ;
 G1 F200 E15.0                   ;Purge the tool
