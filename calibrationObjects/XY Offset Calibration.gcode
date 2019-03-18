@@ -3423,5 +3423,6 @@ M84
 ;Kodak End G-code
 M82 ;absolute extrusion mode
 M104 T0 S0
-M104 S0
+M104 T1 S0
+M140 S0
 ;End of Gcode

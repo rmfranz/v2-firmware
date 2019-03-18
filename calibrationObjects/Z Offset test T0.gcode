@@ -941,6 +941,8 @@ G0 F2700 X110.0
 M107
 G28 Z0
 G28 X0 Y0
+M104 S0 T0
+M140 S0
 M84
 ;Kodak End G-code
 ;End of Gcode
