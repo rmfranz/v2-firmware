@@ -76,7 +76,7 @@ class BaseFirmware:
 
     def get_version_list(self):
         #return list(self.version_json)
-        return ["KPA1"]
+        return ["HV2"]
     
     def get_serial_number(self):
         return self.hardware_json["serial_number"]
