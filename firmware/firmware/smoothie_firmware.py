@@ -144,7 +144,7 @@ class SmoothieFirmware(BaseFirmware):
 
     def resume(self):
         self.printrun.send_now("G91")
-        self.printrun.send_now("G0 E5.6 F1500")
+        self.printrun.send_now("G0 E5.7 F1500")
         self.printrun.send_now("G90")
         self.printrun.resume()
 
