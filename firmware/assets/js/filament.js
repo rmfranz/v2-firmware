@@ -5,8 +5,8 @@ function finish_load_filament() {
         + '<a href="/back-load-unload" class="k-footer__btn k-footer__btn--yellow k-footer__btn--wide">'
         + word + '</a></div>';
     $(".k-footer").append(div);
-    $("#filament_action").toggleClass("k-modal__grey");
-    $("#filament_action").toggleClass("k-modal__warning");
+    $("#filament_action").toggleClass("k-modal__warning--grey");
+    //$("#filament_action").toggleClass("k-modal__warning");
     can_extrude = true;
 }
 
