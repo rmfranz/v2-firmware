@@ -25,7 +25,7 @@ import logging
 import pickle
 import os
 from firmware.gpio import Gpio
-from utils import check_file_print_finished, perform_os_check, check_premature_os
+from utils import check_file_print_finished, perform_os_check, check_premature_os, delete_corrupt
 from tornado.ioloop import PeriodicCallback
 
 define("template_folder", default="templates/", help="Folder to use")
@@ -148,8 +148,8 @@ class Application(tornado.web.Application):
         #tornado.web.Application.__init__(self, handlers, template_path="/home/pi/v2-firmware/firmware/templates/", autoreload=True,
         #    compiled_template_cache=False, static_hash_cache=False)
         tornado.web.Application.__init__(self, handlers, template_path="/home/pi/v2-firmware/firmware/templates/")
-        #perform_os_check()
-        check_premature_os()
+        perform_os_check()
+        #check_premature_os()
         #Put FirmwareDirector, this is wrong
         self.firmware = SmoothieFirmware()
         self.gpio = Gpio()        
@@ -161,11 +161,14 @@ class HomeHandler(BasicHandler):
         if not self.application.gpio.is_initialized:
             self.application.gpio.initialize()
         if not self.firmware.check_mac_address():
+            delete_corrupt()
             self.render("put_serial.html")
         elif not self.firmware.check_version():
+            delete_corrupt()
             self.render("put_version.html", version_list=self.firmware.get_version_list())
         elif not self.firmware.is_initialized:
             self.firmware.initialize()
+            delete_corrupt()
             self.render("index.html")
         else: self.render("index.html")
 
