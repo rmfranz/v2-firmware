@@ -247,7 +247,8 @@ class SmoothieFirmware(BaseFirmware):
         os.system("sudo mount /dev/{} /media/smoothie -o uid=pi,gid=pi".format(sd))
         with open(config_file, "w") as f:
             #f.write("extruder.hotend1.z_offset {}\n".format(str(z_offset_t0)))
-            f.write("extruder.hotend2.z_offset {}".format(str(z_offset_t1)))
+            #f.write("extruder.hotend2.z_offset {}".format(str(z_offset_t1)))
+            f.write("extruder.hotend2.z_offset {}".format(str(round(float(z_offset_t1) - float(z_offset_t0), 2))))
         os.system("cp {} /media/smoothie/confighotendzoffset && sync".format(config_file))
         response = os.system("sudo umount /media/smoothie")
         return response
