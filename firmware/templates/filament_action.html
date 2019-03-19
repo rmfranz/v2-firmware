@@ -3,11 +3,11 @@
 <main class="k-main">
         <div class="k-modal-2">
           <p class="k-modal__p k-modal__p--big">{{_(action)}}</p>
-          <p class="k-modal__grey">{{material}}</p>
+          <p class="k-modal__warning k-modal__warning--grey">{{material}}</p>
           <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">{{_("filament_auto_load_message")}}</p>
           <progress id="progress_bar" class="k-printing-main__progress" max="100" value="0"></progress>
           {% if action == "filament_auto_load" %}
-          <p id="filament_action" class="k-modal__grey">Extrude more</p>
+          <p id="filament_action" class="k-modal__warning k-modal__warning--grey">Extrude more</p>
           {% end %}
         </div>
       </main>
@@ -43,6 +43,7 @@ var extruder = "{{ext_type}}";
 var filament_action = "{{action}}";
 var word = "{{_("done")}}";
 var can_extrude = false;
+var fifty_reach = false;
 </script>
 <script src="/static/js/filament.js"></script>
 {% end %}
