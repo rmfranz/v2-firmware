@@ -162,7 +162,14 @@ class HomeHandler(BasicHandler):
             self.application.gpio.initialize()
         if not self.firmware.check_mac_address():
             delete_corrupt()
-            self.render("put_serial.html")
+            board_info = self.firmware.get_board_info()
+            if not board_info :
+                self.render("put_serial.html", error=0)
+            elif len(board_info) > 1:
+                self.render("put_serial.html", error=1)
+            else:
+                self.firmware.set_board_info(board_info[0].split()[8])
+                self.render("put_serial.html", error=None)
         elif not self.firmware.check_version():
             delete_corrupt()
             self.render("put_version.html", version_list=self.firmware.get_version_list())

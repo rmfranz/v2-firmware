@@ -125,11 +125,11 @@ function set_temperatures(data) {
  };
  call_temperatures_api();
 
- function set_board_uuid() {
+ /*function set_board_uuid() {
    $.get("/set-board-uuid");
  }
 
- set_board_uuid();
+ set_board_uuid();*/
 
  if(typeof in_extruder_control !== 'undefined'){
 

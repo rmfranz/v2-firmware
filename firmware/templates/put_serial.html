@@ -1,28 +1,56 @@
 {% extends "base.html" %}
-{% block content %} 
-<form action="/put-serial" method="POST">
-    <div class="form-group">
-      <label for="serial">Put the serial number</label>
-      <input type="text" class="form-control" name="serial" placeholder="Serial number">
-    </div>
-    <button id="submit_button" type="submit" style="background-color:#FFB700; width:70px; height: 50px">Submit</button>
-</form>
-
-<!-- Modal -->
-<div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-      <div class="modal-header" style="background-color:#FFB700;color:black"></div>
-      <div class="modal-body">
-          Espere mientras scargo las configuraciones en la placa
-      </div>
-      </div>
+{% block content %}
+<main class="k-intro-container">
+  <div class="k-intro-left">
+    <img src="/static/images/main-logo.svg" />
   </div>
-</div>
-<!-- End Modal -->
+  <div class="k-intro-right ">
+    <form id="put_serial" action="/put-serial" method="POST">
+    <label for="sn" class="k-intro-right__label">Put serial number</label>
+    <input id="sn" name="serial" type="text" class="k-intro-right__input" />
+    </form>
+    <p class="k-intro-right__bottom">
+      The KODAK trademark, logo and trade dress are used under licence from KODAK <br />
+      @2019 by Smart International, Inc. All rights reserved
+    </p>
+  </div>
+</main>
+{% if error %}
+{% if error == 0 %}
+<section id="error_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <img class="k-modal-2__img" src="/static/images/icon_alerta.svg" />
+                <p class="k-modal__p k-modal__p--big">{{_("errors_modal_title")}}</p>
+                <p id="error_code" class="k-modal__warning"></p>
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">Board not detected. Please verify.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% end %}
+{% if error == 1 %}
+<section id="error_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <img class="k-modal-2__img" src="/static/images/icon_alerta.svg" />
+                <p class="k-modal__p k-modal__p--big">{{_("errors_modal_title")}}</p>
+                <p id="error_code" class="k-modal__warning"></p>
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">More than one usb connection detected. Please verify.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% end %}
+{% end %}
+</body>
 <script>
-$("#submit_button").on("click", function(e){
-    $('#registration').modal('show');
+$( "#sn" ).keyup(function() {
+  if($(this).val().length >= 10) {
+      $('#put_serial').submit(); 
+  }
 });
 </script>
 {% end %}

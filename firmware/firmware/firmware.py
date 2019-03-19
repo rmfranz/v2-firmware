@@ -46,8 +46,13 @@ class BaseFirmware:
         self.mac_addres_checked = True
         if not check:
             self.hardware_json["mac_address_eth0"] = get_mac_address(interface="eth0")
-            self.hardware_json["board_uuid"] = "" 
+            self.hardware_json["board_uuid"] = ""
+            self.hardware_json["hw_version"] = ""
+            self.hardware_json["serial_number"] = ""
+            self.user_conf_json["auth_token"] = ""
+            self.user_conf_json["cloud_pref"] = "disconnected"
             self.write_hardware_json()
+            self.write_user_conf()
         return check
 
     def get_macaddress(self):
@@ -64,15 +69,18 @@ class BaseFirmware:
         self.hardware_json["serial_number"] = serial
         self.write_hardware_json()
 
-    def set_board_info(self):
+    def get_board_info(self):
         try:
-            #TODO: Check if more than one
             board_info = check_output("ls -l /dev/disk/by-uuid | grep sd", shell=True, universal_newlines=True)
             board_info = [j for j in board_info.split("\n") if j]
-            self.hardware_json["board_uuid"] = board_info[0].split()[8]
-            self.write_hardware_json()
         except:
-            print("Vaya dios a saber")
+            board_info = []
+        return board_info
+
+    def set_board_info(self, board_uuid):
+        #self.hardware_json["board_uuid"] = board_info[0].split()[8]
+        self.hardware_json["board_uuid"] = board_uuid
+        self.write_hardware_json()
 
     def get_version_list(self):
         #return list(self.version_json)

@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% block content %} 
-<form action="/put-version" method="POST">
-    <div class="form-group">
-      <label for="version">Select the version number</label>
-      {% for version in version_list %}
-        <button type="submit" style="background-color:#FFB700; width:70px; height: 50px" name="version" value="{{version}}">{{version}}</button>
-      {% end %}
-    </div>
-</form>
+<main class="k-main">
+    <h2 class="k-main__h2">Select the version number</h2>
+    <section class="k-block">
+      <form action="/put-version" method="POST">
+        {% for version in version_list %}
+        <button type="submit" class="k-modal-4__button k-modal-4__button--yellow" name="version" value="{{version}}">{{version}}</button>
+        {% end %}
+      </form>
+    </section>
+</main>
+</body>
 {% end %}
