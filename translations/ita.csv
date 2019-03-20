@@ -28,7 +28,7 @@ onboarding_next, Avanti
 home_title, Home
 home_print, Stampa
 home_settings, Configurazione
-home_message_1, Ciao, sono pronta a stampare.
+home_message_1, Ciao{} sono pronta a stampare.
 home_message_2, Visita https://cloud.smart3d.tech per stampare.
 
 files_title, File
@@ -246,6 +246,6 @@ help_25_reset_title, Reimpostare
 help_25_reset_body, 
 help_25_inspect_title, Ispeziona
 help_25_inspect_body, 
-error, Riavviare la stampante. Se il problema persiste, contattare il servizio tecnico.
+error, Riavviare la stampante. Se il problema persiste{} contattare il servizio tecnico.
 confirm_filament, Sei sicuro di voler interrompere l'operazione?
 calibration_error, Errore imprevisto. Contattare il supporto tecnico.

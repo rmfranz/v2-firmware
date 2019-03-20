@@ -21,14 +21,14 @@ download_updates, Cliquez sur Suivant pour télécharger les mises à jour.
 
 connect_to_the_cloud, Cliquez sur Suivant pour vous connecter au Cloud.
 
-load_filament, Cliquez sur Suivant pour charger le filament ou, autrement, Ignorer.
+load_filament, Cliquez sur Suivant pour charger le filament ou{} autrement{} Ignorer.
 onboarding_skip, Ignorer
 onboarding_next, Suivant
 
 home_title, Accueil
 home_print, Imprimer
 home_settings, Configuration
-home_message_1, Bonjour, je suis prêt à imprimer.
+home_message_1, Bonjour{} je suis prêt à imprimer.
 home_message_2, Rendez-vous sur https://cloud.smart3d.tech pour imprimer.
 
 files_title, Fichiers
@@ -177,7 +177,7 @@ cloud_title, KODAK 3D Cloud
 
 cloud_intro, Utilisez ce code pour enregistrer l'imprimante et l'associer à votre compte KODAK 3D Cloud.
 cloud_intro2, Enregistrez-vous sur cloud.smart3d.tech
-queue_empty, Votre imprimante est en ligne et prête à imprimer. Pour commencer à imprimer, connectez- vous à votre compte Cloud.
+queue_empty, Votre imprimante est en ligne et prête à imprimer. Pour commencer à imprimer{} connectez- vous à votre compte Cloud.
 delete_from_cloud, Supprimer l'imprimante du Nuage
 confirm_delete_from_cloud, Êtes-vous sûr de vouloir supprimer ce dispositif du Nuage?
 job_date, Date de réception:
@@ -246,6 +246,6 @@ help_25_reset_title, Réinitialiser
 help_25_reset_body, 
 help_25_inspect_title, Inspecter
 help_25_inspect_body, 
-error, Veuillez redémarrer l'imprimante. Si le problème se reproduit, contactez votre service technique.
+error, Veuillez redémarrer l'imprimante. Si le problème se reproduit{} contactez votre service technique.
 confirm_filament, Voulez-vous vraiment abandonner l'opération actuelle?
 calibration_error, Erreur inattendue. Contactez le support technique.

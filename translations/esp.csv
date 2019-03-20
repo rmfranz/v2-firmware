@@ -28,7 +28,7 @@ onboarding_next, Siguiente
 home_title, Inicio
 home_print, Imprimir
 home_settings, Configuración
-home_message_1, Hola, estoy disponible para imprimir.
+home_message_1, Hola{} estoy disponible para imprimir.
 home_message_2, Ingrese a https://cloud.smart3d.tech para imprimir.
 
 files_title, Archivos
@@ -79,7 +79,7 @@ extruder_loaded, Cargado
 filaments_heating, Calentando. Por favor aguarde...
 filaments_extruding, Extrusión en curso...
 filaments_extruding_info, Asegurese de que la maquina esté ingresando el filamento. Presione Siguiente cuando lo vea salir.
-filaments_clean, Por favor, limpie el plástico sobrante.
+filaments_clean, Por favor{} limpie el plástico sobrante.
 filaments_clean_info, El plástico ya fue extruído.
 loading_filaments_select, Seleccione el tipo de filamento que desea cargar.
 filaments_heating_extruder, Calentando el pico de extrusión
@@ -87,7 +87,7 @@ filaments_please_wait, Aguarde por favor.
 filaments_done, Finalizado
 filaments_retracting, Esperando la liberación.
 filaments_retracting_info, Asegúrese de que el filamento esta siendo expulsado.
-filaments_released, Por favor, retire el carrete.
+filaments_released, Por favor{} retire el carrete.
 filaments_released_info, El filamento ya fue expulsado.
 filaments_retracting_extruder, Retrayendo el filamento
 
@@ -237,7 +237,7 @@ calibration_reset_board, Espere mientras se resetea la maquina.
 calibration_hotend_1, Hotend I
 calibration_hotend_2, Hotend II
 calibration_extruder_change, Espere mientras se realiza el cambio de herramienta.
-print_load_file_popup, Estoy cargando el archivo, por favor espere. Esto puede tomar un tiempo.
+print_load_file_popup, Estoy cargando el archivo{} por favor espere. Esto puede tomar un tiempo.
 config_wifi, WiFi
 info_hwversion, Versión de hardware
 help_25_calibration_title, Calibrar

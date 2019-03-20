@@ -28,7 +28,7 @@ onboarding_next, Next
 home_title, Home
 home_print, Print
 home_settings, Setup
-home_message_1, Hi, I'm ready to print.
+home_message_1, Hi{} I'm ready to print.
 home_message_2, Please go to https://cloud.smart3d.tech to start printing.
 
 files_title, Files
@@ -225,7 +225,7 @@ config_connectivity, Connectivity
 config_advanced, Advanced
 config_nozzle_size, Nozzle Size
 config_motors, Turn off motors
-filament_auto_load_message, This is an automatic process, please wait for it to finish and return to the previous screen. 
+filament_auto_load_message, This is an automatic process{} please wait for it to finish and return to the previous screen. 
 filament_auto_load, Load Material
 filament_auto_unload, Unload Material
 calibration_xy, XY Offset
@@ -236,8 +236,8 @@ calibration_inspect, Inspect
 calibration_reset_board, Wait while the printer reboots.
 calibration_hotend_1, Hotend I
 calibration_hotend_2, Hotend II
-calibration_extruder_change, Changing tool, please wait.
-print_load_file_popup, Loading the file, please wait. It may take a little while.
+calibration_extruder_change, Changing tool{} please wait.
+print_load_file_popup, Loading the file{} please wait. It may take a little while.
 config_wifi, WiFi
 info_hwversion, Hardware version
 help_25_calibration_title, Calibrate
@@ -246,6 +246,6 @@ help_25_reset_title, Reset
 help_25_reset_body, 
 help_25_inspect_title, Inspect
 help_25_inspect_body, 
-error, Please restart the printer and if the problem occurs again, contact tech support.
+error, Please restart the printer and if the problem occurs again{} contact tech support.
 confirm_filament, Are you sure you want to abort?
 calibration_error, An error occurred. Please contact technical support.

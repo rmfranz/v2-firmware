@@ -50,7 +50,7 @@
             <div class="k-modal-container">
                 <div class="k-modal-2">
                     <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
-                    <h2 class="k-modal__title k-modal__title--big">{{_("print_load_file_popup_title")}}</h2>
+                    <h2 class="k-modal__title k-modal__title--big">{{_("print_load_file_popup_title").format(",")}}</h2>
                     <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
                         {{_("print_load_file_popup_body")}}</p>
                 </div>
@@ -65,7 +65,7 @@
                     <img class="k-modal-2__img" src="/static/images/icon_alerta.svg" />
                     <p class="k-modal__p k-modal__p--big">{{_("errors_modal_title")}}</p>
                     <p id="error_code" class="k-modal__warning"></p>
-                    <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">{{_("error")}}</p>
+                    <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">{{_("error").format(",")}}</p>
                 </div>
             </div>
         </div>
