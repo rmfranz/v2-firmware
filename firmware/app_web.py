@@ -27,6 +27,7 @@ import os
 from firmware.gpio import Gpio
 from utils import check_file_print_finished, perform_os_check, check_premature_os, delete_corrupt
 from tornado.ioloop import PeriodicCallback
+import json
 
 define("template_folder", default="templates/", help="Folder to use")
 
@@ -183,6 +184,10 @@ class SerialHandler(BasicHandler):
     def post(self):
         serial = self.get_body_argument("serial")
         self.firmware.set_serial(serial)
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch("http://127.0.0.1:9000/set-serial", method='POST', raise_error=False,
+            headers={'Content-Type': 'application/json'}, 
+            body=json.dumps({"serial": serial}))
         #self.firmware.put_config()
         self.render("put_version.html", version_list=self.firmware.get_version_list())
 
@@ -191,7 +196,7 @@ class VersionHandler(BasicHandler):
         version = self.get_body_argument("version")
         self.firmware.set_version(version)
         self.firmware.initialize()
-        self.render("select_calibration.html")
+        self.redirect("/home")
 
 if __name__ == "__main__":
     app = Application()

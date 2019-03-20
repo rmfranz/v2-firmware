@@ -225,6 +225,9 @@ class PeriodicController:
     def local_mode_off(self):
         self.state = "ready"
 
+    def set_serial(self, serial):
+        self.hardware_json["serial_number"] = serial
+
     @tornado.gen.coroutine
     def set_percentage(self):
         async_http_client = httpclient.AsyncHTTPClient()

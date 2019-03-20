@@ -53,6 +53,12 @@ class ReconnectHandler(RequestHandler):
         self.application.periodic_controller.local_mode_off()
         self.write("ok")
 
+class SetSerialHandler(RequestHandler):
+    def post(self):
+        data = json_decode(utf8(self.request.body))
+        self.application.periodic_controller.set_serial(data["serial"])
+        self.write("ok")
+
 class Application(tornado.web.Application):
 
     def __init__(self):
@@ -62,6 +68,7 @@ class Application(tornado.web.Application):
             (r"/unregister", UnregisterHandler),
             (r"/disconnect", DisconnectHandler),
             (r"/reconnect", ReconnectHandler),
+            (r"/set-serial", SetSerialHandler),
         ]
         #tornado.web.Application.__init__(self, handlers, autoreload=True)
         tornado.web.Application.__init__(self, handlers)
