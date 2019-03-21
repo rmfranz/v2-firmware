@@ -8,7 +8,7 @@ URL_CLOUD = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/register"
 class GetRegistrationCodeHandler(BasicHandler):
     def get(self):
         if self.firmware.user_conf_json["auth_token"]:
-            self.render("cloud.html", registration_code=None, cloud_pref=self.firmware.user_conf_json["cloud_pref"])
+            self.render("cloud.html", registration_code=None, cloud_pref=self.firmware.user_conf_json["cloud_pref"], wizzard_viewed=self.wizzard.viewed)
         else:
             headers = {'Content-Type': 'application/json'}
             body = {"VID": "0KDK", "PID": "0001", "SNR": self.firmware.hardware_json["serial_number"], 
@@ -23,9 +23,9 @@ class GetRegistrationCodeHandler(BasicHandler):
                 async_http_client = httpclient.AsyncHTTPClient()
                 async_http_client.fetch("http://127.0.0.1:9000/init", method='POST', raise_error=False,
                     headers=headers, body=json.dumps({"registration_code": registration_code}), callback=cloud_service_resp)
-                self.render("cloud.html", registration_code=registration_code, cloud_pref=None)
+                self.render("cloud.html", registration_code=registration_code, cloud_pref=None, wizzard_viewed=self.wizzard.viewed)
             else:
-                self.render("cloud.html", registration_code="Error on API", cloud_pref=None)
+                self.render("cloud.html", registration_code="Error on API", cloud_pref=None, wizzard_viewed=self.wizzard.viewed)
 
 class UnregisterHandler(BasicHandler):
     def get(self):
