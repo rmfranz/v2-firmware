@@ -1,8 +1,0 @@
-backports-abc==0.5
-getmac==0.6.0
-pyserial==3.4
-pyusb==1.0.2
-six==1.12.0
-tornado==5.1.1
-websocket-client==0.54.0
-wheel==0.24.0
