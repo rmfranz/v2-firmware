@@ -56,7 +56,7 @@ class RetractHandler(BasicHandler):
 
 class ToFilamentsHandler(BasicHandler):
     def get(self):
-        self.render("filaments_selection.html")
+        self.render("filaments_selection.html", wizzard_viewed=self.wizzard.viewed)
 
 class ToManualControlHandler(BasicHandler):
     def get(self):
@@ -77,7 +77,7 @@ class ToBasicHandler(BasicHandler):
 
 class ToUpdateHandler(BasicHandler):
     def get(self):
-        self.render("updates.html")
+        self.render("updates.html", wizzard_viewed=self.wizzard.viewed)
 
 class UpdateHandler(BasicHandler):
     def get(self):
@@ -123,9 +123,17 @@ class NozzleChangeHandler(BasicHandler):
 
 class LanguageHandler(BasicHandler):
     def get(self):
-        self.render("language.html", lang=self.firmware.user_conf_json["language"])
+        self.render("language.html", lang=self.firmware.user_conf_json["language"], wizzard_viewed=self.wizzard.viewed)
 
     def post(self):
         language = self.get_body_argument("language")
         self.firmware.set_language(language)
         self.write("ok")
+
+class UpdateWarningHandler(BasicHandler):
+    def get(self):
+        self.render("update_warning.html", next_page=self.wizzard.give_me_page())
+
+class NextWizzardHandler(BasicHandler):
+    def get(self):
+        self.redirect(self.wizzard.give_me_page())

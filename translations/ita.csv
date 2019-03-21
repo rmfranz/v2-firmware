@@ -249,3 +249,6 @@ help_25_inspect_body,
 error, Riavviare la stampante. Se il problema persiste{} contattare il servizio tecnico.
 confirm_filament, Sei sicuro di voler interrompere l'operazione?
 calibration_error, Errore imprevisto. Contattare il supporto tecnico.
+print_load_file_popup_title, Caricamento file in corso
+print_load_file_popup_body, Per favore attendere. L'operazione potrebbe richiedere alcuni minuti.
+update_warning, We recommend that you update the software to have the latest news

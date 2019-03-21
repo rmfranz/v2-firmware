@@ -25,6 +25,7 @@ import logging
 import pickle
 import os
 from firmware.gpio import Gpio
+from firmware.wizzard import Wizzard
 from utils import check_file_print_finished, perform_os_check, check_premature_os, delete_corrupt
 from tornado.ioloop import PeriodicCallback
 import json
@@ -134,6 +135,8 @@ class Application(tornado.web.Application):
             (r"/nozzles", NozzlesHandler),
             (r"/nozzle/([0-9]+)", NozzleChangeHandler),
             (r"/language", LanguageHandler),
+            (r"/update-warning", UpdateWarningHandler),
+            (r"/next-wizzard", NextWizzardHandler),
             (r"/temperatures", TemperaturesWsHandler),
             (r"/heating-bed", HeatingBedWsHandler),
             (r"/heating-nozzle", HeatingNozzleWsHandler),
@@ -153,7 +156,8 @@ class Application(tornado.web.Application):
         #check_premature_os()
         #Put FirmwareDirector, this is wrong
         self.firmware = SmoothieFirmware()
-        self.gpio = Gpio()        
+        self.gpio = Gpio()
+        self.wizzard = Wizzard()
 
 class HomeHandler(BasicHandler):
     def get(self):
@@ -177,8 +181,16 @@ class HomeHandler(BasicHandler):
         elif not self.firmware.is_initialized:
             self.firmware.initialize()
             delete_corrupt()
-            self.render("index.html")
-        else: self.render("index.html")
+            if self.wizzard.viewed:
+                self.render("index.html")
+            else:
+                self.redirect(self.wizzard.give_me_page())
+        else:
+            delete_corrupt()
+            if self.wizzard.viewed:
+                self.render("index.html")
+            else:
+                self.redirect(self.wizzard.give_me_page())
 
 class SerialHandler(BasicHandler):
     def post(self):

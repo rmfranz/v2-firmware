@@ -26,11 +26,19 @@
         {% end %}
     </section>
 </main>
+{%if not wizzard_viewed %}
+<footer class="k-footer">
+    <a href="/next-wizzard" class="k-footer-right">
+        <button class="k-footer__btn k-footer__btn--yellow k-footer__btn--wide">{{_("onboarding_next")}} </button>
+    </a>
+</footer>
+{% else %}
 <footer class="k-footer">
     <a href="/setup" class="k-footer-left">
         <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
     </a>
 </footer>
+{% end %}
 </body>
 <script src="/static/js/language.js"></script>
 {% end %}

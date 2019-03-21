@@ -249,3 +249,6 @@ help_25_inspect_body,
 error, Reinicie la impresora y si el error vuelve a ocurrir contactese con el servicio técnico.
 confirm_filament, ¿Está seguro de que quiere anular esta operación?
 calibration_error, Ocurrió un error. Póngase en contacto con el soporte técnico.
+print_load_file_popup_title, Cargando archivo
+print_load_file_popup_body, Por favor espere. Esta operación puede tardar unos minutos.
+update_warning, Recomendamos que actualice el software para tener las últimas novedades

@@ -7,7 +7,7 @@ class WifiConnectionHandler(BasicHandler):
     def get(self):
         wifi_list = scan_wlan()
         selected = wifi_connected()
-        self.render("listing_wifi.html", wifi_list=wifi_list, selected=selected)
+        self.render("listing_wifi.html", wifi_list=wifi_list, selected=selected, wizzard_viewed=self.wizzard.viewed)
 
     @tornado.gen.coroutine
     def post(self):

@@ -15,11 +15,19 @@
         <img src="/static/images/icon_ayuda.svg" />
     </div>
 </main>
+{%if not wizzard_viewed %}
+<footer class="k-footer">
+    <a href="/next-wizzard" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--yellow k-footer__btn--wide">{{_("onboarding_skip")}} </button>
+    </a>
+</footer>
+{% else %}
 <footer class="k-footer">
     <a href="/setup" class="k-footer-left">
         <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" />
         </button>
     </a>
 </footer>
+{% end %}
 </body>
 {% end %}

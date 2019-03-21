@@ -18,6 +18,7 @@ def perform_os_check():
         os.system("cp /home/pi/v2-firmware/config_files_board/confighotendzoffset /home/pi/config-files/confighotendzoffset")
         os.system("cp /home/pi/v2-firmware/config_files_board/config /home/pi/config-files/config")
         os.system("cp /home/pi/v2-firmware/config_files_board/on_boot.gcode /home/pi/config-files/on_boot.gcode")
+        os.system("cp /home/pi/v2-firmware/config_files_board/wizzard.json /home/pi/config-files/wizzard.json")
     if not os.path.exists("/home/pi/config-files/offsets.json"):
         os.system("cp /home/pi/v2-firmware/config_files_board/offsets.json /home/pi/config-files/offsets.json")
     if not os.path.exists("/home/pi/config-files/hardware.json"):
@@ -32,6 +33,8 @@ def perform_os_check():
         os.system("cp /home/pi/v2-firmware/config_files_board/config /home/pi/config-files/config")
     if not os.path.exists("/home/pi/config-files/on_boot.gcode"):
         os.system("cp /home/pi/v2-firmware/config_files_board/on_boot.gcode /home/pi/config-files/on_boot.gcode")
+    if not os.path.exists("/home/pi/config-files/wizzard.json"):
+        os.system("cp /home/pi/v2-firmware/config_files_board/wizzard.json /home/pi/config-files/wizzard.json")
 
 def delete_corrupt():
     if os.path.exists("/home/pi/app.corrupt"):

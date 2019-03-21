@@ -249,3 +249,6 @@ help_25_inspect_body,
 error, Please restart the printer and if the problem occurs again{} contact tech support.
 confirm_filament, Are you sure you want to abort?
 calibration_error, An error occurred. Please contact technical support.
+print_load_file_popup_title, Loading file
+print_load_file_popup_body, Please wait. This may take a while.
+update_warning, We recommend that you update the software to have the latest news
