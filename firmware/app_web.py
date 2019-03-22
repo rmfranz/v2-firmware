@@ -196,10 +196,10 @@ class SerialHandler(BasicHandler):
     def post(self):
         serial = self.get_body_argument("serial")
         self.firmware.set_serial(serial)
-        async_http_client = httpclient.AsyncHTTPClient()
-        async_http_client.fetch("http://127.0.0.1:9000/set-serial", method='POST', raise_error=False,
-            headers={'Content-Type': 'application/json'}, 
-            body=json.dumps({"serial": serial}))
+        #async_http_client = httpclient.AsyncHTTPClient()
+        #async_http_client.fetch("http://127.0.0.1:9000/set-serial", method='POST', raise_error=False,
+        #    headers={'Content-Type': 'application/json'}, 
+        #    body=json.dumps({"serial": serial}))
         #self.firmware.put_config()
         self.render("put_version.html", version_list=self.firmware.get_version_list())
 
@@ -208,6 +208,8 @@ class VersionHandler(BasicHandler):
         version = self.get_body_argument("version")
         self.firmware.set_version(version)
         self.firmware.initialize()
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch("http://127.0.0.1:9000/refresh", raise_error=False)
         self.redirect("/home")
 
 if __name__ == "__main__":

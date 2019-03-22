@@ -64,6 +64,12 @@ class LocalPrintingHandler(RequestHandler):
         self.application.periodic_controller.local_mode_off()
         self.write("ok")
 
+class RefreshHardwareHandler(RequestHandler):
+    def get(self):
+        self.application.periodic_controller.refresh_hardware_json()
+        self.application.periodic_controller.refresh_user_conf_json()
+        self.write("ok")
+
 class Application(tornado.web.Application):
 
     def __init__(self):
@@ -74,6 +80,7 @@ class Application(tornado.web.Application):
             (r"/disconnect", DisconnectHandler),
             (r"/reconnect", ReconnectHandler),
             (r"/set-serial", SetSerialHandler),
+            (r"/refresh", RefreshHardwareHandler),
             (r"/local-printing", LocalPrintingHandler)
         ]
         #tornado.web.Application.__init__(self, handlers, autoreload=True)

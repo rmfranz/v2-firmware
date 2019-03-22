@@ -228,6 +228,14 @@ class PeriodicController:
     def set_serial(self, serial):
         self.hardware_json["serial_number"] = serial
 
+    def refresh_hardware_json(self):
+        with open(self.HARDWARE_JSON_FOLDER) as f:
+            self.hardware_json = json.load(f)
+
+    def refresh_user_conf_json(self):
+        with open(self.USER_CONF_JSON_FOLDER) as f:
+            self.user_conf_json = json.load(f)
+
     @tornado.gen.coroutine
     def set_percentage(self):
         async_http_client = httpclient.AsyncHTTPClient()
