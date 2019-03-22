@@ -56,7 +56,7 @@ def get_gcodes_from_usb():
     pattern = "*.gcode"
     dict_of_files = {}
     for (dirpath, dirnames, filenames) in os.walk(dirName):
-        dict_of_files.update({file: os.path.join(dirpath, file) for file in filenames if fnmatch.fnmatch(file, pattern)})
+        dict_of_files.update({file: os.path.join(dirpath, file) for file in filenames if fnmatch.fnmatch(file, pattern) and not file.startswith(".")})
     return dict_of_files
 
 def get_gcodes_from_sample():
