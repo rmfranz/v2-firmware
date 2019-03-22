@@ -61,7 +61,11 @@ class SetSerialHandler(RequestHandler):
 
 class LocalPrintingHandler(RequestHandler):
     def get(self):
-        self.application.periodic_controller.local_mode_off()
+        print_local = int(self.get_argument('print_local', 0))
+        if print_local == 0:
+            self.application.periodic_controller.print_local_off()
+        elif print_local == 1:
+            self.application.periodic_controller.print_local_on()
         self.write("ok")
 
 class RefreshHardwareHandler(RequestHandler):

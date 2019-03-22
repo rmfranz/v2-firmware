@@ -229,6 +229,12 @@ class PeriodicController:
     def local_mode_off(self):
         self.state = "ready"
 
+    def print_local_on(self):
+        self.state = "printing_locally"
+
+    def print_local_off(self):
+        self.state = "ready"
+
     def set_serial(self, serial):
         self.hardware_json["serial_number"] = serial
 

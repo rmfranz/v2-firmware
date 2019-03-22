@@ -57,6 +57,9 @@ class PrintHandler(BasicHandler):
     def get(self):
         if os.path.exists(self.firmware.file_path):
             self.firmware.start_print()
+            if self.firmware.file_path != "/home/pi/cloud/cloud.gcode":
+                async_http_client = httpclient.AsyncHTTPClient()
+                async_http_client.fetch("http://127.0.0.1:9000/local-printing?print_local=1", method='GET', raise_error=False)
             #self.print_finished_controller.start()
             #http_client = httpclient.HTTPClient()
             #resp_reg = http_client.fetch("http://127.0.0.1:9000/init-print", method='GET', raise_error=False)
@@ -93,6 +96,8 @@ class ResumeHandler(BasicHandler):
 class CancelHandler(BasicHandler):
     def get(self):
         self.firmware.cancel()
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch("http://127.0.0.1:9000/local-printing?print_local=0", method='GET', raise_error=False)
         #self.render("index.html", working_on="cancelado")
         self.write("ok")
 
@@ -103,6 +108,8 @@ class CancelCloudHandler(BasicHandler):
 
 class PrintFinishedHandler(BasicHandler):
     def get(self):
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch("http://127.0.0.1:9000/local-printing?print_local=0", method='GET', raise_error=False)
         time_printing = self.get_cookie("time_printing")
         self.render("print_finished.html", filename=self.firmware.filename, time_printing=time_printing)
 
