@@ -175,6 +175,9 @@ class HomeHandler(BasicHandler):
             else:
                 self.firmware.set_board_info(board_info[0].split()[8])
                 self.render("put_serial.html", error=None)
+        elif not self.firmware.check_serial():
+            delete_corrupt()
+            self.render("put_serial.html", error=None)
         elif not self.firmware.check_version():
             delete_corrupt()
             self.render("put_version.html", version_list=self.firmware.get_version_list())

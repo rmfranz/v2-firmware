@@ -60,6 +60,17 @@ class TranslationHandler(RequestHandler):
         #with open("user_conf.json") as f:
         #    cosa = json.load(f)
         return tornado.locale.get("eng")
+        
+class CosaHandler(RequestHandler):
+    def post(self):
+        file_path = self.get_body_argument("file_path")
+        print(file_path)
+        try:
+            filename = self.get_body_argument("filename").split(".gcode")[0]
+        except:
+            filename = self.get_body_argument("filename")
+        print(filename)
+        self.write("ok")
 
 class AlgoHandler(RequestHandler):
     def get(self):
@@ -72,7 +83,7 @@ class Application(tornado.web.Application):
         handlers = [
             (r"/", GetRegistrationCodeHandler),
             (r"/translation", TranslationHandler),
-            (r"/a", AlgoHandler)
+            (r"/cosa", CosaHandler)
         ]
         tornado.web.Application.__init__(self, handlers, autoreload=True, template_path="../templates/")
 

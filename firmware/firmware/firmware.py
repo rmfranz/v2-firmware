@@ -61,6 +61,9 @@ class BaseFirmware:
     def check_version(self):
         return self.hardware_json["hw_version"]
     
+    def check_serial(self):
+        return self.hardware_json["serial_number"]
+
     def set_version(self, version):
         self.hardware_json["hw_version"] = version
         self.write_hardware_json()

@@ -9,6 +9,7 @@ import functools
 import picamera
 import io
 import base64
+import urllib
 
 class PeriodicController:
 
@@ -129,6 +130,9 @@ class PeriodicController:
                     request_timeout=3600)
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch(request, self.on_download_done)
+        data_send = urllib.parse.urlencode({"file_path": "/home/pi/cloud/cloud.gcode", "filename": str(resp_dict.get("filename", "cloud_file"))})
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch("http://127.0.0.1:8888/print", method='POST', raise_error=False, body=data_send)
         self.create_connection_and_send("gcodes")
         
     def on_pause(self, resp_dict):

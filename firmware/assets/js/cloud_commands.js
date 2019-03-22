@@ -5,7 +5,7 @@ ws_cloud.onmessage = function (evt) {
     var command = evt.data
     if(command == "gcodes") {
         $("#waitModal").toggleClass( "k-modal-overlay--visible" );
-        $.post("/print", {file_path: "/home/pi/cloud/cloud.gcode", filename: "cloud.gcode"} )
+       // $.post("/print", {file_path: "/home/pi/cloud/cloud.gcode", filename: "cloud.gcode"} )
     } else if (command == "download_done") {
         window.location.href = "/print";
     } else if (command == "pause") {
