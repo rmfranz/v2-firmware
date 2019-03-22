@@ -123,7 +123,7 @@ class NozzleChangeHandler(BasicHandler):
         self.render("nozzle_sizes.html", nozzle=nozzle, size=size)
 
 class NozzlesSetHandler(BasicHandler):
-    def get(self):
+    def post(self):
         nozzle = self.get_body_argument("nozzle")
         size = self.get_body_argument("size")
         self.firmware.set_nozzle_size(nozzle, size)
