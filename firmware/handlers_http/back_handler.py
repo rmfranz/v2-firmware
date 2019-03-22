@@ -12,7 +12,7 @@ class BackLoadUnloadHandler(BasicHandler):
 
 class BackPlateHandler(BasicHandler):
     def get(self):
-        self.firmware.bed_temperature(0)
+        #self.firmware.bed_temperature(0)
         #self.firmware.homming()
         lights_on = "true"
         if not self.application.gpio.lights_on:

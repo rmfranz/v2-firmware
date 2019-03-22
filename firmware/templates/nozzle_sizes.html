@@ -2,27 +2,69 @@
 {% block content %}
 <main class="k-main">
     <section class="k-block">
-        <div class="k-block-2 k-block-2--centered">
+        {% if size == "0.3" %}
+        <div data-nozzle-tipe="{{nozzle}}" data-nozzle="0.3" class="k-block-2 k-block-2--centered k-block-2--yellow nozzle_selected">
             <p>0,3</p>
         </div>
-        <div class="k-block-2 k-block-2--centered k-block-2--yellow">
+        {% else %}
+        <div data-nozzle-tipe="{{nozzle}}" data-nozzle="0.3" class="k-block-2 k-block-2--centered nozzle_selected">
+            <p>0,3</p>
+        </div>
+        {% end %}
+        {% if size == "0.4" %}
+        <div data-nozzle-tipe="{{nozzle}}" data-nozzle="0.4" class="k-block-2 k-block-2--centered k-block-2--yellow nozzle_selected">
             <p>0,4</p>
         </div>
-        <div class="k-block-2 k-block-2--centered">
+        {% else %}
+        <div data-nozzle-tipe="{{nozzle}}" data-nozzle="0.4" class="k-block-2 k-block-2--centered nozzle_selected">
+            <p>0,4</p>
+        </div>
+        {% end %}
+        {% if size == "0.5" %}
+        <div data-nozzle-tipe="{{nozzle}}" data-nozzle="0.5" class="k-block-2 k-block-2--centered k-block-2--yellow nozzle_selected">
             <p>0,5</p>
         </div>
-        <div class="k-block-2 k-block-2--centered">
+        {% else %}
+        <div data-nozzle-tipe="{{nozzle}}" data-nozzle="0.5" class="k-block-2 k-block-2--centered nozzle_selected">
+            <p>0,5</p>
+        </div>
+        {% end %}
+        {% if size == "0.6" %}
+        <div data-nozzle-tipe="{{nozzle}}" data-nozzle="0.6" class="k-block-2 k-block-2--centered k-block-2--yellow nozzle_selected">
             <p>0,6</p>
         </div>
-        <div class="k-block-2 k-block-2--centered">
+        {% else %}
+        <div data-nozzle-tipe="{{nozzle}}" data-nozzle="0.6" class="k-block-2 k-block-2--centered nozzle_selected">
+            <p>0,6</p>
+        </div>
+        {% end %}
+        {% if size == "0.7" %}
+        <div data-nozzle-tipe="{{nozzle}}" data-nozzle="0.7" class="k-block-2 k-block-2--centered k-block-2--yellow nozzle_selected">
             <p>0,7</p>
         </div>
-        <div class="k-block-2 k-block-2--centered">
+        {% else %}
+        <div data-nozzle-tipe="{{nozzle}}" data-nozzle="0.7" class="k-block-2 k-block-2--centered nozzle_selected">
+            <p>0,7</p>
+        </div>
+        {% end %}
+        {% if size == "0.8" %}
+        <div data-nozzle-tipe="{{nozzle}}" data-nozzle="0.8" class="k-block-2 k-block-2--centered k-block-2--yellow nozzle_selected">
             <p>0,8</p>
         </div>
-        <div class="k-block-2 k-block-2--centered">
+        {% else %}
+        <div data-nozzle-tipe="{{nozzle}}" data-nozzle="0.8" class="k-block-2 k-block-2--centered nozzle_selected">
+            <p>0,8</p>
+        </div>
+        {% end %}
+        {% if size == "0.9" %}
+        <div data-nozzle-tipe="{{nozzle}}" data-nozzle="0.9" class="k-block-2 k-block-2--centered k-block-2--yellow nozzle_selected">
             <p>0,9</p>
         </div>
+        {% else %}
+        <div data-nozzle-tipe="{{nozzle}}" data-nozzle="0.9" class="k-block-2 k-block-2--centered nozzle_selected">
+            <p>0,9</p>
+        </div>
+        {% end %}
     </section>
 </main>
 

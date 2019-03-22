@@ -119,7 +119,8 @@ class NozzlesHandler(BasicHandler):
 
 class NozzleChangeHandler(BasicHandler):
     def get(self, nozzle):
-        self.render("nozzle_sizes.html", nozzle=nozzle)
+        size = self.get_argument('size', "0.4")
+        self.render("nozzle_sizes.html", nozzle=nozzle, size=size)
 
 class LanguageHandler(BasicHandler):
     def get(self):
