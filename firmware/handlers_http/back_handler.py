@@ -36,3 +36,9 @@ class BackLoadUnloadActionHandler(BasicHandler):
         self.firmware.cold_extruders()
         #self.firmware.homming()
         self.redirect("/setup")
+
+class BackPrintFinishedHandler(BasicHandler):
+    def get(self):
+        self.firmware.homming()
+        self.application.gpio.lights_blue()
+        self.redirect("/home")

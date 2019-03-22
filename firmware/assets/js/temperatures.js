@@ -1,9 +1,10 @@
 var ip = "127.0.0.1"
 
-var t0 = 0
-var t1 = 0
-var bed = 0
-var amb = 0
+var t0 = 0;
+var t1 = 0;
+var bed = 0;
+var amb = 0;
+var is_heating = false;
 
 function update_temperatures() {
    if(t0 == 0){
@@ -100,6 +101,10 @@ function set_temperatures(data) {
        //$("#wait_cancel_modal").toggleClass("k-modal-overlay--visible");
        window.location.href = "/home";
      }
+     if(is_heating && typeof printing !== 'undefined' && printing){
+         is_heating = false;
+         $.get("/lights/white");
+      }
  };
  ws_bed.onmessage = function(evt) {
     var bed_data = evt.data
@@ -107,6 +112,10 @@ function set_temperatures(data) {
     $("#printing_action").text("Heating bed: " + temp);
     bed = temp;
     update_temperatures();
+    if(!is_heating){
+      is_heating = true;
+      $.get("/lights/orange");
+    }
  };
  ws_nozzle.onmessage = function(evt) {
     var nozzle = evt.data
@@ -118,6 +127,10 @@ function set_temperatures(data) {
     } else if(nozzle_type == 1) {
       t1 = temp;
       update_temperatures();
+    }
+    if(!is_heating){
+      is_heating = true;
+      $.get("/lights/orange");
     }
     $("#printing_action").text("Heating nozzle: " + temp)
  };

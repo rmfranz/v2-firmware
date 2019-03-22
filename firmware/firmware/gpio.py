@@ -49,3 +49,21 @@ class Gpio:
         self.gpio.set_PWM_dutycycle(27, 37)
         self.gpio.set_PWM_dutycycle(22, 218)
         self.lights_on = True
+    
+    def lights_light_blue(self):
+        self.gpio.set_PWM_dutycycle(17, 0)
+        self.gpio.set_PWM_dutycycle(27, 100)
+        self.gpio.set_PWM_dutycycle(22, 200)
+        self.lights_on = True
+
+    def lights_orange(self):
+        self.gpio.set_PWM_dutycycle(17, 255)
+        self.gpio.set_PWM_dutycycle(27, 165)
+        self.gpio.set_PWM_dutycycle(22, 0)
+        self.lights_on = True
+    
+    def lights_white(self):
+        self.gpio.set_PWM_dutycycle(17, 255)
+        self.gpio.set_PWM_dutycycle(27, 255)
+        self.gpio.set_PWM_dutycycle(22, 255)
+        self.lights_on = True

@@ -11,6 +11,12 @@ class LightsHandler(BasicHandler):
             self.application.gpio.lights_blue()
         elif "other" in color:
             self.application.gpio.lights_other()
+        elif "light_blue" in color:
+            self.application.gpio.lights_light_blue()
+        elif "orange" in color:
+            self.application.gpio.lights_orange()
+        elif "white" in color:
+            self.application.gpio.lights_white()
         elif "off" in color:
             self.application.gpio.lights_off()
         self.write("ok")

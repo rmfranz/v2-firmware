@@ -111,6 +111,7 @@ class PrintFinishedHandler(BasicHandler):
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/local-printing?print_local=0", method='GET', raise_error=False)
         time_printing = self.get_cookie("time_printing")
+        self.application.gpio.lights_green()
         self.render("print_finished.html", filename=self.firmware.filename, time_printing=time_printing)
 
     def post(self):
