@@ -78,9 +78,13 @@ function pad(val) {
 function setTime() {
     if(!paused){        
         ++totalSeconds;
+        ++seconds_for_min;
         secondsLabel.innerHTML = pad(totalSeconds % 60);
-        minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+        minutesLabel.innerHTML = pad(parseInt(seconds_for_min / 60));
         hoursLabel.innerHTML = pad(parseInt(totalSeconds / 3600));
+        if(seconds_for_min == 3600) {
+            seconds_for_min = 0;
+        }
     }
 }
 
@@ -130,6 +134,7 @@ if (printing) {
     var secondsLabel = document.getElementById("seconds");
     var hoursLabel = document.getElementById("hours");
     var totalSeconds = 0;
+    var seconds_for_min = 0;
     setInterval(setTime, 1000);
     setInterval(function() { set_progress(totalLines); }, 3000);
 }

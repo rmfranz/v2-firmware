@@ -57,6 +57,7 @@ class SetSerialHandler(RequestHandler):
     def post(self):
         data = json_decode(utf8(self.request.body))
         self.application.periodic_controller.set_serial(data["serial"])
+        self.write("ok")
 
 class LocalPrintingHandler(RequestHandler):
     def get(self):
