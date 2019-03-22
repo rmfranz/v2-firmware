@@ -138,6 +138,7 @@ class Application(tornado.web.Application):
             (r"/turn-on-motors", TurnOnMotorsHandler),
             (r"/nozzles", NozzlesHandler),
             (r"/nozzle/([0-9]+)", NozzleChangeHandler),
+            (r"/set-nozzle", NozzlesSetHandler),
             (r"/language", LanguageHandler),
             (r"/update-warning", UpdateWarningHandler),
             (r"/next-wizzard", NextWizzardHandler),

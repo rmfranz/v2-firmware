@@ -119,8 +119,17 @@ class NozzlesHandler(BasicHandler):
 
 class NozzleChangeHandler(BasicHandler):
     def get(self, nozzle):
-        size = self.get_argument('size', "0.4")
-        self.render("nozzle_sizes.html", nozzle=nozzle, size=size)
+        nozzle = self.get_body_argument("nozzle")
+        size = self.get_body_argument("size")
+        self.firmware.set_nozzle_size(nozzle, size)
+        self.firmware.write_user_conf()
+        self.write("ok")
+
+class NozzlesSetHandler(BasicHandler):
+    def get(self):
+        nozzle_1 = self.firmware.user_conf_json["nozzle_1"]
+        nozzle_2 = self.firmware.user_conf_json["nozzle_2"]
+        self.render("nozzles.html", nozzle_1=nozzle_1, nozzle_2=nozzle_2)
 
 class LanguageHandler(BasicHandler):
     def get(self):

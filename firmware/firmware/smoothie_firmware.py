@@ -368,3 +368,9 @@ class SmoothieFirmware(BaseFirmware):
 
     def turn_on_motors(self):
         self.printrun.send_now("M17")
+
+    def set_nozzle_size(self, nozzle, size):
+        if nozzle == "1":
+            self.user_conf_json["nozzle_1"] = size
+        elif nozzle == "2":
+            self.user_conf_json["nozzle_2"] = size
