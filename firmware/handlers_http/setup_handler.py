@@ -79,7 +79,7 @@ class ToBasicHandler(BasicHandler):
 
 class ToUpdateHandler(BasicHandler):
     def get(self):
-        new = check_output("(git fetch --tags origin && git tag) | grep 'v[0-9]\+.[0-9]\+' | grep -o '[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
+        new = check_output("(git fetch --tags origin && git tag) | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
         try:
             actual = check_output("git describe --tags", shell=True, universal_newlines=True)
         except:
@@ -88,7 +88,7 @@ class ToUpdateHandler(BasicHandler):
 
 class UpdateHandler(BasicHandler):
     def get(self):
-        new = check_output("(git fetch --tags origin && git tag) | grep 'v[0-9]\+.[0-9]\+' | grep -o '[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
+        new = check_output("(git fetch --tags origin && git tag) | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
         os.system("git pull origin {}".format(new))
         if self.application.gpio.is_initialized:
             self.application.gpio.stop()
