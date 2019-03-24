@@ -2,6 +2,8 @@ from handlers_http.basic_handler import BasicHandler
 from tornado.options import options
 from utils import get_extruder_materials, get_volume, set_volume
 import os
+from subprocess import check_output
+
 
 class SetupHandler(BasicHandler):
     def get(self):
@@ -77,11 +79,17 @@ class ToBasicHandler(BasicHandler):
 
 class ToUpdateHandler(BasicHandler):
     def get(self):
-        self.render("updates.html", wizzard_viewed=self.wizzard.viewed)
+        new = check_output("(git fetch --tags origin && git tag) | grep 'v[0-9]\+.[0-9]\+' | grep -o '[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
+        try:
+            actual = check_output("git describe --tags", shell=True, universal_newlines=True)
+        except:
+            actual = "0"
+        self.render("updates.html", wizzard_viewed=self.wizzard.viewed, new=new, actual=actual)
 
 class UpdateHandler(BasicHandler):
     def get(self):
-        os.system("git pull origin master")
+        new = check_output("(git fetch --tags origin && git tag) | grep 'v[0-9]\+.[0-9]\+' | grep -o '[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
+        os.system("git pull origin {}".format(new))
         if self.application.gpio.is_initialized:
             self.application.gpio.stop()
         os.system("sudo killall pigpiod")

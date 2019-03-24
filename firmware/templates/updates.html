@@ -3,9 +3,13 @@
 <main class="k-main">
     <section class="k-dialog k-dialog--center">
         <h2 class="k-dialog__h2">{{_("info_update")}}</h2>
-        <p>{{_("info_swversion")}} <strong>?</strong></p>
-        <p><strong>? {{_("info_updateavailable")}}</strong></p>
+        <p>{{_("info_swversion")}} <strong>{{actual}}</strong></p>
+        {% if new == actual %}
+        <p><strong>? {{_("updates_latest")}}</strong></p>
+        {% else %}
+        <p><strong>{{new}} {{_("info_updateavailable")}}</strong></p>
         <button id="update" class="k-dialog__button">{{_("extras_update")}}</button>
+        {% end %}
     </section>
 </main>
 
