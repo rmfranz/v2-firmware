@@ -81,7 +81,7 @@ class ToUpdateHandler(BasicHandler):
     def get(self):
         new = check_output("(git fetch --tags origin && git tag) | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
         try:
-            actual = check_output("git describe --tags", shell=True, universal_newlines=True)
+            actual = check_output("git describe --abbrev=0", shell=True, universal_newlines=True)
         except:
             actual = "0"
         self.render("updates.html", wizzard_viewed=self.wizzard.viewed, new=new, actual=actual)
