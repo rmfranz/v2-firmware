@@ -89,7 +89,8 @@ class ToUpdateHandler(BasicHandler):
 class UpdateHandler(BasicHandler):
     def get(self):
         new = check_output("(git fetch --tags origin && git tag) | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
-        os.system("git pull origin {}".format(new))
+        os.system("git fetch")
+        os.system("git checkout {}".format(new))
         if self.application.gpio.is_initialized:
             self.application.gpio.stop()
         os.system("sudo killall pigpiod")
