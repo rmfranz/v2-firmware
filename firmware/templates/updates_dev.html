@@ -32,7 +32,7 @@
 </body>
 <script>
 $.get("/get-dev-update").done(function(data){
-    var select = $("tags")
+    var select = $("#tags")
     for (var index = 0; index < data.tags.length; index++) {
         select.append('<option value="' + data.tags[index] + '" >' + data.tags[index] + '</option>');
     }    
