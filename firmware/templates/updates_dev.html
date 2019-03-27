@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="k-main">
+    <section class="k-dialog k-dialog--center">
+        <h2 class="k-dialog__h2">{{_("info_update")}}</h2>
+        <select id="tags">
+
+        </select>
+    </section>
+</main>
+
+<!-- New modals -->
+<section id="updateModal" class="k-modal-overlay">
+    <div class="k-modal">
+        <button id="update_modal_close" class="k-modal__close">
+            <img src="/static/images/icon_cancelar.svg" />
+        </button>
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
+                <h2 class="k-modal__title k-modal__title--big">
+                    {{_("waitForReboot")}}</h2>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<script>
+$.get("/get-dev-update").done(function(data){
+    var select = $("tags")
+    for (var index = 0; index < data.tags.length; index++) {
+        select.append('<option value="' + data.tags[index] + '" >' + data.tags[index] + '</option>');
+    }    
+});
+</script>
+{% end %}

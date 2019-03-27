@@ -18,6 +18,8 @@
   box-sizing: border-box;
 }
 
+.initiallyHidden { display: none; }
+
 body{ /*sets body as a flex container*/
   width: 100vw;
   height: 100vh; 

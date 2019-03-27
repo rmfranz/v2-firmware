@@ -2,6 +2,7 @@ from handlers_http.basic_handler import BasicHandler
 from tornado.options import options
 from utils import get_extruder_materials, get_volume, set_volume
 import os
+import json
 from subprocess import check_output
 
 
@@ -79,12 +80,24 @@ class ToBasicHandler(BasicHandler):
 
 class ToUpdateHandler(BasicHandler):
     def get(self):
+        if os.path.exists("/home/pi/dev_mode"):
+            self.render("updates_dev.html")
+        else:
+            self.render("updates.html", wizzard_viewed=self.wizzard.viewed)
+
+class GetUpdateHandler(BasicHandler):
+    def get(self):
         new = check_output("(git fetch --tags origin && git tag) | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
         try:
             actual = check_output("git describe --abbrev=0", shell=True, universal_newlines=True)
         except:
             actual = "0"
-        self.render("updates.html", wizzard_viewed=self.wizzard.viewed, new=new, actual=actual)
+        self.write({"new": new, "actual": actual})
+
+class GetUpdateToDevHandler(BasicHandler):
+    def get(self):
+        scanoutput = check_output("git fetch --tags origin && git tag", shell=True, universal_newlines=True)
+        self.write(json.dumps({"tags": [n for n in scanoutput.split("\n") if n]}))
 
 class UpdateHandler(BasicHandler):
     def get(self):
@@ -155,3 +168,21 @@ class UpdateWarningHandler(BasicHandler):
 class NextWizzardHandler(BasicHandler):
     def get(self):
         self.redirect(self.wizzard.give_me_page())
+
+class EnableDebModeHandler(BasicHandler):
+    def get(self):
+        os.system("touch /home/pi/dev_mode")
+        self.write("ok")
+
+    def post(self):
+        password = self.get_body_argument("password", default="")
+        if password == "kOdak.dEv":
+            self.render("dev_mode.html")
+        else:
+            self.redirect("/home")
+
+class DisableDebModeHandler(BasicHandler):
+    def get(self):
+        if os.path.exists("/home/pi/dev_mode"):
+            os.system("sudo rm /home/pi/dev_mode")
+        self.redirect("/home")

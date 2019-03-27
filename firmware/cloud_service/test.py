@@ -72,6 +72,9 @@ class CosaHandler(RequestHandler):
         print(filename)
         self.write("ok")
 
+    def get(self):
+        self.write({"sme": "text"})
+
 class AlgoHandler(RequestHandler):
     def get(self):
         l = [5,6,5,343,7,45,6,7,78,8,86,5,4]

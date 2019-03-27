@@ -22,6 +22,27 @@
     </a>
 </footer>
 
-
+<!-- MODAL -->
+<section id="dev_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <button id="dev_modal_close" class="k-modal__close">
+            <img src="/static/images/icon_cancelar.svg" />
+        </button>
+        <form action="/enable-dev-mode", method="POST">
+            <div class="k-modal-4">
+                <div class="k-modal-4__top">
+                    <input type="text" class="form-control" name="password" />
+                </div>
+                <div class="k-modal-4__bottom">
+                    <button id="cancel_modal"
+                        class="k-modal-4__button k-modal-4__button--red">{{_("confirm_no")}}</button>
+                    <button type="submit"
+                        class="k-modal-4__button k-modal-4__button--yellow">{{_("confirm_yes")}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
 </body>
+<script src="/static/js/info.js"></script>
 {% end %}
