@@ -170,6 +170,9 @@ class Application(tornado.web.Application):
 
 class HomeHandler(BasicHandler):
     def get(self):
+        skipp = self.get_argument("wizzard", 1)
+        if skipp == 0 and not self.wizzard.viewed:
+            self.wizzard.viewed = True
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/init-websockets")
         if not self.application.gpio.is_initialized:
