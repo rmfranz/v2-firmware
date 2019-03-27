@@ -115,7 +115,7 @@ class GetUpdateToDevHandler(BasicHandler):
             os.system("sudo reboot -h now")
             self.write("ok")
         else:
-            self.redirect("/get-dev-update")
+            self.redirect("/software-update")
 
 class UpdateHandler(BasicHandler):
     def get(self):

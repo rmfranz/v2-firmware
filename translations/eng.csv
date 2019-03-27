@@ -252,3 +252,4 @@ calibration_error, An error occurred. Please contact technical support.
 print_load_file_popup_title, Loading file
 print_load_file_popup_body, Please wait. This may take a while.
 update_warning, We recommend that you update the software to have the latest news
+waiting_info, Fetching data...

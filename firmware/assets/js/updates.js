@@ -1,11 +1,13 @@
 
 $.get("/get-update").done(function(data){
   if(data.new == data.actual){
-    $('#actual').text(data.actual)
+    $('#actual').text(data.actual);
+    $("#waiting_info").toggleClass("initiallyHidden");
     $('#version_actual').toggleClass("initiallyHidden");
   } else {
     $('#actual').text(data.actual);
     $('#new').text(data.new);    
+    $("#waiting_info").toggleClass("initiallyHidden");
     $('#version_new').toggleClass("initiallyHidden");
   }
 });

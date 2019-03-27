@@ -252,3 +252,4 @@ calibration_error, Erreur inattendue. Contactez le support technique.
 print_load_file_popup_title, Chargement du fichier
 print_load_file_popup_body, Merci de patienter. Cette opération peut prendre un certain temps.
 update_warning, We recommend that you update the software to have the latest news
+waiting_info, Extraction des données...

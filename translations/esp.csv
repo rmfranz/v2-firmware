@@ -252,3 +252,4 @@ calibration_error, Ocurrió un error. Póngase en contacto con el soporte técni
 print_load_file_popup_title, Cargando archivo
 print_load_file_popup_body, Por favor espere. Esta operación puede tardar unos minutos.
 update_warning, Recomendamos que actualice el software para tener las últimas novedades
+waiting_info, Obteniendo información...
