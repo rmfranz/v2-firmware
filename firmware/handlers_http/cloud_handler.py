@@ -5,27 +5,33 @@ from cloud_service.cloud_utils import cloud_service_resp
 
 URL_CLOUD = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/register"
 
-class GetRegistrationCodeHandler(BasicHandler):
+class ToCloudHandler(BasicHandler):
     def get(self):
         if self.firmware.user_conf_json["auth_token"]:
-            self.render("cloud.html", registration_code=None, cloud_pref=self.firmware.user_conf_json["cloud_pref"], wizzard_viewed=self.wizzard.viewed)
+            self.render("cloud.html", connected=True, cloud_pref=self.firmware.user_conf_json["cloud_pref"], wizzard_viewed=self.wizzard.viewed)
         else:
-            headers = {'Content-Type': 'application/json'}
-            body = {"VID": "0KDK", "PID": "0001", "SNR": self.firmware.hardware_json["serial_number"], 
-                "mac": self.firmware.get_macaddress().replace(":", ""), "type": "K_PORTRAIT", "version": "",
-                "registration_code_ttl": 20}
-            http_client = httpclient.HTTPClient()
-            resp = http_client.fetch(URL_CLOUD, method='POST', raise_error=False,
-                    headers=headers, body=json.dumps(body))
-            if resp.code == 200:
-                resp_dict = json.loads(resp.body.decode('utf-8'))
-                registration_code = resp_dict["registration_code"]
-                async_http_client = httpclient.AsyncHTTPClient()
-                async_http_client.fetch("http://127.0.0.1:9000/init", method='POST', raise_error=False,
-                    headers=headers, body=json.dumps({"registration_code": registration_code}), callback=cloud_service_resp)
-                self.render("cloud.html", registration_code=registration_code, cloud_pref=None, wizzard_viewed=self.wizzard.viewed)
-            else:
-                self.render("cloud.html", registration_code="Error on API", cloud_pref=None, wizzard_viewed=self.wizzard.viewed)
+            self.render("cloud.html", connected=False, cloud_pref=None, wizzard_viewed=self.wizzard.viewed)
+
+class GetRegistrationCodeHandler(BasicHandler):
+    def get(self):
+        headers = {'Content-Type': 'application/json'}
+        body = {"VID": "0KDK", "PID": "0001", "SNR": self.firmware.hardware_json["serial_number"], 
+            "mac": self.firmware.get_macaddress().replace(":", ""), "type": "K_PORTRAIT", "version": "",
+            "registration_code_ttl": 20}
+        http_client = httpclient.HTTPClient()
+        resp = http_client.fetch(URL_CLOUD, method='POST', raise_error=False,
+                headers=headers, body=json.dumps(body))
+        if resp.code == 200:
+            resp_dict = json.loads(resp.body.decode('utf-8'))
+            registration_code = resp_dict["registration_code"]
+            async_http_client = httpclient.AsyncHTTPClient()
+            async_http_client.fetch("http://127.0.0.1:9000/init", method='POST', raise_error=False,
+                headers=headers, body=json.dumps({"registration_code": registration_code}), callback=cloud_service_resp)
+            #self.render("cloud.html", registration_code=registration_code, cloud_pref=None, wizzard_viewed=self.wizzard.viewed)
+            self.write({"registration_code": registration_code})
+        else:
+            #self.render("cloud.html", registration_code="Error on API", cloud_pref=None, wizzard_viewed=self.wizzard.viewed)
+            self.write({"registration_code": "Error"})
 
 class UnregisterHandler(BasicHandler):
     def get(self):
