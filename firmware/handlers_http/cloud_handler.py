@@ -7,6 +7,9 @@ URL_CLOUD = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/register"
 
 class ToCloudHandler(BasicHandler):
     def get(self):
+        if not self.wizzard.viewed:
+            async_http_client = httpclient.AsyncHTTPClient()
+            async_http_client.fetch("http://127.0.0.1:9000/init-websockets")
         if self.firmware.user_conf_json["auth_token"]:
             self.render("cloud.html", connected=True, cloud_pref=self.firmware.user_conf_json["cloud_pref"], wizzard_viewed=self.wizzard.viewed)
         else:
