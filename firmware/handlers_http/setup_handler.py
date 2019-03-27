@@ -97,7 +97,10 @@ class GetUpdateHandler(BasicHandler):
 class GetUpdateToDevHandler(BasicHandler):
     def get(self):
         scanoutput = check_output("git fetch --tags origin && git tag", shell=True, universal_newlines=True)
-        self.write({"tags": [n for n in scanoutput.split("\n") if n]})
+        tags = [n for n in scanoutput.split("\n") if n and n != "vinicial"]
+        tags.append("master")
+        tags.sort(reverse = True)
+        self.write({"tags": tags[:5]})
 
 class UpdateHandler(BasicHandler):
     def get(self):

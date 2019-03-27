@@ -3,9 +3,8 @@
 <main class="k-main">
     <section class="k-dialog k-dialog--center">
         <h2 class="k-dialog__h2">{{_("info_update")}}</h2>
-        <select id="tags">
-
-        </select>
+        <input type="text" class="form-control" name="version" />
+        <div id="tags"></div>
     </section>
 </main>
 <footer class="k-footer">
@@ -34,7 +33,10 @@
 $.get("/get-dev-update").done(function(data){
     var select = $("#tags")
     for (var index = 0; index < data.tags.length; index++) {
-        select.append('<option value="' + data.tags[index] + '" >' + data.tags[index] + '</option>');
+        var d = '<div class="k-block-2">'
+        d += '<div class="k-block-2__left"> <p>'+ data.tags[index] +'</p> </div> </div>'
+        select.append(d)
+        //select.append('<option value="' + data.tags[index] + '" >' + data.tags[index] + '</option>');
     }    
 });
 </script>
