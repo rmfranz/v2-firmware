@@ -1,7 +1,7 @@
 /* override Bootstrap excessive button padding */
 button.ui-keyboard-button.btn {
     padding: 1px 6px;
-    font-size: 33px;
+    font-size: 28px;
 }
 /* Bootswatch Darkly input is too bright */
  .ui-keyboard-input.light, .ui-keyboard-preview.light {
@@ -82,7 +82,7 @@ div.ui-keyboard {
   }
   
   #login-keyboard_keyboard .ui-keyboard-button, .ui-login .ui-keyboard-button {
-      width: 100px;
+      width: 85px;
       height: 75px !important;
   }
   button.btn-default:active {
@@ -109,7 +109,7 @@ div.ui-keyboard {
       color: black;
       background: white;
       height: 60px;
-      font-size: 30px;
+      font-size: 28px;
   }
 
   .ui-text .ui-keyboard-button {
