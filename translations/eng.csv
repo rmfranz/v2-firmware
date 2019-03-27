@@ -138,7 +138,8 @@ offset_P3, P3 Offset
 
 info_title, Printer information
 change_language, Change language
-info_printeraddress, IP address:
+info_printeraddress, IP address (WiFi)
+info_printeraddress_ethernet, IP address (Eth)
 info_serialnumber, Serial Number:
 info_swversion, Software version:
 info_updateavailable, Update available
@@ -147,14 +148,13 @@ waitForReboot, Wait for reboot.
 info_update, Update Version
 info_confirm_update, Are you sure you want to update from {{ from }} to {{ to }}?
 info_network, Network:
-info_printeraddress_ethernet, IP address:
-info_language, Language:
+info_language, Language
 
 backupForLeft, Backup for left
-presetOnFile, Preset on file
+presetOnFile, Preset in the file
 Off (0ºC), Off
 Calculating..., Calculating...
-nozzleDisconnected, Nozzle disconnected
+nozzleDisconnected, Hotend disconnected
 noFilesFound, Insert the USB drive and wait for the files to load.
 
 monitor_printingtime, Printing Time:
@@ -162,15 +162,15 @@ monitor_elapsedtime, Elapsed Time:
 monitor_pause, Pause
 monitor_paused, Paused
 monitor_cancel, Cancel
-monitor_printdone, Print Finished
-confirm_cancel, Would you like to cancel this print?
+monitor_printdone, Print finished
+confirm_cancel, Cancel this print?
 confirm_yes, Yes
 confirm_no, No
-confirm_pause, Are you sure you want to pause this print?
+confirm_pause, Pause this print?
 monitor_resume, Resume
 monitor_rate, Rate
 
-nozzle_intro, Select nozzle diameter currently installed.
+nozzle_intro, Select nozzle diameter currently installed
 nozzle_modal_title, Set nozzle size
 
 cloud_title, KODAK 3D Cloud
@@ -218,11 +218,11 @@ print_selection_title, Print
 print_selection_cloud, Print from Cloud
 print_selection_local, Print from local file
 
-cancel_popup_title, Cancelling the print.
-cancel_popup_body, Please wait.
+cancel_popup_title, Cancelling the print
+cancel_popup_body, Please wait
 
 config_connectivity, Connectivity
-config_advanced, Advanced
+config_advanced, Manual controls
 config_nozzle_size, Nozzle Size
 config_motors, Turn off motors
 filament_auto_load_message, This is an automatic process{} please wait for it to finish and return to the previous screen. 
@@ -233,7 +233,7 @@ calibration_wait, Please wait for the calibration sequence to finish.
 calibration_make, Calibrate
 calibration_reset, Reset
 calibration_inspect, Inspect
-calibration_reset_board, Wait while the printer reboots.
+calibration_reset_board, Wait while the printer reboots
 calibration_hotend_1, Hotend I
 calibration_hotend_2, Hotend II
 calibration_extruder_change, Changing tool{} please wait.
@@ -247,9 +247,9 @@ help_25_reset_body,
 help_25_inspect_title, Inspect
 help_25_inspect_body, 
 error, Please restart the printer and if the problem occurs again{} contact tech support.
-confirm_filament, Are you sure you want to abort?
+confirm_filament, Are you sure you want to cancel?
 calibration_error, An error occurred. Please contact technical support.
 print_load_file_popup_title, Loading file
-print_load_file_popup_body, Please wait. This may take a while.
-update_warning, We recommend that you update the software to have the latest news
+print_load_file_popup_body, Please wait. This may take a moment.
+update_warning, We recommend that you update the software to have the latest features.
 waiting_info, Fetching data...
