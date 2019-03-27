@@ -102,6 +102,21 @@ class GetUpdateToDevHandler(BasicHandler):
         tags.sort(reverse = True)
         self.write({"tags": tags[:5]})
 
+    def post(self):
+        version = self.get_body_argument("version")
+        scanoutput = check_output("git fetch --tags origin && git tag", shell=True, universal_newlines=True)
+        tags = [n for n in scanoutput.split("\n") if n and n != "vinicial"]
+        tags.append("master")
+        if version in tags:
+            os.system("git fetch")
+            os.system("git pull")
+            os.system("git checkout {}".format(version))
+            os.system("sudo killall pigpiod")
+            os.system("sudo reboot -h now")
+            self.write("ok")
+        else:
+            self.redirect("/get-dev-update")
+
 class UpdateHandler(BasicHandler):
     def get(self):
         new = check_output("(git fetch --tags origin && git tag) | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)

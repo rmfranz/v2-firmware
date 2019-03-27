@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <main class="k-main">
-    <section class="k-dialog k-dialog--center">
+    <section class="k-block">
         <h2 class="k-dialog__h2">{{_("info_update")}}</h2>
-        <input type="text" class="form-control" name="version" />
+        <form id="dev_update" action="/get-dev-update" method="POST">
+            <input type="text" class="k-modal__input" name="version" />
+            <button type="submit" class="k-dialog__button">{{_("extras_update")}}</button>
+        </form>
         <div id="tags"></div>
     </section>
 </main>
@@ -30,14 +33,18 @@
 </section>
 </body>
 <script>
-$.get("/get-dev-update").done(function(data){
-    var select = $("#tags")
-    for (var index = 0; index < data.tags.length; index++) {
-        var d = '<div class="k-block-2">'
-        d += '<div class="k-block-2__left"> <p>'+ data.tags[index] +'</p> </div> </div>'
-        select.append(d)
-        //select.append('<option value="' + data.tags[index] + '" >' + data.tags[index] + '</option>');
-    }    
-});
+    $.get("/get-dev-update").done(function (data) {
+        var select = $("#tags")
+        for (var index = 0; index < data.tags.length; index++) {
+            var d = '<div class="k-block-2">'
+            d += '<div class="k-block-2__left"> <p>' + data.tags[index] + '</p> </div> </div>'
+            select.append(d)
+            //select.append('<option value="' + data.tags[index] + '" >' + data.tags[index] + '</option>');
+        }
+    });
+    $("form").submit(function (event) {
+        $('#updateModal').toggleClass("k-modal-overlay--visible");
+        return;
+    });
 </script>
 {% end %}
