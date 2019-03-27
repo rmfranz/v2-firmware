@@ -1,0 +1,255 @@
+powered_by, Dostarczone przez
+hello, Witaj!
+lets_get_started, Zaczynamy!
+we_will_guide_you_1, Poprowadzimy Cię, abyś osiągnął
+we_will_guide_you_2, najlepsze możliwe rezultaty.
+
+errors_modal_title, Błąd połączenia
+errors_printer_status, 
+Disconnected, Nie można nawiązać połączenia.
+Connecting, 
+Error, 
+errors_modal_disconnected, Sprawdź połączenie sieciowe i zrestartuj drukarkę.
+
+warnings_modal_title, Ważne
+warnings_modal_ok, OK
+
+
+setup_internet, Kliknij Dalej aby skonfigurować połączenie Internetowe.
+
+download_updates, Kliknij Dalej aby sprawdzić czy są dostępne aktualizacje.
+
+connect_to_the_cloud, Kliknij Dalej aby połączyć się z Chmurą.
+
+load_filament, Kliknij Dalej jeśli chcesz teraz załadować filament, lub Pomiń aby załadować go później.
+onboarding_skip, Pomiń
+onboarding_next, Dalej
+
+home_title, Home
+home_print, Drukuj
+home_settings, Ustawienia
+home_message_1, Witaj{} drukarka jest gotowa do pracy.
+home_message_2, Proszę wejść na https://cloud.smart3d.tech aby rozpocząć drukowanie.
+
+files_title, Pliki
+files_intro, Wybierz model do wydrukowania.
+files_pendrive, Dysk USB
+files_samples, Pliki lokalne
+files_calibration, Pliki kalibracyjne
+loadingFiles, 
+nofilesfound, Nie znaleziono plików
+
+mcontrol_title, Sterowanie ręczne
+prepprint_leftnozzle, 
+prepprint_rightnozzle, 
+manualcontrol_buildplate, Platforma drukowania
+kodak_filament, Filamenty KODAK
+other_filament, Inne filamenty
+manualcontrol_extruders, Ekstrudery
+manualcontrol_light, Oświetlenie
+platform, 
+
+config_title, Ustawienia
+config_internet, Internet
+
+config_filaments, Filamenty
+config_extras, Dodatki
+back, Cofnij
+config_calibration, Kalibracja
+config_cloud, Chmura
+
+filaments_menu_title, Filamenty
+filaments_menu_load, Załóż filament
+filaments_menu_unload, Wyjmij filament
+
+filamentsetup_title, Ustawienia filamentu
+add_filament, Nowy filament
+filament_name, Nazwa
+filament_temp, Temp. drukowania (°C)
+bed_temp, Temp. platformy (°C)
+is_KODAK, Czy to jest filament KODAK?
+f_true, Tak
+f_false, Nie
+newfilament_failure, Nie można utworzyć nowego filamentu. Spróbuj ponownie.
+filament_confirm_delete, Czy na pewno usunąć ten filament?
+filament_delete, Usuwanie filamentu
+
+extruder, Ekstruder
+extruder_loaded, Załadowane
+filaments_heating, Nagrzewanie. Proszę czekać...
+filaments_extruding, Czekam na wypływ filamentu...
+filaments_extruding_info, Upewnij się, że materiał jest wciągany przez drukarkę. Naciśnij Dalej gdy zobaczysz filament wypływający z dyszy.
+filaments_clean, Usuń resztki materiału.
+filaments_clean_info, Materiał powinien teraz wypływać.
+loading_filaments_select, Wybierz typ materiału który ładujesz.
+filaments_heating_extruder, Nagrzewanie hotendu
+filaments_please_wait, Proszę czekać.
+filaments_done, Zrobione
+filaments_retracting, Czekam na wysunięcie.
+filaments_retracting_info, Upewnij się, że filament jest wysuwany.
+filaments_released, Proszę zdjąć szpulę filamentu z wieszaka.
+filaments_released_info, Filament powinien być teraz wysunięty.
+filaments_retracting_extruder, Cofanie filamentu
+
+network_title, Sieć
+network_password, Hasło
+network_connect_failure, Połączenie nie udało się (nieprawidłowe hasło?)
+connect_modal_title, Połączenie sieciowe
+connected, Połączono
+forget, Zapomnij
+connect_cancel, Anuluj
+connect, Połącz
+connecting, Łączenie...
+network_choose, Wybierz sieć
+
+language_title, Język
+language_intro, Wybierz język interfejsu:
+es, Español
+en, English
+fr, Français
+de, Deutsche
+it, Italiano
+pl, Polski
+
+calibration_title, Kalibracja
+calibration_z_offset, Kalibracja osi Z
+calibration_z_probe, Kalibracja platformy drukowania
+calibration_nozzle, Kalibracja odległości dyszy od stołu
+calibration_offset_z, Przesunięcie w osi Z
+calibration_probe_triggered, Czujnik został aktywowany
+calibration_saving, Zapisywanie...
+calibration_save, Zapisz
+calibration_offset_x, Przesunięcie w osi X
+calibration_offset_y, Przesunięciw w osi Y
+instructions_modal_title_Zoffset, Podnieś palatformę aż dotknie dyszy.
+instructions_modal_title_Cal25step1, Poczekaj, aż głowica zatrzyma się na środku osi.
+instructions_modal_title_Cal25step2, Podnoś platformę za pomocą klawiszy ze strzałkami aż dotknie dyszy. 
+instructions_modal_text_Cal25_continue, Kontynuuj
+calibration_buildplate_step1, Krok 2
+calibration_buildplate_step2, Krok 2
+
+calibration_wizard_title, Pomocnik kalibracji
+waiting_for_initial_movements, Poczekaj na zakończenie inicjalizacji
+done, Gotowe
+
+offset_P1, Przesunięcie P1
+offset_P2, Przesunięcie P2
+offset_P3, Przesunięcie P3
+
+info_title, Informacje o drukarce
+change_language, Zmiana języka interfejsu
+info_printeraddress, Adres IP (WiFi)
+info_printeraddress_ethernet, Adres IP (Eth)
+info_serialnumber, Numer seryjny:
+info_swversion, Wersja oprogramowania:
+info_updateavailable, Jest dostępna aktualizacja
+waitForUpdate, Aktualizacja {{percentage}}%
+waitForReboot, Poczekaj na ponowne uruchomienie.
+info_update, Nowa wersja  
+info_confirm_update, Czy na pewno zaktualizować firmware z wersji {{ from }} do {{ to }}?
+info_network, Sieć:
+info_language, Język
+
+backupForLeft, Zapasowa dla lewej dyszy
+presetOnFile, Ustawione w pliku
+Off (0ºC), Wyłączone
+Calculating..., Obliczanie...
+nozzleDisconnected, Dysza odłączona
+noFilesFound, Włóż dysk USB i poczekaj na załadowanie plików.
+
+monitor_printingtime, Czas drukowania:
+monitor_elapsedtime, Szacowany czas zakończenia:
+monitor_pause, Pauza
+monitor_paused, Zatrymany
+monitor_cancel, Anuluj
+monitor_printdone, Drukowanie zakończone
+confirm_cancel, Czy chcesz anulować ten wydruk?
+confirm_yes, Tak
+confirm_no, Nie
+confirm_pause, Czy chcesz przerwać ten wydruk?
+monitor_resume, Wznów
+monitor_rate, Ocena
+
+nozzle_intro, Wybierz średnicę aktualnie zainstalowanej dyszy.
+nozzle_modal_title, Ustaw średnicę dyszy
+
+cloud_title, Chmura KODAK 3D
+
+cloud_intro, Do rejestracji drukarki w Chmurze KODAK użyj podanego kodu rejestracyjnego.
+cloud_intro2, Zarejestruj się na cloud.smart3d.tech
+queue_empty, Drukarka jest podłączona i gotowa do pracy. Zaloguj się do Twojego konta w Chmurze aby rozpocząć drukowanie.
+delete_from_cloud, Usuń drukarkę z Chmury
+confirm_delete_from_cloud, Czy na pewno chcesz wyrejestrować tą drukarkę z Chmury?
+job_date, Data otrzymania:
+job_email, Adres e-mail:
+job_duration, Czas drukowania:
+job_material, Rodzaj materiału:
+job_layer_height, Wysokość warstwy:
+job_weight, Waga:
+job_notes, Notatki:
+job_preview, Podgląd
+registration_success, Drukarka jest podłączona
+job_size, Rozmiar pliku:
+cloud_unregister, Niezarejestrowana
+cloud_disconnect, Odłącz
+cloud_connect, Połącz
+job_cancel, Usuń z kolejki
+job_print, Drukuj
+
+extras_title, Dodatki
+extras_controls, Kontrolki
+extras_tools, Narzędzia
+extras_info, Informacje
+extras_update, Aktualizacja
+extras_sound, Dźwięki
+
+sound_message, Dostosuj głośność w trakcie odtwarzania muzyki.
+sound_off, Wyłącz
+sound_max, Max
+sound_volume, Głośność
+
+updates_updating, Aktualizacja do
+custom_version, Wersja niestandardowa
+updates_latest, Zainstalowana jest najnowsza wersja oprogramowania.
+updates_updating_footer, Uwaga: nie wyłączaj drukarki w trakcie aktualizacji.
+updates_success, Aktualizacja zakończona. Poczekaj na ponowne uruchomienie.
+
+print_selection_title, Print
+print_selection_cloud, Print from Cloud
+print_selection_local, Print from local file
+
+cancel_popup_title, Cancelling the print.
+cancel_popup_body, Please wait.
+
+config_connectivity, Connectivity
+config_advanced, Advanced
+config_nozzle_size, Nozzle Size
+config_motors, Turn off motors
+filament_auto_load_message, This is an automatic process{} please wait for it to finish and return to the previous screen.
+filament_auto_load, Load Material
+filament_auto_unload, Unload Material
+calibration_xy, XY Offset
+calibration_wait, Please wait for the calibration sequence to finish.
+calibration_make, Calibrate
+calibration_reset, Reset
+calibration_inspect, Inspect
+calibration_reset_board, Wait while the printer reboots.
+calibration_hotend_1, Hotend I
+calibration_hotend_2, Hotend II
+calibration_extruder_change, Changing tool, please wait.
+print_load_file_popup, Loading the file{} please wait. It may take a little while.
+config_wifi, WiFi
+info_hwversion, Hardware version
+help_25_calibration_title, Calibrate
+help_25_calibration_body, 
+help_25_reset_title, Reset
+help_25_reset_body, 
+help_25_inspect_title, Inspect
+help_25_inspect_body, 
+error, Please restart the printer and if the problem occurs again{} contact tech support.
+confirm_filament, Are you sure you want to abort?
+calibration_error, An error occurred. Please contact technical support.
+print_load_file_popup_title, Loading file
+print_load_file_popup_body, Please wait. This may take a while.
+update_warning, 
+waiting_info,
