@@ -1,255 +1,256 @@
-powered_by, Con tecnología de
-hello, Hola!
-lets_get_started, Comencemos!
-we_will_guide_you_1, Lo guiaremos para que tenga la mejor
-we_will_guide_you_2, experiencia posible.
+"powered_by,Con tecnología de
+hello,Hola!
+lets_get_started,Comencemos!
+we_will_guide_you_1,Lo guiaremos para que tenga la mejor
+we_will_guide_you_2,experiencia posible.
 
-errors_modal_title, Error de conexión
-errors_printer_status, 
-Disconnected, No se puede conectar.
-Connecting, 
-Error, 
-errors_modal_disconnected, Comprueba tu conexión y reinicia la impresora.
+errors_modal_title,Error de conexión
+errors_printer_status,
+Disconnected,No se puede conectar.
+Connecting,
+Error,
+errors_modal_disconnected,Comprueba tu conexión y reinicia la impresora.
 
-warnings_modal_title, Importante
-warnings_modal_ok, Ok
+warnings_modal_title,Importante
+warnings_modal_ok,Ok
 
 
-setup_internet, Haga clic en Siguiente para configurar Internet.
+setup_internet,Haga clic en Siguiente para configurar Internet.
 
-download_updates, Haga clic en Siguiente para buscar actualizaciones.
+download_updates,Haga clic en Siguiente para buscar actualizaciones.
 
-connect_to_the_cloud, Haga clic en Siguiente para conectarse a la Nube.
+connect_to_the_cloud,Haga clic en Siguiente para conectarse a la Nube.
 
-load_filament, Haga clic en Siguiente para cargar filamento o en Saltear para omitir.
-onboarding_skip, Saltear
-onboarding_next, Siguiente
+load_filament,Haga clic en Siguiente para cargar filamento o en Saltear para omitir.
+onboarding_skip,Saltear
+onboarding_next,Siguiente
 
-home_title, Inicio
-home_print, Imprimir
-home_settings, Configuración
-home_message_1, Hola{} estoy disponible para imprimir.
-home_message_2, Ingrese a https://cloud.smart3d.tech para imprimir.
+home_title,Inicio
+home_print,Imprimir
+home_settings,Configuración
+home_message_1,Hola{} estoy disponible para imprimir.
+home_message_2,Ingrese a https://cloud.smart3d.tech para imprimir.
 
-files_title, Archivos
-files_intro, Seleccione un objeto para imprimir.
-files_pendrive, Unidad flash USB
-files_samples, Archivos locales
-files_calibration, Objetos de calibración
-loadingFiles, 
-nofilesfound, No se encontraron objetos
+files_title,Archivos
+files_intro,Seleccione un objeto para imprimir.
+files_pendrive,Unidad flash USB
+files_samples,Archivos locales
+files_calibration,Objetos de calibración
+loadingFiles,
+nofilesfound,No se encontraron objetos
 
-mcontrol_title, Control manual
-prepprint_leftnozzle, 
-prepprint_rightnozzle, 
-manualcontrol_buildplate, Plataforma
-kodak_filament, Filamentos KODAK
-other_filament, Otros Filamentos
-manualcontrol_extruders, Extrusores
-manualcontrol_light, Luces
-platform, 
+mcontrol_title,Control manual
+prepprint_leftnozzle,
+prepprint_rightnozzle,
+manualcontrol_buildplate,Plataforma
+kodak_filament,Filamentos KODAK
+other_filament,Otros Filamentos
+manualcontrol_extruders,Extrusores
+manualcontrol_light,Luces
+platform,
 
-config_title, Configuración
-config_internet, Internet
+config_title,Configuración
+config_internet,Internet
 
-config_filaments, Filamentos
-config_extras, Extras
-back, Atrás
-config_calibration, Calibración
-config_cloud, Nube
+config_filaments,Filamentos
+config_extras,Extras
+back,Atrás
+config_calibration,Calibración
+config_cloud,Nube
 
-filaments_menu_title, Filamentos
-filaments_menu_load, Cargar filamento
-filaments_menu_unload, Descargar filamento
+filaments_menu_title,Filamentos
+filaments_menu_load,Cargar filamento
+filaments_menu_unload,Descargar filamento
 
-filamentsetup_title, Configuración de filamento
-add_filament, Nuevo filamento
-filament_name, Nombre
-filament_temp, Temp. filamento (°C)
-bed_temp, Temp. plataforma (°C)
-is_KODAK, ¿Es KODAK?
-f_true, Si
-f_false, No
-newfilament_failure, No fue posible crear el filamento. Vuelva a intentarlo.
-filament_confirm_delete, ¿Está seguro de que desea borrar este filamento?
-filament_delete, Borrar filamento
+filamentsetup_title,Configuración de filamento
+add_filament,Nuevo filamento
+filament_name,Nombre
+filament_temp,Temp. filamento (°C)
+bed_temp,Temp. plataforma (°C)
+is_KODAK,¿Es KODAK?
+f_true,Si
+f_false,No
+newfilament_failure,No fue posible crear el filamento. Vuelva a intentarlo.
+filament_confirm_delete,¿Está seguro de que desea borrar este filamento?
+filament_delete,Borrar filamento
 
-extruder, Extrusor
-extruder_loaded, Cargado
-filaments_heating, Calentando. Por favor aguarde...
-filaments_extruding, Extrusión en curso...
-filaments_extruding_info, Asegurese de que la maquina esté ingresando el filamento. Presione Siguiente cuando lo vea salir.
-filaments_clean, Por favor{} limpie el plástico sobrante.
-filaments_clean_info, El plástico ya fue extruído.
-loading_filaments_select, Seleccione el tipo de filamento que desea cargar.
-filaments_heating_extruder, Calentando el pico de extrusión
-filaments_please_wait, Aguarde por favor.
-filaments_done, Finalizado
-filaments_retracting, Esperando la liberación.
-filaments_retracting_info, Asegúrese de que el filamento esta siendo expulsado.
-filaments_released, Por favor{} retire el carrete.
-filaments_released_info, El filamento ya fue expulsado.
-filaments_retracting_extruder, Retrayendo el filamento
+extruder,Extrusor
+extruder_loaded,Cargado
+filaments_heating,Calentando. Por favor aguarde...
+filaments_extruding,Extrusión en curso...
+filaments_extruding_info,Asegurese de que la maquina esté ingresando el filamento. Presione Siguiente cuando lo vea salir.
+filaments_clean,Por favor{} limpie el plástico sobrante.
+filaments_clean_info,El plástico ya fue extruído.
+loading_filaments_select,Seleccione el tipo de filamento que desea cargar.
+filaments_heating_extruder,Calentando el pico de extrusión
+filaments_please_wait,Aguarde por favor.
+filaments_done,Finalizado
+filaments_retracting,Esperando la liberación.
+filaments_retracting_info,Asegúrese de que el filamento esta siendo expulsado.
+filaments_released,Por favor{} retire el carrete.
+filaments_released_info,El filamento ya fue expulsado.
+filaments_retracting_extruder,Retrayendo el filamento
 
-network_title, Redes
-network_password, Contraseña
-network_connect_failure, Conexión no establecida (¿contraseña incorrecta?)
-connect_modal_title, Conectarse a una red
-connected, Conectado
-forget, Olvidar
-connect_cancel, Cancelar
-connect, Conectar
-connecting, Conectando...
-network_choose, Seleccionar una red
+network_title,Redes
+network_password,Contraseña
+network_connect_failure,Conexión no establecida (¿contraseña incorrecta?)
+connect_modal_title,Conectarse a una red
+connected,Conectado
+forget,Olvidar
+connect_cancel,Cancelar
+connect,Conectar
+connecting,Conectando...
+network_choose,Seleccionar una red
 
-language_title, Idioma
-language_intro, Seleccione el idioma que desea utlizar en pantalla:
-es, Español
-en, English
-fr, Français
-de, Deutsche
-it, Italiano
-pl, Polski
+language_title,Idioma
+language_intro,Seleccione el idioma que desea utlizar en pantalla:
+es,Español
+en,English
+fr,Français
+de,Deutsche
+it,Italiano
+pl,Polski
 
-calibration_title, Calibración
-calibration_z_offset, Compensación eje Z
-calibration_z_probe, Calibración de superficie
-calibration_nozzle, Compensación de boquillas
-calibration_offset_z, Compensación eje Z
-calibration_probe_triggered, Sensor activado
-calibration_saving, Guardando...
-calibration_save, Guardar
-calibration_offset_x, Compensación eje X
-calibration_offset_y, Compensación eje Y
-instructions_modal_title_Zoffset, Subir la plataforma hasta tocar la boquilla. 
-instructions_modal_title_Cal25step1, Esperar hasta que el cabezal termine en el centro de los ejes XY. 
-instructions_modal_title_Cal25step2, Subir la plataforma con las flechas hasta tocar la boquilla. Luego haga clic en Guardar.
-instructions_modal_text_Cal25_continue, Continuar
-calibration_buildplate_step1, Paso 1
-calibration_buildplate_step2, Paso 2
+calibration_title,Calibración
+calibration_z_offset,Compensación eje Z
+calibration_z_probe,Calibración de superficie
+calibration_nozzle,Compensación de boquillas
+calibration_offset_z,Compensación eje Z
+calibration_probe_triggered,Sensor activado
+calibration_saving,Guardando...
+calibration_save,Guardar
+calibration_offset_x,Compensación eje X
+calibration_offset_y,Compensación eje Y
+instructions_modal_title_Zoffset,Subir la plataforma hasta tocar la boquilla. 
+instructions_modal_title_Cal25step1,Esperar hasta que el cabezal termine en el centro de los ejes XY. 
+instructions_modal_title_Cal25step2,Subir la plataforma con las flechas hasta tocar la boquilla. Luego haga clic en Guardar.
+instructions_modal_text_Cal25_continue,Continuar
+calibration_buildplate_step1,Paso 1
+calibration_buildplate_step2,Paso 2
+calibration_extruder_change,
 
-calibration_wizard_title, Asistente de calibración
-waiting_for_initial_movements, Espere a que finalicen los movimientos.
-done, Finalizado
+calibration_wizard_title,Asistente de calibración
+waiting_for_initial_movements,Espere a que finalicen los movimientos.
+done,Finalizado
 
-offset_P1, Compensación P1
-offset_P2, Compensación P2
-offset_P3, Compensación P3
+offset_P1,Compensación P1
+offset_P2,Compensación P2
+offset_P3,Compensación P3
 
-info_title, Información del sistema
-change_language, Cambiar idioma
-info_printeraddress, Dirección IP:
-info_serialnumber, Número de serie:
-info_swversion, Versión del sistema:
-info_updateavailable, Actualización disponible
-waitForUpdate, Actualizando {{percentage}}%
-waitForReboot, Reiniciando. Espere por favor.
-info_update, Actualizar versión
-info_confirm_update, ¿Confirma actualizar versión de {{from}} a {{to}}?
-info_network, Red:
-info_printeraddress_ethernet, Direccion IP:
-info_language, Idioma
+info_title,Información del sistema
+change_language,Cambiar idioma
+info_printeraddress,Dirección IP (WiFi)
+info_printeraddress_ethernet,Direccion IP (Eth)
+info_serialnumber,Número de serie:
+info_swversion,Versión del sistema:
+info_updateavailable,Actualización disponible
+waitForUpdate,Actualizando {{percentage}}%
+waitForReboot,Reiniciando. Espere por favor.
+info_update,Actualizar versión
+info_confirm_update,¿Confirma actualizar versión de {{from}} a {{to}}?
+info_network,Red:
+info_language,Idioma
 
-backupForLeft, Continuación del extrusor izq. (I)
-presetOnFile, Temperatura fijada en el archivo
-Off (0ºC), Apagado
-Calculating..., Calculando...
-nozzleDisconnected, Boquilla desconectada
-noFilesFound, Inserte la memoria USB y espere la carga de los archivos.
+backupForLeft,Continuación del extrusor izq. (I)
+presetOnFile,Predeterminado en el archivo
+Off (0ºC),Apagado
+Calculating...,Calculando...
+nozzleDisconnected,Hotend desconectado
+noFilesFound,Inserte la memoria USB y espere la carga de los archivos.
 
-monitor_printingtime, Tiempo de impresión:
-monitor_elapsedtime, Tiempo transcurrido:
-monitor_pause, Pausar
-monitor_paused, Pausado
-monitor_cancel, Cancelar
-monitor_printdone, Impresión terminada
-confirm_cancel, ¿Desea cancelar esta impresión?
-confirm_yes, Si
-confirm_no, No
-confirm_pause, ¿Desea pausar esta impresión?
-monitor_resume, Continuar
-monitor_rate, Calificar
+monitor_printingtime,Tiempo de impresión:
+monitor_elapsedtime,Tiempo transcurrido:
+monitor_pause,Pausar
+monitor_paused,Pausado
+monitor_cancel,Cancelar
+monitor_printdone,Impresión terminada
+confirm_cancel,¿Desea cancelar esta impresión?
+confirm_yes,Si
+confirm_no,No
+confirm_pause,¿Desea pausar esta impresión?
+monitor_resume,Continuar
+monitor_rate,Calificar
 
-nozzle_intro, Indique los diámetros de las boquillas que están instaladas actualmente.
-nozzle_modal_title, Establecer el diámetro de la boquilla
+nozzle_intro,Indique los diámetros de las boquillas que están instaladas actualmente
+nozzle_modal_title,Establecer el diámetro de la boquilla
 
-cloud_title, KODAK 3D Cloud
+cloud_title,KODAK 3D Cloud
 
-cloud_intro, Utilice el siguiente código para registrar y utilizar esta impresora en su cuenta de KODAK 3D Cloud.
-cloud_intro2, Regístrese en cloud.smart3d.tech
-queue_empty, Su impresora está conectada y lista para imprimir. Inicie sesión en su cuenta en la nube para comenzar a imprimir.
-delete_from_cloud, Eliminar la impresora de la nube
-confirm_delete_from_cloud, ¿Confirma que desea eliminar esta impresora de la nube?
-job_date, Fecha de recepción:
-job_email, Email:
-job_duration, Duración:
-job_material, Tipo de material:
-job_layer_height, Altura de la capa:
-job_weight, Peso:
-job_notes, Notas:
-job_preview, Previsualización
-registration_success, Impresora conectada
-job_size, Tamaño del archivo:
-cloud_unregister, Anular registro
-cloud_disconnect, Desconectar
-cloud_connect, Conectar
-job_cancel, Eliminar de la cola
-job_print, Imprimir
+cloud_intro,Utilice el siguiente código para registrar y utilizar esta impresora en su cuenta de KODAK 3D Cloud.
+cloud_intro2,Regístrese en cloud.smart3d.tech
+queue_empty,Su impresora está conectada y lista para imprimir. Inicie sesión en su cuenta en la nube para comenzar a imprimir.
+delete_from_cloud,Eliminar la impresora de la nube
+confirm_delete_from_cloud,¿Confirma que desea eliminar esta impresora de la nube?
+job_date,Fecha de recepción:
+job_email,Email:
+job_duration,Duración:
+job_material,Tipo de material:
+job_layer_height,Altura de la capa:
+job_weight,Peso:
+job_notes,Notas:
+job_preview,Previsualización
+registration_success,Impresora conectada
+job_size,Tamaño del archivo:
+cloud_unregister,Anular registro
+cloud_disconnect,Desconectar
+cloud_connect,Conectar
+job_cancel,Eliminar de la cola
+job_print,Imprimir
 
-extras_title, Extras
-extras_controls, Controles
-extras_tools, Herramientas
-extras_info, Información
-extras_update, Actualizar
-extras_sound, Sonido
+extras_title,Extras
+extras_controls,Controles
+extras_tools,Herramientas
+extras_info,Información
+extras_update,Actualizar
+extras_sound,Sonido
 
-sound_message, Ajustar el nivel de sonido.
-sound_off, Apagado
-sound_max, Máximo
-sound_volume, Volúmen
+sound_message,Ajustar el nivel de sonido.
+sound_off,Apagado
+sound_max,Máximo
+sound_volume,Volúmen
 
-updates_updating, Actualizando a
-custom_version, Versión especial
-updates_latest, Ya esta actualizado a la última version.
-updates_updating_footer, Importante: no apague la impresora durante la actualización.
-updates_success, Actualización exitosa. Aguarde el reinicio.
+updates_updating,Actualizando a
+custom_version,Versión especial
+updates_latest,Ya esta actualizado a la última version.
+updates_updating_footer,Importante: no apague la impresora durante la actualización.
+updates_success,Actualización exitosa. Aguarde el reinicio.
 
-print_selection_title, Imprimir
-print_selection_cloud, Imprimir desde la nube
-print_selection_local, Imprimir un archivo local
+print_selection_title,Imprimir
+print_selection_cloud,Imprimir desde la nube
+print_selection_local,Imprimir un archivo local
 
-cancel_popup_title, Cancelando la impresión.
-cancel_popup_body, Espere.
+cancel_popup_title,Cancelando la impresión
+cancel_popup_body,Espere
 
-config_connectivity, Conectividad
-config_advanced, Opciones avanzadas
-config_nozzle_size, Diámetro de boquilla
-config_motors, Apagar motores
-filament_auto_load_message, Este proceso es automático. Espere a que termine y vuelva a la pantalla anterior.
-filament_auto_load, Cargar filamento
-filament_auto_unload, Descargar filamento
-calibration_xy, Calibración XY
-calibration_wait, Espere mientras se realiza la calibración.
-calibration_make, Calibrar
-calibration_reset, Resetear
-calibration_inspect, Revisar
-calibration_reset_board, Espere mientras se resetea la maquina.
-calibration_hotend_1, Hotend I
-calibration_hotend_2, Hotend II
-calibration_extruder_change, Espere mientras se realiza el cambio de herramienta.
-print_load_file_popup, Estoy cargando el archivo{} por favor espere. Esto puede tomar un tiempo.
-config_wifi, WiFi
-info_hwversion, Versión de hardware
-help_25_calibration_title, Calibrar
-help_25_calibration_body, 
-help_25_reset_title, Resetear
-help_25_reset_body, 
-help_25_inspect_title, Revisar
-help_25_inspect_body, 
-error, Reinicie la impresora y si el error vuelve a ocurrir contactese con el servicio técnico.
-confirm_filament, ¿Está seguro de que quiere anular esta operación?
-calibration_error, Ocurrió un error. Póngase en contacto con el soporte técnico.
-print_load_file_popup_title, Cargando archivo
-print_load_file_popup_body, Por favor espere. Esta operación puede tardar unos minutos.
-update_warning, Recomendamos que actualice el software para tener las últimas novedades
-waiting_info, Obteniendo información...
+config_connectivity,Conectividad
+config_advanced,Controles manuales
+config_nozzle_size,Diámetro de boquilla
+config_motors,Apagar motores
+filament_auto_load_message,Este proceso es automático. Espere a que termine y vuelva a la pantalla anterior.
+filament_auto_load,Cargar filamento
+filament_auto_unload,Descargar filamento
+calibration_xy,Calibración XY
+calibration_wait,Espere mientras se realiza la calibración.
+calibration_make,Calibrar
+calibration_reset,Resetear
+calibration_inspect,Revisar
+calibration_reset_board,Espere mientras se resetea la maquina
+calibration_hotend_1,Hotend I
+calibration_hotend_2,Hotend II
+calibration_extruder_change,Espere mientras se realiza el cambio de herramienta.
+print_load_file_popup,Cargando el archivo{} por favor aguarde{} puede demorar un corto tiempo.
+config_wifi,WiFi
+info_hwversion,Versión de hardware
+help_25_calibration_title,Calibrar
+help_25_calibration_body,
+help_25_reset_title,Resetear
+help_25_reset_body,
+help_25_inspect_title,Revisar
+help_25_inspect_body,
+error,Reinicie la impresora y si el error vuelve a ocurrir contactese con el servicio técnico.
+confirm_filament,¿Está seguro de que quiere anular esta operación?
+calibration_error,Ocurrió un error. Póngase en contacto con el soporte técnico.
+print_load_file_popup_title,Cargando archivo
+print_load_file_popup_body,Por favor espere. Esta operación demora un momento.
+update_warning,Recomendamos que actualice el software para tener las últimas mejoras.
+waiting_info,Obteniendo información...
