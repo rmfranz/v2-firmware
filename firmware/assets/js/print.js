@@ -88,14 +88,14 @@ function setTime() {
     }
 }
 
-function set_progress(totalLines) {
+function set_progress() {
     $.ajax({
-        url: "/get-line-num",
+        url: "/get-percentage",
         success: function (result) {
-            if(totalLines != 0){
-                $('#progress_bar').attr("value", parseInt((parseInt(result) * 100) / totalLines));
+            if(parseInt(result) > 99){
+                $('#progress_bar').attr("value", 99);
             } else {
-                console.log("totalLines error")
+                $('#progress_bar').attr("value", parseInt(result));
             }
         }
     });
@@ -103,14 +103,14 @@ function set_progress(totalLines) {
 
 if (printing) {
     var line = 0;
-    var totalLines = 0;
+    /*var totalLines = 0;
     $.ajax({
         url: "/print-total-lines",
         success: function (result) {
             totalLines = parseInt(result)
         },
         async: false
-    });
+    });*/
     var ws_print_finished = new WebSocket("ws://" + ip + ":8888/print-finished");
     ws_print_finished.onmessage = function (evt) {
         if(!paused){
@@ -136,5 +136,5 @@ if (printing) {
     var totalSeconds = 0;
     var seconds_for_min = 0;
     setInterval(setTime, 1000);
-    setInterval(function() { set_progress(totalLines); }, 3000);
+    setInterval(set_progress, 3000);
 }
