@@ -170,7 +170,7 @@ class Application(tornado.web.Application):
 
 class HomeHandler(BasicHandler):
     def get(self):
-        skipp = self.get_argument("wizzard", 1)
+        skipp = int(self.get_argument("wizzard", 1))
         if skipp == 0 and not self.wizzard.viewed:
             self.wizzard.viewed = True
         async_http_client = httpclient.AsyncHTTPClient()
