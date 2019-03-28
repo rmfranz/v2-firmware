@@ -108,9 +108,13 @@ class GetUpdateToDevHandler(BasicHandler):
         tags = [n for n in scanoutput.split("\n") if n and n != "vinicial"]
         tags.append("master")
         if version in tags:
-            os.system("git fetch")
-            os.system("git pull")
-            os.system("git checkout {}".format(version))
+            if version is "master":
+                os.system("git checkout master")
+                os.system("git fetch")
+                os.system("git pull")
+            else:
+                os.system("git fetch")
+                os.system("git checkout {}".format(version))
             os.system("sudo killall pigpiod")
             os.system("sudo reboot -h now")
             self.write("ok")
