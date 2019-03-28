@@ -261,6 +261,17 @@ button{
   font-weight: normal;
 }
 
+.k-dialog__token{
+  width: 100%;
+  margin: 0 auto;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  font-size: 30px;
+  font-family: graphik-sb;
+}
+
 .k-dialog__button{
   all: unset; box-sizing: border-box;
   background: #F9B621;
@@ -388,7 +399,8 @@ button{
 
 .k-grid--3x3{
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-auto-rows: 90px;
+  width: 750px;
 }
 
 
@@ -400,6 +412,17 @@ button{
   background: #F9B621;
   border-radius: 10px;
   padding:5px;
+  position:relative;
+}
+
+.k-grid-item--selected::after{
+  content:url("/static/images/icon-tilde_blanco.svg");
+  position:absolute;
+  right:5px;
+}
+
+.k-grid-item--red{
+  background: #E2211C;
 }
 
 .k-grid-item--split{
@@ -465,13 +488,25 @@ button{
   font-size: 23px;
 }
 
+.k-grid-item__p--table{
+  font-size: 26px;
+  margin: 0;
+  padding: 0;
+}
+
+.k-grid-item__p--light{
+  font-size: 26px;
+  margin: 0;
+  padding: 0;
+  font-family: graphik-l;
+}
 
 /* end grid layouts */
 
 
 /* block layouts */
 .k-block{
-  max-height:315px;
+  max-height:255px;
   width:100%;
   max-width: 728px;
   overflow: auto;
@@ -482,15 +517,16 @@ button{
 }
 
 .k-block__p{
-  margin: 10px 0;
+  margin: 0 0 10px 0;
   padding: 10px;
-  background: #EBEBEA;
+  background-image: linear-gradient(to right, #EBEBEA 98%, white 98%, white);
   font-size: 34px;
   text-align:center;
+  font-family: graphik-l;
 }
 
 .k-block__p--selected{
-  background: #F9B621;
+  background-image: linear-gradient(to right, #F9B621 98%, white 98%, white);
 }
 
 .k-block-2{
@@ -670,15 +706,30 @@ button{
 /* end k-hscroll */
 
 /* start k-table */
-.k-table{
-  width: 475px;
-  height: 285px;
-  text-align: center;
-  border-collapse: collapse;
+
+.k-table__title{
+  margin: 10px;
+  font-size: 33px;
+  font-family: graphik-l;
 }
 
-.k-table td{
+.k-table__table{
+  width: 475px;
+  text-align: center;
+  border-collapse: collapse;
+  font-size: 21px;
+}
+
+.k-table__table td{
   border: 4px solid #9C9B9B;
+  padding: 5px;
+}
+
+.k-table__p{
+  margin: 10px;
+  font-size: 26px;
+  font-family: graphik-l;
+  text-align:center;
 }
 /* end k-table*/
 
@@ -758,7 +809,7 @@ button{
 }
 
 .k-printing-main__li{
-  padding:  0;
+  padding:  10px;
   display: flex;
 }
 
@@ -931,6 +982,10 @@ button{
   max-width: 80%;
 }
 
+.k-modal_p--maxwidth{
+  max-width: 73%;
+}
+
 .k-modal_p--maxwidth-600{
   max-width: 600px;
   font-size: 21px;
@@ -950,6 +1005,37 @@ button{
   width: 360px;
   height: 65px;
   border-radius: 10px;
+}
+
+.k-modal__loading{
+  font-size: 32px;
+  font-family: graphik-sb;
+  text-align:center;
+  margin:0 0 10px 0;
+}
+
+.k-extrude-button{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  text-align: center;
+  font-family: graphik-sb;
+  font-size: 25px;
+  margin:10px; 
+  width: 245px;
+  height: 65px;
+  border-radius: 10px;
+  background: #F9B621;
+}
+
+.k-modal__material-name{
+  font-size: 36px;
+  margin: 0;
+  font-family: graphik-l;
+}
+
+.k-modal__material-name-span{
+  font-family: graphik-sb;
 }
 
 .k-modal__warning--grey{
