@@ -108,7 +108,7 @@ class GetUpdateToDevHandler(BasicHandler):
         tags = [n for n in scanoutput.split("\n") if n and n != "vinicial"]
         tags.append("master")
         if version in tags:
-            if version is "master":
+            if version == "master":
                 os.system("git checkout master")
                 os.system("git fetch")
                 os.system("git pull")
