@@ -81,7 +81,7 @@ class GetQueueHandler(BasicHandler):
                 headers={'Content-Type': 'application/json'}, 
                 body=json.dumps({"auth_token": user_conf_json["auth_token"]}))
         if resp.code == 200:
-            self.write({"resp": resp.body.decode('utf-8')})
+            self.write({"resp": json.loads(resp.body.decode('utf-8'))})
         else:
             self.write("error")
 
