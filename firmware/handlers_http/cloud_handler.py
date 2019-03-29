@@ -2,6 +2,7 @@ from handlers_http.basic_handler import BasicHandler
 from tornado import httpclient
 import json
 from cloud_service.cloud_utils import cloud_service_resp
+import tornado
 
 URL_CLOUD = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/register"
 URL_QUEUE = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/get_queued_jobs"
@@ -71,6 +72,7 @@ class ToQueueHandler(BasicHandler):
             self.redirect("/to-cloud")
 
 class GetQueueHandler(BasicHandler):
+    @tornado.gen.coroutine
     def get(self):
         with open("/home/pi/config-files/user_conf.json") as f:
             user_conf_json = json.load(f)
