@@ -7,6 +7,7 @@ import time
 import re
 import tornado
 import json
+import collections
 
 def perform_os_check():
     if not os.path.exists("/home/pi/config-files"):
@@ -56,13 +57,15 @@ def get_gcodes_from_usb():
     pattern = "*.gcode"
     dict_of_files = {}
     for (dirpath, dirnames, filenames) in os.walk(dirName):
+        if filenames:
+            filenames = sorted(filenames, key=str.lower)
         dict_of_files.update({file: os.path.join(dirpath, file) for file in filenames if fnmatch.fnmatch(file, pattern) and not file.startswith(".")})
     return dict_of_files
 
 def get_gcodes_from_sample():
     dirName = "/home/pi/v2-firmware/Samples"
     pattern = "*.gcode"
-    dict_of_files = {}
+    dict_of_files = collections.OrderedDict()
     for (dirpath, dirnames, filenames) in os.walk(dirName):
         dict_of_files.update({file: os.path.join(dirpath, file) for file in filenames if fnmatch.fnmatch(file, pattern)})
     return dict_of_files
