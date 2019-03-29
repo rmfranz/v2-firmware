@@ -7,6 +7,8 @@ from tornado import httpclient
 import json
 
 URL_CLOUD = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/register"
+URL_QUEUE = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/get_queued_jobs"
+AUTH = "L2bEH2GI7W5YUcRewoXbXWr82Z7LwaNOJgsmAeZVponydTOkaOq3rWOdwhgAAgvMNkZTmNRxjSMMp5R1IvZ1eTPPLUJJjlvDMWuERYqss7FBijngsOZy9TSwkIn2I4Qq"
 
 class InitHandler(RequestHandler):
     def get(self):
@@ -36,20 +38,21 @@ def cloud_service_resp(re):
 class GetRegistrationCodeHandler(RequestHandler):
     def get(self):
         headers = {'Content-Type': 'application/json'}
-        body = {"VID": "0KDK", "PID": "0001", "SNR": "00000000000000", 
-            "mac": "b8:27:eb:86:58:b2".replace(":", ""), "type": "K_PORTRAIT", "version": "",
-            "registration_code_ttl": 20}
+        body = {"auth_token": AUTH}
         http_client = httpclient.HTTPClient()
-        resp = http_client.fetch(URL_CLOUD, method='POST', raise_error=False,
+        resp = http_client.fetch(URL_QUEUE, method='POST', raise_error=False,
                 headers=headers, body=json.dumps(body))
         if resp.code == 200:
             resp_dict = json.loads(resp.body.decode('utf-8'))
-            body = {"registration_code": resp_dict["registration_code"]}
-            async_http_client = httpclient.AsyncHTTPClient()
-            async_http_client.fetch("http://127.0.0.1:9000/init", method='POST', raise_error=False,
-                headers=headers, body=json.dumps(body), callback=cloud_service_resp)
+            print(resp_dict)
+            #body = {"registration_code": resp_dict["registration_code"]}
+            #async_http_client = httpclient.AsyncHTTPClient()
+            #async_http_client.fetch("http://127.0.0.1:9000/init", method='POST', raise_error=False,
+            #    headers=headers, body=json.dumps(body), callback=cloud_service_resp)
             self.write("ok")
         else:
+            resp_dict = json.loads(resp.body.decode('utf-8'))
+            print(resp_dict)
             self.write("ok")
 
 class TranslationHandler(RequestHandler):

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="k-main">
+    <section class="k-block">
+        <div id="cloud_files"></div>
+    </section>
+</main>
+<footer class="k-footer">
+    <a href="/print-selection" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
+    <!-- Implementar despues
+                    <div class="k-footer-right">
+                      <button class="k-footer__btn k-footer__btn--yellow"> 
+                        <img src="/static/images/icon_vista-lista.svg"/>
+                      </button>  
+                      <button class="k-footer__btn k-footer__btn--grey"> 
+                        <img src="/static/images/icon_vista-miniatura.svg"/>
+                      </button>  
+                    </div>
+                    -->
+</footer>
+<script src="/static/js/print_cloud.js"></script>
+</body>
+{% end %}

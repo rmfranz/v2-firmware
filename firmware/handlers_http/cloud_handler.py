@@ -4,6 +4,7 @@ import json
 from cloud_service.cloud_utils import cloud_service_resp
 
 URL_CLOUD = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/register"
+URL_QUEUE = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/get_queued_jobs"
 
 class ToCloudHandler(BasicHandler):
     def get(self):
@@ -59,6 +60,28 @@ class ReconnectHandler(BasicHandler):
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/reconnect", method='GET', raise_error=False, callback=cloud_service_resp)
         self.redirect("/to-cloud")
+
+class ToQueueHandler(BasicHandler):
+    def get(self):
+        with open("/home/pi/config-files/user_conf.json") as f:
+            user_conf_json = json.load(f)
+        if user_conf_json["auth_token"]:
+            self.render("listing_cloud.html")
+        else:
+            self.redirect("/to-cloud")
+
+class GetQueueHandler(BasicHandler):
+    def get(self):
+        with open("/home/pi/config-files/user_conf.json") as f:
+            user_conf_json = json.load(f)
+        async_http_client = httpclient.AsyncHTTPClient()
+        resp = yield async_http_client.fetch(URL_QUEUE, method='POST', raise_error=False,
+                headers={'Content-Type': 'application/json'}, 
+                body=json.dumps({"auth_token": user_conf_json["auth_token"]}))
+        if resp.code == 200:
+            self.write(json.loads(resp.body.decode('utf-8')))
+        else:
+            self.write("error")
 
 class SetUserCloudHanlder(BasicHandler):
     def post(self):
