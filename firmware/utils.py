@@ -57,15 +57,13 @@ def get_gcodes_from_usb():
     pattern = "*.gcode"
     dict_of_files = {}
     for (dirpath, dirnames, filenames) in os.walk(dirName):
-        if filenames:
-            filenames = sorted(filenames, key=str.lower)
         dict_of_files.update({file: os.path.join(dirpath, file) for file in filenames if fnmatch.fnmatch(file, pattern) and not file.startswith(".")})
-    return dict_of_files
+    return collections.OrderedDict(sorted(dict_of_files.items(), key=lambda t: t[0].lower()))
 
 def get_gcodes_from_sample():
     dirName = "/home/pi/v2-firmware/Samples"
     pattern = "*.gcode"
-    dict_of_files = collections.OrderedDict()
+    dict_of_files = {}
     for (dirpath, dirnames, filenames) in os.walk(dirName):
         dict_of_files.update({file: os.path.join(dirpath, file) for file in filenames if fnmatch.fnmatch(file, pattern)})
     return dict_of_files
