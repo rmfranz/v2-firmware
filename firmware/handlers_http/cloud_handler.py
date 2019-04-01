@@ -106,7 +106,7 @@ class ToConfirmPrintHandler(BasicHandler):
                 error = "error"
         else:
             error = "error"
-        self.render("", error=error, cloud_job=cloud_job)
+        self.render("previous_cloud_print.html", error=error, cloud_job=cloud_job)
 
 class SetUserCloudHanlder(BasicHandler):
     def post(self):
