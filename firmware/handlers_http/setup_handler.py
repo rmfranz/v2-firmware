@@ -208,3 +208,14 @@ class DisableDebModeHandler(BasicHandler):
         if os.path.exists("/home/pi/dev_mode"):
             os.system("sudo rm /home/pi/dev_mode")
         self.redirect("/home")
+
+class ResetBoardUuidHandler(BasicHandler):
+    def get(self):
+        board_info = self.firmware.get_board_info()
+        if not board_info:
+            self.write("01")
+        elif len(board_info) > 1:
+            self.write("02")
+        else:
+            self.firmware.set_board_info(board_info[0].split()[8])
+            self.write("ok")

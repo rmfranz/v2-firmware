@@ -2,12 +2,23 @@
 {% block content %}
 <main class="k-main">
     <section class="k-block">
-        <button id="enable_ssh" class="k-modal-4__button k-modal-4__button--yellow">Enable ssh</button>
-        <button id="disable_ssh" type="submit" class="k-modal-4__button k-modal-4__button--yellow">Disable ssh</button>
-        <button id="enable_dev_mode" type="submit" class="k-modal-4__button k-modal-4__button--yellow">Enable dev
-            mode</button>
-        <button id="disable_dev_mode" type="submit" class="k-modal-4__button k-modal-4__button--yellow">Disable dev
-            mode</button>
+        <div>
+            <button id="enable_ssh" class="k-dialog__button k-dialog__button--shortened">Enable ssh</button>
+            <button id="disable_ssh" type="submit" class="k-dialog__button k-dialog__button--shortened">Disable
+                ssh</button>
+        </div>
+        <br />
+        <div>
+            <button id="enable_dev_mode" type="submit" class="k-dialog__button k-dialog__button--shortened">Enable dev
+                mode</button>
+            <button id="disable_dev_mode" type="submit" class="k-dialog__button k-dialog__button--shortened">Disable dev
+                mode</button>
+        </div>
+        <br />
+        <div>
+            <button id="reset_board" type="submit" class="k-dialog__button k-dialog__button--shortened">Reset board
+                uuid</button>
+        </div>
     </section>
 </main>
 <footer class="k-footer">
@@ -15,6 +26,32 @@
         <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
     </a>
 </footer>
+<section id="reset_board_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-4">
+            <div class="k-modal-4__top">
+                <p>Please remove any usb or keyboard from printer!</p>
+            </div>
+            <div class="k-modal-4__bottom">
+                <button id="confirm_reset" class="k-modal-4__button k-modal-4__button--red">OK</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="wait_reset_board_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-4">
+            <div class="k-modal-2">
+                <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
+                <h2 class="k-modal__title k-modal__title--big">Please wait!</h2>
+                <p id="error_board"></p>
+            </div>
+            <div id="reset_ok" class="k-modal-4__bottom initiallyHidden">
+                <button id="reset_ok_btn" class="k-modal-4__button k-modal-4__button--red">OK</button>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
 <script src="/static/js/dev_mode.js"></script>
 {% end %}

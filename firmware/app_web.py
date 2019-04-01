@@ -149,6 +149,7 @@ class Application(tornado.web.Application):
             (r"/language", LanguageHandler),
             (r"/update-warning", UpdateWarningHandler),
             (r"/next-wizzard", NextWizzardHandler),
+            (r"/reset-board-uuid", ResetBoardUuidHandler),
             (r"/temperatures", TemperaturesWsHandler),
             (r"/heating-bed", HeatingBedWsHandler),
             (r"/heating-nozzle", HeatingNozzleWsHandler),

@@ -219,3 +219,7 @@ $("#help_xy_calibration").on("click", function() {
 $("#help_z_calibration").on("click", function() {
     $("#help_calibration_modal").toggleClass( "k-modal-overlay--visible" );
 });
+
+$("#error_calibration_modal_close").on("click", function() {
+    $("#calibration_error").toggleClass( "k-modal-overlay--visible" );
+});
