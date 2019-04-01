@@ -21,10 +21,10 @@
         <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
     </a>
     <div class="k-footer-right">
-        <button id="print" class="k-footer__btn k-footer__btn--yellow k-footer__btn--wide">
+        <a href='/print-cloud?job_id="{{cloud_job['id']}}"' class="k-footer__btn k-footer__btn--yellow k-footer__btn--wide">
             <img src="/static/images/icon_comenzar-impresion.svg" />
             {{_("job_print")}}
-        </button>
+        </a>
     </div>
 </footer>
 </body>

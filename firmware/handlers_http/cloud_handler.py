@@ -6,6 +6,7 @@ import tornado
 
 URL_CLOUD = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/register"
 URL_QUEUE = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/get_queued_jobs"
+URL_QUEUE_START = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/start_queued_job"
 
 class ToCloudHandler(BasicHandler):
     def get(self):
@@ -107,6 +108,21 @@ class ToConfirmPrintHandler(BasicHandler):
         else:
             error = "error"
         self.render("previous_cloud_print.html", error=error, cloud_job=cloud_job)
+
+class PrintCloudHandler(BasicHandler):
+    @tornado.gen.coroutine
+    def get(self):
+        job_id = self.get_argument("job_id")
+        with open("/home/pi/config-files/user_conf.json") as f:
+            user_conf_json = json.load(f)
+        async_http_client = httpclient.AsyncHTTPClient()
+        resp = yield async_http_client.fetch(URL_QUEUE_START, method='POST', raise_error=False,
+                headers={'Content-Type': 'application/json'}, 
+                body=json.dumps({"auth_token": user_conf_json["auth_token"], "job_id": job_id}))
+        if resp.code == 200:
+            self.render("phantom.html", error=None)
+        else:
+            self.render("phantom.html", error="error")
 
 class SetUserCloudHanlder(BasicHandler):
     def post(self):
