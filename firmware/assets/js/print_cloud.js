@@ -7,10 +7,9 @@ $.get("/get-cloud-queue").done(function (data) {
         d += '<div class="k-block-2__left"><div class="k-block-2__img-container"> </div> <p>' + resp[i].filename + '</p> </div> </div>'
         select.append(d);
     }
+    $('.file_selected').click(function () {
+        $("#wait_fetching_modal").toggleClass("k-modal-overlay--visible");    
+        window.location.href = "/confirm-cloud-print?job_id=" + $(this).data('job_id');
+    });
     $("#waiting_info").toggleClass("initiallyHidden");
-});
-
-$('.file_selected').click(function () {
-    $("#wait_fetching_modal").toggleClass("k-modal-overlay--visible");    
-    window.location.href = "/confirm-cloud-print?job_id=" + $(this).data('job_id');
 });
