@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="k-main">
+    <section class="k-printing">
+        <div class="k-printing-main">
+            <h2 class="k-printing-main__h2">{{cloud_job["filename"]}}</h2>
+        <ul class="k-printing-main__ul">
+          <li class="k-printing-main__li"><img src="/static/images/icon_imprimir-tiempo.svg"/>{{cloud_job["printing_duration"]}}</li>
+        </ul>
+        </div>
+      <div class="k-printing-preview">
+        <div class="k-printing-preview__img">
+            <img src="{{cloud_job['preview_image']}}" />
+        </div>
+      </div>
+    </section>
+</main>
+
+<footer class="k-footer">
+    <a href="/to-cloud-queue" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
+    <div class="k-footer-right">
+        <button id="print" class="k-footer__btn k-footer__btn--yellow k-footer__btn--wide">
+            <img src="/static/images/icon_comenzar-impresion.svg" />
+            {{_("job_print")}}
+        </button>
+    </div>
+</footer>
+</body>
+{% end %}

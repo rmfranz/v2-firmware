@@ -85,6 +85,29 @@ class GetQueueHandler(BasicHandler):
         else:
             self.write("error")
 
+class ToConfirmPrintHandler(BasicHandler):
+    @tornado.gen.coroutine
+    def get(self):
+        error = None
+        cloud_job = None
+        job_id = self.get_argument("job_id")
+        with open("/home/pi/config-files/user_conf.json") as f:
+            user_conf_json = json.load(f)
+        async_http_client = httpclient.AsyncHTTPClient()
+        resp = yield async_http_client.fetch(URL_QUEUE, method='POST', raise_error=False,
+                headers={'Content-Type': 'application/json'}, 
+                body=json.dumps({"auth_token": user_conf_json["auth_token"]}))
+        if resp.code == 200:
+            jobs = json.loads(resp.body.decode('utf-8'))
+            for job in jobs:
+                if job["id"] == job_id:
+                    cloud_job = job
+            if not cloud_job:
+                error = "error"
+        else:
+            error = "error"
+        self.render("", error=error, cloud_job=cloud_job)
+
 class SetUserCloudHanlder(BasicHandler):
     def post(self):
         status = self.get_body_argument("status")
