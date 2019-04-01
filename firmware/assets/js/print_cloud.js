@@ -7,5 +7,5 @@ $.get("/get-cloud-queue").done(function (data) {
         d += '<div class="k-block-2__left"><div class="k-block-2__img-container"> </div> <p>' + resp[i].filename + '</p> </div> </div>'
         select.append(d);
     }
-}
-);
+    $("#waiting_info").toggleClass("initiallyHidden");
+});
