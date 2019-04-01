@@ -1,17 +1,17 @@
 $("#enable_ssh").on("click", function () {
-    $.get("/ssh-enable");
+    $.get("/ssh-enable").done($("#done_modal").toggleClass("k-modal-overlay--visible"));
 });
 
 $("#disable_ssh").on("click", function () {
-    $.get("/ssh-disable");
+    $.get("/ssh-disable").done($("#done_modal").toggleClass("k-modal-overlay--visible"));;
 });
 
 $("#enable_dev_mode").on("click", function () {
-    $.get("/enable-dev-mode");
+    $.get("/enable-dev-mode").done($("#done_modal").toggleClass("k-modal-overlay--visible"));;
 });
 
 $("#disable_dev_mode").on("click", function () {
-    $.get("/disable-dev-mode");
+    $.get("/disable-dev-mode").done($("#done_modal").toggleClass("k-modal-overlay--visible"));;
 });
 
 $("#reset_board").on("click", function () {
@@ -36,4 +36,8 @@ $("#confirm_reset").on("click", function () {
 
 $("#reset_ok_btn").on("click", function () {
     $("#wait_reset_board_modal").toggleClass("k-modal-overlay--visible");
+});
+
+$("#done_modal_close").on("click", function () {
+    $("#done_modal").toggleClass("k-modal-overlay--visible");
 });
