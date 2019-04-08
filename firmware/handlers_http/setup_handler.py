@@ -219,3 +219,12 @@ class ResetBoardUuidHandler(BasicHandler):
         else:
             self.firmware.set_board_info(board_info[0].split()[8])
             self.write("ok")
+
+class ToSkipWizardHandler(BasicHandler):
+    def get(self):
+        self.render("skip_wizard.html")
+
+class SkipWizardHandler(BasicHandler):
+    def get(self):
+        self.wizzard.skip_me()
+        self.redirect("/home")
