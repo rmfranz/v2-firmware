@@ -18,6 +18,10 @@ $("#reset_board").on("click", function () {
     $("#reset_board_modal").toggleClass("k-modal-overlay--visible");
 });
 
+$("#restore_user_pref").on("click", function () {
+    $.get("/restore-user-pref").done($("#conf_reset_modal").toggleClass("k-modal-overlay--visible"));;
+});
+
 $("#confirm_reset").on("click", function () {
     $("#reset_board_modal").toggleClass("k-modal-overlay--visible");
     $("#wait_reset_board_modal").toggleClass("k-modal-overlay--visible");
@@ -40,4 +44,8 @@ $("#reset_ok_btn").on("click", function () {
 
 $("#done_modal_close").on("click", function () {
     $("#done_modal").toggleClass("k-modal-overlay--visible");
+});
+
+$("#conf_reset_modal_close").on("click", function () {
+    $("#conf_reset_modal").toggleClass("k-modal-overlay--visible");
 });

@@ -213,3 +213,7 @@ def check_premature_os():
         with open("/home/pi/config-files/hardware.json", 'w') as f:
                 json.dump(hardware_json, f)
         os.system("touch /home/pi/premature")
+
+def restore_user_pref():
+    os.system("cp /home/pi/v2-firmware/config_files_board/wizzard.json /home/pi/config-files/wizzard.json")
+    os.system("cp /home/pi/v2-firmware/config_files_board/user_conf.json /home/pi/config-files/user_conf.json")

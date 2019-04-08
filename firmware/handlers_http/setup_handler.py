@@ -1,6 +1,6 @@
 from handlers_http.basic_handler import BasicHandler
 from tornado.options import options
-from utils import get_extruder_materials, get_volume, set_volume
+from utils import get_extruder_materials, get_volume, set_volume, restore_user_pref
 import os
 import json
 from subprocess import check_output
@@ -228,3 +228,8 @@ class SkipWizardHandler(BasicHandler):
     def get(self):
         self.wizzard.skip_me()
         self.redirect("/home")
+
+class RestoreUserPref(BasicHandler):
+    def get(self):
+        restore_user_pref()
+        self.write("ok")

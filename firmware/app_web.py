@@ -154,6 +154,7 @@ class Application(tornado.web.Application):
             (r"/to-skip", ToSkipWizardHandler),
             (r"/skip-wizard", SkipWizardHandler),
             (r"/reset-board-uuid", ResetBoardUuidHandler),
+            (r"/restore-user-pref", RestoreUserPref),
             (r"/temperatures", TemperaturesWsHandler),
             (r"/heating-bed", HeatingBedWsHandler),
             (r"/heating-nozzle", HeatingNozzleWsHandler),
