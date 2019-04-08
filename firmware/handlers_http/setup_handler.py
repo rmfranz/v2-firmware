@@ -94,6 +94,14 @@ class GetUpdateHandler(BasicHandler):
             actual = "0"
         self.write({"new": new, "actual": actual})
 
+class GetActualVersionHandler(BasicHandler):
+    def get(self):
+        try:
+            actual = check_output("git describe --abbrev=0", shell=True, universal_newlines=True)
+        except:
+            actual = "0"
+        self.write({"actual": actual})
+
 class GetUpdateToDevHandler(BasicHandler):
     def get(self):
         scanoutput = check_output("git fetch --tags origin && git tag", shell=True, universal_newlines=True)
@@ -134,7 +142,7 @@ class UpdateHandler(BasicHandler):
 
 class ToInfoHandler(BasicHandler):
     def get(self):
-        self.render("info.html", serial=self.firmware.get_serial_number(), soft_version="V2", hard_version="V2")
+        self.render("info.html", serial=self.firmware.get_serial_number(), mac_address=self.firmware.get_macaddress(), hard_version="V2")
 
 class ToSoundHandler(BasicHandler):
     def get(self):

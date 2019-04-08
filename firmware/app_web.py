@@ -52,6 +52,7 @@ class Application(tornado.web.Application):
             (r"/print-cloud", PrintCloudHandler),
             (r"/set-user-cloud-pref", SetUserCloudHanlder),
             (r"/get-update", GetUpdateHandler),
+            (r"/get-actual-version", GetActualVersionHandler),
             (r"/get-dev-update", GetUpdateToDevHandler),
             (r"/software-update", ToUpdateHandler),
             (r"/make-update", UpdateHandler),

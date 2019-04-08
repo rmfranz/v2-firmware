@@ -7,12 +7,17 @@
             <p class="k-block-2-right">{{serial}}</p>
         </div>
         <div class="k-block-2 k-block-2--full">
-            <p class="k-block-2-left">{{_("info_swversion")}}</p>
-            <p class="k-block-2-right">{{soft_version}}</p>
-        </div>
-        <div class="k-block-2 k-block-2--full">
             <p class="k-block-2-left">{{_("info_hwversion")}}</p>
             <p class="k-block-2-right">{{hard_version}}</p>
+        </div>
+        <div class="k-block-2 k-block-2--full">
+            <p class="k-block-2-left">Mac Address</p>
+            <p class="k-block-2-right">{{mac_address}}</p>
+        </div>
+        <div id="waiting_info">{{_("waiting_info")}}</div>
+        <div id="soft_version_id" class="k-block-2 k-block-2--full initiallyHidden">
+            <p class="k-block-2-left">{{_("info_swversion")}}</p>
+            <p id="soft_version" class="k-block-2-right"></p>
         </div>
     </section>
 </main>
@@ -28,7 +33,7 @@
         <button id="dev_modal_close" class="k-modal__close">
             <img src="/static/images/icon_cancelar.svg" />
         </button>
-        <form action="/enable-dev-mode", method="POST">
+        <form action="/enable-dev-mode" , method="POST">
             <div class="k-modal-4">
                 <div class="k-modal-4__top">
                     <input type="text" class="k-intro-right__input" name="password" />
