@@ -51,9 +51,9 @@ class Wizzard():
             json.dump(self.wizzard_json, f)
 
     def skip_me(self):
-        self.wizzard_json["wifi"] == "skipped" 
-        self.wizzard_json["update"] == "skipped"
-        self.wizzard_json["cloud"] == "skipped"
-        self.wizzard_json["filament"] == "skipped"
+        self.wizzard_json["wifi"] = "skipped" 
+        self.wizzard_json["update"] = "skipped"
+        self.wizzard_json["cloud"] = "skipped"
+        self.wizzard_json["filament"] = "skipped"
         self.write_wizzard()
 
