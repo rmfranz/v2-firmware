@@ -121,7 +121,7 @@ $("#inspect_grid_points").on("click", function() {
 
 $("#reset_grid").on("click", function() {
     $.ajax({url: "/reset-grid", success: function(result){
-        console.info(result)
+        $('#warning_reset_modal').toggleClass( "k-modal-overlay--visible" );
     }});
 });
 
