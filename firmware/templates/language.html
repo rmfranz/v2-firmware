@@ -29,6 +29,16 @@
         {% else %}
         <p data-lang="pol" class="k-block__p lang">{{_("pl")}}</p>
         {% end %}
+        {%if lang == "por" %}
+        <p data-lang="por" class="k-block__p k-block__p--selected lang">{{_("pt")}}</p>
+        {% else %}
+        <p data-lang="por" class="k-block__p lang">{{_("pt")}}</p>
+        {% end %}
+        {%if lang == "deu" %}
+        <p data-lang="deu" class="k-block__p k-block__p--selected lang">{{_("de")}}</p>
+        {% else %}
+        <p data-lang="deu" class="k-block__p lang">{{_("de")}}</p>
+        {% end %}
     </section>
 </main>
 {%if not wizzard_viewed %}

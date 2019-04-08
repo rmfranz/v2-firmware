@@ -104,12 +104,13 @@ network_choose,Seleziona rete
 
 language_title,Idioma
 language_intro,Seleziona l'idioma per lo schermo:
-es,Español
-en,English
-fr,Français
-de,Deutsche
-it,Italiano
-pl,Polski
+es, Español
+en, English
+fr, Français
+de, Deutsche
+it, Italiano
+pl, Polski
+pt, Portuguese
 
 calibration_title,Calibrazione
 calibration_z_offset,Calibrazione offset Z
