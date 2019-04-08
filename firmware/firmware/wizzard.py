@@ -41,6 +41,7 @@ class Wizzard():
             self.filament_viewed = True
             return "/filaments-selection"
         if not self.viewed and not skipped:
+            self.viewed = True
             return "/to-skip"
         self.viewed = True
         return "/home"
