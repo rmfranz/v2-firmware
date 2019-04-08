@@ -81,7 +81,7 @@ class ToBasicHandler(BasicHandler):
 class ToUpdateHandler(BasicHandler):
     def get(self):
         if os.path.exists("/home/pi/dev_mode"):
-            self.render("updates_dev.html")
+            self.render("updates_dev.html", wizzard_viewed=self.wizzard.viewed)
         else:
             self.render("updates.html", wizzard_viewed=self.wizzard.viewed)
 
