@@ -254,3 +254,4 @@ print_load_file_popup_title, Datei laden
 print_load_file_popup_body, Bitte warten Sie. Dies kann einen Moment dauern.
 update_warning, Wir empfehlen Ihnen, die Software zu aktualisieren, um die neuesten Funktionen zu erhalten.
 waiting_info, Daten abrufen...
+skip_wizard, Do you want to skip this wizard next time the machine reboots?
