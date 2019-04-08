@@ -256,3 +256,4 @@ print_load_file_popup_body,Por favor espere. Esta operación demora un momento.
 update_warning,Recomendamos que actualice el software para tener las últimas mejoras.
 waiting_info,Obteniendo información...
 skip_wizard, Desea saltear la ayuda la proxima vez que la maquina reinicie?
+warning_reset_calibration, Are you sure you want to reset build plate calibration?

@@ -255,3 +255,4 @@ print_load_file_popup_body, Please wait. This may take a while.
 update_warning, 
 waiting_info,
 skip_wizard, Do you want to skip this wizard next time the machine reboots?
+warning_reset_calibration, Are you sure you want to reset build plate calibration?

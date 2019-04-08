@@ -256,3 +256,4 @@ print_load_file_popup_body,Per favore attendere. L'operazione potrebbe richieder
 update_warning,Consigliamo di aggiornare il software per ottenere le ultime funzionalitá
 waiting_info,Estrazione informazioni...
 skip_wizard, Do you want to skip this wizard next time the machine reboots?
+warning_reset_calibration, Are you sure you want to reset build plate calibration?

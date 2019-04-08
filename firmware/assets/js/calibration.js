@@ -125,6 +125,14 @@ $("#reset_grid").on("click", function() {
     }});
 });
 
+$("#reset_grid_no").on("click", function() {
+    $('#warning_reset_modal').toggleClass( "k-modal-overlay--visible" );
+});
+
+$("#reset_grid_btn").on("click", function() {
+    $('#warning_reset_modal').toggleClass( "k-modal-overlay--visible" );
+});
+
 $("#x_plus_button").on("click", function() {
     var oldValue = $("#xoffset").text();
     t1_xoffset = Number((parseFloat(oldValue) + 0.05).toFixed(2));
