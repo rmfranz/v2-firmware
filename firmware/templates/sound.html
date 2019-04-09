@@ -5,7 +5,7 @@
         <p class="k-modal__p k-modal__p--big">{{_("sound_volume")}} <span class="k-modal__volume"><div id="volume">{{volume}}</div> %</span></p>
         <input id="sound" type="range" min="0" max="100" step="1" value="{{volume}}" class="k-range" />
         <p class="k-modal__p k-modal__p--big k-modal__p--center">
-            {{_("sound_message")}}
+            {{_("sound_message").format(",")}}
         </p>
     </div>
     <audio id="audio" src="/static/sounds/microPulse.mp3" autostart="false" ></audio>

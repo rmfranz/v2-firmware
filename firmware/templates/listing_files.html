@@ -3,7 +3,7 @@
 <main class="k-main">
     <section class="k-block">
         {% if error %}
-            <p>{{_("nofilesfound")}}</p>
+            <p>{{_("nofilesfound").format(",")}}</p>
         {% else %}
             {% for key, value in items.items() %}
             <div class="k-block-2 file_selected" data-path="{{value}}" data-filename="{{ key }}">
