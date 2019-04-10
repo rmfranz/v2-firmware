@@ -117,10 +117,12 @@ class GetUpdateToDevHandler(BasicHandler):
         tags.append("master")
         if version in tags:
             if version == "master":
+                os.system("git checkout -f")
                 os.system("git checkout master")
                 os.system("git fetch")
                 os.system("git pull")
             else:
+                os.system("git checkout -f")
                 os.system("git fetch")
                 os.system("git checkout {}".format(version))
             os.system("sudo killall pigpiod")
