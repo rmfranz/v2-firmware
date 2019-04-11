@@ -144,7 +144,7 @@ class UpdateHandler(BasicHandler):
 
 class ToInfoHandler(BasicHandler):
     def get(self):
-        self.render("info.html", serial=self.firmware.get_serial_number(), mac_address=self.firmware.get_macaddress(), hard_version="V2")
+        self.render("info.html", serial=self.firmware.get_serial_number(), mac_address=self.firmware.get_macaddress(), hard_version=self.firmware.hardware_json["hw_version"])
 
 class ToSoundHandler(BasicHandler):
     def get(self):
