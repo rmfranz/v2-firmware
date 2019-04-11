@@ -224,4 +224,4 @@ def reset_mac():
         hardware_json = json.load(f)
     hardware_json["mac_address_eth0"] = ""
     with open(folder, 'w') as f:
-        json.dump(folder, f)
+        json.dump(hardware_json, f)
