@@ -3,9 +3,22 @@ from getmac import get_mac_address
 import glob
 import tornado
 from subprocess import check_output
+from firmware.smoothie_firmware import SmoothieFirmware
+from firmware.smoothie_firmware_3pt import SmoothieFirmware3PT
 
 class FirmwareDirector:
-    pass
+    def __init__(self):
+        with open("/home/pi/config-files/hardware.json") as f:
+            self.hardware_json = json.load(f)
+    
+    def give_me_firmware(self):
+        if self.hardware_json["hw_version"] == "HV1":
+            return SmoothieFirmware3PT()
+        elif self.hardware_json["hw_version"] == "HV2":
+            return SmoothieFirmware()
+        else:
+            # Need a default one
+            return BaseFirmware()
 
 class BaseFirmware:
 
@@ -87,7 +100,10 @@ class BaseFirmware:
 
     def get_version_list(self):
         #return list(self.version_json)
-        return ["HV2"]
+        versions = []
+        for key in self.version_json.keys():
+            versions.append(self.version_json[key]["hw_version"])
+        return versions
     
     def get_serial_number(self):
         return self.hardware_json["serial_number"]

@@ -6,8 +6,7 @@ import json
 class BuildPlateCalibrationHandler(BasicHandler):
     
     def get(self):
-        #TODO: Aca hay que poner la qué calibración va
-        self.render("25_calibration.html")
+        self.render(self.firmware.give_calibration_page())
 
 class CalibrationHandler(BasicHandler):
     
@@ -36,8 +35,8 @@ class SavePoints25Calibration(BasicHandler):
 
 class Points3Calibration(BasicHandler):
     def get(self):
-        self.firmware.move_to_p1(1)
-        self.render("3_calibration.html")
+        self.firmware.make_calibration()
+        self.write("ok")
 
 class ZOffsetCalibrationHandler(BasicHandler):
     

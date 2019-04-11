@@ -19,7 +19,7 @@ from handlers_http.lights_handler import *
 from handlers_http.extruders_handler import *
 from handlers_http.network_handler import *
 from handlers_http.cloud_handler import *
-from firmware.smoothie_firmware import SmoothieFirmware
+from firmware.firmware import FirmwareDirector
 from tornado import httpclient
 import logging
 import pickle
@@ -107,6 +107,7 @@ class Application(tornado.web.Application):
             (r"/xy-offset-calibration", XYOffsetCalibrationHandler),
             (r"/points-25-calibration", Points25Calibration),
             (r"/save-25-calibration", SavePoints25Calibration),
+            (r"/make-3-calibration", Points3Calibration),
             (r"/show-grid", Show25GridCalibration),
             (r"/reset-grid", ResetGridCalibration),
             (r"/wifi-connection", WifiConnectionHandler),
@@ -156,6 +157,7 @@ class Application(tornado.web.Application):
             (r"/skip-wizard", SkipWizardHandler),
             (r"/reset-board-uuid", ResetBoardUuidHandler),
             (r"/restore-user-pref", RestoreUserPref),
+            (r"/reset-mac", ResetMacPref),
             (r"/temperatures", TemperaturesWsHandler),
             (r"/heating-bed", HeatingBedWsHandler),
             (r"/heating-nozzle", HeatingNozzleWsHandler),
@@ -174,7 +176,7 @@ class Application(tornado.web.Application):
         perform_os_check()
         #check_premature_os()
         #Put FirmwareDirector, this is wrong
-        self.firmware = SmoothieFirmware()
+        self.firmware = FirmwareDirector().give_me_firmware()
         self.gpio = Gpio()
         self.wizzard = Wizzard()
 
@@ -232,6 +234,7 @@ class VersionHandler(BasicHandler):
     def post(self):
         version = self.get_body_argument("version")
         self.firmware.set_version(version)
+        self.application.firmware = FirmwareDirector().give_me_firmware()
         self.firmware.initialize()
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/refresh", raise_error=False)

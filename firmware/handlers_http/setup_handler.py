@@ -1,6 +1,6 @@
 from handlers_http.basic_handler import BasicHandler
 from tornado.options import options
-from utils import get_extruder_materials, get_volume, set_volume, restore_user_pref
+from utils import get_extruder_materials, get_volume, set_volume, restore_user_pref, reset_mac
 import os
 import json
 from subprocess import check_output
@@ -242,4 +242,9 @@ class SkipWizardHandler(BasicHandler):
 class RestoreUserPref(BasicHandler):
     def get(self):
         restore_user_pref()
+        self.write("ok")
+
+class ResetMacPref(BasicHandler):
+    def get(self):
+        reset_mac()
         self.write("ok")

@@ -253,6 +253,9 @@ class SmoothieFirmware(BaseFirmware):
         response = os.system("sudo umount /media/smoothie")
         return response
 
+    def give_calibration_page(self):
+        return "25_calibration.html"
+
     def calibration_25_points_until_complete(self):
         self.printrun.send_now("G28")
         self.printrun.send_now("G32")

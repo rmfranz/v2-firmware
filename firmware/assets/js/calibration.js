@@ -23,6 +23,10 @@ function finish_calibration() {
     window.location.href = "/back-calibration-selection";
 }
 
+function finish_3_calibration() {
+    $("#3pt_calibration_wait").toggleClass( "k-modal-overlay--visible" );
+}
+
 var {t0_offset, t1_offset, t1_yoffset, t1_xoffset} = get_offsets();
 $("#zoffset").text(t0_offset);
 $("#yoffset").text(t1_yoffset);
@@ -230,4 +234,10 @@ $("#help_z_calibration").on("click", function() {
 
 $("#error_calibration_modal_close").on("click", function() {
     $("#calibration_error").toggleClass( "k-modal-overlay--visible" );
+});
+
+$("#3_points_calibration").on("click", function() {
+    $("#3pt_calibration_wait").toggleClass( "k-modal-overlay--visible" );
+    $.get("/make-3-calibration");
+    setTimeout(finish_3_calibration, 20000);
 });

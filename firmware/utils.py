@@ -217,3 +217,11 @@ def check_premature_os():
 def restore_user_pref():
     os.system("cp /home/pi/v2-firmware/config_files_board/wizzard.json /home/pi/config-files/wizzard.json")
     os.system("cp /home/pi/v2-firmware/config_files_board/user_conf.json /home/pi/config-files/user_conf.json")
+
+def reset_mac():
+    folder = "/home/pi/config-files/hardware.json"
+    with open(folder) as f:
+        hardware_json = json.load(f)
+    hardware_json["mac_address_eth0"] = ""
+    with open(folder, 'w') as f:
+        json.dump(folder, f)
