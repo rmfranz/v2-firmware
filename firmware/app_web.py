@@ -19,7 +19,7 @@ from handlers_http.lights_handler import *
 from handlers_http.extruders_handler import *
 from handlers_http.network_handler import *
 from handlers_http.cloud_handler import *
-from firmware.firmware import FirmwareDirector
+from firmware.director import FirmwareDirector
 from tornado import httpclient
 import logging
 import pickle
