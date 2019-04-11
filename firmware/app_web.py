@@ -235,7 +235,7 @@ class VersionHandler(BasicHandler):
         version = self.get_body_argument("version")
         self.firmware.set_version(version)
         self.application.firmware = FirmwareDirector().give_me_firmware()
-        self.firmware.initialize()
+        self.application.firmware.initialize()
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/refresh", raise_error=False)
         self.redirect("/home")
