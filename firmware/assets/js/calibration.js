@@ -239,5 +239,5 @@ $("#error_calibration_modal_close").on("click", function() {
 $("#3_points_calibration").on("click", function() {
     $("#3pt_calibration_wait").toggleClass( "k-modal-overlay--visible" );
     $.get("/make-3-calibration");
-    setTimeout(finish_3_calibration, 20000);
+    setTimeout(finish_3_calibration, 43000);
 });
