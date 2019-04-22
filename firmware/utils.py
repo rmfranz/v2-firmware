@@ -36,6 +36,11 @@ def perform_os_check():
         os.system("cp /home/pi/v2-firmware/config_files_board/on_boot.gcode /home/pi/config-files/on_boot.gcode")
     if not os.path.exists("/home/pi/config-files/wizzard.json"):
         os.system("cp /home/pi/v2-firmware/config_files_board/wizzard.json /home/pi/config-files/wizzard.json")
+    if not os.path.exists("/media/usb"):
+        os.system("sudo mount -o remount,rw /")
+        os.system("sudo mkdir /media/usb")
+        os.system("sudo chown -R pi:pi /media/usb")
+        os.system("sudo mount -o remount,ro /")
     try:
         os.system("amixer cset numid=3 1")
     except:
