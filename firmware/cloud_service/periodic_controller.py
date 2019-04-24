@@ -49,12 +49,16 @@ class PeriodicController:
         self.ws_url = "ws://127.0.0.1:8888/cloud"
         self.ws_initialized = False
         self.ioloop = tornado.ioloop.IOLoop(make_current=False)
-        self.camera = picamera.PiCamera()
-        self.camera.rotation = 90
-        self.camera.resolution = "480x640"
+        try:
+            self.camera = picamera.PiCamera()
+            self.camera.rotation = 90
+            self.camera.resolution = "480x640"
+        except:
+            self.camera = None
         if self.auth_token:
             self.api_caller.start()
-            self.camera_caller.start()
+            if self.camera:
+                self.camera_caller.start()
 
 
     def set_auth_token_caller(self, caller):
@@ -83,7 +87,8 @@ class PeriodicController:
             self.write_user_conf_json()
             self.stop_auth_token_caller()
             self.api_caller.start()
-            self.camera_caller.start()
+            if self.camera:
+                self.camera_caller.start()
             self.create_connection_and_send("connected")
         else:
             print("There is nothing: {}".format(resp_dict))
@@ -96,7 +101,8 @@ class PeriodicController:
             self.write_hardware_json()
             self.stop_auth_token_caller()
             self.api_caller.start()
-            self.camera_caller.start()
+            if self.camera:
+                self.camera_caller.start()
             self.create_connection_and_send("connected")
         else:
             print("There is nothing: {}".format(resp_dict))
