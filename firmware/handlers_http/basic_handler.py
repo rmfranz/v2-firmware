@@ -13,3 +13,6 @@ class BasicHandler(RequestHandler):
 
     def get_user_locale(self):
         return tornado.locale.get(self.firmware.user_conf_json["language"])
+
+    def write_error(self, status_code, **kwargs):
+        self.render("error.html")
