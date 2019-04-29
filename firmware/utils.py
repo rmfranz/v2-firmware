@@ -234,3 +234,10 @@ def reset_mac():
     hardware_json["mac_address_eth0"] = ""
     with open(folder, 'w') as f:
         json.dump(hardware_json, f)
+
+def check_connectivity():
+    out = None
+    try:
+        out = check_output("ip route get 8.8.8.8 | grep -Po 'dev \K\w+'", shell=True, universal_newlines=True)
+    finally:
+        return out

@@ -4,6 +4,9 @@ $.get("/get-update").done(function(data){
     $('#actual').text(data.actual);
     $("#waiting_info").toggleClass("initiallyHidden");
     $('#version_actual').toggleClass("initiallyHidden");
+  } else if(!data.connectivity.startsWith("eth") && !data.connectivity.startsWith("wlan")) {
+    $("#waiting_info").toggleClass("initiallyHidden");
+    $("#no_connection").toggleClass("initiallyHidden");
   } else {
     $('#actual').text(data.actual);
     $('#new').text(data.new);    

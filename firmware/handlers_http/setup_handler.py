@@ -1,6 +1,6 @@
 from handlers_http.basic_handler import BasicHandler
 from tornado.options import options
-from utils import get_extruder_materials, get_volume, set_volume, restore_user_pref, reset_mac
+from utils import get_extruder_materials, get_volume, set_volume, restore_user_pref, reset_mac, check_connectivity
 import os
 import json
 from subprocess import check_output
@@ -92,7 +92,7 @@ class GetUpdateHandler(BasicHandler):
             actual = check_output("git describe --abbrev=0", shell=True, universal_newlines=True)
         except:
             actual = "0"
-        self.write({"new": new, "actual": actual})
+        self.write({"new": new, "actual": actual, "connectivity": check_connectivity()})
 
 class GetActualVersionHandler(BasicHandler):
     def get(self):
