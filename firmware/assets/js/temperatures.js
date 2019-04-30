@@ -8,24 +8,24 @@ var is_heating = false;
 
 function update_temperatures() {
    if(t0 == 0){
-      $("#t0").text("27 C")
+      $("#t0").text("27°C")
    } else {
-      $("#t0").text(t0 + " C")
+      $("#t0").text(t0 + "°C")
    }
    if(t1 == 0){
-      $("#t1").text("28 C")
+      $("#t1").text("28°C")
    } else {
-      $("#t1").text(t1 + " C")
+      $("#t1").text(t1 + "°C")
    }
    if(bed == 0){
-      $("#plate").text("27 C")
+      $("#plate").text("27°C")
    } else {
-      $("#plate").text(bed + " C")
+      $("#plate").text(bed + "°C")
    }
    if(amb == 0){
-      $("#amb").text("28 C")
+      $("#amb").text("28°C")
    } else {
-      $("#amb").text(amb + " C")
+      $("#amb").text(amb + "°C")
    }
 }
 
