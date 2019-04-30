@@ -236,7 +236,7 @@ def reset_mac():
         json.dump(hardware_json, f)
 
 def check_connectivity():
-    out = None
+    out = "no_connection"
     try:
         out = check_output("ip route get 8.8.8.8 | grep -Po 'dev \K\w+'", shell=True, universal_newlines=True)
     finally:
