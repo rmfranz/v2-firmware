@@ -23,13 +23,7 @@ function set_connection_status(){
             $("#wifi_icon").attr("src","/static/images/icon_wifi-conectado.svg");
         }
     })
+    setTimeout(set_connection_status, 30000);
 };
 
-var wifi_status = get_cookie("wifi_status");
-var cloud_status = get_cookie("cloud_status");
-
-if(wifi_status == "" || cloud_status == ""){
-    set_connection_status();
-}
-
-setInterval(set_connection_status, 30000);
+set_connection_status();
