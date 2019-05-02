@@ -358,7 +358,7 @@ class SmoothieFirmware(BaseFirmware):
 
     def extrude(self, extruder):
         self.printrun.send_now(extruder)
-        self.printrun.send_now("G1 E10 F500")
+        self.printrun.send_now("G1 E10 F80")
         self.printrun.send_now("G92 E0")
 
     def retract(self, extruder):
