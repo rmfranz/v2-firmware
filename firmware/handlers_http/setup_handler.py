@@ -254,7 +254,7 @@ class SetConnectionStatusHandler(BasicHandler):
     def get(self):
         with open("/home/pi/config-files/user_conf.json") as f:
             user_conf_json = json.load(f)
-        result = check_connectivity()
+        result = str(check_connectivity())
         self.set_cookie('cloud_status', user_conf_json['cloud_pref'])
         self.set_cookie('wifi_status', result)
         self.write({'cloud_status': user_conf_json['cloud_pref'], 'wifi_status': result})
