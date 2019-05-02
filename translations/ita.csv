@@ -3,32 +3,42 @@ hello,Hello!
 lets_get_started,Cominciamo!
 we_will_guide_you_1,Segui i passaggi per avere
 we_will_guide_you_2,la migliore esperienza.
+,
+,
 errors_modal_title,Errore di connessione
 errors_printer_status,
 Disconnected,Connessione non riuscita.
 Connecting,
 Error,
 errors_modal_disconnected,Verifica la connessione e riavvia la stampante.
+,
+,
 warnings_modal_title,Importante
 warnings_modal_ok,Ok
+,
+,
 setup_internet,Seleziona Avanti per impostare internet.
 download_updates,Seleziona Avanti per aggiornare il software.
 connect_to_the_cloud,Seleziona Avanti per connetterti alla Cloud.
 load_filament,Seleziona Avanti per caricare filamento o Ignora.
 onboarding_skip,Ignora
 onboarding_next,Avanti
+,
+,
 home_title,Home
 home_print,Stampa
 home_settings,Configurazione
 home_message_1,Ciao{} sono pronta a stampare.
 home_message_2,Visita https://cloud.smart3d.tech per stampare.
+,
 files_title,File
 files_intro,Selezionare l'oggetto da stampare.
-files_pendrive,Unità flash USB
+files_pendrive,Chiave USB
 files_samples,File locali
 files_calibration,Oggetti di calibrazione
 loadingFiles,
 nofilesfound,Nessun file trovato
+,
 mcontrol_title,Controllo manuale
 prepprint_leftnozzle,
 prepprint_rightnozzle,
@@ -38,6 +48,7 @@ other_filament,Altri filamenti
 manualcontrol_extruders,Estrusori
 manualcontrol_light,Leds
 platform,
+,
 config_title,Configurazione
 config_internet,Internet
 config_filaments,Filamenti
@@ -45,9 +56,17 @@ config_extras,Extra
 back,Indietro
 config_calibration,Calibrazione
 config_cloud,Cloud
+,
+,
 filaments_menu_title,Filamenti
 filaments_menu_load,Caricando filamento
 filaments_menu_unload,Scarica filamento
+filament_auto_load_message,La procedura é automatica. Attenderne la fine e tornare allo schermo precedente. 
+filament_auto_load_instruction,Inserisci il filamento nell'estrusore [XXX] sul retro della stampante.
+filament_auto_load,Carica filamento
+filament_auto_unload,Scarica filamento
+confirm_filament,Sei sicuro di voler interrompere l'operazione?
+,
 filamentsetup_title,Imposta filamento
 add_filament,Nuovo filamento
 filament_name,Nome
@@ -59,6 +78,8 @@ f_false,No
 newfilament_failure,Non è stato possibile creare il nuovo filamento. Riprova nuovamente.
 filament_confirm_delete,Sei sicuro di voler eliminare questo filamento?
 filament_delete,Elimina filamento
+,
+,
 extruder,Estrusore
 extruder_loaded,Carico
 filaments_heating,Attendere il riscaldamento...
@@ -75,6 +96,8 @@ filaments_retracting_info,Assicurarsi che l'estrusore stia retraendo correttamen
 filaments_released,Rimuovere la bobina.
 filaments_released_info,Il filamento dovrebbe essere uscito dall'estrusore.
 filaments_retracting_extruder,Ritraendo il filamento
+,
+,
 network_title,Reti
 network_password,Password
 network_connect_failure,Connessione non riuscita (password errata?)
@@ -85,6 +108,7 @@ connect_cancel,Cancella
 connect,Connetti
 connecting,Collegamento in corso...
 network_choose,Seleziona rete
+,
 language_title,Idioma
 language_intro,Seleziona l'idioma per lo schermo:
 es,Español
@@ -94,6 +118,7 @@ de,Deutsche
 it,Italiano
 pl,Polski
 pt,Portuguese
+,
 calibration_title,Calibrazione
 calibration_z_offset,Calibrazione offset Z
 calibration_z_probe,Calibrazione piano di stampa
@@ -102,27 +127,53 @@ calibration_offset_z,Offset Z
 calibration_probe_triggered,Sensore attivato
 calibration_saving,Salvataggio in corso...
 calibration_save,Salva 
+calibration_offset_xy,Leggere le istruzioni prima di cominciare.
 calibration_offset_x,Offset X
 calibration_offset_y,Offset Y
 instructions_modal_title_Zoffset,Alzare il piatto sino a toccare l'ugello. 
 instructions_modal_title_Cal25step1,Attendere sino a che il carro si fermi al centro degli assi XY.
 instructions_modal_title_Cal25step2,Alzare il piatto con le frecce sino a toccare l'ugello. Poi selezionare Salva.
 instructions_modal_text_Cal25_continue,Continua
+calibration_grid_value,Valori di calibrazione
+calibration_grid_value_info,La stampante é calibrata. Se uno o più valori sono N/D{} suggeriamo pulire ugello e piattaforma e ripetere l'operazione.
+help_25_calibration_title,Calibrare
+help_25_calibration_body,
+help_25_reset_title,Reimpostare
+help_25_reset_body,
+help_25_inspect_title,Ispeziona
+help_25_inspect_body,
+warning_reset_calibration,Are you sure you want to reset build plate calibration?
 calibration_buildplate_step1,Passo 1
 calibration_buildplate_step2,Passo 2
-calibration_extruder_change,
+calibration_xy,Calibrazione XY
+calibration_wait,Attendere la fine della sequenza di calibrazione.
+calibration_make,Calibra
+calibration_reset,Reimposta
+calibration_inspect,Ispeziona
+calibration_reset_board,Attendere il riavvio della stampante. Potrebbe essere necessario ancora qualche istante.
+calibration_hotend_1,Hotend I
+calibration_hotend_2,Hotend II
+calibration_extruder_change,Attendere il cambio di ugello.
+calibration_error,Errore imprevisto. Contattare il supporto tecnico.
+,
 calibration_wizard_title,Calibrazione assistita
 waiting_for_initial_movements,Attendere la fine dei movimenti.
 done,Chiudi
+skip_wizard,Do you want to skip this wizard next time the machine reboots?
+update_warning,Consigliamo di aggiornare il software per ottenere le ultime funzionalitá.
+,
+,
 offset_P1,Offset P1
 offset_P2,Offset P2
 offset_P3,Offset P3
+,
 info_title,Informazioni stampante
 change_language,Modifica lingua
 info_printeraddress,Indirizzo IP (WiFi)
 info_printeraddress_ethernet,Indirizzo IP (Eth)
-info_serialnumber,Numero di serie:
-info_swversion,Versione software:
+info_serialnumber,Numero di serie
+info_swversion,Versione software
+info_hwversion,Versione hardware
 info_updateavailable,Aggiornamento disponibilie
 waitForUpdate,{{percentage}}% aggiornato
 waitForReboot,Attendere il riavvio.
@@ -130,26 +181,41 @@ info_update,Aggiorna versione
 info_confirm_update,Vuoi aggiornare da {{ from }} a {{ to }}?
 info_network,Rete
 info_language,Lingua
+,
+,
 backupForLeft,Backup per ugello sinistro
 presetOnFile,Predefinito nel file
 Off (0ºC),Spento
 Calculating...,Calcolo...
 nozzleDisconnected,Hotend non connesso
-noFilesFound,Inserisci la memoria USB e attendi il caricamento dei file.
+noFilesFound,Inserisci la chiave USB e attendi il caricamento dei file.
+print_load_file_popup,Per favore attendere il caricamento del file. Potrebbe essere necessario ancora qualche istante.
+print_load_file_popup_title,Caricamento file in corso
+print_load_file_popup_body,Per favore attendere. L'operazione potrebbe richiedere alcuni minuti.
+,
+print_message,Adesso puoi rimuovere la chiave USB in modo sicuro.
+,
 monitor_printingtime,Durata stampa:
 monitor_elapsedtime,Tempo trascorso
 monitor_pause,Pausa
 monitor_paused,Pausato
 monitor_cancel,Annullare
 monitor_printdone,Stampa completata
+,
 confirm_cancel,Vuoi cancellare la stampa?
 confirm_yes,Si
 confirm_no,No
 confirm_pause,Sei sicuro di voler pausare questa stampa?
 monitor_resume,Riprendi
 monitor_rate,Valuta
+,
+,
 nozzle_intro,Seleziona il diametro degli ugelli installati
 nozzle_modal_title,Imposta il diametro dell'ugello
+,
+,
+,
+,
 cloud_title,KODAK 3D Cloud
 cloud_intro,Usa questo codice per registrare e operare questa stampante dal tuo profilo KODAK 3D Cloud.
 cloud_intro2,Registrati su cloud.smart3d.tech
@@ -171,57 +237,60 @@ cloud_disconnect,Disconnetti
 cloud_connect,Connetti
 job_cancel,Rimuovi dalla coda di stampa
 job_print,Stampa
+,
 extras_title,Extra
 extras_controls,Configurazione
 extras_tools,Accessori
 extras_info,Info
 extras_update,Update
 extras_sound,Suono
+,
 sound_message,Regola il volume mentre ascolti la musica.
 sound_off,Off
 sound_max,Max
 sound_volume,Volume
+,
 updates_updating,Aggiornato a 
 custom_version,Versione personalizzata
 updates_latest,Hai l'ultima versione.
 updates_updating_footer,Importante: non spegnere il dispositivo durante l'aggiornamento
 updates_success,Aggiornamento completato. Attendi il riavvio.
+,
 print_selection_title,Stampa
 print_selection_cloud,Stampa dalla Cloud
 print_selection_local,Stampa un file locale
-cancel_popup_title,Sto annullando la stampa
-cancel_popup_body,Attendere
+,
+cancel_popup_title,Sto annullando la stampa.
+cancel_popup_body,Attendere.
+,
+info_title,Inforomazioni
+,
 config_connectivity,Connettività
 config_advanced,Controlli manuali
 config_nozzle_size,Diametro ugello
 config_motors,Motori
-filament_auto_load_message,La procedura é automatica. Attenderne la fine e tornare allo schermo precedente. 
-filament_auto_load,Carica filamento
-filament_auto_unload,Scarica filamento
-calibration_xy,Calibrazione XY
-calibration_wait,Attendere la fine della sequenza di calibrazione.
-calibration_make,Calibra
-calibration_reset,Reimposta
-calibration_inspect,Ispeziona
-calibration_reset_board,Attendere il riavvio della stampante. Potrebbe essere necessario ancora qualche istante.
-calibration_hotend_1,Hotend I
-calibration_hotend_2,Hotend II
-calibration_extruder_change,Attendere il cambio di ugello.
-print_load_file_popup,Per favore attendere il caricamento del file. Potrebbe essere necessario ancora qualche istante.
 config_wifi,WiFi
-info_hwversion,Versione hardware
-help_25_calibration_title,Calibrare
-help_25_calibration_body,
-help_25_reset_title,Reimpostare
-help_25_reset_body,
-help_25_inspect_title,Ispeziona
-help_25_inspect_body,
+,
 error,Riavviare la stampante. Se il problema persiste{} contattare il servizio tecnico.
-confirm_filament,Sei sicuro di voler interrompere l'operazione?
-calibration_error,Errore imprevisto. Contattare il supporto tecnico.
-print_load_file_popup_title,Caricamento file in corso
-print_load_file_popup_body,Per favore attendere. L'operazione potrebbe richiedere alcuni minuti.
-update_warning,Consigliamo di aggiornare il software per ottenere le ultime funzionalitá.
 waiting_info,Estrazione informazioni...
-skip_wizard,Do you want to skip this wizard next time the machine reboots?
-warning_reset_calibration,Are you sure you want to reset build plate calibration?
+,
+,
+,
+,
+,
+,
+,Ugello sinistro
+,Ugello destro
+,
+,Nessun file trovato
+,carro
+,Sto pensando.
+,Attendere
+,Caricamento in corso.
+,Oops! Si é verificato un problema.
+,Errore imprevisto.
+,Opzioni avanzate
+,Impostazioni di stampa configurate da .gcode
+,
+,Disattivare motori
+,Attivare motori

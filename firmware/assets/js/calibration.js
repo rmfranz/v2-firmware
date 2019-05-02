@@ -126,6 +126,7 @@ $("#inspect_grid_points").on("click", function() {
 $("#reset_grid").on("click", function() {
     $.ajax({url: "/reset-grid", success: function(result){
         $('#warning_reset_modal').toggleClass( "k-modal-overlay--visible" );
+        $("#done_modal").toggleClass("k-modal-overlay--visible")
     }});
 });
 
@@ -240,4 +241,8 @@ $("#3_points_calibration").on("click", function() {
     $("#3pt_calibration_wait").toggleClass( "k-modal-overlay--visible" );
     $.get("/make-3-calibration");
     setTimeout(finish_3_calibration, 43000);
+});
+
+$("#done_modal_close").on("click", function () {
+    $("#done_modal").toggleClass("k-modal-overlay--visible");
 });

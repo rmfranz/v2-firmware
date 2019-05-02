@@ -35,7 +35,7 @@ class BackLoadUnloadActionHandler(BasicHandler):
     def get(self):
         self.firmware.cold_extruders()
         #self.firmware.homming()
-        self.redirect("/setup")
+        self.render("filaments_selection.html")
 
 class BackPrintFinishedHandler(BasicHandler):
     def get(self):
