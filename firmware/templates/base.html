@@ -19,7 +19,10 @@
 <body>
     <header class="k-header">
         <div class="k-header-container">
-            <a href="/home?wizzard=0" class="k-header-left">
+            <!--<a href="/home?wizzard=0" class="k-header-left">
+                <img src="/static/images/logo-52.svg" height="70px">
+            </a>-->
+            <a class="k-header-left">
                 <img src="/static/images/logo-52.svg" height="70px">
             </a>
             <ul class="k-header-center">
@@ -37,8 +40,8 @@
                 </li>
             </ul>
             <ul class="k-header-right">
-                <li><img src="/static/images/icon_wifi-conectado.svg"></li>
-                <li><img src="/static/images/icon_nube-conectada.svg"></li>
+                <li><img id="wifi_icon" src="/static/images/icon_wifi-desconectado.svg"></li>
+                <li><img id="cloud_icon" src="/static/images/icon_nube-desconectada.svg"></li>
             </ul>
         </div>
     </header>
@@ -71,6 +74,7 @@
         </div>
     </section>
 
+    <script src="/static/js/icons.js"></script>
     <script src="/static/js/temperatures.js"></script>
     <script src="/static/js/cloud_commands.js"></script>
     <script src="/static/js/error_handler.js"></script>
