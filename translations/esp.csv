@@ -273,8 +273,8 @@ config_wifi,WiFi
 ,
 error,Reinicie la impresora y si el error vuelve a ocurrir contactese con el servicio técnico.
 waiting_info,Obteniendo informazioni...
-,
-,
+manual_reboot,Por favor apague la impresora{} espera 15s y luego enciéndala nuevamente. Los valores de calibraciòn sólo tomarán efecto luego de reiniciarla.
+calibration_offset_saving,Guardando los datos de calibración...
 ,
 ,
 ,

@@ -273,8 +273,8 @@ config_wifi,WiFi
 ,
 error,Riavviare la stampante. Se il problema persiste{} contattare il servizio tecnico.
 waiting_info,Estrazione informazioni...
-,
-,
+manual_reboot,
+calibration_offset_saving,
 ,
 ,
 ,

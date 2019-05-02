@@ -273,8 +273,8 @@ config_wifi,WiFi
 ,
 error,Reinicie a impressora e se o erro persistir{} contate o suporte técnico.
 waiting_info,Buscando dados...
-,
-,
+manual_reboot,
+calibration_offset_saving,
 ,
 ,
 ,

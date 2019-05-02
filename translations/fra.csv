@@ -273,8 +273,8 @@ config_wifi,WiFi
 ,
 error,Veuillez redémarrer l'imprimante. Si le problème se reproduit{} contactez votre service technique.
 waiting_info,Extraction des données...
-,
-,
+manual_reboot,
+calibration_offset_saving,
 ,
 ,
 ,

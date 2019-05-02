@@ -273,8 +273,8 @@ config_wifi,WiFi
 ,
 error,Proszę ponownie uruchomić drukarkę. Jeśli problem będzie nadal występował{} proszę skontaktować się ze wsparciem technicznym.
 waiting_info,Pobieram dane...
-,
-,
+manual_reboot,
+calibration_offset_saving,
 ,
 ,
 ,

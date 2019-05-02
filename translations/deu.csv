@@ -273,8 +273,8 @@ config_wifi,WiFi
 ,
 error,Bitte starten Sie den Drucker neu und wenn das Problem erneut auftritt{} wenden Sie sich an den technischen Support.
 waiting_info,Daten abrufen...
-,
-,
+manual_reboot,
+calibration_offset_saving,
 ,
 ,
 ,
