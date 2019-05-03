@@ -34,7 +34,7 @@ home_message_2,Please go to https://cloud.smart3d.tech to start printing.
 files_title,Files
 files_intro,Select an object to print.
 files_pendrive,USB flash drive
-files_samples,Local files
+files_samples,Sample files
 files_calibration,Calibration files
 loadingFiles,
 nofilesfound,No files found
@@ -257,7 +257,7 @@ updates_updating_footer,Important: do not turn the printer off while updating.
 updates_success,Update successful. Please wait for reboot.
 ,
 print_selection_title,Print
-print_selection_cloud,Print from Cloud
+print_selection_cloud,Print Queue
 print_selection_local,Print from local file
 ,
 cancel_popup_title,Cancelling the print.
@@ -275,7 +275,7 @@ error,Please restart the printer and if the problem occurs again{} contact tech 
 waiting_info,Fetching data...
 manual_reboot,Please turn off the printer{} wait 15s and turn it on again. Calibration settings will only be applied after restarting the printer.
 calibration_offset_saving,Saving the calibration values...
-,
+onboarding_welcome_to_v2,Thank you for your patience while updating{} your printer now has firmware v2.0.x.   Enjoy the experience!
 ,
 ,
 ,

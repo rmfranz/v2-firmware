@@ -34,7 +34,7 @@ home_message_2,Ingrese a https://cloud.smart3d.tech para imprimir.
 files_title,Archivos
 files_intro,Seleccione un objeto para imprimir.
 files_pendrive,Unidad flash USB
-files_samples,Archivos locales
+files_samples,Archivos de ejemplo
 files_calibration,Objetos de calibración
 loadingFiles,
 nofilesfound,No se encontraron objetos
@@ -59,7 +59,7 @@ config_cloud,Nube
 ,
 ,
 filaments_menu_title,Filamentos
-filaments_menu_load,Cargarndo filamento
+filaments_menu_load,Cargando filamento
 filaments_menu_unload,Descargar filamento
 filament_auto_load_message,Este proceso es automático. Espere a que termine y vuelva a la pantalla anterior.
 filament_auto_load_instruction,Inserte el filamento en el extrusor [XXX] en el dorso de la impresora.
@@ -257,7 +257,7 @@ updates_updating_footer,Importante: no apague la impresora durante la actualizac
 updates_success,Actualización exitosa. Aguarde el reinicio.
 ,
 print_selection_title,Imprimir
-print_selection_cloud,Imprimir desde la nube
+print_selection_cloud,Cola de impresión
 print_selection_local,Imprimir un archivo local
 ,
 cancel_popup_title,Cancelando la impresión.
@@ -275,7 +275,7 @@ error,Reinicie la impresora y si el error vuelve a ocurrir contactese con el ser
 waiting_info,Obteniendo informazioni...
 manual_reboot,Por favor apague la impresora{} espera 15s y luego enciéndala nuevamente. Los valores de calibraciòn sólo tomarán efecto luego de reiniciarla.
 calibration_offset_saving,Guardando los datos de calibración...
-,
+onboarding_welcome_to_v2,Gracias por actualizar a la versión 2.0! Su impresora cuanta ahora con nuevas funcionalidades.
 ,
 ,
 ,

@@ -273,9 +273,9 @@ config_wifi,WiFi
 ,
 error,Riavviare la stampante. Se il problema persiste{} contattare il servizio tecnico.
 waiting_info,Estrazione informazioni...
-manual_reboot,
-calibration_offset_saving,
-,
+manual_reboot,Please turn off the printer{} wait 15s and turn it on again. Calibration settings will only be applied after restarting the printer.
+calibration_offset_saving,Saving the calibration values...
+onboarding_welcome_to_v2,Thank you for your patience while updating{} your printer now has firmware v2.0.x.   Enjoy the experience!
 ,
 ,
 ,
