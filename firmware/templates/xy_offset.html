@@ -51,12 +51,36 @@
             <div class="k-modal-2">
                 <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
                 <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
-                    {{_("calibration_reset_board").format(",")}}
+                    {{_("calibration_offset_saving").format(",")}}
                 </p>
             </div>
         </div>
     </div>
 </section>
+<section id="manual_reboot_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-4">
+            <div class="k-modal-4__top">
+                <p>{{_("manual_reboot")}}</p>
+            </div>
+            <div class="k-modal-4__bottom">
+                <button id="confirm_manual_reboot" class="k-modal-4__button k-modal-4__button--red">OK</button>
+            </div>
+        </div>
+    </div>
+  </section>
+<section id="manual_reboot_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-4">
+            <div class="k-modal-4__top">
+                <p>{{_("manual_reboot")}}</p>
+            </div>
+            <div class="k-modal-4__bottom">
+                <button id="confirm_manual_reboot" class="k-modal-4__button k-modal-4__button--red">OK</button>
+            </div>
+        </div>
+    </div>
+  </section>
 <section id="calibration_error" class="k-modal-overlay">
     <div class="k-modal">
         <button id="error_calibration_modal_close" class="k-modal__close">

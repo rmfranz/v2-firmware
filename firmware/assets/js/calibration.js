@@ -98,7 +98,9 @@ $("#save_zoffset").on("click", function() {
     $.post( "/z-offset-calibration", { zoffset_t0: t0_offset, zoffset_t1: t1_offset })
     .done(function( data ) {
         if(data == "ok"){
-            setTimeout(finish_calibration, 30000);
+            //setTimeout(finish_calibration, 30000);
+            $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
+            $("#manual_reboot_modal").toggleClass( "k-modal-overlay--visible" );
         } else {
             $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
             $("#calibration_error").toggleClass( "k-modal-overlay--visible" );
@@ -166,7 +168,9 @@ $("#save_xyoffset").on("click", function() {
     $.post( "/xy-offset-calibration", { yoffset: t1_yoffset, xoffset: t1_xoffset })
     .done(function( data ) {
         if(data == "ok"){
-            setTimeout(finish_calibration, 30000);
+            //setTimeout(finish_calibration, 30000);
+            $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
+            $("#manual_reboot_modal").toggleClass( "k-modal-overlay--visible" );
         } else {
             $("#calibration_reset").toggleClass( "k-modal-overlay--visible" );
             $("#calibration_error").toggleClass( "k-modal-overlay--visible" );
@@ -235,6 +239,10 @@ $("#help_z_calibration").on("click", function() {
 
 $("#error_calibration_modal_close").on("click", function() {
     $("#calibration_error").toggleClass( "k-modal-overlay--visible" );
+});
+
+$("#confirm_manual_reboot").on("click", function() {
+    $("#manual_reboot_modal").toggleClass( "k-modal-overlay--visible" );
 });
 
 $("#3_points_calibration").on("click", function() {
