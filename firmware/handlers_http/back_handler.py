@@ -8,7 +8,7 @@ class BackSelectCalibrationHandler(BasicHandler):
 class BackLoadUnloadHandler(BasicHandler):
     def get(self):
         #self.firmware.homming()
-        self.render("filaments_selection.html")
+        self.redirect("/filaments-selection")
 
 class BackPlateHandler(BasicHandler):
     def get(self):
@@ -35,7 +35,7 @@ class BackLoadUnloadActionHandler(BasicHandler):
     def get(self):
         self.firmware.cold_extruders()
         #self.firmware.homming()
-        self.render("filaments_selection.html")
+        self.redirect("/filaments-selection")
 
 class BackPrintFinishedHandler(BasicHandler):
     def get(self):
