@@ -21,6 +21,7 @@ ws_cloud.onmessage = function (evt) {
     } else if (command == "finish") {
         window.location.href = "/home";
     } else if (command == "connected") {
+        $("#cloud_icon").attr("src","/static/images/icon_nube-conectada.svg");
         $.get("http://" + ip + ":9000/init-websockets");
         $.post( "/set-user-cloud-pref", { status: "connected"})
         .done(function( data ) {

@@ -44,6 +44,7 @@ class UnregisterHandler(BasicHandler):
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/unregister", method='GET', raise_error=False, callback=cloud_service_resp)
         self.firmware.user_conf_json["auth_token"] = ""
+        self.firmware.user_conf_json["cloud_pref"] = "disconnected"
         self.firmware.write_user_conf()
         self.redirect("/to-cloud")
 
