@@ -55,6 +55,7 @@ class PreviousPrintHandler(BasicHandler):
 
 class PrintHandler(BasicHandler):
     def get(self):
+        self.firmware.homming()
         if os.path.exists(self.firmware.file_path):
             self.firmware.start_print()
             if self.firmware.file_path != "/home/pi/cloud/cloud.gcode":
@@ -79,6 +80,7 @@ class PrintHandler(BasicHandler):
 
 class PrintNowHandler(BasicHandler):
     def get(self):
+        self.firmware.homming()
         self.firmware.start_print()
         self.write("ok")
 

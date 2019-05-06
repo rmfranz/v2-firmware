@@ -277,6 +277,7 @@ class PeriodicController:
             if not os.path.exists("/home/pi/camera_error"):
                 os.system("touch /home/pi/camera_error")
             print("error en camara")
+            self.camera_caller.stop()
 
     def create_connection_and_send(self, data):
         self.ioloop.run_sync(functools.partial(self.create_connection_and_send_async, data))
