@@ -41,6 +41,9 @@ def perform_os_check():
         os.system("sudo mkdir /media/usb")
         os.system("sudo chown -R pi:pi /media/usb")
         os.system("sudo mount -o remount,ro /")
+    if not os.path.exists("/home/pi/cloud"):
+        os.system("sudo mkdir /home/pi/cloud")
+        os.system("sudo chown -R pi:pi /home/pi/cloud")
     try:
         os.system("amixer cset numid=3 1")
     except:
