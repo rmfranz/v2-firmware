@@ -84,6 +84,7 @@ class PeriodicController:
         if response.code == 200 and "auth_token" in resp_dict:
             self.auth_token = resp_dict["auth_token"]
             self.user_conf_json["auth_token"] = resp_dict["auth_token"]
+            self.user_conf_json["cloud_pref"] = "connected"
             self.write_user_conf_json()
             self.stop_auth_token_caller()
             self.api_caller.start()
