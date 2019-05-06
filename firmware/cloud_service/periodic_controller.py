@@ -261,17 +261,22 @@ class PeriodicController:
 
     @tornado.gen.coroutine
     def take_picture(self):
-        stream = io.BytesIO()
-        self.camera.capture(stream, format='jpeg', quality=10)
-        img = base64.b64encode(stream.getvalue()).decode()
-        req = {
-            'auth_token': self.auth_token, 
-            'image': img
-        }        
-        async_http_client = httpclient.AsyncHTTPClient()
-        headers = {'Content-Type': 'application/json', "Content-Length": str(len(img))}
-        async_http_client.fetch(self.url_camera, method='POST',
-                    headers=headers, body=json.dumps(req), raise_error=False)
+        try:
+            stream = io.BytesIO()
+            self.camera.capture(stream, format='jpeg', quality=10)
+            img = base64.b64encode(stream.getvalue()).decode()
+            req = {
+                'auth_token': self.auth_token, 
+                'image': img
+            }        
+            async_http_client = httpclient.AsyncHTTPClient()
+            headers = {'Content-Type': 'application/json', "Content-Length": str(len(img))}
+            async_http_client.fetch(self.url_camera, method='POST',
+                        headers=headers, body=json.dumps(req), raise_error=False)
+        except:
+            if not os.path.exists("/home/pi/camera_error"):
+                os.system("touch /home/pi/camera_error")
+            print("error en camara")
 
     def create_connection_and_send(self, data):
         self.ioloop.run_sync(functools.partial(self.create_connection_and_send_async, data))
