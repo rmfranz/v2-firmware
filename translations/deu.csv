@@ -1,3 +1,8 @@
+,
+Tag name,Deutsch
+Tag Code,de 
+,
+,
 powered_by,Powered by
 hello,Hallo!
 lets_get_started,Fangen wir an! 
@@ -34,7 +39,7 @@ home_message_2,Bitte besuchen Sie https://cloud.smart3d.tech{} um mit dem Drucke
 files_title,Dateien
 files_intro,Wählen Sie ein Objekt zum Drucken aus.
 files_pendrive,USB-Stick
-files_samples,Lokale Dateien
+files_samples,Beispieldateien
 files_calibration,Kalibrierdateien
 loadingFiles,
 nofilesfound,Keine Dateien gefunden
@@ -61,8 +66,8 @@ config_cloud,Cloud
 filaments_menu_title,Filamente
 filaments_menu_load,Filament laden
 filaments_menu_unload,Filament entladen
-filament_auto_load_message,Dies ist ein automatischer Prozess{} bitte warten Sie, bis er abgeschlossen ist und kehren Sie zum vorherigen Bildschirm zurück. 
-filament_auto_load_instruction,
+filament_auto_load_message,Dies ist ein automatischer Prozess{} bitte warten Sie{} bis er abgeschlossen ist und kehren Sie zum vorherigen Bildschirm zurück. 
+filament_auto_load_instruction,Legen Sie das Filament in den Extruder [XXX] auf der Rückseite des Druckers ein{} indem Sie den Lift anheben.
 filament_auto_load,Material einlegen
 filament_auto_unload,Material entladen
 confirm_filament,Sind Sie sicher{} dass Sie abbrechen wollen?
@@ -127,14 +132,14 @@ calibration_offset_z,Z Offset
 calibration_probe_triggered,Sonde ausgelöst
 calibration_saving,Es wird gespeichert…
 calibration_save,Speichern
-calibration_offset_xy,
+calibration_offset_xy,Lesen Sie zuerst die Anweisungen.
 calibration_offset_x,Offset X
 calibration_offset_y,Offset Y
 instructions_modal_title_Zoffset,Heben Sie die Bauplatte an{} bis sie die Düse berührt.
 instructions_modal_title_Cal25step1,Bitte warten Sie{} bis der Druckkopf in der Mitte der XY-Achsen steht.
 instructions_modal_title_Cal25step2,Heben Sie die Bauplatte mit den Pfeiltasten an{} bis sie die Düse berührt. Klicken Sie dann auf Speichern.
 instructions_modal_text_Cal25_continue,Weitermachen
-calibration_grid_value,
+calibration_grid_value,Kalibrierungswerte
 calibration_grid_value_info,
 help_25_calibration_title,Kalibrieren
 help_25_calibration_body,
@@ -155,12 +160,14 @@ calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Werkzeugwechsel{} bitte warten.
 calibration_error,Es ist ein Fehler aufgetreten. Bitte wenden Sie sich an den technischen Support.
+calibration_offset_saving,Speichern der Kalibrierungswerte.
+manual_reboot,Bitte schalten Sie den Drucker aus{} warten Sie 15s und schalten Sie ihn wieder ein. Kalibrierungseinstellungen werden erst nach einem Neustart des Druckers übernommen.
 ,
 calibration_wizard_title,Kalibrierungsassistent
 waiting_for_initial_movements,Warten Sie{} bis die ersten Bewegungen abgeschlossen sind.
 done,Erledigt
 skip_wizard,Do you want to skip this wizard next time the machine reboots?
-update_warning,Wir empfehlen Ihnen{} die Software zu aktualisieren, um die neuesten Funktionen zu erhalten.
+update_warning,Wir empfehlen Ihnen{} die Software zu aktualisieren{} um die neuesten Funktionen zu erhalten.
 ,
 ,
 offset_P1,P1 Offset
@@ -181,6 +188,7 @@ info_update,Version aktualisieren
 info_confirm_update,Sind Sie sicher{} dass Sie von {{ from }} auf {{ to }} aktualisieren möchten?
 info_network,Netzwerk
 info_language,Sprache
+mac_address_lan,MAC-Adresse
 ,
 ,
 backupForLeft,Backup für links
@@ -257,7 +265,7 @@ updates_updating_footer,Wichtig: Schalten Sie den Drucker während der Aktualisi
 updates_success,Aktualisierung erfolgreich. Bitte warten Sie auf den Neustart.
 ,
 print_selection_title,Drucken
-print_selection_cloud,Drucken aus der Cloud
+print_selection_cloud,Druckerwarteschlange
 print_selection_local,Drucken aus lokaler Datei
 ,
 cancel_popup_title,Abbrechen des Drucks.
@@ -273,9 +281,7 @@ config_wifi,WiFi
 ,
 error,Bitte starten Sie den Drucker neu und wenn das Problem erneut auftritt{} wenden Sie sich an den technischen Support.
 waiting_info,Daten abrufen...
-manual_reboot,Please turn off the printer{} wait 15s and turn it on again. Calibration settings will only be applied after restarting the printer.
-calibration_offset_saving,Saving the calibration values...
-onboarding_welcome_to_v2,Thank you for your patience while updating{} your printer now has firmware v2.0.x.   Enjoy the experience!
+onboarding_welcome_to_v2,Update abgeschlossen
 ,
 ,
 ,

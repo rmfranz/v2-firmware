@@ -1,3 +1,8 @@
+,
+Tag name,French
+Tag Code,fr
+,
+,
 powered_by,Optimisé par
 hello,Bonjour!
 lets_get_started,Commençons!
@@ -34,7 +39,7 @@ home_message_2,Rendez-vous sur https://cloud.smart3d.tech pour imprimer.
 files_title,Fichiers
 files_intro,Sélectionnez un objet à imprimer.
 files_pendrive,Clé USB
-files_samples,Fichiers locaux
+files_samples,Fichiers d’exemple 
 files_calibration,Objets de calibrage
 loadingFiles,
 nofilesfound,Aucun fichier trouvé
@@ -62,7 +67,7 @@ filaments_menu_title,Filaments
 filaments_menu_load,Charger le filament
 filaments_menu_unload,Décharger le filament
 filament_auto_load_message,La procédure est automatique. Patientez jusqu'à la fin et revenir à l'écran précédent.
-filament_auto_load_instruction,Insérez le filament dans l'extrudeuse [XXX] située à l'arrière de l'imprimante.
+filament_auto_load_instruction,Insérez le filament dans l'extrudeuse [XXX] située à l'arrière de l'imprimante en soulevant le levier.
 filament_auto_load,Charger le filament
 filament_auto_unload,Décharger le filament
 confirm_filament,Voulez-vous vraiment abandonner l'opération actuelle?
@@ -155,6 +160,8 @@ calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Veuillez patienter pendant le changement d'outil.
 calibration_error,Erreur inattendue. Contactez le support technique.
+calibration_offset_saving,Sauvegarder les valeurs de calibrage.
+manual_reboot,Veuillez éteindre l'imprimante{} attendre 15 s. et la remettre sous tension. Les valeurs de calibrage s'appliqueront après  le redémarrage de l'imprimante.
 ,
 calibration_wizard_title,Assistant de calibrage
 waiting_for_initial_movements,Patientez jusqu'à la fin des premiers mouvements.
@@ -181,6 +188,7 @@ info_update,Mettre à jour la version
 info_confirm_update,Voulez-vous mettre à jour de {{from }} à {{ to }}?
 info_network,Réseau
 info_language,Langue
+mac_address_lan,Adresse MAC
 ,
 ,
 backupForLeft,Réserver pour extrudeuse gauche
@@ -257,7 +265,7 @@ updates_updating_footer,Important: N'éteignez pas l'imprimante pendant la mise 
 updates_success,Mise à jour réussie. Veuilllez patienter pendant le redémarrage.
 ,
 print_selection_title,Imprimer
-print_selection_cloud,Imprimer à partir du Nuage
+print_selection_cloud,File d’impression
 print_selection_local,Imprimer un fichier local
 ,
 cancel_popup_title,J'annule l'impression.
@@ -273,9 +281,7 @@ config_wifi,WiFi
 ,
 error,Veuillez redémarrer l'imprimante. Si le problème se reproduit{} contactez votre service technique.
 waiting_info,Extraction des données...
-manual_reboot,Please turn off the printer{} wait 15s and turn it on again. Calibration settings will only be applied after restarting the printer.
-calibration_offset_saving,Saving the calibration values...
-onboarding_welcome_to_v2,Thank you for your patience while updating{} your printer now has firmware v2.0.x.   Enjoy the experience!
+onboarding_welcome_to_v2,Mise à jour réussie! Votre imprimante a été mise à jour avec succès au logiciel 2.0.
 ,
 ,
 ,

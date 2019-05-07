@@ -1,3 +1,8 @@
+,
+Tag name,Spanish
+Tag Code,es
+,
+,
 powered_by,Con tecnología de
 hello,Hola!
 lets_get_started,Comencemos!
@@ -62,7 +67,7 @@ filaments_menu_title,Filamentos
 filaments_menu_load,Cargando filamento
 filaments_menu_unload,Descargar filamento
 filament_auto_load_message,Este proceso es automático. Espere a que termine y vuelva a la pantalla anterior.
-filament_auto_load_instruction,Inserte el filamento en el extrusor [XXX] en el dorso de la impresora.
+filament_auto_load_instruction,Inserte el filamento en el extrusor [XXX] en el dorso de la impresora levantando la palanca.
 filament_auto_load,Cargar filamento
 filament_auto_unload,Descargar filamento
 confirm_filament,¿Está seguro de que quiere anular esta operación?
@@ -155,6 +160,8 @@ calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Espere mientras se realiza el cambio de herramienta.
 calibration_error,Ocurrió un error. Póngase en contacto con el soporte técnico.
+calibration_offset_saving,Guardando los valores de calibración.
+manual_reboot,Por favor apague la impresora{} espere 15s y luego enciéndala nuevamente. Los valores de calibraciòn sólo tomarán efecto luego de reiniciarla.
 ,
 calibration_wizard_title,Asistente de calibración
 waiting_for_initial_movements,Espere a que finalicen los movimientos.
@@ -181,6 +188,7 @@ info_update,Actualizar versión
 info_confirm_update,¿Confirma actualizar versión de {{from}} a {{to}}?
 info_network,Red
 info_language,Idioma
+mac_address_lan,Dirección MAC
 ,
 ,
 backupForLeft,Continuación del extrusor izq. (I)
@@ -202,10 +210,10 @@ monitor_paused,Pausado
 monitor_cancel,Cancelar
 monitor_printdone,Impresión terminada
 ,
-confirm_cancel,¿Desea cancelar esta impresión?
+confirm_cancel,¿Cancelar la impresión?
 confirm_yes,Si
 confirm_no,No
-confirm_pause,¿Desea pausar esta impresión?
+confirm_pause,¿Pausar la impresión?
 monitor_resume,Continuar
 monitor_rate,Calificar
 ,
@@ -272,10 +280,8 @@ config_motors,Motores
 config_wifi,WiFi
 ,
 error,Reinicie la impresora y si el error vuelve a ocurrir contactese con el servicio técnico.
-waiting_info,Obteniendo informazioni...
-manual_reboot,Por favor apague la impresora{} espera 15s y luego enciéndala nuevamente. Los valores de calibraciòn sólo tomarán efecto luego de reiniciarla.
-calibration_offset_saving,Guardando los datos de calibración...
-onboarding_welcome_to_v2,Gracias por actualizar a la versión 2.0! Su impresora cuanta ahora con nuevas funcionalidades.
+waiting_info,Obteniendo información...
+onboarding_welcome_to_v2,Actualización completada. La impresora se actualizó correctamente a la versión 2.0. 
 ,
 ,
 ,
@@ -292,5 +298,5 @@ onboarding_welcome_to_v2,Gracias por actualizar a la versión 2.0! Su impresora 
 ,Opciones avanzadas
 ,Temperatura fijada en el archivo
 ,
-,Apagar motores
-,Prender moteres
+,Desactivar motores
+,Activar motores

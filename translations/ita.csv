@@ -1,3 +1,8 @@
+,
+Tag name,Italian
+Tag Code,it
+,
+,
 powered_by,Powered by
 hello,Hello!
 lets_get_started,Cominciamo!
@@ -34,7 +39,7 @@ home_message_2,Visita https://cloud.smart3d.tech per stampare.
 files_title,File
 files_intro,Selezionare l'oggetto da stampare.
 files_pendrive,Chiave USB
-files_samples,File locali
+files_samples,File di esempio
 files_calibration,Oggetti di calibrazione
 loadingFiles,
 nofilesfound,Nessun file trovato
@@ -62,7 +67,7 @@ filaments_menu_title,Filamenti
 filaments_menu_load,Caricando filamento
 filaments_menu_unload,Scarica filamento
 filament_auto_load_message,La procedura é automatica. Attenderne la fine e tornare allo schermo precedente. 
-filament_auto_load_instruction,Inserisci il filamento nell'estrusore [XXX] sul retro della stampante.
+filament_auto_load_instruction,Inserisci il filamento nell'estrusore [XXX] sul retro della stampante sollevandone la leva.
 filament_auto_load,Carica filamento
 filament_auto_unload,Scarica filamento
 confirm_filament,Sei sicuro di voler interrompere l'operazione?
@@ -155,6 +160,8 @@ calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Attendere il cambio di ugello.
 calibration_error,Errore imprevisto. Contattare il supporto tecnico.
+calibration_offset_saving,Salvataggio dei valori di calibrazione.
+manual_reboot,Spegnere la stampante{} attendere 15 sec. e riaccenderla. I nuovi valori di calibrazione saranno effettivi dopo la riaccensione.
 ,
 calibration_wizard_title,Calibrazione assistita
 waiting_for_initial_movements,Attendere la fine dei movimenti.
@@ -181,6 +188,7 @@ info_update,Aggiorna versione
 info_confirm_update,Vuoi aggiornare da {{ from }} a {{ to }}?
 info_network,Rete
 info_language,Lingua
+mac_address_lan,Indirizzo MAC
 ,
 ,
 backupForLeft,Backup per ugello sinistro
@@ -257,7 +265,7 @@ updates_updating_footer,Importante: non spegnere il dispositivo durante l'aggior
 updates_success,Aggiornamento completato. Attendi il riavvio.
 ,
 print_selection_title,Stampa
-print_selection_cloud,Stampa dalla Cloud
+print_selection_cloud,Coda di stampa
 print_selection_local,Stampa un file locale
 ,
 cancel_popup_title,Sto annullando la stampa.
@@ -273,9 +281,7 @@ config_wifi,WiFi
 ,
 error,Riavviare la stampante. Se il problema persiste{} contattare il servizio tecnico.
 waiting_info,Estrazione informazioni...
-manual_reboot,Please turn off the printer{} wait 15s and turn it on again. Calibration settings will only be applied after restarting the printer.
-calibration_offset_saving,Saving the calibration values...
-onboarding_welcome_to_v2,Thank you for your patience while updating{} your printer now has firmware v2.0.x.   Enjoy the experience!
+onboarding_welcome_to_v2,Aggiornamento completato. La stampante é stata aggiornata con successo alla versione 2.0.
 ,
 ,
 ,

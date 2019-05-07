@@ -1,3 +1,8 @@
+,
+Tag name,Polish
+Tag Code,pl
+,
+,
 powered_by,Dostarczone przez
 hello,Witaj!
 lets_get_started,Zaczynamy!
@@ -34,7 +39,7 @@ home_message_2,Proszę wejść na https://cloud.smart3d.tech aby rozpocząć dru
 files_title,Pliki
 files_intro,Wybierz model do wydrukowania.
 files_pendrive,Dysk USB
-files_samples,Pliki lokalne
+files_samples,Przykładowe pliki 
 files_calibration,Pliki kalibracyjne
 loadingFiles,
 nofilesfound,Nie znaleziono plików
@@ -62,7 +67,7 @@ filaments_menu_title,Filamenty
 filaments_menu_load,Załóż filament
 filaments_menu_unload,Wyjmij filament
 filament_auto_load_message,Procedura automatyczna{} poczekaj na jej zakończenie i powrót do poprzedniego ekranu.
-filament_auto_load_instruction,
+filament_auto_load_instruction,Włóż włókno do wytłaczarki [XXX] z tyłu drukarki{} podnosząc podnośnik.
 filament_auto_load,Załaduj materiał
 filament_auto_unload,Wyładuj materiał
 confirm_filament,Czy na pewno chcesz przerwać?
@@ -127,14 +132,14 @@ calibration_offset_z,Przesunięcie w osi Z
 calibration_probe_triggered,Czujnik został aktywowany
 calibration_saving,Zapisywanie...
 calibration_save,Zapisz
-calibration_offset_xy,
+calibration_offset_xy,Przeczytaj najpierw instrukcje.
 calibration_offset_x,Przesunięcie w osi X
 calibration_offset_y,Przesunięciw w osi Y
 instructions_modal_title_Zoffset,Podnieś palatformę aż dotknie dyszy.
 instructions_modal_title_Cal25step1,Poczekaj{} aż głowica zatrzyma się na środku osi.
 instructions_modal_title_Cal25step2,Podnoś platformę za pomocą klawiszy ze strzałkami aż dotknie dyszy. 
 instructions_modal_text_Cal25_continue,Kontynuuj
-calibration_grid_value,
+calibration_grid_value,Wartości kalibracji
 calibration_grid_value_info,
 help_25_calibration_title,Kalibracja
 help_25_calibration_body,
@@ -155,6 +160,8 @@ calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Zmiana ekstrudera{} proszę czekać.
 calibration_error,Wystąpił błąd. Proszę skontaktować się ze wsparciem technicznym.
+calibration_offset_saving,Zapisywanie wartości kalibracji.
+manual_reboot,Wyłącz drukarkę{} poczekaj 15 sekund i włącz ją ponownie. Ustawienia kalibracji zostaną zastosowane dopiero po ponownym uruchomieniu drukarki.
 ,
 calibration_wizard_title,Pomocnik kalibracji
 waiting_for_initial_movements,Poczekaj na zakończenie inicjalizacji
@@ -181,6 +188,7 @@ info_update,Aktualizacja oprogramowania
 info_confirm_update,Czy na pewno zaktualizować firmware z wersji {{ from }} do {{ to }}?
 info_network,Sieć
 info_language,Język
+mac_address_lan,Adres MAC
 ,
 ,
 backupForLeft,Zapasowa dla lewej dyszy
@@ -257,7 +265,7 @@ updates_updating_footer,Uwaga: nie wyłączaj drukarki w trakcie aktualizacji.
 updates_success,Aktualizacja zakończona. Poczekaj na ponowne uruchomienie.
 ,
 print_selection_title,Drukuj
-print_selection_cloud,Drukuj z Chmury
+print_selection_cloud,Kolejka wydruku
 print_selection_local,Drukuj z lokalnego pliku
 ,
 cancel_popup_title,Anulowanie drukowania.
@@ -273,9 +281,7 @@ config_wifi,WiFi
 ,
 error,Proszę ponownie uruchomić drukarkę. Jeśli problem będzie nadal występował{} proszę skontaktować się ze wsparciem technicznym.
 waiting_info,Pobieram dane...
-manual_reboot,Please turn off the printer{} wait 15s and turn it on again. Calibration settings will only be applied after restarting the printer.
-calibration_offset_saving,Saving the calibration values...
-onboarding_welcome_to_v2,Thank you for your patience while updating{} your printer now has firmware v2.0.x.   Enjoy the experience!
+onboarding_welcome_to_v2,aktualizacja powiodła się.
 ,
 ,
 ,
@@ -292,4 +298,5 @@ onboarding_welcome_to_v2,Thank you for your patience while updating{} your print
 ,
 ,
 ,
-,Wyłącz silniki
+,Dezaktywować silniki
+,Aktywować silniki

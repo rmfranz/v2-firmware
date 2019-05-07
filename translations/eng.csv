@@ -1,3 +1,8 @@
+,
+Tag name,English
+Tag Code,en
+,
+,
 powered_by,Powered by
 hello,Hello!
 lets_get_started,Let's get started!
@@ -62,7 +67,7 @@ filaments_menu_title,Filaments
 filaments_menu_load,Loading filament
 filaments_menu_unload,Unload filament
 filament_auto_load_message,This is an automatic process{} please wait for it to finish and return to the previous screen. 
-filament_auto_load_instruction,Insert filament in the extruder [XXX] on the back of the printer by lifting the lever."
+filament_auto_load_instruction,Insert filament into the extruder [XXX] on the back of the printer by lifting the lever."
 filament_auto_load,Load Material
 filament_auto_unload,Unload Material
 confirm_filament,Are you sure you want to cancel?
@@ -127,7 +132,7 @@ calibration_offset_z,Z Offset
 calibration_probe_triggered,Probe triggered
 calibration_saving,Saving...
 calibration_save,Save
-calibration_offset_xy,Read instructions first.
+calibration_offset_xy,Read the instructions first.
 calibration_offset_x,Offset X
 calibration_offset_y,Offset Y
 instructions_modal_title_Zoffset,Raise the build plate until it touches the nozzle.
@@ -155,6 +160,8 @@ calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Changing tool{} please wait.
 calibration_error,An error occurred. Please contact technical support.
+calibration_offset_saving,Saving the calibration values.
+manual_reboot,Please turn off the printer{} wait 15s and turn it on again. Calibration settings will only be applied after restarting the printer.
 ,
 calibration_wizard_title,Calibration wizard
 waiting_for_initial_movements,Wait for initial movements to finish.
@@ -181,6 +188,7 @@ info_update,Update Version
 info_confirm_update,Are you sure you want to update from {{ from }} to {{ to }}?
 info_network,Network
 info_language,Language
+mac_address_lan,MAC Address
 ,
 ,
 backupForLeft,Backup for left
@@ -273,9 +281,7 @@ config_wifi,WiFi
 ,
 error,Please restart the printer and if the problem occurs again{} contact tech support.
 waiting_info,Fetching data...
-manual_reboot,Please turn off the printer{} wait 15s and turn it on again. Calibration settings will only be applied after restarting the printer.
-calibration_offset_saving,Saving the calibration values...
-onboarding_welcome_to_v2,Thank you for your patience while updating{} your printer now has firmware v2.0.x.   Enjoy the experience!
+onboarding_welcome_to_v2,Update was successful! Your Portrait printer was updated succesfully to software 2.0. Enjoy the experience!
 ,
 ,
 ,

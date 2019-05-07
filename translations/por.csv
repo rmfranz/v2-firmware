@@ -1,3 +1,8 @@
+,
+Tag name,Portuguese
+Tag Code,pt
+,
+,
 powered_by,Com a tecnologia de
 hello,Olá!
 lets_get_started,Vamos começar!
@@ -34,7 +39,7 @@ home_message_2,Acesse https://cloud.smart3d.tech para imprimir.
 files_title,Arquivos
 files_intro,Selecione um objeto para imprimir.
 files_pendrive,Unidade flash USB
-files_samples,Arquivos locais
+files_samples,Arquivos de exemplo
 files_calibration,Arquivos de calibragem
 loadingFiles,
 nofilesfound,Nenhum arquivo encontrado
@@ -62,7 +67,7 @@ filaments_menu_title,Filamentos
 filaments_menu_load,Carregar filamento
 filaments_menu_unload,Descarregar filamento
 filament_auto_load_message,Este processo é automático. Aguarde sua conclusão e volte à tela anterior.
-filament_auto_load_instruction,
+filament_auto_load_instruction,Inserir o filamento no extrusor [XXX] na parte de trás da impresora levantando a alavanca.
 filament_auto_load,Carregar filamento
 filament_auto_unload,Descarregar filamento
 confirm_filament,Tem certeza de que deseja cancelar?
@@ -155,6 +160,8 @@ calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Aguarde a alteração da ferramenta.
 calibration_error,Ocorreu um erro. Por favor{} contate o suporte técnico.
+calibration_offset_saving,Salvando os valores de calibração
+manual_reboot,Desligue a impressora no interruptor{} aguarde 15 segundos e volte a ligar a impressora. Os valores de calibração serán aplicados só depois de reiniciar a impressora.
 ,
 calibration_wizard_title,Assistente de calibragem
 waiting_for_initial_movements,Aguarde a conclusão dos movimentos iniciais.
@@ -181,6 +188,7 @@ info_update,Atualizar versão
 info_confirm_update,Tem certeza de que deseja atualizar de {{from}} a {{to}}?
 info_network,Rede:
 info_language,Idioma
+mac_address_lan,Endereço MAC
 ,
 ,
 backupForLeft,Continuação do extrusor esq. (I)
@@ -257,7 +265,7 @@ updates_updating_footer,Importante: não desligue a impressora durante a atualiz
 updates_success,Atualização concluída com sucesso. Aguarde para reiniciar.
 ,
 print_selection_title,Imprimir
-print_selection_cloud,Imprimir da Nuvem
+print_selection_cloud,Fila de Impressão
 print_selection_local,Imprimir um arquivo local
 ,
 cancel_popup_title,Cancelando a impressão.
@@ -273,9 +281,7 @@ config_wifi,WiFi
 ,
 error,Reinicie a impressora e se o erro persistir{} contate o suporte técnico.
 waiting_info,Buscando dados...
-manual_reboot,Please turn off the printer{} wait 15s and turn it on again. Calibration settings will only be applied after restarting the printer.
-calibration_offset_saving,Saving the calibration values...
-onboarding_welcome_to_v2,Thank you for your patience while updating{} your printer now has firmware v2.0.x.   Enjoy the experience!
+onboarding_welcome_to_v2,A atualização foi bem-sucedida! A impresora foi atualizada corretamente para a versão 2.0.
 ,
 ,
 ,
