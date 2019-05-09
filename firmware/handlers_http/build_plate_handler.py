@@ -4,6 +4,7 @@ import collections
 class ToBuildPlateControlHandler(BasicHandler):
     def get(self):
         #self.firmware.homming()
+        self.firmware.bed_home()
         self.render("plate_control.html")
 
 class PlateUpHandler(BasicHandler):
