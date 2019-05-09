@@ -2,8 +2,8 @@
 {% block content %}
 {% if connected %}
 <main class="k-main">
+  <h2 class="k-main__h2">{{_("cloud_title")}}</h2>
   <section class="k-dialog">
-    <h2 class="k-dialog__h2 k-dialog__h2--center">{{_("cloud_title")}}</h2>
     <p>{{_("queue_empty").format(",")}}</p>
     <a href="/cloud-unregister"
       class="k-dialog__button k-dialog__button--shortened k-dialog__button--red">{{_("cloud_unregister")}}</a>
@@ -17,14 +17,14 @@
 </main>
 {% else %}
 <main class="k-main">
+  <h2 class="k-main__h2">{{_("cloud_title")}}</h2>
   <section class="k-dialog">
-    <h2 class="k-dialog__h2 k-dialog__h2--center">{{_("cloud_title")}}</h2>
     <p>{{_("cloud_intro").format(",")}}</p>
+    <h2 id="registration_code_btn" class="k-main__h2"></h2>
     <p>{{_("cloud_intro2")}}</p>
     <div id="waiting_info">{{_("waiting_info")}}</div>
     <div id="registration_code" class="initiallyHidden">
-    <button id="registration_code_btn" class="k-dialog__button"></button>
-  </div>
+    </div>
   </section>
 </main>
 {% end %}

@@ -4,6 +4,7 @@ from utils import get_extruder_materials, get_volume, set_volume, restore_user_p
 import os
 import json
 from subprocess import check_output
+from tornado import httpclient
 
 
 class SetupHandler(BasicHandler):
@@ -183,6 +184,8 @@ class NozzlesSetHandler(BasicHandler):
         size = self.get_body_argument("size")
         self.firmware.set_nozzle_size(nozzle, size)
         self.firmware.write_user_conf()
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch("http://127.0.0.1:9000/refresh", raise_error=False)
         self.write("ok")
 
 class LanguageHandler(BasicHandler):

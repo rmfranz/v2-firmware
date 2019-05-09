@@ -3,9 +3,15 @@
 <main class="k-main">
     <section class="k-grid k-grid--3x3">
         {% for key, value in mat_temps.items() %}
-        <a href="/{{extruder}}/{{value}}" class="k-grid-item">
-            <p class="k-grid-item__p k-grid-item__p--big">{{key}}</p>
-        </a>
+            {% if key == "OFF ~ 0°C" %}
+            <a href="/{{extruder}}/{{value}}" class="k-grid-item k-grid-item--red">
+                <p class="k-grid-item__p k-grid-item__p--big">{{key}}</p>
+            </a>
+            {% else %}
+            <a href="/{{extruder}}/{{value}}" class="k-grid-item">
+                <p class="k-grid-item__p k-grid-item__p--big">{{key}}</p>
+            </a>
+            {% end %}
         {% end %}
     </section>
 </main>

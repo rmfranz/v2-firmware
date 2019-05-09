@@ -115,7 +115,8 @@ class PeriodicController:
             "state": self.state,
             "percent": self.percent,
             "temps": [self.bed, self.t0, self.t1, "c" + str(self.amber)],
-            "target_temps": [self.bed_target, self.t0_target, self.t1_target]
+            "target_temps": [self.bed_target, self.t0_target, self.t1_target],
+            "nozzles": [self.user_conf_json["nozzle_1"], self.user_conf_json["nozzle_2"]]
             },
             "auth_token": self.auth_token
         }

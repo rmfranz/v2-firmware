@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 <main class="k-main">
+    {% if error %}
+    <h2 class="k-main__h2">{{_("nofilesfound").format(",")}}</h2>
+    {% else %}
     <section class="k-block">
-        {% if error %}
-            <p>{{_("nofilesfound").format(",")}}</p>
-        {% else %}
-            {% for key, value in items.items() %}
-            <div class="k-block-2 file_selected" data-path="{{value}}" data-filename="{{ key }}">
-                <div class="k-block-2__left">
-                    <div class="k-block-2__img-container">
-                    </div>
-                    <p>{{ key }}</p>
+        {% for key, value in items.items() %}
+        <div class="k-block-2 file_selected" data-path="{{value}}" data-filename="{{ key }}">
+            <div class="k-block-2__left">
+                <div class="k-block-2__img-container">
                 </div>
+                <p>{{ key }}</p>
             </div>
-            {% end %}
+        </div>
         {% end %}
     </section>
+    {% end %}
 </main>
 <footer class="k-footer">
     <a href="/print-selection" class="k-footer-left">
