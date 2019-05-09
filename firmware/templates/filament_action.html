@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 <main class="k-main">
+        <h2 class="k-main__h2">{{_(action)}}</h2>
     <div class="k-modal-2">
-        <p class="k-modal__p k-modal__p--big">{{_(action)}}</p>
         <p class="k-modal__p k-modal__p--big">{{material}}</p>
         <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
             {{_("filament_auto_load_message").format(",", ",")}}</p>
@@ -25,7 +25,7 @@
     <div class="k-modal">
         <div class="k-modal-4">
             <div class="k-modal-4__top">
-                <p class="k-modal__p k-modal__p--big k-modal__p--center">{{_("confirm_filament").format(",")}}</p>
+                <p class="k-modal__p k-modal__p--center k-modal__p--popup">{{_("confirm_filament").format(",")}}</p>
             </div>
             <div class="k-modal-4__bottom">
                 <button id="cancel_modal_no"

@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 <main class="k-main">
+        <h2 class="k-main__h2">{{_("sound_volume")}}</h2>
     <div class="k-modal-2">
-        <p class="k-modal__p k-modal__p--big">{{_("sound_volume")}} <span class="k-modal__volume"><div id="volume">{{volume}} %</div></span></p>
+        <p class="k-modal__p k-modal__p--big"><span class="k-modal__volume"><div id="volume">{{volume}} %</div></span></p>
         <input id="sound" type="range" min="0" max="100" step="1" value="{{volume}}" class="k-range" />
         <p class="k-modal__p k-modal__p--big k-modal__p--center">
             {{_("sound_message").format(",")}}

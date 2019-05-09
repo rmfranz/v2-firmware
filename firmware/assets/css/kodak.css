@@ -967,6 +967,10 @@ button{
   font-size: 26px;
 }
 
+.k-modal__p--popup{
+  font-size: 40px;
+}
+
 .k-modal__p--center{
   text-align:center; 
 }
@@ -1214,4 +1218,8 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   font-family: graphik-l;
   margin-top: 0;
   text-align:center;
+}
+
+#volume{
+  font-size: 40px;
 }
