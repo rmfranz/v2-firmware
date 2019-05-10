@@ -4,7 +4,7 @@ $.get("/get-cloud-queue").done(function (data) {
     var select = $("#cloud_files");
     if(resp == "error") {
         select.append('<h2 class="k-main__h2">Error with API</h2>');        
-    } else if (resp.length) {
+    } else if (resp.length == 0) {
         select.append('<h2 class="k-main__h2">No files on queue</h2>');        
     } else {
         for (var i = 0; i < resp.length; i++) {
