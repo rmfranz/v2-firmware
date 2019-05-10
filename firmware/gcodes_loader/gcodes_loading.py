@@ -166,7 +166,6 @@ if __name__ == "__main__":
     DEBUG = True
     print("empece")
     with open("Ext1__PLATough_CableProtector.gcode") as f:
-        print("hago mi mierda")
         patch_start = time.time()
         patched = patch_and_split_gcodes(f)
         with open("cosa.gcode", 'wb') as f:

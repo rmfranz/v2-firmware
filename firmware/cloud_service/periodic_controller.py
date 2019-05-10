@@ -256,7 +256,8 @@ class PeriodicController:
         self.state = "printing_locally"
 
     def print_local_off(self):
-        self.state = "ready"
+        if self.state == "printing_locally":
+            self.state = "ready"
 
     def set_serial(self, serial):
         self.hardware_json["serial_number"] = serial
