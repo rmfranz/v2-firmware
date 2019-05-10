@@ -120,6 +120,9 @@ class PeriodicController:
             },
             "auth_token": self.auth_token
         }
+        if self.state == "error":
+            req['error'] = [{'code': 100, 'message': 'Printing was cancelled from printer...'}]
+            self.state = "ready"
         async_http_client = httpclient.AsyncHTTPClient()
         resp_reg = yield async_http_client.fetch(self.url_command, method='POST', raise_error=False,
                     headers=self.headers, body=json.dumps(req))
@@ -230,6 +233,18 @@ class PeriodicController:
         self.t1_target = t1_target
         self.bed_target = bed_target
         self.amber_target = amber_target
+
+    def set_pause(self):
+        if self.state == "printing":
+            self.state = "paused"
+
+    def set_resume(self):
+        if self.state == "paused":
+            self.state = "printing"
+
+    def set_cancel(self):
+        if self.state == "printing" or self.state == "paused":
+            self.state = "error"
 
     def local_mode_on(self):
         self.state = "local_mode"

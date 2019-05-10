@@ -48,6 +48,21 @@ class DisconnectHandler(RequestHandler):
         self.application.periodic_controller.local_mode_on()
         self.write("ok")
 
+class SetPauseHandler(RequestHandler):
+    def get(self):
+        self.application.periodic_controller.set_pause()
+        self.write("ok")
+
+class SetResumeHandler(RequestHandler):
+    def get(self):
+        self.application.periodic_controller.set_resume()
+        self.write("ok")
+
+class SetCancelHandler(RequestHandler):
+    def get(self):
+        self.application.periodic_controller.set_cancel()
+        self.write("ok")
+
 class ReconnectHandler(RequestHandler):
     def get(self):
         self.application.periodic_controller.local_mode_off()
@@ -85,7 +100,10 @@ class Application(tornado.web.Application):
             (r"/reconnect", ReconnectHandler),
             (r"/set-serial", SetSerialHandler),
             (r"/refresh", RefreshHardwareHandler),
-            (r"/local-printing", LocalPrintingHandler)
+            (r"/local-printing", LocalPrintingHandler),
+            (r"/set-pause", SetPauseHandler),
+            (r"/set-resume", SetResumeHandler),
+            (r"/set-cancel", SetResumeHandler)
         ]
         #tornado.web.Application.__init__(self, handlers, autoreload=True)
         tornado.web.Application.__init__(self, handlers)

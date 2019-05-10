@@ -17,7 +17,9 @@ ws_cloud.onmessage = function (evt) {
         $('#pausa').toggle( true );
         $('#resume').toggle( false );
     } else if (command == "cancel") {
-        window.location.href = "/cancel-cloud";
+        $("#wait_cancel_modal").toggleClass("k-modal-overlay--visible");
+        canceling = true;
+        $.get("/cancel-cloud");
     } else if (command == "finish") {
         window.location.href = "/home";
     } else if (command == "connected") {

@@ -88,11 +88,15 @@ class PrintNowHandler(BasicHandler):
 class PauseHandler(BasicHandler):
     def get(self):
         self.firmware.pause()
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch("http://127.0.0.1:9000/set-pause", method='GET', raise_error=False)
         self.render("index.html", working_on="en pausa")
 
 class ResumeHandler(BasicHandler):
     def get(self):
         self.firmware.resume()
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch("http://127.0.0.1:9000/set-resume", method='GET', raise_error=False)
         #MainHandler.broadcast("desde adentro")
         self.render("index.html", working_on="imprimiendo de nuevo")
 
@@ -101,13 +105,16 @@ class CancelHandler(BasicHandler):
         self.firmware.cancel()
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/local-printing?print_local=0", method='GET', raise_error=False)
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch("http://127.0.0.1:9000/set-cancel", method='GET', raise_error=False)
         #self.render("index.html", working_on="cancelado")
         self.write("ok")
 
 class CancelCloudHandler(BasicHandler):
     def get(self):
         self.firmware.cancel()
-        self.redirect("/home")
+        #self.redirect("/home")
+        self.write("ok")
 
 class PrintFinishedHandler(BasicHandler):
     def get(self):
