@@ -103,7 +103,7 @@ class Application(tornado.web.Application):
             (r"/local-printing", LocalPrintingHandler),
             (r"/set-pause", SetPauseHandler),
             (r"/set-resume", SetResumeHandler),
-            (r"/set-cancel", SetResumeHandler)
+            (r"/set-cancel", SetCancelHandler)
         ]
         #tornado.web.Application.__init__(self, handlers, autoreload=True)
         tornado.web.Application.__init__(self, handlers)
