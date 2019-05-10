@@ -40,6 +40,7 @@ class ListingFilesHandler(BasicHandler):
             error = "error"
         else:
             error = ""
+        self.firmware.files_from_where = listing_id
         self.render("listing_files.html", items=items, error=error, listing_id=listing_id)
 
 class TemperaturesHandler(BasicHandler):
@@ -51,7 +52,7 @@ class TemperaturesHandler(BasicHandler):
 class PreviousPrintHandler(BasicHandler):
     def get(self):
         filename = self.firmware.filename
-        self.render("previous_print.html", filename=filename)
+        self.render("previous_print.html", filename=filename, listing_id=self.firmware.files_from_where)
 
 class PrintHandler(BasicHandler):
     def get(self):

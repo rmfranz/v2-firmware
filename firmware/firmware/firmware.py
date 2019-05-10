@@ -23,6 +23,7 @@ class BaseFirmware:
         self.printrun = None
         self.file_path = None
         self.filename = None
+        self.files_from_where = None
         self.total_lines = 0
 
     def init_ws_handler(self):
