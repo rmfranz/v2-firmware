@@ -18,9 +18,15 @@
     {% end %}
 </main>
 <footer class="k-footer">
+    {% if listing_id == "1" %}
     <a href="/print-selection" class="k-footer-left">
         <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
     </a>
+    {% else %}
+    <a href="/local-files-selection" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
+    {% end %}
     <!-- Implementar despues
     <div class="k-footer-right">
       <button class="k-footer__btn k-footer__btn--yellow"> 

@@ -40,7 +40,7 @@ class ListingFilesHandler(BasicHandler):
             error = "error"
         else:
             error = ""
-        self.render("listing_files.html", items=items, error=error)
+        self.render("listing_files.html", items=items, error=error, listing_id=listing_id)
 
 class TemperaturesHandler(BasicHandler):
     def get(self):
@@ -67,7 +67,7 @@ class PrintHandler(BasicHandler):
             #print(resp_reg.body.decode('utf-8'))
             self.render("printing.html", filename=self.firmware.filename)
         else:
-            self.render("listing_files.html", items=[], error="error")
+            self.render("listing_files.html", items=[], error="error", listing_id=1)
 
     def post(self):
         file_path = self.get_body_argument("file_path")
