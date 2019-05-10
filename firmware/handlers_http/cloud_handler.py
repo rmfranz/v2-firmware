@@ -85,7 +85,7 @@ class GetQueueHandler(BasicHandler):
         if resp.code == 200:
             self.write({"resp": json.loads(resp.body.decode('utf-8'))})
         else:
-            self.write("error")
+            self.write({"resp":"error"})
 
 class ToConfirmPrintHandler(BasicHandler):
     @tornado.gen.coroutine
