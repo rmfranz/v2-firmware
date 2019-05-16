@@ -8,8 +8,14 @@ $.get("/get-cloud-queue").done(function (data) {
         select.append('<h2 class="k-main__h2">No files on queue</h2>');        
     } else {
         for (var i = 0; i < resp.length; i++) {
+            var totalSeconds = resp[i].printing_duration;
+            var hours = Math.floor(totalSeconds / 3600);
+            totalSeconds %= 3600;
+            var minutes = Math.floor(totalSeconds / 60);
             var d = '<div class="k-block-2 file_selected" data-job_id="' + resp[i].id + '" >'
-            d += '<div class="k-block-2__left"><div class="k-block-2__img-container"> </div> <p>' + resp[i].filename + '</p> </div> </div>'
+            d += '<div class="k-block-2__left"><div class="k-block-2__img-container"> <img src="'+ resp[i].preview_image +'.png.square.png" style="height: 64px" />'
+            d += ' </div> <p>' + resp[i].filename + '</p> '
+            d += ' </div> <div class="k-block-2__right"><p> ' + hours +'h ' + minutes + 'm </p></div> </div>'
             select.append(d);
         }
         $('.file_selected').click(function () {
