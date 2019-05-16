@@ -108,7 +108,12 @@ class ToConfirmPrintHandler(BasicHandler):
                 error = "error"
         else:
             error = "error"
-        self.render("previous_cloud_print.html", error=error, cloud_job=cloud_job)
+        time = float(cloud_job["printing_duration"])
+        time = time % (24 * 3600)
+        hour = time // 3600
+        time %= 3600
+        minutes = time // 60
+        self.render("previous_cloud_print.html", error=error, cloud_job=cloud_job, hours=int(hour), minutes=int(minutes))
 
 class PrintCloudHandler(BasicHandler):
     @tornado.gen.coroutine

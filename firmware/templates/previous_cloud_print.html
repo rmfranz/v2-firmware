@@ -3,14 +3,14 @@
 <main class="k-main">
     <section class="k-printing">
         <div class="k-printing-main">
-            <h2 class="k-printing-main__h2">{{cloud_job["filename"]}}</h2>
+            <h2 class="k-printing-main__h2">{{cloud_job["filename"].split(".gcode")[0]}}</h2>
         <ul class="k-printing-main__ul">
-          <li class="k-printing-main__li"><img src="/static/images/icon_imprimir-tiempo.svg"/>{{cloud_job["printing_duration"]}}</li>
+          <li class="k-printing-main__li"><img src="/static/images/icon_imprimir-tiempo.svg"/>{{hours}}:{{minutes}} HS</li>
         </ul>
         </div>
       <div class="k-printing-preview">
         <div class="k-printing-preview__img">
-            <img src="{{cloud_job['preview_image']}}" />
+            <img src="{{cloud_job['preview_image']}}.png.square.png" width="300" height="100%" />
         </div>
       </div>
     </section>

@@ -14,7 +14,7 @@ $.get("/get-cloud-queue").done(function (data) {
             var minutes = Math.floor(totalSeconds / 60);
             var d = '<div class="k-block-2 file_selected" data-job_id="' + resp[i].id + '" >'
             d += '<div class="k-block-2__left"><div class="k-block-2__img-container"> <img src="'+ resp[i].preview_image +'.png.square.png" style="height: 64px" />'
-            d += ' </div> <p>' + resp[i].filename + '</p> '
+            d += ' </div> <p>' + resp[i].filename.split(".gcode")[0] + '</p> '
             d += ' </div> <div class="k-block-2__right"><p> ' + hours +'h ' + minutes + 'm </p></div> </div>'
             select.append(d);
         }
