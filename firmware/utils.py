@@ -44,6 +44,9 @@ def perform_os_check():
     if not os.path.exists("/home/pi/cloud"):
         os.system("sudo mkdir /home/pi/cloud")
         os.system("sudo chown -R pi:pi /home/pi/cloud")
+    if not os.path.exists("/home/pi/print_images"):
+        os.system("sudo mkdir /home/pi/print_images")
+        os.system("sudo chown -R pi:pi /home/pi/print_images")
     try:
         os.system("amixer cset numid=3 1")
     except:

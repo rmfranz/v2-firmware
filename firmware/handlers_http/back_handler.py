@@ -1,4 +1,5 @@
 from handlers_http.basic_handler import BasicHandler
+import os
 
 class BackSelectCalibrationHandler(BasicHandler):
     def get(self):
@@ -41,4 +42,6 @@ class BackPrintFinishedHandler(BasicHandler):
     def get(self):
         self.firmware.homming()
         self.application.gpio.lights_blue()
+        if os.path.exists("/home/pi/print_images/print.png"):
+            os.remove("/home/pi/print_images/print.png")
         self.redirect("/home")

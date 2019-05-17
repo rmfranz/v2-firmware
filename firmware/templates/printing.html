@@ -19,15 +19,11 @@
           -->
             </ul>
         </div>
-        <!-- agregar en caso que sea con preview, el layout se adapta automáticamente
-
-      <div class="k-printing-preview">
-        <div class="k-printing-preview__img">
-          
+        {% if is_image %}
+        <div class="k-printing-preview">
+            <img src="/print_images/print.png" width="286" height="100%" />
         </div>
-      </div>
-
-      -->
+        {% end %}
     </section>
 </main>
 <footer class="k-footer">

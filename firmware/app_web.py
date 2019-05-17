@@ -170,6 +170,7 @@ class Application(tornado.web.Application):
             (r"/cloud", CloudWsHandler),
             (r"/error-handler", ErrorWsHandler),
             (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/v2-firmware/firmware/assets"}),
+            (r'/print_images/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/print_images"}),
         ]
         #tornado.web.Application.__init__(self, handlers, template_path="/home/pi/v2-firmware/firmware/templates/", autoreload=True,
         #    compiled_template_cache=False, static_hash_cache=False)
@@ -188,6 +189,8 @@ class HomeHandler(BasicHandler):
             self.wizzard.viewed = True
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/init-websockets")
+        if os.path.exists("/home/pi/print_images/print.png"):
+            os.remove("/home/pi/print_images/print.png")
         if not self.application.gpio.is_initialized:
             self.application.gpio.initialize()
         if not self.firmware.check_mac_address():

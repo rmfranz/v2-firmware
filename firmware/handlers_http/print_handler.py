@@ -66,7 +66,7 @@ class PrintHandler(BasicHandler):
             #http_client = httpclient.HTTPClient()
             #resp_reg = http_client.fetch("http://127.0.0.1:9000/init-print", method='GET', raise_error=False)
             #print(resp_reg.body.decode('utf-8'))
-            self.render("printing.html", filename=self.firmware.filename)
+            self.render("printing.html", filename=self.firmware.filename, is_image=os.path.exists("/home/pi/print_images/print.png"))
         else:
             self.render("listing_files.html", items=[], error="error", listing_id=1)
 
@@ -107,6 +107,8 @@ class CancelHandler(BasicHandler):
         async_http_client.fetch("http://127.0.0.1:9000/local-printing?print_local=0", method='GET', raise_error=False)
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/set-cancel", method='GET', raise_error=False)
+        if os.path.exists("/home/pi/print_images/print.png"):
+            os.remove("/home/pi/print_images/print.png")
         #self.render("index.html", working_on="cancelado")
         self.write("ok")
 
@@ -114,6 +116,8 @@ class CancelCloudHandler(BasicHandler):
     def get(self):
         self.firmware.cancel()
         #self.redirect("/home")
+        if os.path.exists("/home/pi/print_images/print.png"):
+            os.remove("/home/pi/print_images/print.png")
         self.write("ok")
 
 class PrintFinishedHandler(BasicHandler):
@@ -122,7 +126,7 @@ class PrintFinishedHandler(BasicHandler):
         async_http_client.fetch("http://127.0.0.1:9000/local-printing?print_local=0", method='GET', raise_error=False)
         time_printing = self.get_cookie("time_printing")
         self.application.gpio.lights_green()
-        self.render("print_finished.html", filename=self.firmware.filename, time_printing=time_printing)
+        self.render("print_finished.html", filename=self.firmware.filename, time_printing=time_printing, is_image=os.path.exists("/home/pi/print_images/print.png"))
 
     def post(self):
         time_printing = self.get_body_argument("time_printing")

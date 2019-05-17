@@ -145,6 +145,12 @@ class PeriodicController:
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:8888/print", method='POST', raise_error=False, body=data_send)
         self.create_connection_and_send("gcodes")
+        try:
+            if os.path.exists("/home/pi/print_images/print.png"):
+                os.remove("/home/pi/print_images/print.png")
+            os.system("wget -O /home/pi/print_images/print.png {}".format(resp_dict["renders"]['gcode']))
+        except:
+            print("error")
         
     def on_pause(self, resp_dict):
         self.state = "paused"

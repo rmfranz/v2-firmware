@@ -39,11 +39,21 @@ class GetRegistrationCodeHandler(RequestHandler):
     def get(self):
         headers = {'Content-Type': 'application/json'}
         body = {"auth_token": AUTH}
+        req = {
+            "report": {
+            "state": "ready",
+            "percent": "0.0",
+            "temps": ["0.0", "0.0", "0.0", "0.0"],
+            "target_temps": ["0.0", "0.0", "0.0"]
+            },
+            "auth_token": AUTH
+        }
         http_client = httpclient.HTTPClient()
         resp = http_client.fetch(URL_QUEUE, method='POST', raise_error=False,
-                headers=headers, body=json.dumps(body))
+                headers=headers, body=json.dumps(req))
         if resp.code == 200:
             resp_dict = json.loads(resp.body.decode('utf-8'))
+            print("200")
             print(resp_dict)
             #body = {"registration_code": resp_dict["registration_code"]}
             #async_http_client = httpclient.AsyncHTTPClient()
