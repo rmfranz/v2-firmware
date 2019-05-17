@@ -4,9 +4,9 @@ import json
 from cloud_service.cloud_utils import cloud_service_resp
 import tornado
 
-URL_CLOUD = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/register"
-URL_QUEUE = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/get_queued_jobs"
-URL_QUEUE_START = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/start_queued_job"
+URL_CLOUD = "https://kodak-dev-acorn.3dprinteros.com/apiprinter/v1/kodak/printer/register"
+URL_QUEUE = "https://kodak-dev-acorn.3dprinteros.com/apiprinter/v1/kodak/printer/get_queued_jobs"
+URL_QUEUE_START = "https://kodak-dev-acorn.3dprinteros.com/apiprinter/v1/kodak/printer/start_queued_job"
 
 class ToCloudHandler(BasicHandler):
     def get(self):

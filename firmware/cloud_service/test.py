@@ -6,8 +6,8 @@ import logging
 from tornado import httpclient
 import json
 
-URL_CLOUD = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/register"
-URL_QUEUE = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/get_queued_jobs"
+URL_CLOUD = "https://kodak-dev-acorn.3dprinteros.com/apiprinter/v1/kodak/printer/register"
+URL_QUEUE = "https://kodak-dev-acorn.3dprinteros.com/apiprinter/v1/kodak/printer/get_queued_jobs"
 AUTH = "L2bEH2GI7W5YUcRewoXbXWr82Z7LwaNOJgsmAeZVponydTOkaOq3rWOdwhgAAgvMNkZTmNRxjSMMp5R1IvZ1eTPPLUJJjlvDMWuERYqss7FBijngsOZy9TSwkIn2I4Qq"
 
 class InitHandler(RequestHandler):

@@ -31,9 +31,9 @@ class PeriodicController:
         self.bed_target = 0
         self.amber_target = 0
         self.percent = 0
-        self.url_cloud = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/register"
-        self.url_command = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/command"
-        self.url_camera = "https://cloud.3dprinteros.com/apiprinter/v1/kodak/printer/camera"
+        self.url_cloud = "https://kodak-dev-acorn.3dprinteros.com/apiprinter/v1/kodak/printer/register"
+        self.url_command = "https://kodak-dev-acorn.3dprinteros.com/apiprinter/v1/kodak/printer/command"
+        self.url_camera = "https://kodak-dev-acorn.3dprinteros.com/apiprinter/v1/kodak/printer/camera"
         self.auth_token = self.user_conf_json["auth_token"]
         self.api_caller = PeriodicCallback(self.command_request, 2000)
         self.api_set_percentage = PeriodicCallback(self.set_percentage, 3000)
