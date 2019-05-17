@@ -57,6 +57,7 @@ class GetRegistrationCodeHandler(RequestHandler):
 
 class TranslationHandler(RequestHandler):
     def get(self):
+        print(self.locale.translate("calibration_error"))
         self.render("index.html", lights_on="true")
     
     def get_user_locale(self):

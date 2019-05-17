@@ -24,7 +24,7 @@ $("#confirm").click(function () {
                 } else {
                     $( "#confirm" ).toggleClass("k-modal-4__button--grey");
                     //$( "#confirm" ).addClass("k-modal-4__button--yellow");
-                    $("#connection_error").text("Error de conexión, vuelva a intentarlo")                
+                    $("#connection_error").text(result)                
                 }
             },
             async: false
