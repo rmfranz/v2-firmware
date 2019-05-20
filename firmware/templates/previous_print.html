@@ -16,10 +16,15 @@
         -->
         {% if filename.split(".gcode")[0] in ["5 points", "XY Offset Calibration", "Z Offset test T0", "Z Offset test T1"]  %}
             <div class="k-printing-preview">
-            <div class="k-printing-preview__img">
                 <img src="/calib_images/{{filename.split('.gcode')[0] + '.jpg'}}" width="300" height="100%" />
             </div>
-            </div>
+        {% end %}
+        {% if filename.split(".gcode")[0] in ['ANubis8hrs', 'Crane_Hook_snylon6', 'Ext1_PETG_Vase', 'Ext1__PLATough_CableProtector', 'Ext1__PLATough_JapaneseRolling', 
+        'Ext2_PLA+_Whistle', 'Gancho_nylon6 ', 'ski_goggels_PVA_ext2_PLA-t_ext1', 'tire_flex_2hrs', 'tire_flex_big_30hrs', 
+        'turbine2_nylon', 'vase_velocity_petg']  %}
+        <div class="k-printing-preview">
+            <img src="/sample_images/{{filename.split('.gcode')[0] + '.jpg'}}" width="300" height="100%" />
+        </div>
         {% end %}
     </section>
 </main>
