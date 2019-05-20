@@ -21,6 +21,10 @@ function load_filament_wait() {
     }
 }
 
+function finish_change_extruder() {
+    $("#filament_change_modal").toggleClass("k-modal-overlay--visible");
+}
+
 function finish_extrude_more() {
     $("#extrude_more_modal").toggleClass("k-modal-overlay--visible");
 }
@@ -46,3 +50,5 @@ $('#filament_action').click(function () {
         setTimeout(finish_extrude_more, 40000);
     }
 });
+
+setTimeout(finish_change_extruder, 9000);
