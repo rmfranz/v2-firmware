@@ -17,7 +17,7 @@
         {% if filename.split(".gcode")[0] in ["5 points", "XY Offset Calibration", "Z Offset test T0", "Z Offset test T1"]  %}
             <div class="k-printing-preview">
             <div class="k-printing-preview__img">
-                <img src="/calib_images/{{key.split('.gcode')[0] + '.jpg'}}" width="300" height="100%" />
+                <img src="/calib_images/{{filename.split('.gcode')[0] + '.jpg'}}" width="300" height="100%" />
             </div>
             </div>
         {% end %}
