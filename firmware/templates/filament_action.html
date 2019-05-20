@@ -46,17 +46,34 @@
         </div>
     </div>
 </section>
+{% if action == "filament_auto_load" %}
 <section id="filament_change_modal" class="k-modal-overlay k-modal-overlay--visible">
     <div class="k-modal">
         <div class="k-modal-container">
             <div class="k-modal-2">
                 <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
                 <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
-                    {{_("filaments_please_wait")}}</p>
+                    {{_("calibration_extruder_change").format(",")}}</p>
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    Insert filament in the extruder {{ extruder.split("ext_")[1] }} on the back of the printer</p>
             </div>
         </div>
     </div>
 </section>
+{% else %}
+<section id="filament_change_modal" class="k-modal-overlay k-modal-overlay--visible">
+    <div class="k-modal">
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("calibration_extruder_change").format(",")}}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% end %}
+
 </body>
 <script>
     var in_filament = true;
