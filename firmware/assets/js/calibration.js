@@ -245,6 +245,10 @@ $("#confirm_manual_reboot").on("click", function() {
     $("#manual_reboot_modal").toggleClass( "k-modal-overlay--visible" );
 });
 
+$("#advertise_modal_close").on("click", function() {
+    $("#advertise_modal").toggleClass( "k-modal-overlay--visible" );
+});
+
 $("#3_points_calibration").on("click", function() {
     $("#3pt_calibration_wait").toggleClass( "k-modal-overlay--visible" );
     $.get("/make-3-calibration");

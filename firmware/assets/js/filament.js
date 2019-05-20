@@ -51,4 +51,4 @@ $('#filament_action').click(function () {
     }
 });
 
-setTimeout(finish_change_extruder, 9000);
+setTimeout(finish_change_extruder, 10000);
