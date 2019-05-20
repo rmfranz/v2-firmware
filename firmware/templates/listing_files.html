@@ -9,6 +9,9 @@
         <div class="k-block-2 file_selected" data-path="{{value}}" data-filename="{{ key }}">
             <div class="k-block-2__left">
                 <div class="k-block-2__img-container">
+                    {% if key.split(".gcode")[0] in ["5 points", "XY Offset Calibration", "Z Offset test T0", "Z Offset test T1"]  %}
+                        <img src="/calib_images/{{key.split('.gcode')[0] + '.jpg'}}" style="height: 64px" />
+                    {% end %}
                 </div>
                 <p>{{ key }}</p>
             </div>

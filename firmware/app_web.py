@@ -171,6 +171,8 @@ class Application(tornado.web.Application):
             (r"/error-handler", ErrorWsHandler),
             (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/v2-firmware/firmware/assets"}),
             (r'/print_images/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/print_images"}),
+            (r'/sample_images/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/v2-firmware/Samples"}),
+            (r'/calib_images/(.*)', tornado.web.StaticFileHandler, {'path': "/home/pi/v2-firmware/calibrationObjects"}),
         ]
         #tornado.web.Application.__init__(self, handlers, template_path="/home/pi/v2-firmware/firmware/templates/", autoreload=True,
         #    compiled_template_cache=False, static_hash_cache=False)
