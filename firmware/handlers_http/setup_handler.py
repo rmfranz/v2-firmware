@@ -147,7 +147,7 @@ class UpdateHandler(BasicHandler):
 class ToInfoHandler(BasicHandler):
     def get(self):
         mac_address = self.firmware.get_macaddress().upper()
-        token = mac_address.replace(':', '')[:6]
+        token = mac_address.replace(':', '')[6:]
         self.render("info.html", serial=self.firmware.get_serial_number(), mac_address=mac_address, 
             hard_version=self.firmware.hardware_json["hw_version"], token=token)
 
