@@ -21,7 +21,8 @@
         </div>
         {% if is_image %}
         <div class="k-printing-preview">
-            <img src="/print_images/print.png" width="286" height="100%" />
+            {% import time %}
+            <img src="/print_images/print.png?dummy={{time.time()}}" width="286" height="100%" />
         </div>
         {% end %}
         {% if filename.split(".gcode")[0] in ["5 points", "XY Offset Calibration", "Z Offset test T0", "Z Offset test T1"]  %}
