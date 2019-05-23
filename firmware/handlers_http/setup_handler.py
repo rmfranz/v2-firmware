@@ -93,7 +93,7 @@ class UsbUpdate(BasicHandler):
         result = mount_usb(self.firmware.hardware_json["board_uuid"])
         if result == 0:
             md5 = os.system('cd /media/usb && md5sum -c firmware.zip.md5')
-            if md5 == 0:
+            if md5 != 0:
                 self.write({'error': 3})
             else:
                 step1 = os.system('cp /media/usb/firmware.zip /home/pi && sync')
