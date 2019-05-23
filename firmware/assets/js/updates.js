@@ -1,6 +1,9 @@
 
 $.get("/get-update").done(function(data){
-  if(data.new == data.actual){
+  if(data.error == "error"){  
+    $("#waiting_info").toggleClass("initiallyHidden");
+    $("#get_update_error").toggleClass("initiallyHidden");
+  } else if(data.new == data.actual){
     $('#actual').text(data.actual);
     $("#waiting_info").toggleClass("initiallyHidden");
     $('#version_actual').toggleClass("initiallyHidden");

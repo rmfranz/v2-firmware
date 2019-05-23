@@ -4,7 +4,8 @@ from utils import get_extruder_materials, get_volume, set_volume, restore_user_p
 import os
 import json
 from subprocess import check_output
-from tornado import httpclient
+from tornado import httpclient, concurrent, gen
+
 
 
 class SetupHandler(BasicHandler):
@@ -87,13 +88,27 @@ class ToUpdateHandler(BasicHandler):
             self.render("updates.html", wizzard_viewed=self.wizzard.viewed)
 
 class GetUpdateHandler(BasicHandler):
+    @gen.coroutine
     def get(self):
-        new = check_output("(git fetch --tags origin && git tag) | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
+        error = None
+        new = yield self.get_new_tag()
         try:
             actual = check_output("git describe --abbrev=0", shell=True, universal_newlines=True)
         except:
             actual = "0"
-        self.write({"new": new, "actual": actual, "connectivity": check_connectivity()})
+        if not new:
+            error = "error"
+        self.write({"new": new, "actual": actual, "connectivity": check_connectivity(), 'error': error})
+
+    @concurrent.run_on_executor
+    def get_new_tag(self):
+        try:
+            new_tag = check_output("git fetch --tags origin && git tag | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1",
+                    shell=True, universal_newlines=True)
+        except:
+            new_tag = None
+        return new_tag
+        
 
 class GetActualVersionHandler(BasicHandler):
     def get(self):
@@ -104,12 +119,17 @@ class GetActualVersionHandler(BasicHandler):
         self.write({"actual": actual})
 
 class GetUpdateToDevHandler(BasicHandler):
+    @gen.coroutine
     def get(self):
-        scanoutput = check_output("git fetch --tags origin && git tag", shell=True, universal_newlines=True)
+        scanoutput = yield self.get_tags()
         tags = [n for n in scanoutput.split("\n") if n and n != "vinicial"]
         tags.append("master")
         tags.sort(reverse = True)
         self.write({"tags": tags[:5]})
+
+    @concurrent.run_on_executor
+    def get_tags(self):
+        return check_output("git fetch --tags origin && git tag", shell=True, universal_newlines=True)
 
     def post(self):
         version = self.get_body_argument("version")

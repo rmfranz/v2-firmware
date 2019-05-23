@@ -2,10 +2,12 @@ from tornado.web import RequestHandler
 from printcore_modified import gcoder
 import pickle
 import tornado
+from tornado import concurrent
 
 class BasicHandler(RequestHandler):
 
     OFFSET_PATH = "/home/pi/config-files/offsets.json"
+    executor = concurrent.futures.ThreadPoolExecutor(5)
     
     def prepare(self):
         self.firmware = self.application.firmware
