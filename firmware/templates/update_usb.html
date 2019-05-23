@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="k-main">
+    <section class="k-dialog k-dialog--center">
+        <h2 class="k-dialog__h2">{{_("usb_update_title")}}</h2>
+        <div>
+            <p><strong>{{_("usb_update_info")}}</strong></p>
+            <button id="update" class="k-dialog__button">{{_("extras_update")}}</button>
+        </div>
+        <div id="mount_error" class="initiallyHidden">
+            <p><strong>{{_("mount_usb_error").format(",")}}</strong></p>
+        </div>
+        <div id="unmount_error" class="initiallyHidden">
+            <p><strong>{{_("unmount_usb_error").format(",")}}</strong></p>
+        </div>
+        <div id="download_error" class="initiallyHidden">
+            <p><strong>{{_("download_error")}}</strong></p>
+        </div>
+        <div id="copy_unzip_error" class="initiallyHidden">
+            <p><strong>{{_("copy_unzip_error")}}</strong></p>
+        </div>
+        <div id="folder_error" class="initiallyHidden">
+            <p><strong>{{_("folder_error")}}</strong></p>
+        </div>
+    </section>
+</main>
+<footer class="k-footer">
+    <a href="/software-update" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
+</footer>
+
+</body>
+<script src="/static/js/usb_updates.js"></script>
+{% end %}

@@ -27,9 +27,12 @@ class ListingFilesHandler(BasicHandler):
                 print("resultado: {}".format(result))
                 if result == 0:
                     items = get_gcodes_from_usb()                    
+                elif result == 1:
+                    items = {}
+                    error = 1
                 else:
                     items = {}
-                    error = "No se pudo montar el usb"
+                    error = 2
             except:
                 items = {}
         elif listing_id == "2":
@@ -37,9 +40,9 @@ class ListingFilesHandler(BasicHandler):
         elif listing_id == "3":
            items = get_gcodes_from_calibration()
         if not items:
-            error = "error"
+            error = 3
         else:
-            error = ""
+            error = 0
         self.firmware.files_from_where = listing_id
         self.render("listing_files.html", items=items, error=error, listing_id=listing_id)
 

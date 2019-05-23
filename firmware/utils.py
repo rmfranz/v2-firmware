@@ -57,7 +57,10 @@ def delete_corrupt():
         os.remove("/home/pi/app.corrupt")
 
 def mount_usb(uuid_board):
-    if not check_output("ls /media/usb", shell=True, universal_newlines=True):
+    result = os.system('sudo umount /media/usb')
+    if result != 0:
+        return 1
+    else:
         #TODO: Check if more than one
         usb_info = check_output("ls -l /dev/disk/by-uuid | grep sd | grep -v {}".format(uuid_board),
                         shell=True, universal_newlines=True)
@@ -65,7 +68,6 @@ def mount_usb(uuid_board):
         usb_info = [j for j in usb_info.split("\n") if j]
         #usb = {usb_info[0].split()[8]: usb_info[0].split()[10].split("/")[-1]}
         return os.system("sudo mount /dev/{} /media/usb -o uid=pi,gid=pi".format(usb_info[0].split()[10].split("/")[-1]))
-    else: return 0
 
 def get_gcodes_from_usb():
     dirName = "/media/usb"

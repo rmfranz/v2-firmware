@@ -1,6 +1,6 @@
 from handlers_http.basic_handler import BasicHandler
 from tornado.options import options
-from utils import get_extruder_materials, get_volume, set_volume, restore_user_pref, reset_mac, check_connectivity
+from utils import get_extruder_materials, get_volume, set_volume, restore_user_pref, reset_mac, check_connectivity, mount_usb, reset_rpi
 import os
 import json
 from subprocess import check_output
@@ -79,6 +79,41 @@ class SetBoardUuidHandler(BasicHandler):
 class ToBasicHandler(BasicHandler):
     def get(self):
         self.render("basic.html")
+
+class ToUpdateSelectionHandler(BasicHandler):
+    def get(self):
+        self.render("update_selection.html")
+
+class ToUsbUpdateHandler(BasicHandler):
+    def get(self):
+        self.render("update_selection.html")
+
+class UsbUpdate(BasicHandler):
+    def get(self):
+        result = mount_usb(self.firmware.hardware_json["board_uuid"])
+        if result == 0:
+            md5 = os.system('cd /media/usb && md5sum -c firmware.zip.md5')
+            if md5 == 0:
+                self.write({'error': 3})
+            else:
+                step1 = os.system('cp /media/usb/firmware.zip /home/pi && sync')
+                step2 = os.system('unzip /home/pi/firmware.zip -d /home/pi/firmware_unziped')
+                if step1 == 0 and step2 == 0:
+                    result = os.system('sudo cp -r /home/pi/firmware_unziped/* /home/pi/v2-firmware')
+                    os.system("sudo chown -R pi:pi /home/pi/v2-firmware")
+                    if result == 0:
+                        os.system('sudo rm -r /home/pi/firmware_unziped')
+                        reset_rpi()
+                        self.write("ok")
+                    else:
+                        self.write({'error': 5})
+                else:
+                    self.write({'error': 4})
+        elif result == 1:
+            self.write({'error': 1})
+        else:
+            self.write({'error': 2})
+        
 
 class ToUpdateHandler(BasicHandler):
     def get(self):
