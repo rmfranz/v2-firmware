@@ -86,7 +86,7 @@ class ToUpdateSelectionHandler(BasicHandler):
 
 class ToUsbUpdateHandler(BasicHandler):
     def get(self):
-        self.render("update_selection.html")
+        self.render("update_usb.html")
 
 class UsbUpdate(BasicHandler):
     def get(self):
