@@ -33,7 +33,7 @@ class Wizzard():
         if self.wizzard_json["update"] == "not_selected" and not self.update_viewed and not skipped:
             self.update_viewed = True
             #TODO: Check update, si no hay un update seguir
-            return "/software-update"
+            return "/internet-update"
         if self.wizzard_json["cloud"] == "not_selected" and not self.cloud_viewed and not skipped:
             self.cloud_viewed = True
             return "/to-cloud"
