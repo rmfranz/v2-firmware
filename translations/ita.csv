@@ -1,8 +1,3 @@
-,
-Tag name,Italian
-Tag Code,it
-,
-,
 powered_by,Powered by
 hello,Hello!
 lets_get_started,Cominciamo!
@@ -166,6 +161,7 @@ manual_reboot,Spegnere la stampante{} attendere 15 sec. e riaccenderla. I nuovi 
 calibration_wizard_title,Calibrazione assistita
 waiting_for_initial_movements,Attendere la fine dei movimenti.
 done,Chiudi
+,Installazione completata.
 skip_wizard,Do you want to skip this wizard next time the machine reboots?
 update_warning,Consigliamo di aggiornare il software per ottenere le ultime funzionalitá.
 ,
@@ -260,16 +256,21 @@ sound_volume,Volume
 ,
 updates_updating,Aggiornato a 
 custom_version,Versione personalizzata
-updates_latest,Hai l'ultima versione.
+updates_latest,Hai l'ultima versione
 updates_updating_footer,Importante: non spegnere il dispositivo durante l'aggiornamento
 updates_success,Aggiornamento completato. Attendi il riavvio.
+get_update_error,Hubo un error al obtener la nueva versión. Recomendamos que actualice por USB
+usb_update,Usb update
+internet_update,Internet update
+usb_update_title,Usb update
+usb_update_info,Inserte el usb
 ,
 print_selection_title,Stampa
 print_selection_cloud,Coda di stampa
 print_selection_local,Stampa un file locale
 ,
-cancel_popup_title,Sto annullando la stampa.
-cancel_popup_body,Attendere.
+cancel_popup_title,Sto annullando la stampa
+cancel_popup_body,Attendere
 ,
 info_title,Inforomazioni
 ,
@@ -282,6 +283,11 @@ config_wifi,WiFi
 error,Riavviare la stampante. Se il problema persiste{} contattare il servizio tecnico.
 waiting_info,Estrazione informazioni...
 onboarding_welcome_to_v2,Aggiornamento completato. La stampante é stata aggiornata con successo alla versione 2.0.
+unmount_usb_error,Error 001 with USB
+mount_usb_error,Error 002 with USB
+download_error,Error 003 with update
+copy_unzip_error,Error 004 with update
+folder_error,Error 005 with update
 ,
 ,
 ,

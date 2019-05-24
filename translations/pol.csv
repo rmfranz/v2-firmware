@@ -1,8 +1,3 @@
-,
-Tag name,Polish
-Tag Code,pl
-,
-,
 powered_by,Dostarczone przez
 hello,Witaj!
 lets_get_started,Zaczynamy!
@@ -166,6 +161,7 @@ manual_reboot,Wyłącz drukarkę{} poczekaj 15 sekund i włącz ją ponownie. Us
 calibration_wizard_title,Pomocnik kalibracji
 waiting_for_initial_movements,Poczekaj na zakończenie inicjalizacji
 done,Gotowe
+,Instalacja zakończona!
 skip_wizard,Do you want to skip this wizard next time the machine reboots?
 update_warning,Zalecamy zaktualizowanie oprogramowania drukarki w celu uzyskania najnowszych funkcji.
 ,
@@ -197,7 +193,7 @@ Off (0ºC),Wyłączone
 Calculating...,Obliczanie...
 nozzleDisconnected,Dysza odłączona
 noFilesFound,Włóż dysk USB i poczekaj na załadowanie plików.
-print_load_file_popup,Ładowanie pliku{} proszę czekać, to może chwilę potrwać.
+print_load_file_popup,Ładowanie pliku{} proszę czekać{} to może chwilę potrwać.
 print_load_file_popup_title,Ładowanie pliku
 print_load_file_popup_body,Proszę czekać. To może chwilę potrwać.
 ,
@@ -260,16 +256,21 @@ sound_volume,Głośność
 ,
 updates_updating,Aktualizacja do
 custom_version,Wersja niestandardowa
-updates_latest,Zainstalowana jest najnowsza wersja oprogramowania.
+updates_latest,Zainstalowana jest najnowsza wersja oprogramowania
 updates_updating_footer,Uwaga: nie wyłączaj drukarki w trakcie aktualizacji.
 updates_success,Aktualizacja zakończona. Poczekaj na ponowne uruchomienie.
+get_update_error,Hubo un error al obtener la nueva versión. Recomendamos que actualice por USB
+usb_update,Usb update
+internet_update,Internet update
+usb_update_title,Usb update
+usb_update_info,Inserte el usb
 ,
 print_selection_title,Drukuj
 print_selection_cloud,Kolejka wydruku
 print_selection_local,Drukuj z lokalnego pliku
 ,
-cancel_popup_title,Anulowanie drukowania.
-cancel_popup_body,Proszę czekać.
+cancel_popup_title,Anulowanie drukowania
+cancel_popup_body,Proszę czekać
 ,
 info_title,Informacje
 ,
@@ -282,6 +283,11 @@ config_wifi,WiFi
 error,Proszę ponownie uruchomić drukarkę. Jeśli problem będzie nadal występował{} proszę skontaktować się ze wsparciem technicznym.
 waiting_info,Pobieram dane...
 onboarding_welcome_to_v2,aktualizacja powiodła się.
+unmount_usb_error,Error 001 with USB
+mount_usb_error,Error 002 with USB
+download_error,Error 003 with update
+copy_unzip_error,Error 004 with update
+folder_error,Error 005 with update
 ,
 ,
 ,

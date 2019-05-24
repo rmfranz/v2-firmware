@@ -1,8 +1,3 @@
-,
-Tag name,Portuguese
-Tag Code,pt
-,
-,
 powered_by,Com a tecnologia de
 hello,Olá!
 lets_get_started,Vamos começar!
@@ -166,6 +161,7 @@ manual_reboot,Desligue a impressora no interruptor{} aguarde 15 segundos e volte
 calibration_wizard_title,Assistente de calibragem
 waiting_for_initial_movements,Aguarde a conclusão dos movimentos iniciais.
 done,Concluído
+,Instalação concluída.
 skip_wizard,Do you want to skip this wizard next time the machine reboots?
 update_warning,Recomendamos que você atualize o software para obter os recursos mais recentes.
 ,
@@ -197,7 +193,7 @@ Off (0ºC),Desligado
 Calculating...,Calculando…
 nozzleDisconnected,Bico de extrusão desconectado
 noFilesFound,Insira a unidade USB e aguarde o carregamento dos arquivos.
-print_load_file_popup,Carregando o arquivo{} por favor, aguarde. Isso pode levar alguns minutos.
+print_load_file_popup,Carregando o arquivo{} por favor{} aguarde. Isso pode levar alguns minutos.
 print_load_file_popup_title,Carregando arquivo
 print_load_file_popup_body,Aguarde. Isso pode levar alguns minutos.
 ,
@@ -260,16 +256,21 @@ sound_volume,Volume
 ,
 updates_updating,Atualizando a
 custom_version,Versão especial
-updates_latest,Você tem a versão mais recente.
+updates_latest,Você tem a versão mais recente
 updates_updating_footer,Importante: não desligue a impressora durante a atualização.
 updates_success,Atualização concluída com sucesso. Aguarde para reiniciar.
+get_update_error,Hubo un error al obtener la nueva versión. Recomendamos que actualice por USB
+usb_update,Usb update
+internet_update,Internet update
+usb_update_title,Usb update
+usb_update_info,Inserte el usb
 ,
 print_selection_title,Imprimir
 print_selection_cloud,Fila de Impressão
 print_selection_local,Imprimir um arquivo local
 ,
-cancel_popup_title,Cancelando a impressão.
-cancel_popup_body,Aguarde.
+cancel_popup_title,Cancelando a impressão
+cancel_popup_body,Aguarde
 ,
 info_title,Informação
 ,
@@ -282,6 +283,11 @@ config_wifi,WiFi
 error,Reinicie a impressora e se o erro persistir{} contate o suporte técnico.
 waiting_info,Buscando dados...
 onboarding_welcome_to_v2,A atualização foi bem-sucedida! A impresora foi atualizada corretamente para a versão 2.0.
+unmount_usb_error,Error 001 with USB
+mount_usb_error,Error 002 with USB
+download_error,Error 003 with update
+copy_unzip_error,Error 004 with update
+folder_error,Error 005 with update
 ,
 ,
 ,
