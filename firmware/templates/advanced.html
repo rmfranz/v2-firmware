@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <main class="k-main">
-    <section class="k-grid k-grid--2x3asim">
+    <section class="k-grid k-grid--2x3">
         <a href="/manual-controls" class="k-grid-item">
             <img class="k-grid-item__img" src="/static/images/icon_control-manual.svg"/> 
             <p class="k-grid-item__p">{{_("extras_controls")}}</p>
@@ -21,6 +21,10 @@
         <a href="/software-update" class="k-grid-item">
             <img class="k-grid-item__img" src="/static/images/icon_actualizar.svg"/> 
             <p class="k-grid-item__p">{{_("extras_update")}}</p>
+        </a>
+        <a href="/dev-mode" class="k-grid-item">
+            <img class="k-grid-item__img" src="/static/images/icon_devtool_2.svg"/> 
+            <p class="k-grid-item__p">{{_("dev_tools")}}</p>
         </a>
     </section>
 </main>

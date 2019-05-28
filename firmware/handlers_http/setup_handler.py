@@ -263,6 +263,10 @@ class NextWizzardHandler(BasicHandler):
     def get(self):
         self.redirect(self.wizzard.give_me_page())
 
+class ToUserDevModeHandler(BasicHandler):
+    def get(self):
+        self.render("user_dev_mode.html")
+
 class EnableDebModeHandler(BasicHandler):
     def get(self):
         os.system("touch /home/pi/dev_mode")

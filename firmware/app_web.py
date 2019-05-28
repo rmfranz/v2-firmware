@@ -139,6 +139,7 @@ class Application(tornado.web.Application):
             (r"/ssh-disable", DisableSSHHandler),
             (r"/enable-dev-mode", EnableDebModeHandler),
             (r"/disable-dev-mode", DisableDebModeHandler),
+            (r"/dev-mode", ToUserDevModeHandler),
             (r"/lights", ToLightsHandler),
             (r"/lights/red", LightsHandler),
             (r"/lights/green", LightsHandler),

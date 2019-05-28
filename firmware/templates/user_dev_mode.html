@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="k-main">
+    <section class="k-block">
+        <div>
+            <button id="enable_ssh" class="k-dialog__button k-dialog__button--shortened">Enable ssh</button>
+            <button id="disable_ssh" type="submit" class="k-dialog__button k-dialog__button--shortened">Disable
+                ssh</button>
+        </div>
+        <br />
+        <div>
+            <button id="reset_board" type="submit" class="k-dialog__button k-dialog__button--shortened">Reset board
+                uuid</button>
+            <button id="restore_user_pref" type="submit" class="k-dialog__button k-dialog__button--shortened">Restore
+                user prefs</button>
+        </div>
+    </section>
+</main>
+<footer class="k-footer">
+    <a href="/advanced" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
+</footer>
+<section id="reset_board_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-4">
+            <div class="k-modal-4__top">
+                <p>Please remove any usb or keyboard from printer!</p>
+            </div>
+            <div class="k-modal-4__bottom">
+                <button id="confirm_reset" class="k-modal-4__button k-modal-4__button--red">OK</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="wait_reset_board_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-4">
+            <div class="k-modal-2">
+                <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
+                <h2 class="k-modal__title k-modal__title--big">Please wait! Press Ok when button appears</h2>
+                <p id="error_board"></p>
+            </div>
+            <div id="reset_ok" class="k-modal-4__bottom initiallyHidden">
+                <button id="reset_ok_btn" class="k-modal-4__button k-modal-4__button--red">OK</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="done_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-4">
+            <div class="k-modal-4__top">
+                <h2 class="k-modal__title k-modal__title--big">Done!</h2>
+            </div>
+            <div class="k-modal-4__bottom">
+                <button id="done_modal_close" class="k-modal-4__button k-modal-4__button--red">OK</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="conf_reset_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-4">
+            <div class="k-modal-4__top">
+                <h2 class="k-modal__title k-modal__title--big">Changes will applied on next reboot</h2>
+            </div>
+            <div class="k-modal-4__bottom">
+                <button id="conf_reset_modal_close" class="k-modal-4__button k-modal-4__button--red">OK</button>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<script src="/static/js/dev_mode.js"></script>
+{% end %}
