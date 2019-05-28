@@ -38,23 +38,10 @@
         "okPTFE" : "F",
         "adhesives" : "T"
     },
-    "Nylon12":{
-        "name" : "Nylon12",
-        "displayOrder" : "4",
-        "printTemp" : "145",
-        "bedTemp" : "85",
-        "KodakFilament" : "Y",
-        "feed_speed_fast" : "70",
-        "feed_speed_slow" : "70",
-        "standByTemperature" : "125",
-        "okAllMetal" : "T",
-        "okPTFE" : "F",
-        "adhesives" : "PVA"
-    },
-    "Nylon6":{
-        "name" : "Nylon6",
+    "Nylon":{
+        "name" : "Nylon",
         "displayOrder" : "5",
-        "printTemp" : "245",
+        "printTemp" : "240",
         "bedTemp" : "85",
         "KodakFilament" : "Y",
         "feed_speed_fast" : "70",
