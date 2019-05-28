@@ -31,7 +31,7 @@ class LoadUnloadFilamentsHandler(BasicHandler):
         filament_type = self.get_argument('material')
         extruder = self.request.path.split("/")[1]
         action = self.request.path.split("/")[2]
-        material = get_extruder_materials(self.firmware.filaments_json)[filament_type]
+        material = get_extruder_materials(self.firmware.filaments_json)[filament_type]['name']
         if action == "load":
             self.firmware.start_load_filament(extruder)
             action = "filament_auto_load"
