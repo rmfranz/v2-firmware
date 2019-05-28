@@ -3,13 +3,21 @@
 <main class="k-main">
     <section class="k-grid k-grid--3x3">
         {% for key, value in mat_temps.items() %}
-            {% if key == "OFF ~ 0°C" %}
-            <a href="/{{extruder}}/{{value}}" class="k-grid-item k-grid-item--red">
-                <p class="k-grid-item__p k-grid-item__p--big">{{key}}</p>
+            {% if extruder == 'ext_1' and value['okAllMetal'] == 'T' %}
+            <a href="/{{extruder}}/{{value['printTemp']}}" class="k-grid-item">
+                <p class="k-grid-item__p k-grid-item__p--big">{{value['name']}}</p>
+            </a>
+            {% elif extruder == 'ext_2' and value['okPTFE'] == 'T' %}
+            <a href="/{{extruder}}/{{value['printTemp']}}" class="k-grid-item">
+                <p class="k-grid-item__p k-grid-item__p--big">{{value['name']}}</p>
+            </a>
+            {% elif value['name'] == "OFF" %}
+            <a href="/{{extruder}}/{{value['printTemp']}}" class="k-grid-item k-grid-item--red">
+                <p class="k-grid-item__p k-grid-item__p--big">{{value['name']}}</p>
             </a>
             {% else %}
-            <a href="/{{extruder}}/{{value}}" class="k-grid-item">
-                <p class="k-grid-item__p k-grid-item__p--big">{{key}}</p>
+            <a href="#" class="k-grid-item k-grid-item--grey">
+                <p class="k-grid-item__p k-grid-item__p--big">{{value['name']}}</p>
             </a>
             {% end %}
         {% end %}

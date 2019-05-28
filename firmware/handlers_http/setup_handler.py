@@ -24,13 +24,14 @@ class FilamentsHandler(BasicHandler):
     def get(self):
         extruder = self.request.path.split("/")[1]
         action = self.request.path.split("/")[2]
-        self.render("filaments_type.html", ext_action=action, ext_type=extruder, mat_temps=get_extruder_materials())
+        self.render("filaments_type.html", ext_action=action, ext_type=extruder, mat_temps=get_extruder_materials(self.firmware.filaments_json))
 
 class LoadUnloadFilamentsHandler(BasicHandler):
-    def get(self, filament_type):
+    def get(self):
+        filament_type = self.get_argument('material')
         extruder = self.request.path.split("/")[1]
         action = self.request.path.split("/")[2]
-        material = get_extruder_materials()[filament_type]
+        material = get_extruder_materials(self.firmware.filaments_json)[filament_type]
         if action == "load":
             self.firmware.start_load_filament(extruder)
             action = "filament_auto_load"

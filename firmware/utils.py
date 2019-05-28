@@ -187,18 +187,9 @@ def check_file_print_finished():
         ws.close()
         os.system("rm /home/pi/print_end_status/*")
 
-def get_extruder_materials():
-    mat_temps = {
-           "1" :"ABS",
-           "2" :"Flex",
-           "3" :"HIPS",
-           "4" :"Nylon",
-           "5" :"PETG",
-           "6" :"PLA Tough",
-           "7" :"PLA+",
-           "8" :"PVA"
-        }
-    return mat_temps
+def get_extruder_materials(filaments):
+    filaments.update({'OFF': {'printTemp': 0, 'displayOrder': 20, 'okAllMetal': '', 'okPTFE': ''}})
+    return collections.OrderedDict(sorted(filaments.items(), key=lambda f: int(f[1]['displayOrder'])))
 
 def reset_rpi():
     os.system("sudo killall pigpiod")

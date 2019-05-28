@@ -1,5 +1,5 @@
 from handlers_http.basic_handler import BasicHandler
-from utils import get_extruder
+from utils import get_extruder, get_extruder_materials
 import collections
 
 class ToExtrudersControlHandler(BasicHandler):
@@ -25,19 +25,20 @@ class ToExtruderTemperatureHandler(BasicHandler):
     def get(self):
         extruder = self.request.path.split("/")[1]
         #self.firmware.choose_extruder(extruder)
-        mat_temps = {
-            "ABS ~ 240°C": 240,
-            "Flex (PU) ~ 235°C": 235,
-            "HIPS ~ 240°C": 240,
-            "Nylon ~ 240°C": 240,
-            "PETG ~ 240°C": 240,
-            "PLA Tough ~ 215°C": 215,
-            "PLA+ ~ 205°C": 205,
-            "PVA ~ 195°C": 195,
-            "OFF ~ 0°C": 0,
-        }
-        mat_temps = collections.OrderedDict(sorted(mat_temps.items()))
-        mat_temps.move_to_end('OFF ~ 0°C')
+        #mat_temps = {
+        #    "ABS ~ 240°C": 240,
+        #    "Flex (PU) ~ 235°C": 235,
+        #    "HIPS ~ 240°C": 240,
+        #    "Nylon ~ 240°C": 240,
+        #    "PETG ~ 240°C": 240,
+        #    "PLA Tough ~ 215°C": 215,
+        #    "PLA+ ~ 205°C": 205,
+        #    "PVA ~ 195°C": 195,
+        #    "OFF ~ 0°C": 0,
+        #}
+        #mat_temps = collections.OrderedDict(sorted(mat_temps.items()))
+        mat_temps = get_extruder_materials(self.firmware.filaments_json)
+        #mat_temps.move_to_end('OFF ~ 0°C')
         self.render("extruder_temp.html", extruder=extruder, mat_temps=mat_temps)
 
 class ExtruderTemperatureHandler(BasicHandler):
