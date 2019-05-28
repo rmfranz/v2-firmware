@@ -188,7 +188,7 @@ def check_file_print_finished():
         os.system("rm /home/pi/print_end_status/*")
 
 def get_extruder_materials(filaments):
-    filaments.update({'OFF': {'printTemp': 0, 'displayOrder': 20, 'okAllMetal': '', 'okPTFE': ''}})
+    filaments.update({'OFF': {'name': 'OFF', 'printTemp': 0, 'displayOrder': 20, 'okAllMetal': '', 'okPTFE': ''}})
     return collections.OrderedDict(sorted(filaments.items(), key=lambda f: int(f[1]['displayOrder'])))
 
 def reset_rpi():
