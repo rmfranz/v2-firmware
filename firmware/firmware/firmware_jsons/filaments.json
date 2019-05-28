@@ -87,7 +87,7 @@
         "feed_speed_slow" : "70",
         "standByTemperature" : "185",
         "okAllMetal" : "T",
-        "okPTFE" : "F",
+        "okPTFE" : "T",
         "adhesives" : "F"
     },
     "PLA+":{
