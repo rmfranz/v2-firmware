@@ -4,11 +4,11 @@
     <section class="k-grid k-grid--3x3">
         {% for key, value in mat_temps.items() %}
             {% if value['name'] != "OFF" and ext_type == 'ext_1' and value['okAllMetal'] == 'T' %}
-            <a href="/{{ext_type}}/{{ext_action}}?material={{key}}" class="k-grid-item">
+            <a href="/{{ext_type}}/{{ext_action}}/action?material={{key}}" class="k-grid-item">
                 <p class="k-grid-item__p k-grid-item__p--big">{{value['name']}}</p>
             </a>
             {% elif value['name'] != "OFF" and ext_type == 'ext_2' and value['okPTFE'] == 'T' %}
-            <a href="/{{ext_type}}/{{ext_action}}?material={{key}}" class="k-grid-item">
+            <a href="/{{ext_type}}/{{ext_action}}/action?material={{key}}" class="k-grid-item">
                 <p class="k-grid-item__p k-grid-item__p--big">{{value['name']}}</p>
             </a>
             {% elif value['name'] != "OFF" %}
