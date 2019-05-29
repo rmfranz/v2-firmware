@@ -23,7 +23,7 @@ class Wizzard():
             self.wizzard_json["lang"] = True
             self.write_wizzard()
             return "/language"
-        if self.wizzard_json["update_warning"] and not self.warning_viewed:
+        if self.wizzard_json["update_warning"] and not self.warning_viewed and not skipped:
             self.warning_viewed = True
             return "/update-warning"
         if self.wizzard_json["wifi"] == "not_selected" and not self.wifi_viewed and not skipped:
