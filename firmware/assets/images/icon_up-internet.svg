@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="84.344px" height="84.345px" viewBox="0 0 84.344 84.345" enable-background="new 0 0 84.344 84.345" xml:space="preserve">
-<path id="Path_350_4_" fill="none" stroke="#E1251B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-	M69.691,65.859l-5.142,4.762l-5.226-4.839"/>
-<path id="Line_309_4_" fill="none" stroke="#E1251B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-	M64.507,70.622V57.809"/>
-<circle fill="none" stroke="#E1251B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="64.507" cy="64.215" r="12.012"/>
+	 width="128.943px" height="128.943px" viewBox="0 0 128.943 128.943" enable-background="new 0 0 128.943 128.943"
+	 xml:space="preserve">
 <g>
-	<path fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-		M72.876,50.301c0.685-2.594,1.05-5.319,1.05-8.129c0-17.537-14.217-31.754-31.754-31.754S10.418,24.635,10.418,42.173
-		s14.217,31.754,31.754,31.754c3.083,0,6.064-0.439,8.883-1.259"/>
-	<path fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-		M59.775,48.886c1.94-17.765-3.927-38.467-17.603-38.467c-23.952,0-23.952,63.509,0,63.509c3.04,0,5.695-1.023,7.963-2.81"/>
 	
-		<line fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="42.172" y1="10.418" x2="42.172" y2="73.886"/>
+		<path id="Path_350_4_" fill="none" stroke="#E1251B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M104.558,99.924l-7.861,7.28l-7.989-7.398"/>
 	
-		<line fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="10.418" y1="42.152" x2="73.926" y2="42.152"/>
+		<path id="Line_309_4_" fill="none" stroke="#E1251B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M96.634,107.204V87.617"/>
 	
-		<line fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="14.677" y1="26.296" x2="69.668" y2="26.296"/>
-	
-		<line fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="14.677" y1="58.009" x2="49.945" y2="58.009"/>
+		<circle fill="none" stroke="#E1251B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="96.634" cy="97.411" r="18.363"/>
+	<g>
+		<path fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M109.429,76.14c1.047-3.966,1.605-8.131,1.605-12.427c0-26.81-21.734-48.544-48.544-48.544S13.945,36.903,13.945,63.713
+			s21.734,48.544,48.544,48.544c4.714,0,9.27-0.672,13.58-1.925"/>
+		<path fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M89.4,73.975c2.966-27.158-6.004-58.806-26.91-58.806c-36.617,0-36.617,97.088,0,97.088c4.648,0,8.706-1.564,12.174-4.296"/>
+		
+			<line fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="62.49" y1="15.169" x2="62.49" y2="112.195"/>
+		
+			<line fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="13.945" y1="63.682" x2="111.034" y2="63.682"/>
+		
+			<line fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="20.456" y1="39.441" x2="104.523" y2="39.441"/>
+		
+			<line fill="none" stroke="#020202" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="20.456" y1="87.923" x2="74.372" y2="87.923"/>
+	</g>
 </g>
 </svg>

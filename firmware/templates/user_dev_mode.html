@@ -3,16 +3,13 @@
 <main class="k-main">
     <section class="k-block">
         <div>
-            <button id="enable_ssh" class="k-dialog__button k-dialog__button--shortened">Enable ssh</button>
-            <button id="disable_ssh" type="submit" class="k-dialog__button k-dialog__button--shortened">Disable
-                ssh</button>
+            <button id="enable_ssh" class="k-dialog__button k-dialog__button--shortened">{{_("enable_ssh")}}</button>
+            <button id="disable_ssh" type="submit" class="k-dialog__button k-dialog__button--shortened">{{_("disable_ssh")}}</button>
         </div>
         <br />
         <div>
-            <button id="reset_board" type="submit" class="k-dialog__button k-dialog__button--shortened">Reset board
-                uuid</button>
-            <button id="restore_user_pref" type="submit" class="k-dialog__button k-dialog__button--shortened">Restore
-                user prefs</button>
+            <button id="reset_board" type="submit" class="k-dialog__button k-dialog__button--shortened">{{_("reset_board_uuid")}}</button>
+            <button id="restore_user_pref" type="submit" class="k-dialog__button k-dialog__button--shortened">{{_("reset_user_prefs")}}</button>
         </div>
     </section>
 </main>
@@ -25,7 +22,7 @@
     <div class="k-modal">
         <div class="k-modal-4">
             <div class="k-modal-4__top">
-                <p>Please remove any usb or keyboard from printer!</p>
+                <p>{{_("reset_board_warning")}}</p>
             </div>
             <div class="k-modal-4__bottom">
                 <button id="confirm_reset" class="k-modal-4__button k-modal-4__button--red">OK</button>
@@ -51,7 +48,7 @@
     <div class="k-modal">
         <div class="k-modal-4">
             <div class="k-modal-4__top">
-                <h2 class="k-modal__title k-modal__title--big">Done!</h2>
+                <h2 class="k-modal__title k-modal__title--big">{{_("done")}}</h2>
             </div>
             <div class="k-modal-4__bottom">
                 <button id="done_modal_close" class="k-modal-4__button k-modal-4__button--red">OK</button>
@@ -63,7 +60,7 @@
     <div class="k-modal">
         <div class="k-modal-4">
             <div class="k-modal-4__top">
-                <h2 class="k-modal__title k-modal__title--big">Changes will applied on next reboot</h2>
+                <h2 class="k-modal__title k-modal__title--big">{{_("next_reboot_warning")}}</h2>
             </div>
             <div class="k-modal-4__bottom">
                 <button id="conf_reset_modal_close" class="k-modal-4__button k-modal-4__button--red">OK</button>
