@@ -62,7 +62,7 @@ filaments_menu_title,Filaments
 filaments_menu_load,Loading filament
 filaments_menu_unload,Unload filament
 filament_auto_load_message,This is an automatic process{} please wait for it to finish and return to the previous screen. 
-filament_auto_load_instruction,Insert filament into the extruder [XXX] on the back of the printer by lifting the lever."
+filament_auto_load_instruction,Insert filament into the extruder {} on the back of the printer by lifting the lever."
 filament_auto_load,Load Material
 filament_auto_unload,Unload Material
 confirm_filament,Are you sure you want to cancel?

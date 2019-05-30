@@ -28,11 +28,11 @@
 </footer>
 <section id="filament_warning_modal" class="k-modal-overlay k-modal-overlay--visible">
     <div class="k-modal">
+        <div class="k-modal-2">
+            <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                {{_("filament_auto_load_instruction").format(ext_type.split('_')[1])}} </p>
+        </div>
         <div class="k-modal-4">
-            <div class="k-modal-4__top">
-                <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
-                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">{{_("filament_auto_load_instruction")}}</p>
-            </div>
             <div class="k-modal-4__bottom">
                 <button id="filament_warning_modal_close" class="k-modal-4__button k-modal-4__button--red">OK</button>
             </div>
