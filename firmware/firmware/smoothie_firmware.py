@@ -98,6 +98,7 @@ class SmoothieFirmware(BaseFirmware):
     def retract_filament(self):
         self.printrun.send_now("G90")
         self.printrun.send_now("G92 E0")
+        self.printrun.send_now("G1 E4 F100")
         self.printrun.send_now("G1 E-4 F100")
         #self.printrun.send_now("M109 S180")
         #self.printrun.send_now("G4 P20000")
