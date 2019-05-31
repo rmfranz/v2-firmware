@@ -161,6 +161,14 @@ function set_temperatures(data) {
       $("#t1_retract").toggleClass("k-grid-item--grey");
    }
 
+   function finish_extrude() {
+      $("#extrude_modal").toggleClass("k-modal-overlay--visible");
+   }
+   
+   function finish_retract() {
+      $("#retract_modal").toggleClass("k-modal-overlay--visible");
+   }
+
    function btn_changer() {
       if(t0_temp != 0 && t0 >= (t0_temp - (t0_temp * 0.05))){
          if($("#t0_extrude").hasClass("k-grid-item--grey") &&
@@ -201,12 +209,16 @@ function set_temperatures(data) {
    });
    $("#t0_extrude").click(function () {
       if(t0_temp != 0 && t0 >= (t0_temp - (t0_temp * 0.05))){
+         $("#extrude_modal").toggleClass("k-modal-overlay--visible");
          $.get("/ext_1/extrude");
+         setTimeout(finish_extrude, 15000);
       }
    });
    $("#t0_retract").click(function () {
       if(t0_temp != 0 && t0 >= (t0_temp - (t0_temp * 0.05))){
+         $("#retract_modal").toggleClass("k-modal-overlay--visible");
          $.get("/ext_1/retract");
+         setTimeout(finish_retract, 15000);
       }
    });
    $("#t1_extrude").click(function () {

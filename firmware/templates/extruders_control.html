@@ -28,6 +28,28 @@
     <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
   </a>
 </footer>
+<section id="extrude_modal" class="k-modal-overlay">
+  <div class="k-modal">
+      <div class="k-modal-container">
+          <div class="k-modal-2">
+              <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
+              <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                  {{_("extruding_popup")}}</p>
+          </div>
+      </div>
+  </div>
+</section>
+<section id="retract_modal" class="k-modal-overlay">
+  <div class="k-modal">
+      <div class="k-modal-container">
+          <div class="k-modal-2">
+              <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
+              <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                  {{_("retracting_popup")}}</p>
+          </div>
+      </div>
+  </div>
+</section>
 </body>
 <script>
   var in_extruder_control = true;
