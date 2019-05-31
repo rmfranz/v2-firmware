@@ -1,9 +1,9 @@
 $("#enable_ssh").on("click", function () {
-    $.get("/ssh-enable").done($("#done_modal").toggleClass("k-modal-overlay--visible"));
+    $.get("/ssh-enable").done($("#ssh_enable_modal").toggleClass("k-modal-overlay--visible"));
 });
 
 $("#disable_ssh").on("click", function () {
-    $.get("/ssh-disable").done($("#done_modal").toggleClass("k-modal-overlay--visible"));;
+    $.get("/ssh-disable").done($("#ssh_disable_modal").toggleClass("k-modal-overlay--visible"));;
 });
 
 $("#enable_dev_mode").on("click", function () {
@@ -22,8 +22,17 @@ $("#reset_mac").on("click", function () {
     $.get("/reset-mac").done($("#conf_reset_modal").toggleClass("k-modal-overlay--visible"));;
 });
 
+$("#restore_user_pref_btn").on("click", function() {
+    $('#warning_reset_user_modal').toggleClass( "k-modal-overlay--visible" );
+});
+
 $("#restore_user_pref").on("click", function () {
     $.get("/restore-user-pref").done($("#conf_reset_modal").toggleClass("k-modal-overlay--visible"));;
+    $('#warning_reset_user_modal').toggleClass( "k-modal-overlay--visible" );
+});
+
+$("#reset_user_pref_no").on("click", function() {
+    $('#warning_reset_user_modal').toggleClass( "k-modal-overlay--visible" );
 });
 
 $("#confirm_reset").on("click", function () {
@@ -48,6 +57,12 @@ $("#reset_ok_btn").on("click", function () {
 
 $("#done_modal_close").on("click", function () {
     $("#done_modal").toggleClass("k-modal-overlay--visible");
+});
+$("#ssh_enable_modal_close").on("click", function () {
+    $("#ssh_enable_modal").toggleClass("k-modal-overlay--visible");
+});
+$("#ssh_disable_modal_close").on("click", function () {
+    $("#ssh_disable_modal").toggleClass("k-modal-overlay--visible");
 });
 
 $("#conf_reset_modal_close").on("click", function () {

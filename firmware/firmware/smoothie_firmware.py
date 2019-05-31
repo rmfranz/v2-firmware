@@ -360,12 +360,12 @@ class SmoothieFirmware(BaseFirmware):
 
     def extrude(self, extruder):
         self.printrun.send_now(extruder)
-        self.printrun.send_now("G1 E10 F80")
+        self.printrun.send_now("G1 E20 F80")
         self.printrun.send_now("G92 E0")
 
     def retract(self, extruder):
         self.printrun.send_now(extruder)
-        self.printrun.send_now("G1 E-10 F500")
+        self.printrun.send_now("G1 E-20 F500")
         self.printrun.send_now("G92 E0")
 
     def turn_off_motors(self):

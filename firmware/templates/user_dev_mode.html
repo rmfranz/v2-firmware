@@ -9,7 +9,7 @@
         <br />
         <div>
             <button id="reset_board" type="submit" class="k-dialog__button k-dialog__button--shortened">{{_("reset_board_uuid")}}</button>
-            <button id="restore_user_pref" type="submit" class="k-dialog__button k-dialog__button--shortened">{{_("reset_user_prefs")}}</button>
+            <button id="restore_user_pref_btn" type="submit" class="k-dialog__button k-dialog__button--shortened">{{_("reset_user_prefs")}}</button>
         </div>
     </section>
 </main>
@@ -35,7 +35,7 @@
         <div class="k-modal-4">
             <div class="k-modal-2">
                 <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
-                <h2 class="k-modal__title k-modal__title--big">Please wait! Press Ok when button appears</h2>
+                <h2 class="k-modal__title k-modal__title--big">{{_("reset_uuid_warning_popup")}}</h2>
                 <p id="error_board"></p>
             </div>
             <div id="reset_ok" class="k-modal-4__bottom initiallyHidden">
@@ -52,6 +52,44 @@
             </div>
             <div class="k-modal-4__bottom">
                 <button id="done_modal_close" class="k-modal-4__button k-modal-4__button--red">OK</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="ssh_enable_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-4">
+            <div class="k-modal-4__top">
+                <h2 class="k-modal__title k-modal__title--big">{{_("enable_ssh_popup")}}</h2>
+            </div>
+            <div class="k-modal-4__bottom">
+                <button id="ssh_enable_modal_close" class="k-modal-4__button k-modal-4__button--red">OK</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="ssh_disable_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-4">
+            <div class="k-modal-4__top">
+                <h2 class="k-modal__title k-modal__title--big">{{_("disable_ssh_popup")}}</h2>
+            </div>
+            <div class="k-modal-4__bottom">
+                <button id="ssh_disable_modal_close" class="k-modal-4__button k-modal-4__button--red">OK</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="warning_reset_user_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-4">
+            <div class="k-modal-4__top">
+                <p class="k-modal__p k-modal__p--big k-modal__p--center">{{_("reset_user_pref_popup")}}</p>
+            </div>
+            <div class="k-modal-4__bottom">
+                <a id="restore_user_pref" class="k-modal-4__button k-modal-4__button--red">{{_("confirm_yes")}}</a>
+                <button id="reset_user_pref_no"
+                    class="k-modal-4__button k-modal-4__button--yellow">{{_("confirm_no")}}</button>
             </div>
         </div>
     </div>
