@@ -62,7 +62,7 @@ filaments_menu_title,Filaments
 filaments_menu_load,Loading filament
 filaments_menu_unload,Unload filament
 filament_auto_load_message,This is an automatic process{} please wait for it to finish and return to the previous screen. 
-filament_auto_load_instruction,Insert filament into the extruder {} on the back of the printer by lifting the lever."
+filament_auto_load_instruction,Insert filament into the Extruder {} on the back of the printer by lifting the lever.
 filament_auto_load,Load Material
 filament_auto_unload,Unload Material
 confirm_filament,Are you sure you want to cancel?
@@ -118,6 +118,7 @@ de,Deutsche
 it,Italiano
 pl,Polski
 pt,Portuguese
+sw,
 ,
 calibration_title,Calibration
 calibration_z_offset,Z Offset calibration
@@ -135,7 +136,7 @@ instructions_modal_title_Cal25step1,Please wait until the print head stops at th
 instructions_modal_title_Cal25step2,Raise the build plate using the arrow buttons until it touches the nozzle. Then click Save.
 instructions_modal_text_Cal25_continue,Continue
 calibration_grid_value,Calibration grid values
-calibration_grid_value_info,Your printer is calibrated. If any value is N/D{} we reccomend to clean nozzle and build plate and perform the calibration procedure again.
+calibration_grid_value_info,Your printer is calibrated. If any value is N/D{} we recommend to clean nozzle and build plate and perform the calibration procedure again.
 help_25_calibration_title,Calibrate
 help_25_calibration_body,
 help_25_reset_title,Reset
@@ -161,9 +162,10 @@ manual_reboot,Please turn off the printer{} wait 15s and turn it on again. Calib
 calibration_wizard_title,Calibration wizard
 waiting_for_initial_movements,Wait for initial movements to finish.
 done,Done
-,Setup completed! The printer is calibrated out of the box and ready to print.
-skip_wizard,Do you want to skip this wizard next time the machine reboots?
-update_warning,We recommend that you update the software to have the latest features.
+skip_wizard,Setup completed! 
+Do you want to skip this wizard next time the machine reboots?
+update_warning,We recommend that you update the software to have the latest features. 
+Before changing any calibration value{} run the calibration test prints.
 ,
 ,
 offset_P1,P1 Offset
@@ -259,11 +261,11 @@ custom_version,Custom version
 updates_latest,You have the latest version
 updates_updating_footer,Important: do not turn the printer off while updating.
 updates_success,Update successful. Please wait for reboot.
-get_update_error,Hubo un error al obtener la nueva versión. Recomendamos que actualice por USB
-usb_update,Usb update
-internet_update,Internet update
-usb_update_title,Usb update
-usb_update_info,Inserte el usb
+get_update_error,An error occurred during download. We recommend updating software via USB.
+usb_update,Update via USB flashdrive
+internet_update,Update via Internet
+usb_update_title,Update via USB flashdrive
+usb_update_info,Insert USB flashdrive.
 ,
 print_selection_title,Print
 print_selection_cloud,Print Queue
@@ -283,12 +285,26 @@ config_wifi,WiFi
 error,Please restart the printer and if the problem occurs again{} contact tech support.
 waiting_info,Fetching data...
 onboarding_welcome_to_v2,Update was successful! Your Portrait printer was updated succesfully to software 2.0. Enjoy the experience!
-unmount_usb_error,Error 001 with USB
-mount_usb_error,Error 002 with USB
-download_error,Error 003 with update
-copy_unzip_error,Error 004 with update
-folder_error,Error 005 with update
-,
+unmount_usb_error,Error 001 with USB flashdrive.
+mount_usb_error,Error 002 with USB flashdrive.
+download_error,Error 003 with update.
+copy_unzip_error,Error 004 with update.
+folder_error,Error 005 with update.
+dev_tools,Dev tools
+enable_ssh,Enable SSH
+disable_ssh,Disable SSH
+reset_board_uuid,Reset board UUID
+reset_user_prefs,Reset user preferences
+reset_board_warning,Please remove any usb or keyboard from printer.
+next_reboot_warning,Changes will applied on next reboot
+enable_ssh_popup,SSH enabled
+disable_ssh_popup,SSH desabled
+reset_user_pref_popup,Do you wish to delete all user preferences?
+extruding_popup,Extruding filament. Please wait...
+retracting_popup,Retracting filament. Please wait...
+extrude_more_btn,Extrude more
+retract_more_btn,Retract more
+reset_uuid_warning_popup,Please wait. Then press OK.
 ,
 ,
 ,Left extruder
@@ -302,7 +318,8 @@ folder_error,Error 005 with update
 ,Oops! Something went wrong.
 ,An error occurred
 ,Advanced
-,"Preset on file"{} pero no poner por ahora.
+,"Preset on file"
 ,
 ,Turn off motors
 ,Turn on motors
+,The printer is calibrated out of the box and ready to print.

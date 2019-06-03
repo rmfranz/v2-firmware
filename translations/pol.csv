@@ -34,7 +34,7 @@ home_message_2,Proszę wejść na https://cloud.smart3d.tech aby rozpocząć dru
 files_title,Pliki
 files_intro,Wybierz model do wydrukowania.
 files_pendrive,Dysk USB
-files_samples,Przykładowe pliki 
+files_samples,Pliki przykładowe
 files_calibration,Pliki kalibracyjne
 loadingFiles,
 nofilesfound,Nie znaleziono plików
@@ -62,7 +62,7 @@ filaments_menu_title,Filamenty
 filaments_menu_load,Załóż filament
 filaments_menu_unload,Wyjmij filament
 filament_auto_load_message,Procedura automatyczna{} poczekaj na jej zakończenie i powrót do poprzedniego ekranu.
-filament_auto_load_instruction,Włóż włókno do wytłaczarki [XXX] z tyłu drukarki{} podnosząc podnośnik.
+filament_auto_load_instruction,Włóż filament do Ekstrudera [XXX] z tyłu drukarki{} podnosząc dżwigienkę.
 filament_auto_load,Załaduj materiał
 filament_auto_unload,Wyładuj materiał
 confirm_filament,Czy na pewno chcesz przerwać?
@@ -118,6 +118,7 @@ de,Deutsche
 it,Italiano
 pl,Polski
 pt,Portuguese
+sw,
 ,
 calibration_title,Kalibracja
 calibration_z_offset,Kalibracja osi Z
@@ -127,7 +128,7 @@ calibration_offset_z,Przesunięcie w osi Z
 calibration_probe_triggered,Czujnik został aktywowany
 calibration_saving,Zapisywanie...
 calibration_save,Zapisz
-calibration_offset_xy,Przeczytaj najpierw instrukcje.
+calibration_offset_xy,Najpierw przeczytaj instrukcję.
 calibration_offset_x,Przesunięcie w osi X
 calibration_offset_y,Przesunięciw w osi Y
 instructions_modal_title_Zoffset,Podnieś palatformę aż dotknie dyszy.
@@ -135,7 +136,7 @@ instructions_modal_title_Cal25step1,Poczekaj{} aż głowica zatrzyma się na śr
 instructions_modal_title_Cal25step2,Podnoś platformę za pomocą klawiszy ze strzałkami aż dotknie dyszy. 
 instructions_modal_text_Cal25_continue,Kontynuuj
 calibration_grid_value,Wartości kalibracji
-calibration_grid_value_info,
+calibration_grid_value_info,Drukarka została skalibrowana. Jeśli jakakolwiek wartość wynosi N/D{} zalecamy dokładne wyczyszczenie dyszy oraz stołu i ponowne wykonanie kalibracji.
 help_25_calibration_title,Kalibracja
 help_25_calibration_body,
 help_25_reset_title,Reset
@@ -156,13 +157,13 @@ calibration_hotend_2,Hotend II
 calibration_extruder_change,Zmiana ekstrudera{} proszę czekać.
 calibration_error,Wystąpił błąd. Proszę skontaktować się ze wsparciem technicznym.
 calibration_offset_saving,Zapisywanie wartości kalibracji.
-manual_reboot,Wyłącz drukarkę{} poczekaj 15 sekund i włącz ją ponownie. Ustawienia kalibracji zostaną zastosowane dopiero po ponownym uruchomieniu drukarki.
+manual_reboot,Wyłącz drukarkę{} odczekaj 15 sekund i włącz ją ponownie. Ustawienia kalibracji zostaną zastosowane dopiero po ponownym uruchomieniu drukarki.
 ,
 calibration_wizard_title,Pomocnik kalibracji
 waiting_for_initial_movements,Poczekaj na zakończenie inicjalizacji
 done,Gotowe
-,Instalacja zakończona!
-skip_wizard,Do you want to skip this wizard next time the machine reboots?
+skip_wizard,Instalacja zakończona! 
+Czy chcesz pominąć tego kreatora przy następnym uruchomieniu?
 update_warning,Zalecamy zaktualizowanie oprogramowania drukarki w celu uzyskania najnowszych funkcji.
 ,
 ,
@@ -197,7 +198,7 @@ print_load_file_popup,Ładowanie pliku{} proszę czekać{} to może chwilę potr
 print_load_file_popup_title,Ładowanie pliku
 print_load_file_popup_body,Proszę czekać. To może chwilę potrwać.
 ,
-print_message,
+print_message,Teraz możesz bezpiecznie wyjąć dysk USB.
 ,
 monitor_printingtime,Czas drukowania:
 monitor_elapsedtime,Szacowany czas zakończenia
@@ -259,14 +260,14 @@ custom_version,Wersja niestandardowa
 updates_latest,Zainstalowana jest najnowsza wersja oprogramowania
 updates_updating_footer,Uwaga: nie wyłączaj drukarki w trakcie aktualizacji.
 updates_success,Aktualizacja zakończona. Poczekaj na ponowne uruchomienie.
-get_update_error,Hubo un error al obtener la nueva versión. Recomendamos que actualice por USB
-usb_update,Usb update
-internet_update,Internet update
-usb_update_title,Usb update
-usb_update_info,Inserte el usb
+get_update_error,Wystąpił błąd pobierania. Zalecamy aktualizację oprogramowania za pomocą dysku USB.
+usb_update,Aktualizacja za pomocą dysku USB
+internet_update,Aktualizacja przez Internet
+usb_update_title,Aktualizacja za pomocą dysku USB
+usb_update_info,Włóż dysk USB.
 ,
 print_selection_title,Drukuj
-print_selection_cloud,Kolejka wydruku
+print_selection_cloud,Kolejka wydruków
 print_selection_local,Drukuj z lokalnego pliku
 ,
 cancel_popup_title,Anulowanie drukowania
@@ -282,13 +283,27 @@ config_wifi,WiFi
 ,
 error,Proszę ponownie uruchomić drukarkę. Jeśli problem będzie nadal występował{} proszę skontaktować się ze wsparciem technicznym.
 waiting_info,Pobieram dane...
-onboarding_welcome_to_v2,aktualizacja powiodła się.
-unmount_usb_error,Error 001 with USB
-mount_usb_error,Error 002 with USB
-download_error,Error 003 with update
-copy_unzip_error,Error 004 with update
-folder_error,Error 005 with update
-,
+onboarding_welcome_to_v2,Aktualizacja została wykonana prawidłowo! Drukarka został zaktualizowana do wersji 2.0.
+unmount_usb_error,Wystąpił błąd 001 dysku USB.
+mount_usb_error,Wystąpił błąd 002 dysku USB.
+download_error,W trakcie aktualizacji wystąpił błąd 003.
+copy_unzip_error,W trakcie aktualizacji wystąpił błąd 004.
+folder_error,W trakcie aktualizacji wystąpił błąd 005.
+dev_tools,Narzędzia developerskie
+enable_ssh,Włącz SSH
+disable_ssh,Wyłącz SSH
+reset_board_uuid,Rest UUID płyty głównej
+reset_user_prefs,Reset preferencji użytkownika
+reset_board_warning,Proszę wyjąć wszystkie dyski USB i odłączyć klawiaturę od drukarki.
+next_reboot_warning,Zmiany zostaną uwzględnione po restarcie drukarki.
+enable_ssh_popup,
+disable_ssh_popup,
+reset_user_pref_popup,
+extruding_popup,
+retracting_popup,
+extrude_more_btn,
+retract_more_btn,
+reset_uuid_warning_popup,
 ,
 ,
 ,Lewy ekstruder
@@ -301,8 +316,9 @@ folder_error,Error 005 with update
 ,Ładowanie.
 ,Oops! Coś poszło nie tak.
 ,Wystąpił błąd
+,Zaawansowane
 ,
 ,
-,
-,Dezaktywować silniki
-,Aktywować silniki
+,Wyłącz silniki
+,Włącz silniki
+,Drukarka jest gotowa do pracy.

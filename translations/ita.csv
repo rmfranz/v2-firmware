@@ -62,7 +62,7 @@ filaments_menu_title,Filamenti
 filaments_menu_load,Caricando filamento
 filaments_menu_unload,Scarica filamento
 filament_auto_load_message,La procedura é automatica. Attenderne la fine e tornare allo schermo precedente. 
-filament_auto_load_instruction,Inserisci il filamento nell'estrusore [XXX] sul retro della stampante sollevandone la leva.
+filament_auto_load_instruction,Inserisci il filamento nell'Estrusore {} sul retro della stampante sollevandone la leva.
 filament_auto_load,Carica filamento
 filament_auto_unload,Scarica filamento
 confirm_filament,Sei sicuro di voler interrompere l'operazione?
@@ -118,6 +118,7 @@ de,Deutsche
 it,Italiano
 pl,Polski
 pt,Portuguese
+sw,
 ,
 calibration_title,Calibrazione
 calibration_z_offset,Calibrazione offset Z
@@ -161,8 +162,8 @@ manual_reboot,Spegnere la stampante{} attendere 15 sec. e riaccenderla. I nuovi 
 calibration_wizard_title,Calibrazione assistita
 waiting_for_initial_movements,Attendere la fine dei movimenti.
 done,Chiudi
-,Installazione completata.
-skip_wizard,Do you want to skip this wizard next time the machine reboots?
+skip_wizard,Configurazione completata. 
+Desideri non visualizzare il wizard next time the machine reboots?
 update_warning,Consigliamo di aggiornare il software per ottenere le ultime funzionalitá.
 ,
 ,
@@ -259,11 +260,11 @@ custom_version,Versione personalizzata
 updates_latest,Hai l'ultima versione
 updates_updating_footer,Importante: non spegnere il dispositivo durante l'aggiornamento
 updates_success,Aggiornamento completato. Attendi il riavvio.
-get_update_error,Hubo un error al obtener la nueva versión. Recomendamos que actualice por USB
-usb_update,Usb update
-internet_update,Internet update
-usb_update_title,Usb update
-usb_update_info,Inserte el usb
+get_update_error,Si è verificato un errore durante il download. Raccomandiamo aggiornare il software via USB.
+usb_update,Aggiornamento via chiave USB
+internet_update,Aggiornamento via Internet
+usb_update_title,Aggiornamento via chiave USB
+usb_update_info,Inserire la chiave USB.
 ,
 print_selection_title,Stampa
 print_selection_cloud,Coda di stampa
@@ -283,12 +284,26 @@ config_wifi,WiFi
 error,Riavviare la stampante. Se il problema persiste{} contattare il servizio tecnico.
 waiting_info,Estrazione informazioni...
 onboarding_welcome_to_v2,Aggiornamento completato. La stampante é stata aggiornata con successo alla versione 2.0.
-unmount_usb_error,Error 001 with USB
-mount_usb_error,Error 002 with USB
-download_error,Error 003 with update
-copy_unzip_error,Error 004 with update
-folder_error,Error 005 with update
-,
+unmount_usb_error,Error 001 con la chiave USB.
+mount_usb_error,Error 002 con la chiave USB.
+download_error,Error 003 con l'aggiornamento.
+copy_unzip_error,Error 004 con l'aggiornamento.
+folder_error,Error 005 con l'aggiornamento.
+dev_tools,Strumenti di sviluppo
+enable_ssh,Abilita servizio SSH
+disable_ssh,Disattiva servizio SSH
+reset_board_uuid,Reimposta l'UUID della scheda
+reset_user_prefs,Reimpostare le preferenze utente
+reset_board_warning,Rimuovere la chiave USB o la tastiera dalla stampante.
+next_reboot_warning,Le modifiche avranno effetto a partire dal prossimo avvio della stampante.
+enable_ssh_popup,SSH attivato
+disable_ssh_popup,SSH disattivato
+reset_user_pref_popup,Desideri eliminare le preferenze utente?
+extruding_popup,Estrudendo il filamento. Attendere prego...
+retracting_popup,Retraendo il filamento. Attendere prego...
+extrude_more_btn,Estrudere
+retract_more_btn,Ritrarre
+reset_uuid_warning_popup,Si prega di attendere. Poi selezionare OK.
 ,
 ,
 ,Ugello sinistro
@@ -306,3 +321,4 @@ folder_error,Error 005 with update
 ,
 ,Disattivare motori
 ,Attivare motori
+,La stampante è calibrata e pronta a stampare.

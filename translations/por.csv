@@ -62,7 +62,7 @@ filaments_menu_title,Filamentos
 filaments_menu_load,Carregar filamento
 filaments_menu_unload,Descarregar filamento
 filament_auto_load_message,Este processo é automático. Aguarde sua conclusão e volte à tela anterior.
-filament_auto_load_instruction,Inserir o filamento no extrusor [XXX] na parte de trás da impresora levantando a alavanca.
+filament_auto_load_instruction,Inserir o filamento no Extrusor {} na parte de trás da impresora levantando a alavanca.
 filament_auto_load,Carregar filamento
 filament_auto_unload,Descarregar filamento
 confirm_filament,Tem certeza de que deseja cancelar?
@@ -118,6 +118,7 @@ de,Deutsche
 it,Italiano
 pl,Polski
 pt,Portuguese
+sw,
 ,
 calibration_title,Calibragem
 calibration_z_offset,Calibragem Eixo Z
@@ -161,8 +162,8 @@ manual_reboot,Desligue a impressora no interruptor{} aguarde 15 segundos e volte
 calibration_wizard_title,Assistente de calibragem
 waiting_for_initial_movements,Aguarde a conclusão dos movimentos iniciais.
 done,Concluído
-,Instalação concluída.
-skip_wizard,Do you want to skip this wizard next time the machine reboots?
+skip_wizard,Instalação concluída. 
+Deseja ignorar o assistente a próxima vez o sistema será reinicializado?
 update_warning,Recomendamos que você atualize o software para obter os recursos mais recentes.
 ,
 ,
@@ -259,11 +260,11 @@ custom_version,Versão especial
 updates_latest,Você tem a versão mais recente
 updates_updating_footer,Importante: não desligue a impressora durante a atualização.
 updates_success,Atualização concluída com sucesso. Aguarde para reiniciar.
-get_update_error,Hubo un error al obtener la nueva versión. Recomendamos que actualice por USB
-usb_update,Usb update
-internet_update,Internet update
-usb_update_title,Usb update
-usb_update_info,Inserte el usb
+get_update_error,Erro no download. Recomendados atualizar o softwar via USB.
+usb_update,Atualização via USB
+internet_update,Atualização via Internet
+usb_update_title,Atualização via USB
+usb_update_info,Insira uma unidade USB
 ,
 print_selection_title,Imprimir
 print_selection_cloud,Fila de Impressão
@@ -283,12 +284,26 @@ config_wifi,WiFi
 error,Reinicie a impressora e se o erro persistir{} contate o suporte técnico.
 waiting_info,Buscando dados...
 onboarding_welcome_to_v2,A atualização foi bem-sucedida! A impresora foi atualizada corretamente para a versão 2.0.
-unmount_usb_error,Error 001 with USB
-mount_usb_error,Error 002 with USB
-download_error,Error 003 with update
-copy_unzip_error,Error 004 with update
-folder_error,Error 005 with update
-,
+unmount_usb_error,Error 001 com memória USB. 
+mount_usb_error,Error 002 com memória USB. 
+download_error,Error 003 com a atualização.
+copy_unzip_error,Error 004 com a atualização.
+folder_error,Error 005 com a atualização.
+dev_tools,Ferramentas de desenvolvimento
+enable_ssh,Desativar o serviço SSH
+disable_ssh,Habilitar o serviço SSH
+reset_board_uuid,Restablecer o UUID da placa
+reset_user_prefs,Restablecer as preferências de usuário 
+reset_board_warning,Por favor retirar la unidade flash USB ou teclado da impressora. 
+next_reboot_warning,As mudanças terão efeito após a próxima reinicialização.
+enable_ssh_popup,SSH ativado
+disable_ssh_popup,SSH desativado
+reset_user_pref_popup,Deseja eliminar as preferências de usuário?
+extruding_popup,Aquecendo. Por favor{} aguarde…
+retracting_popup,Aquecendo. Por favor{} aguarde…
+extrude_more_btn,Extrudar
+retract_more_btn,Retrair
+reset_uuid_warning_popup,Aguarde e em seguida pressione OK. 
 ,
 ,
 ,Extrusor esquerdo
@@ -306,3 +321,4 @@ folder_error,Error 005 with update
 ,
 ,Desligar motores
 ,Ligar motores
+,A impressora é calibrada e pronta a imprimir.

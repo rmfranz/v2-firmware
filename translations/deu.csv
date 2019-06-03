@@ -62,7 +62,7 @@ filaments_menu_title,Filamente
 filaments_menu_load,Filament laden
 filaments_menu_unload,Filament entladen
 filament_auto_load_message,Dies ist ein automatischer Prozess{} bitte warten Sie{} bis er abgeschlossen ist und kehren Sie zum vorherigen Bildschirm zurück. 
-filament_auto_load_instruction,Legen Sie das Filament in den Extruder [XXX] auf der Rückseite des Druckers ein{} indem Sie den Lift anheben.
+filament_auto_load_instruction,Legen Sie das Filament in den Extruder {} auf der Rückseite des Druckers ein{} indem Sie den Lift anheben.
 filament_auto_load,Material einlegen
 filament_auto_unload,Material entladen
 confirm_filament,Sind Sie sicher{} dass Sie abbrechen wollen?
@@ -118,6 +118,7 @@ de,Deutsch
 it,Italiano
 pl,Polski
 pt,Portuguese
+sw,
 ,
 calibration_title,Kalibrierung
 calibration_z_offset,Z Offset-Kalibrierung
@@ -161,8 +162,7 @@ manual_reboot,Bitte schalten Sie den Drucker aus{} warten Sie 15s und schalten S
 calibration_wizard_title,Kalibrierungsassistent
 waiting_for_initial_movements,Warten Sie{} bis die ersten Bewegungen abgeschlossen sind.
 done,Erledigt
-,Setup abgeschlossen.
-skip_wizard,Do you want to skip this wizard next time the machine reboots?
+skip_wizard,Setup abgeschlossen.
 update_warning,Wir empfehlen Ihnen{} die Software zu aktualisieren{} um die neuesten Funktionen zu erhalten.
 ,
 ,
@@ -197,7 +197,7 @@ print_load_file_popup,Laden der Datei{} bitte warten. Es kann eine Weile dauern.
 print_load_file_popup_title,Datei laden
 print_load_file_popup_body,Bitte warten Sie. Dies kann einen Moment dauern.
 ,
-print_message,
+print_message,Now you can safely remove the USB flash drive.
 ,
 monitor_printingtime,Druckzeit:
 monitor_elapsedtime,Verstrichene Zeit
@@ -259,11 +259,11 @@ custom_version,Benutzerdefinierte Version
 updates_latest,Sie haben die neueste Version
 updates_updating_footer,Wichtig: Schalten Sie den Drucker während der Aktualisierung nicht aus.
 updates_success,Aktualisierung erfolgreich. Bitte warten Sie auf den Neustart.
-get_update_error,Hubo un error al obtener la nueva versión. Recomendamos que actualice por USB
-usb_update,Usb update
-internet_update,Internet update
-usb_update_title,Usb update
-usb_update_info,Inserte el usb
+get_update_error,An error occurred during download. We recommend updating software via USB.
+usb_update,Update via USB flashdrive
+internet_update,Update via Internet
+usb_update_title,Update via USB flashdrive
+usb_update_info,Insert USB flashdrive.
 ,
 print_selection_title,Drucken
 print_selection_cloud,Druckerwarteschlange
@@ -283,12 +283,26 @@ config_wifi,WiFi
 error,Bitte starten Sie den Drucker neu und wenn das Problem erneut auftritt{} wenden Sie sich an den technischen Support.
 waiting_info,Daten abrufen...
 onboarding_welcome_to_v2,Update abgeschlossen
-unmount_usb_error,Error 001 with USB
-mount_usb_error,Error 002 with USB
-download_error,Error 003 with update
-copy_unzip_error,Error 004 with update
-folder_error,Error 005 with update
-,
+unmount_usb_error,Error 001 with flashdrive USB.
+mount_usb_error,Error 002 with flashdrive USB.
+download_error,Error 003 with update.
+copy_unzip_error,Error 004 with update.
+folder_error,Error 005 with update.
+dev_tools,Dev tools
+enable_ssh,Enable SSH
+disable_ssh,Disable SSH
+reset_board_uuid,Reset board uuid
+reset_user_prefs,Reset user prefs
+reset_board_warning,Please remove any usb or keyboard from printer!
+next_reboot_warning,Changes will applied on next reboot
+enable_ssh_popup,SSH aktiviert
+disable_ssh_popup,SSH deaktiviert
+reset_user_pref_popup,
+extruding_popup,
+retracting_popup,
+extrude_more_btn,
+retract_more_btn,
+reset_uuid_warning_popup,
 ,
 ,
 ,Linker Extruder
