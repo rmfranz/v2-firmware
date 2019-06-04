@@ -96,6 +96,7 @@ def get_gcodes_from_calibration():
         dict_of_files.update({file: os.path.join(dirpath, file) for file in filenames if fnmatch.fnmatch(file, pattern)})
     return dict_of_files
 
+@tornado.gen.coroutine
 def scan_wlan():
     """
     There is an alternative with iw, but gives other result string
@@ -129,11 +130,12 @@ def connect_private_wifi(network_name, password):
     with open(wpa_conf_path, 'w') as f:
         f.write(conf)
     os.system("sudo pkill -TERM wpa_supplicant")
-    yield tornado.gen.sleep(1)
+    yield tornado.gen.sleep(2)
     os.system("sudo wpa_supplicant -B -c/etc/wpa_supplicant/wpa_supplicant.conf -iwlan0 -Dnl80211,wext")
-    yield tornado.gen.sleep(4)
+    yield tornado.gen.sleep(5)
     return wifi_connected()
 
+@tornado.gen.coroutine
 def wifi_connected():
     os.system("ifconfig wlan0 up")
     return check_output("iwgetid wlan0 --raw", shell=True, universal_newlines=True).strip()
@@ -143,6 +145,7 @@ def connect_to_wifi(network_name, password=None):
     result = ''
     if password:
         result = yield connect_private_wifi(network_name, password)
+        print('!!!!!!!!! RESULTADO: {}'.format(result))
     #else:
     #    result = connect_public_wifi(network_name)
     return result

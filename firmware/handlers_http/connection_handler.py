@@ -4,10 +4,17 @@ import tornado
 
 class WifiConnectionHandler(BasicHandler):
 
+    @tornado.gen.coroutine
     def get(self):
-        wifi_list = scan_wlan()
-        selected = wifi_connected()
-        self.render("listing_wifi.html", wifi_list=wifi_list, selected=selected, wizzard_viewed=self.wizzard.viewed)
+        wifi_list = yield scan_wlan()
+        selected = yield wifi_connected()
+        #self.render("listing_wifi.html", wifi_list=wifi_list, selected=selected, wizzard_viewed=self.wizzard.viewed)
+        self.write({"wifi_list": wifi_list, 'selected': selected})
+
+class ToWifiConnectionHandler(BasicHandler):
+
+    def get(self):
+        self.render("listing_wifi.html", wizzard_viewed=self.wizzard.viewed)
 
     @tornado.gen.coroutine
     def post(self):

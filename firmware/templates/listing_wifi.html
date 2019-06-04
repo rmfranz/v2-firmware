@@ -3,20 +3,8 @@
 <main class="k-main">
     <h2 class="k-main__h2">{{_("config_wifi")}}</h2>
     <section class="k-block k-block--shortened">
-        {% for name in wifi_list %}
-        <div data-wifiname="{{name}}" class="k-block-2 wifi_selected">
-            <div class="k-block-2__left">
-                <p>{{ name }}</p>
-            </div>
-            <div id="wifi_icons" class="k-block-2__right">
-                {% if name == selected %}
-                <img src="/static/images/icon-tilde_verde.svg" />
-                {% end %}
-                <img src="/static/images/icon_wifi-bloqueado.svg" />
-                <img src="/static/images/icon_wifi-senal4.svg" />
-            </div>
-        </div>
-        {% end %}
+        <div id="waiting_info"><h2 class="k-main__h2">{{_("waiting_info")}}</h2></div>+
+        <div id="wifi_list"></div>
     </section>
 </main>
 
