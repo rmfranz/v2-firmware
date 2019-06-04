@@ -21,6 +21,7 @@ $.get("/get-wifi-connection").done(function (data) {
         $("#network_name_title").text(wifiname);
         $('#wifi_modal').toggleClass('k-modal-overlay--visible');
     });
+    $("#waiting_info").toggleClass("initiallyHidden");
 });
 
 

@@ -96,7 +96,6 @@ def get_gcodes_from_calibration():
         dict_of_files.update({file: os.path.join(dirpath, file) for file in filenames if fnmatch.fnmatch(file, pattern)})
     return dict_of_files
 
-@tornado.gen.coroutine
 def scan_wlan():
     """
     There is an alternative with iw, but gives other result string
@@ -135,7 +134,6 @@ def connect_private_wifi(network_name, password):
     yield tornado.gen.sleep(5)
     return wifi_connected()
 
-@tornado.gen.coroutine
 def wifi_connected():
     os.system("ifconfig wlan0 up")
     return check_output("iwgetid wlan0 --raw", shell=True, universal_newlines=True).strip()
