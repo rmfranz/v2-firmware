@@ -313,7 +313,7 @@ class SmoothieFirmware(BaseFirmware):
             self.move_to_t1()
 
     def move_to_t0(self):
-        self.printrun.send_now("G28")
+        self.printrun.send_now("G28 XY")
         self.printrun.send_now("T0")
         self.printrun.send_now("G91")
         self.printrun.send_now("G90")
@@ -324,7 +324,7 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("T0")
 
     def move_to_t1(self):
-        self.printrun.send_now("G28")
+        self.printrun.send_now("G28 XY")
         self.printrun.send_now("T0")
         self.printrun.send_now("G91")
         self.printrun.send_now("G90")
