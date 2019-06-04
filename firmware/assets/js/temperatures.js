@@ -223,12 +223,16 @@ function set_temperatures(data) {
    });
    $("#t1_extrude").click(function () {
       if(t1_temp != 0 && t1 >= (t1_temp - (t1_temp * 0.05))){
+         $("#extrude_modal").toggleClass("k-modal-overlay--visible");
          $.get("/ext_2/extrude");
+         setTimeout(finish_extrude, 15000);
       }
    });
    $("#t1_retract").click(function () {
       if(t1_temp != 0 && t1 >= (t1_temp - (t1_temp * 0.05))){
+         $("#retract_modal").toggleClass("k-modal-overlay--visible");
          $.get("/ext_2/retract");
+         setTimeout(finish_retract, 15000);
       }
    });
 

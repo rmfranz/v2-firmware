@@ -77,7 +77,7 @@
         "okPTFE" : "T",
         "adhesives" : "F"
     },
-    "PLA+":{
+    "PLA Plus":{
         "name" : "PLA+",
         "displayOrder" : "8",
         "printTemp" : "200",
