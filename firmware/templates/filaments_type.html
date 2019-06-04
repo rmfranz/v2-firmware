@@ -40,9 +40,11 @@
     </div>
 </section>
 </body>
+{% if ext_action == 'load' %}
 <script>
 $("#filament_warning_modal_close").on("click", function () {
     $("#filament_warning_modal").toggleClass("k-modal-overlay--visible");
 });
 </script>
+{% end %}
 {% end %}
