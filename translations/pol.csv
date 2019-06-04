@@ -162,8 +162,7 @@ manual_reboot,Wyłącz drukarkę{} odczekaj 15 sekund i włącz ją ponownie. Us
 calibration_wizard_title,Pomocnik kalibracji
 waiting_for_initial_movements,Poczekaj na zakończenie inicjalizacji
 done,Gotowe
-skip_wizard,Instalacja zakończona! 
-Czy chcesz pominąć tego kreatora przy następnym uruchomieniu?
+skip_wizard,Instalacja zakończona! Czy chcesz pominąć tego kreatora przy następnym uruchomieniu?
 update_warning,Zalecamy zaktualizowanie oprogramowania drukarki w celu uzyskania najnowszych funkcji.
 ,
 ,

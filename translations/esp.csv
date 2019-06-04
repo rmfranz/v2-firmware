@@ -162,8 +162,7 @@ manual_reboot,Por favor apague la impresora{} espere 15s y luego enciéndala nue
 calibration_wizard_title,Asistente de calibración
 waiting_for_initial_movements,Espere a que finalicen los movimientos.
 done,Finalizado
-skip_wizard,Configuración finalizada. 
-Desea saltear la ayuda la proxima vez que la maquina reinicie?
+skip_wizard,Configuración finalizada. Desea saltear la ayuda la proxima vez que la maquina reinicie?
 update_warning,Recomendamos que actualice el software para tener las últimas mejoras.
 ,
 ,

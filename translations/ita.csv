@@ -162,8 +162,7 @@ manual_reboot,Spegnere la stampante{} attendere 15 sec. e riaccenderla. I nuovi 
 calibration_wizard_title,Calibrazione assistita
 waiting_for_initial_movements,Attendere la fine dei movimenti.
 done,Chiudi
-skip_wizard,Configurazione completata. 
-Desideri non visualizzare il wizard next time the machine reboots?
+skip_wizard,Configurazione completata. Desideri non visualizzare il wizard next time the machine reboots?
 update_warning,Consigliamo di aggiornare il software per ottenere le ultime funzionalitá.
 ,
 ,

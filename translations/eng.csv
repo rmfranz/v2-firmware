@@ -162,10 +162,8 @@ manual_reboot,Please turn off the printer{} wait 15s and turn it on again. Calib
 calibration_wizard_title,Calibration wizard
 waiting_for_initial_movements,Wait for initial movements to finish.
 done,Done
-skip_wizard,Setup completed! 
-Do you want to skip this wizard next time the machine reboots?
-update_warning,We recommend that you update the software to have the latest features. 
-Before changing any calibration value{} run the calibration test prints.
+skip_wizard,Setup completed! Do you want to skip this wizard next time the machine reboots?
+update_warning,We recommend that you update the software to have the latest features. Before changing any calibration value{} run the calibration test prints.
 ,
 ,
 offset_P1,P1 Offset

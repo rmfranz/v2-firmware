@@ -162,8 +162,7 @@ manual_reboot,Veuillez éteindre l'imprimante{} attendre 15 s. et la remettre so
 calibration_wizard_title,Assistant de calibrage
 waiting_for_initial_movements,Patientez jusqu'à la fin des premiers mouvements.
 done,Terminé
-skip_wizard,Installation terminée. 
-Voulez-vous passer cet assistant la prochaine fois la imprimant redémarre?
+skip_wizard,Installation terminée. Voulez-vous passer cet assistant la prochaine fois la imprimant redémarre?
 update_warning,Nous vous recommandons de mettre à jour le logiciel pour bénéficier des dernières fonctionnalités.
 ,
 ,
