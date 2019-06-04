@@ -26,6 +26,7 @@
         </button>
     </a>
 </footer>
+{% if ext_action == 'load' %}
 <section id="filament_warning_modal" class="k-modal-overlay k-modal-overlay--visible">
     <div class="k-modal">
         <div class="k-modal-2">
@@ -39,12 +40,11 @@
         </div>
     </div>
 </section>
+{% end %}
 </body>
-{% if ext_action == 'load' %}
 <script>
 $("#filament_warning_modal_close").on("click", function () {
     $("#filament_warning_modal").toggleClass("k-modal-overlay--visible");
 });
 </script>
-{% end %}
 {% end %}
