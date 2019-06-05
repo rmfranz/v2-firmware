@@ -22,7 +22,7 @@ class ToWifiConnectionHandler(BasicHandler):
         password = self.get_body_argument("password", default=None)
         result = yield connect_to_wifi(network_name, password)
         #self.render("listing_wifi.html", wifi_list=scan_wlan(), selected=network_name)
-        if not result or network_name == result:
+        if not result or network_name != result:
             result = self.locale.translate("network_connect_failure")
         self.write(result)
 

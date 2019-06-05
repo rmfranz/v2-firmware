@@ -2,25 +2,29 @@ $.get("/get-wifi-connection").done(function (data) {
     var select = $("#wifi_list");
     var selected = data.selected;
     var wifi_list = data.wifi_list;
-    for (var i = 0; i < wifi_list.length; i++) {
-        var d = '<div data-wifiname="' + wifi_list[i] + '" class="k-block-2 wifi_selected">'
-        d += '<div class="k-block-2__left"><p>'  + wifi_list[i] + '</p></div>'
-        d += ' <div id="wifi_icons" class="k-block-2__right">'
-        if(wifi_list[i] == selected) {
-            d += '<img src="/static/images/icon-tilde_verde.svg" />'
-        } else {
-            d += '<img src="/static/images/icon_wifi-bloqueado.svg" />'
-            d += '<img src="/static/images/icon_wifi-senal4.svg" />'
+    if(wifi_list.length == 0) {
+        select.append('<h2 class="k-main__h2">Error, try again</h2>');
+    } else {
+        for (var i = 0; i < wifi_list.length; i++) {
+            var d = '<div data-wifiname="' + wifi_list[i] + '" class="k-block-2 wifi_selected">'
+            d += '<div class="k-block-2__left"><p>'  + wifi_list[i] + '</p></div>'
+            d += ' <div id="wifi_icons" class="k-block-2__right">'
+            if(wifi_list[i] == selected) {
+                d += '<img src="/static/images/icon-tilde_verde.svg" />'
+            } else {
+                d += '<img src="/static/images/icon_wifi-bloqueado.svg" />'
+                d += '<img src="/static/images/icon_wifi-senal4.svg" />'
+            }
+            d += '</div>'
+            select.append(d);
         }
-        d += '</div>'
-        select.append(d);
+        $('.wifi_selected').click(function () {
+            var wifiname = $(this).data('wifiname');
+            $("#network_name").val(wifiname);
+            $("#network_name_title").text(wifiname);
+            $('#wifi_modal').toggleClass('k-modal-overlay--visible');
+        });
     }
-    $('.wifi_selected').click(function () {
-        var wifiname = $(this).data('wifiname');
-        $("#network_name").val(wifiname);
-        $("#network_name_title").text(wifiname);
-        $('#wifi_modal').toggleClass('k-modal-overlay--visible');
-    });
     $("#waiting_info").toggleClass("initiallyHidden");
 });
 
