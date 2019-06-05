@@ -96,7 +96,7 @@ def get_gcodes_from_calibration():
         dict_of_files.update({file: os.path.join(dirpath, file) for file in filenames if fnmatch.fnmatch(file, pattern)})
     return dict_of_files
 
-def scan_wlan():
+def scan_wlan_without_quality():
     """
     There is an alternative with iw, but gives other result string
        check_output("sudo iw wlan0 scan | grep SSID | tr -s ' '", shell=True, universal_newlines=True)
@@ -104,6 +104,13 @@ def scan_wlan():
     scanoutput = check_output("sudo iwlist wlan0 scan | grep ESSID | tr -s ' '", shell=True, universal_newlines=True)
     list_ssid = filter(None, [raw_ssid.split('"')[0] for raw_ssid in scanoutput.split('ESSID:"') if raw_ssid.strip()])
     return list(list_ssid)
+
+def scan_wlan():
+    scanoutput = check_output("sudo iwlist wlan0 scan | grep 'SSID\|Quality' | tr -s ' '", shell=True, universal_newlines=True)
+    ssid_dict = {x.split('ESSID:"')[1].split('"')[0]: x.split('=')[1].split('/')[0] for x in scanoutput.split('Quality') if x.strip()}
+    ssid_dict = {k : v for k, v in ssid_dict.items() if k}
+    return list(collections.OrderedDict(sorted(ssid_dict.items(), key=lambda t: t[1], reverse=True)).keys())
+
 
 def connect_public_wifi(network_name):
     network_number = int(check_output("wpa_cli add_network | grep -v \"Selected interface 'p2p-dev-wlan0'\"", shell=True, universal_newlines=True))
