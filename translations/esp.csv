@@ -292,7 +292,7 @@ dev_tools,Herramientas de desarrollo
 enable_ssh,Activar SSH
 disable_ssh,Desactivar SSH
 reset_board_uuid,Restablecer UUID
-reset_user_prefs,Restablecer preferencias
+reset_user_prefs,Resetear preferencias
 reset_board_warning,Remover la unidad flash USB o el teclado de la impresora.
 next_reboot_warning,Los cambion se aplicarán al reiniciar la impresora. 
 enable_ssh_popup,SSH activado
