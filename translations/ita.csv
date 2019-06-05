@@ -109,7 +109,7 @@ connect,Connetti
 connecting,Collegamento in corso...
 network_choose,Seleziona rete
 ,
-language_title,Idioma
+language_title,Lingua
 language_intro,Seleziona l'idioma per lo schermo:
 es,Español
 en,English
@@ -291,8 +291,8 @@ folder_error,Error 005 con l'aggiornamento.
 dev_tools,Strumenti di sviluppo
 enable_ssh,Abilita servizio SSH
 disable_ssh,Disattiva servizio SSH
-reset_board_uuid,Reimposta l'UUID della scheda
-reset_user_prefs,Reimpostare le preferenze utente
+reset_board_uuid,Reimposta UUID
+reset_user_prefs,Reimpostare preferenze
 reset_board_warning,Rimuovere la chiave USB o la tastiera dalla stampante.
 next_reboot_warning,Le modifiche avranno effetto a partire dal prossimo avvio della stampante.
 enable_ssh_popup,SSH attivato
@@ -321,3 +321,4 @@ reset_uuid_warning_popup,Si prega di attendere. Poi selezionare OK.
 ,Disattivare motori
 ,Attivare motori
 ,La stampante è calibrata e pronta a stampare.
+,Reimpostare le preferenze utente

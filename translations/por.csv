@@ -290,10 +290,10 @@ download_error,Error 003 com a atualização.
 copy_unzip_error,Error 004 com a atualização.
 folder_error,Error 005 com a atualização.
 dev_tools,Ferramentas de desenvolvimento
-enable_ssh,Desativar o serviço SSH
-disable_ssh,Habilitar o serviço SSH
-reset_board_uuid,Restablecer o UUID da placa
-reset_user_prefs,Restablecer as preferências de usuário 
+enable_ssh,Desativar serviço SSH
+disable_ssh,Habilitar serviço SSH
+reset_board_uuid,Restablecer UUID
+reset_user_prefs,Restablecer preferências 
 reset_board_warning,Por favor retirar la unidade flash USB ou teclado da impressora. 
 next_reboot_warning,As mudanças terão efeito após a próxima reinicialização.
 enable_ssh_popup,SSH ativado
@@ -322,3 +322,4 @@ reset_uuid_warning_popup,Aguarde e em seguida pressione OK.
 ,Desligar motores
 ,Ligar motores
 ,A impressora é calibrada e pronta a imprimir.
+,Restablecer as preferências de usuário 

@@ -290,9 +290,9 @@ copy_unzip_error,Error 004 avec mise à jour.
 folder_error,Error 005 avec mise à jour.
 dev_tools,Outils de développement
 enable_ssh,Activer l'accès SSH
-disable_ssh,Désactiver l'accès SSH
-reset_board_uuid,Réinitialiser l'UUID de la carte
-reset_user_prefs,Réinitialiser les préférences utilisateur
+disable_ssh,Désactiver accès SSH
+reset_board_uuid,Réinitialiser UUID
+reset_user_prefs,Réinitialiser préférences
 reset_board_warning,Veuillez enlever la clé USB ou le clavier de l'imprimante. 
 next_reboot_warning,Les changements prendront effets au prochain redémarrage.
 enable_ssh_popup,SSH activé
@@ -321,3 +321,4 @@ reset_uuid_warning_popup,Veuillez patienter et pressez ensuite OK.
 ,Désactiver les moteurs
 ,Activer les moteurs
 ,La imprimante est calibrée et prête à imprimer.
+,Réinitialiser les préférences utilisateur

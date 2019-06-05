@@ -291,8 +291,8 @@ folder_error,W trakcie aktualizacji wystąpił błąd 005.
 dev_tools,Narzędzia developerskie
 enable_ssh,Włącz SSH
 disable_ssh,Wyłącz SSH
-reset_board_uuid,Rest UUID płyty głównej
-reset_user_prefs,Reset preferencji użytkownika
+reset_board_uuid,Rest UUID
+reset_user_prefs,Reset preferencji
 reset_board_warning,Proszę wyjąć wszystkie dyski USB i odłączyć klawiaturę od drukarki.
 next_reboot_warning,Zmiany zostaną uwzględnione po restarcie drukarki.
 enable_ssh_popup,
@@ -321,3 +321,4 @@ reset_uuid_warning_popup,
 ,Wyłącz silniki
 ,Włącz silniki
 ,Drukarka jest gotowa do pracy.
+,Reset preferencji użytkownika
