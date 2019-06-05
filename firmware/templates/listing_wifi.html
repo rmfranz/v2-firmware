@@ -32,9 +32,6 @@
 <!-- MODAL -->
 <section id="wifi_modal" class="k-modal-overlay">
     <div class="k-modal">
-        <button class="k-modal__close">
-            <img src="/static/images/icon_cancelar.svg" />
-        </button>
         <div class="k-modal-4">
             <div class="k-modal-4__top">
                 <p class="k-modal__p k-modal__p--big k-modal__p--center">{{_("connect_modal_title")}}</p>
@@ -64,16 +61,14 @@
 <section id="connection_ok_modal" class="k-modal-overlay">
     <div class="k-modal">
         <div class="k-modal-container">
-            <div class="k-modal-4">
-                <div class="k-modal-4__top">
-                    <img class="k-modal-2__img" src="/static/images/icon-tilde_verde.svg" />
-                    <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
-                        {{_("wifi_connection_ok_modal")}}
-                    </p>
-                </div>
-                <div class="k-modal-4__bottom">
-                    <button id="connection_ok_modal_btn" class="k-modal-4__button k-modal-4__button--red">OK</button>
-                </div>
+            <div class="k-modal-2">
+                <img class="k-modal-2__img" src="/static/images/icon-tilde_verde.svg" />
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("wifi_connection_ok_modal")}}
+                </p>
+            </div>
+            <div class="k-modal-4__bottom">
+                <button id="connection_ok_modal_btn" class="k-modal-4__button k-modal-4__button--red">OK</button>
             </div>
         </div>
     </div>
@@ -81,16 +76,14 @@
 <section id="connection_no_ok_modal" class="k-modal-overlay">
     <div class="k-modal">
         <div class="k-modal-container">
-            <div class="k-modal-4">
-                <div class="k-modal-4__top">
+            <div class="k-modal-2">
                 <img class="k-modal-2__img" src="/static/images/icon-tilde_verde.svg" />
                 <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
                     {{_("network_connect_failure")}}
                 </p>
             </div>
             <div class="k-modal-4__bottom">
-                    <button id="connection_no_ok_modal_btn" class="k-modal-4__button k-modal-4__button--red">OK</button>
-                </div>
+                <button id="connection_no_ok_modal_btn" class="k-modal-4__button k-modal-4__button--red">OK</button>
             </div>
         </div>
     </div>
