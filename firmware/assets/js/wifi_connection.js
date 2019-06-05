@@ -34,26 +34,31 @@ $("#cancel_modal").click(function () {
 });
 
 $("#confirm").click(function () {
+    $("#wait_fetching_modal").toggleClass("k-modal-overlay--visible");
     var network_name = $("#network_name").val();
     var password = $("#keyboard").val();
-    $( "#confirm" ).toggleClass( "k-modal-4__button--grey" );
-    setTimeout(function () {
-        $.ajax({
-            url: "/wifi-connection",
-            method: "POST",
-            data: {network_name: network_name, password: password},
-            success: function (result) {
-                if(network_name == result){
-                    window.location.href = "/wifi-connection";
-                } else {
-                    $( "#confirm" ).toggleClass("k-modal-4__button--grey");
-                    //$( "#confirm" ).addClass("k-modal-4__button--yellow");
-                    $("#connection_error").text(result)                
-                }
-            },
-            async: false
-        });
-    }, 1000);    
+    $.ajax({
+        url: "/wifi-connection",
+        method: "POST",
+        data: {network_name: network_name, password: password},
+        success: function (result) {
+            if(network_name == result){
+                $("#wait_fetching_modal").toggleClass("k-modal-overlay--visible");
+                $("#connection_ok_modal").toggleClass("k-modal-overlay--visible");
+            } else {
+                $("#wait_fetching_modal").toggleClass("k-modal-overlay--visible");
+                $("#connection_no_ok_modal").toggleClass("k-modal-overlay--visible");
+            }
+        }
+    });
+});
+
+$("#connection_ok_modal_btn").click(function () {
+    window.location.href = "/wifi-connection";
+});
+
+$("#connection_no_ok_modal_btn").click(function () {
+    $("#connection_no_ok_modal").toggleClass("k-modal-overlay--visible");
 });
 
 $('#keyboard').keyboard({

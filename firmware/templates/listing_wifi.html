@@ -3,7 +3,9 @@
 <main class="k-main">
     <h2 class="k-main__h2">{{_("config_wifi")}}</h2>
     <section class="k-block k-block--shortened">
-        <div id="waiting_info"><h2 class="k-main__h2">{{_("waiting_info")}}</h2></div>
+        <div id="waiting_info">
+            <h2 class="k-main__h2">{{_("waiting_info")}}</h2>
+        </div>
         <div id="wifi_list"></div>
     </section>
 </main>
@@ -45,6 +47,50 @@
                 <button id="cancel_modal"
                     class="k-modal-4__button k-modal-4__button--red">{{_("connect_cancel")}}</button>
                 <button id="confirm" class="k-modal-4__button k-modal-4__button--yellow">{{_("connect")}}</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="wait_fetching_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-4">
+            <div class="k-modal-2">
+                <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
+                <h2 class="k-modal__title k-modal__title--big">{{_("waiting_info")}}</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="connection_ok_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-container">
+            <div class="k-modal-4">
+                <div class="k-modal-4__top">
+                    <img class="k-modal-2__img" src="/static/images/icon-tilde_verde.svg" />
+                    <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                        {{_("wifi_connection_ok_modal")}}
+                    </p>
+                </div>
+                <div class="k-modal-4__bottom">
+                    <button id="connection_ok_modal_btn" class="k-modal-4__button k-modal-4__button--red">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="connection_no_ok_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-container">
+            <div class="k-modal-4">
+                <div class="k-modal-4__top">
+                <img class="k-modal-2__img" src="/static/images/icon-tilde_verde.svg" />
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("network_connect_failure")}}
+                </p>
+            </div>
+            <div class="k-modal-4__bottom">
+                    <button id="connection_no_ok_modal_btn" class="k-modal-4__button k-modal-4__button--red">OK</button>
+                </div>
             </div>
         </div>
     </div>
