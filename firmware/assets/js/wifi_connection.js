@@ -1,58 +1,65 @@
-$('.wifi_selected').click(function () {
-    var wifiname = $(this).data('wifiname');
-    $("#network_name").val(wifiname);
-    $("#network_name_title").text(wifiname);
-    $('#wifi_modal').toggleClass('k-modal-overlay--visible');
+$.get("/get-wifi-connection").done(function (data) {
+    var select = $("#wifi_list");
+    var selected = data.selected;
+    var wifi_list = data.wifi_list;
+    if(wifi_list.length == 0) {
+        select.append('<h2 class="k-main__h2">Error, try again</h2>');
+    } else {
+        for (var i = 0; i < wifi_list.length; i++) {
+            var d = '<div data-wifiname="' + wifi_list[i] + '" class="k-block-2 wifi_selected">'
+            d += '<div class="k-block-2__left"><p>'  + wifi_list[i] + '</p></div>'
+            d += ' <div id="wifi_icons" class="k-block-2__right">'
+            if(wifi_list[i] == selected) {
+                d += '<img src="/static/images/icon-tilde_verde.svg" />'
+            } else {
+                d += '<img src="/static/images/icon_wifi-bloqueado.svg" />'
+                d += '<img src="/static/images/icon_wifi-senal4.svg" />'
+            }
+            d += '</div>'
+            select.append(d);
+        }
+        $('.wifi_selected').click(function () {
+            var wifiname = $(this).data('wifiname');
+            $("#network_name").val(wifiname);
+            $("#network_name_title").text(wifiname);
+            $('#wifi_modal').toggleClass('k-modal-overlay--visible');
+        });
+    }
+    $("#waiting_info").toggleClass("initiallyHidden");
 });
+
 
 $("#cancel_modal").click(function () {
     $('#wifi_modal').toggleClass('k-modal-overlay--visible');
 });
 
 $("#confirm").click(function () {
+    $("#wait_fetching_modal").toggleClass("k-modal-overlay--visible");
     var network_name = $("#network_name").val();
     var password = $("#keyboard").val();
-    $( "#confirm" ).toggleClass( "k-modal-4__button--grey" );
-    setTimeout(function () {
-        $.ajax({
-            url: "/wifi-connection",
-            method: "POST",
-            data: {network_name: network_name, password: password},
-            success: function (result) {
-                if(network_name == result){
-                    window.location.href = "/wifi-connection";
-                } else {
-                    $( "#confirm" ).toggleClass("k-modal-4__button--grey");
-                    //$( "#confirm" ).addClass("k-modal-4__button--yellow");
-                    $("#connection_error").text(result)                
-                }
-            },
-            async: false
-        });
-    }, 1000);    
+    $.ajax({
+        url: "/wifi-connection",
+        method: "POST",
+        data: {network_name: network_name, password: password},
+        success: function (result) {
+            if(network_name == result){
+                $("#wait_fetching_modal").toggleClass("k-modal-overlay--visible");
+                $("#connection_ok_modal").toggleClass("k-modal-overlay--visible");
+            } else {
+                $("#wait_fetching_modal").toggleClass("k-modal-overlay--visible");
+                $("#connection_no_ok_modal").toggleClass("k-modal-overlay--visible");
+            }
+        }
+    });
 });
-/*
-$('#keyboard')
-.keyboard({
-    layout: 'custom',
-    customLayout: {
-        'normal': [
-            '` 1 2 3 4 5 6 7 8 9 0 - = {bksp}',
-            '{tab} q w e r t y u i o p [ ] \\',
-            'a s d f g h j k l ; \' {enter}',
-            '{shift} z x c v b n m , . / {shift}',
-            '{accept} {space} {left} {right}'
-        ],
-        'shift': [
-            '~ ! @ # $ % ^ & * ( ) _ + {bksp}',
-            '{tab} Q W E R T Y U I O P { } |',
-            'A S D F G H J K L : " {enter}',
-            '{shift} Z X C V B N M < > ? {shift}',
-            '{accept} {space} {left} {right}'
-        ]
-    }
+
+$("#connection_ok_modal_btn").click(function () {
+    window.location.href = "/wifi-connection";
 });
-*/
+
+$("#connection_no_ok_modal_btn").click(function () {
+    $("#connection_no_ok_modal").toggleClass("k-modal-overlay--visible");
+});
 
 $('#keyboard').keyboard({
   
