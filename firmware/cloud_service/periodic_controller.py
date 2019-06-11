@@ -122,10 +122,11 @@ class PeriodicController:
             "auth_token": self.auth_token
         }
         if self.state == "error" or self.started:
+            if self.started:
+                req["report"]["state"] = 'error'
+                self.started = False
             req['error'] = [{'code': 100, 'message': 'Printing was cancelled from printer...'}]
             self.state = "ready"
-            if self.started:
-                self.started = False
         async_http_client = httpclient.AsyncHTTPClient()
         resp_reg = yield async_http_client.fetch(self.url_command, method='POST', raise_error=False,
                     headers=self.headers, body=json.dumps(req))
