@@ -251,3 +251,18 @@ def check_connectivity():
         out = check_output("ip route get 8.8.8.8 | grep -Po 'dev \K\w+'", shell=True, universal_newlines=True)
     finally:
         return out
+
+def path_to_dict(path):
+    directory = {'text': os.path.basename(path)}
+    pattern = "*.gcode"
+    if os.path.isdir(path):
+        directory['type'] = "directory"
+        directory['children'] = [path_to_dict(os.path.join(path,x)) for x in os.listdir(path) if filter_gcode_file(path, x)]
+        return directory
+    elif fnmatch.fnmatch(path, pattern):
+        directory['type'] = "file"
+        return directory
+
+def filter_gcode_file(path, name):
+    pattern = "*.gcode"
+    return os.path.isdir(os.path.join(path, name)) or fnmatch.fnmatch(os.path.join(path, name), pattern)
