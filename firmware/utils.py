@@ -269,3 +269,14 @@ def path_to_dict(path):
 def filter_gcode_file(path, name):
     pattern = "*.gcode"
     return os.path.isdir(os.path.join(path, name)) or fnmatch.fnmatch(os.path.join(path, name), pattern)
+
+def path_to_html(dir):
+    #path_to_html('printcore_modified', '')
+    html = '<ul>'
+    for item in os.listdir(dir):
+        html += '<li>%s</li>' % item
+        fullpath = os.path.join(dir, item)
+        if os.path.isdir(fullpath):
+            html += path_to_html(fullpath)
+    html += '</ul>'
+    return html
