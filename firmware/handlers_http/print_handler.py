@@ -27,7 +27,7 @@ class ListingFilesHandler(BasicHandler):
                 print("resultado: {}".format(result))
                 if result == 0:
                     #items = get_gcodes_from_usb()                    
-                    items = {}
+                    items = path_to_dict('/media/usb/')
                 elif result == 1:
                     items = {}
                     error = 1
