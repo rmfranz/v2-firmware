@@ -95,6 +95,7 @@ class Application(tornado.web.Application):
             (r"/get-temperatures", TemperaturesHandler),
             (r"/local-files-selection", LocalFilesSelectionHandler),
             (r"/listing-files/([0-9]+)", ListingFilesHandler),
+            (r"/listing-files/usb", ListingUsbHandler),
             (r"/confirm-print", PreviousPrintHandler),
             (r"/put-serial", SerialHandler),
             (r"/put-version", VersionHandler),

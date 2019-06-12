@@ -7,6 +7,9 @@
     <h2 class="k-main__h2">{{_("mount_usb_error").format(",")}}</h2>
     {% elif error == 1 %}
     <h2 class="k-main__h2">{{_("unmount_usb_error").format(",")}}</h2>
+    {% elif listing_id == "1" %}
+    <h2 class="k-main__h2">{{_("waiting_info")}}</h2>
+    <section class="k-block"><div id="jstree"></div></section>
     {% else %}
     <section class="k-block">
         {% for key, value in items.items() %}
@@ -54,5 +57,6 @@
     var printing = false;
 </script>
 <script src="/static/js/print.js"></script>
+<script src="/static/js/usb_files.js"></script>
 </body>
 {% end %}

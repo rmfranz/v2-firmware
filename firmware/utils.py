@@ -253,7 +253,10 @@ def check_connectivity():
         return out
 
 def path_to_dict(path):
-    directory = {'text': os.path.basename(path)}
+    directory = {
+        'text': os.path.basename(path),
+        'path': path
+        }
     pattern = "*.gcode"
     if os.path.isdir(path):
         directory['type'] = "directory"

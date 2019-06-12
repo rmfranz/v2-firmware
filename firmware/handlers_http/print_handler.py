@@ -1,7 +1,7 @@
 from handlers_http.basic_handler import BasicHandler
-from utils import mount_usb, get_gcodes_from_usb, get_gcodes_from_sample, get_gcodes_from_calibration
+from utils import mount_usb, get_gcodes_from_usb, get_gcodes_from_sample, get_gcodes_from_calibration, path_to_dict
 import tornado
-from tornado import httpclient
+from tornado import httpclient, concurrent
 import os
 
 class PrintSelectionHandler(BasicHandler):
@@ -26,7 +26,8 @@ class ListingFilesHandler(BasicHandler):
                 result = mount_usb(self.firmware.hardware_json["board_uuid"])
                 print("resultado: {}".format(result))
                 if result == 0:
-                    items = get_gcodes_from_usb()                    
+                    #items = get_gcodes_from_usb()                    
+                    items = {}
                 elif result == 1:
                     items = {}
                     error = 1
@@ -45,6 +46,11 @@ class ListingFilesHandler(BasicHandler):
             error = 0
         self.firmware.files_from_where = listing_id
         self.render("listing_files.html", items=items, error=error, listing_id=listing_id)
+
+class ListingUsbHandler(BasicHandler):
+    @concurrent.run_on_executor
+    def get(self):
+        self.write(path_to_dict('/media/usb/'))
 
 class TemperaturesHandler(BasicHandler):
     def get(self):
