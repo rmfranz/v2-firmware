@@ -270,13 +270,15 @@ def filter_gcode_file(path, name):
     pattern = "*.gcode"
     return os.path.isdir(os.path.join(path, name)) or fnmatch.fnmatch(os.path.join(path, name), pattern)
 
-def path_to_html(dir):
-    #path_to_html('printcore_modified', '')
-    html = '<ul>'
-    for item in os.listdir(dir):
-        html += '<li>%s</li>' % item
-        fullpath = os.path.join(dir, item)
+def path_to_html(path):
+    pattern = "*.gcode"
+    html = '<ul class="nested">'
+    for item in os.listdir(path):
+        fullpath = os.path.join(path, item)
         if os.path.isdir(fullpath):
-            html += path_to_html(fullpath)
+            html += '<li><span class="caret">%s</span>' % item
+            html += path_to_html(fullpath) + '</li>'
+        elif fnmatch.fnmatch(fullpath, pattern):
+            html += '<li class="file_selected" data-path="{}" data-filename="{}">{}</li>'.format(fullpath, item, item)
     html += '</ul>'
     return html

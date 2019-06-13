@@ -9,13 +9,8 @@
     <h2 class="k-main__h2">{{_("unmount_usb_error").format(",")}}</h2>
     {% elif listing_id == "1" %}
     <section class="k-block">
-            <ul id="myUL">
-            {% for item in items['children'] recursive %}
-            <li><span class="caret">{{ item.name }}</span>
-            {% if item['children'] %}
-                <ul class="nested">{{ loop(item['children']) }}</ul>
-            {% end %}</li>
-        {% end %}
+        <ul id="myUL">
+            {{raw items}}
         </ul>
     </section>
     {% else %}

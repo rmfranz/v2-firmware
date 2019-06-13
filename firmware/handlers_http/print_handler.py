@@ -1,5 +1,5 @@
 from handlers_http.basic_handler import BasicHandler
-from utils import mount_usb, get_gcodes_from_usb, get_gcodes_from_sample, get_gcodes_from_calibration, path_to_dict
+from utils import mount_usb, get_gcodes_from_usb, get_gcodes_from_sample, get_gcodes_from_calibration, path_to_html
 import tornado
 from tornado import httpclient, concurrent
 import os
@@ -27,7 +27,8 @@ class ListingFilesHandler(BasicHandler):
                 print("resultado: {}".format(result))
                 if result == 0:
                     #items = get_gcodes_from_usb()                    
-                    items = path_to_dict('/media/usb/')
+                    html = path_to_html('/media/usb/')
+                    items = html.replace('<ul class="nested">', '', 1)[:-5]
                 elif result == 1:
                     items = {}
                     error = 1
