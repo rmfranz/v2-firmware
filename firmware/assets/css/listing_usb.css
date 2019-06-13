@@ -8,6 +8,20 @@
     margin: 0;
     padding: 0;
   }
+
+  #myUL li{
+    padding: 0;
+    padding-top: 10px;
+    background-image: linear-gradient(to right, #EBEBEA 98%, white 98%, white);
+    font-size: 20px;
+    justify-content: space-between;
+    align-items:center;
+    height: 60px;
+  }
+
+  #myUL p {
+    margin: 0 0;
+  }
   
   /* Style the caret/arrow */
   .caret {
@@ -36,4 +50,4 @@
   /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
   .active {
     display: block;
-  } 
+  }
