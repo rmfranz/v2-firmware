@@ -276,9 +276,9 @@ def path_to_html(path):
     for item in os.listdir(path):
         fullpath = os.path.join(path, item)
         if os.path.isdir(fullpath):
-            html += '<li><span class="caret">%s</span>' % item
+            html += '<li><p><span class="caret">%s</span></p>' % item
             html += path_to_html(fullpath) + '</li>'
         elif fnmatch.fnmatch(fullpath, pattern):
-            html += '<li class="file_selected" data-path="{}" data-filename="{}">{}</li>'.format(fullpath, item, item)
+            html += '<li class="file_selected" data-path="{}" data-filename="{}"><p>{}</p></li>'.format(fullpath, item, item)
     html += '</ul>'
     return html
