@@ -3,19 +3,19 @@
 <main class="k-main">
     <section class="k-grid k-grid--3x3">
         {% for key, value in mat_temps.items() %}
-            {% if value['name'] != "OFF" and ext_type == 'ext_1' and value['okAllMetal'] == 'T' %}
-            <a href="/{{ext_type}}/{{ext_action}}/action?material={{key}}" class="k-grid-item">
-                <p class="k-grid-item__p k-grid-item__p--big">{{value['name']}}</p>
-            </a>
-            {% elif value['name'] != "OFF" and ext_type == 'ext_2' and value['okPTFE'] == 'T' %}
-            <a href="/{{ext_type}}/{{ext_action}}/action?material={{key}}" class="k-grid-item">
-                <p class="k-grid-item__p k-grid-item__p--big">{{value['name']}}</p>
-            </a>
-            {% elif value['name'] != "OFF" %}
-                <a href="#" class="k-grid-item k-grid-item--grey">
-                    <p class="k-grid-item__p k-grid-item__p--big">{{value['name']}}</p>
-                </a>
-            {% end %}
+        {% if value['name'] != "OFF" and ext_type == 'ext_1' and value['okAllMetal'] == 'T' %}
+        <a href="/{{ext_type}}/{{ext_action}}/action?material={{key}}" class="k-grid-item">
+            <p class="k-grid-item__p k-grid-item__p--big">{{value['name']}}</p>
+        </a>
+        {% elif value['name'] != "OFF" and ext_type == 'ext_2' and value['okPTFE'] == 'T' %}
+        <a href="/{{ext_type}}/{{ext_action}}/action?material={{key}}" class="k-grid-item">
+            <p class="k-grid-item__p k-grid-item__p--big">{{value['name']}}</p>
+        </a>
+        {% elif value['name'] != "OFF" %}
+        <a href="#" class="k-grid-item k-grid-item--grey">
+            <p class="k-grid-item__p k-grid-item__p--big">{{value['name']}}</p>
+        </a>
+        {% end %}
         {% end %}
     </section>
 </main>
@@ -30,8 +30,15 @@
 <section id="filament_warning_modal" class="k-modal-overlay k-modal-overlay--visible">
     <div class="k-modal">
         <div class="k-modal-2">
-            <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
-                {{_("filament_auto_load_instruction").format(ext_type.split('_')[1])}} </p>
+            <div class="k-modal-1">
+                <video width="344" height="400" loop autoplay>
+                    <source src="/static/video/loadingfilament.mp4" type="video/mp4">
+                    Error
+                </video>
+                <br />
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("filament_auto_load_instruction").format(ext_type.split('_')[1])}} </p>
+            </div>
         </div>
         <div class="k-modal-4">
             <div class="k-modal-4__bottom">
@@ -43,8 +50,8 @@
 {% end %}
 </body>
 <script>
-$("#filament_warning_modal_close").on("click", function () {
-    $("#filament_warning_modal").toggleClass("k-modal-overlay--visible");
-});
+    $("#filament_warning_modal_close").on("click", function () {
+        $("#filament_warning_modal").toggleClass("k-modal-overlay--visible");
+    });
 </script>
 {% end %}

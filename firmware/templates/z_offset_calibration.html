@@ -21,9 +21,9 @@
       </button>
     </div>
   </section>
-  <!--<div id="help_calibration" class="k-help-btn">
-        <img src="/static/images/icon_ayuda.svg" />
-    </div>-->
+  <div id="help_calibration" class="k-help-btn">
+    <img src="/static/images/icon_ayuda.svg" />
+  </div>
 </main>
 
 <footer class="k-footer">
@@ -39,27 +39,27 @@
 <!-- New modals -->
 <section id="calibration_reset" class="k-modal-overlay">
   <div class="k-modal">
-      <div class="k-modal-container">
-          <div class="k-modal-2">
-              <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
-              <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
-                  {{_("calibration_offset_saving").format(",")}}
-              </p>
-          </div>
+    <div class="k-modal-container">
+      <div class="k-modal-2">
+        <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
+        <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+          {{_("calibration_offset_saving").format(",")}}
+        </p>
       </div>
+    </div>
   </div>
 </section>
 <section id="manual_reboot_modal" class="k-modal-overlay">
-    <div class="k-modal">
-        <div class="k-modal-container">
-            <div class="k-modal-2">
-                <img class="k-modal-2__img" src="/static/images/icon-tilde_verde.svg" />
-                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
-                    {{_("manual_reboot").format(",")}}
-                </p>
-            </div>
-        </div>
+  <div class="k-modal">
+    <div class="k-modal-container">
+      <div class="k-modal-2">
+        <img class="k-modal-2__img" src="/static/images/icon-tilde_verde.svg" />
+        <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+          {{_("manual_reboot").format(",")}}
+        </p>
+      </div>
     </div>
+  </div>
 </section>
 
 <section id="change_extruder" class="k-modal-overlay">
@@ -91,13 +91,23 @@
   </div>
 </section>
 <section id="help_calibration_modal" class="k-modal-overlay">
-  <div class="k-modal">
-      <button id="help_calibration_modal_close" class="k-modal__close">
-          <img src="/static/images/icon_cancelar.svg" />
-      </button>
-      <div class="k-modal-container">
-      </div>
-  </div>
+    <div class="k-modal">
+        <button id="help_calibration_modal_close" class="k-modal__close">
+            <img src="/static/images/icon_cancelar.svg" />
+        </button>
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <video width="690" height="200" loop autoplay>
+                    <source src="/static/video/zoffsetchange.mp4" type="video/mp4">
+                    Error
+                </video>
+                <br />
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("zoffset_calibration_popup")}}
+                </p>
+            </div>
+        </div>
+    </div>
 </section>
 </body>
 <script src="/static/js/calibration.js"></script>

@@ -87,10 +87,16 @@
             <img src="/static/images/icon_cancelar.svg" />
         </button>
         <div class="k-modal-container">
-        <video width="690" height="200" autoplay>
-            <source src="/static/video/xyoffsetchange.mp4" type="video/mp4">
-            Error
-        </video> 
+            <div class="k-modal-2">
+                <video width="690" height="200" loop autoplay>
+                    <source src="/static/video/xyoffsetchange.mp4" type="video/mp4">
+                    Error
+                </video>
+                <br />
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("xyoffset_calibration_popup")}}
+                </p>
+            </div>
         </div>
     </div>
 </section>
