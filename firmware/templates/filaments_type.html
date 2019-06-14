@@ -29,21 +29,16 @@
 {% if ext_action == 'load' %}
 <section id="filament_warning_modal" class="k-modal-overlay k-modal-overlay--visible">
     <div class="k-modal">
-        <div class="k-modal-2">
-            <div class="k-modal-1">
-                <video width="344" height="400" loop autoplay>
-                    <source src="/static/video/loadingfilament.mp4" type="video/mp4">
-                    Error
-                </video>
-                <br />
-                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
-                    {{_("filament_auto_load_instruction").format(ext_type.split('_')[1])}} </p>
-            </div>
-        </div>
-        <div class="k-modal-4">
-            <div class="k-modal-4__bottom">
-                <button id="filament_warning_modal_close" class="k-modal-4__button k-modal-4__button--red">OK</button>
-            </div>
+        <button id="filament_warning_modal_close" class="k-modal__close">
+            <img src="/static/images/icon_cancelar.svg" />
+        </button>
+        <div class="k-modal-container">
+        <video width="344" height="380" loop autoplay style="float: left;">
+            <source src="/static/video/loadingfilament.mp4" type="video/mp4">
+            Error
+        </video>
+        <p class="k-modal__p k-modal__p--big k-modal_p--maxwidth"  style="width:50%; float: right; margin-top: 130px">
+            {{_("filament_auto_load_instruction").format(ext_type.split('_')[1])}} </p>
         </div>
     </div>
 </section>
