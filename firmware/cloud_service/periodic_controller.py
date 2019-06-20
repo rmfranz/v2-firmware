@@ -38,6 +38,7 @@ class PeriodicController:
         self.api_caller = PeriodicCallback(self.command_request, 2000)
         self.api_set_percentage = PeriodicCallback(self.set_percentage, 3000)
         self.camera_caller = PeriodicCallback(self.take_picture, 2000)
+        self.ping_caller = PeriodicCallback(self.ping_server, 1800000)
         self.state = "ready"
         self.headers = {'Content-Type': 'application/json'}
         self.commander = {
@@ -327,3 +328,7 @@ class PeriodicController:
     def write_user_conf_json(self):
         with open(self.USER_CONF_JSON_FOLDER, 'w') as f:
                 json.dump(self.user_conf_json, f)
+
+    def ping_server(self):
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch("http://127.0.0.1:8888/test-print")
