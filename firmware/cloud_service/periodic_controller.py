@@ -39,6 +39,7 @@ class PeriodicController:
         self.api_set_percentage = PeriodicCallback(self.set_percentage, 3000)
         self.camera_caller = PeriodicCallback(self.take_picture, 2000)
         self.ping_caller = PeriodicCallback(self.ping_server, 1800000)
+        self.ping_caller.start()
         self.state = "ready"
         self.headers = {'Content-Type': 'application/json'}
         self.commander = {
