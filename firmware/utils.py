@@ -275,10 +275,10 @@ def path_to_html(path):
     html = '<ul class="nested">'
     for item in os.listdir(path):
         fullpath = os.path.join(path, item)
-        if os.path.isdir(fullpath):
+        if os.path.isdir(fullpath) and not item.startswith("."):
             html += '<li><p><span class="caret">%s</span></p>' % item
             html += path_to_html(fullpath) + '</li>'
-        elif fnmatch.fnmatch(fullpath, pattern):
+        elif fnmatch.fnmatch(fullpath, pattern) and not item.startswith("."):
             html += '<li class="file_selected" data-path="{}" data-filename="{}"><p>{}</p></li>'.format(fullpath, item, item)
     html += '</ul>'
     return html
