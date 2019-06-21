@@ -41,7 +41,7 @@ function extrude_retract(){
       can_cancel = false;
       $("#btn_filament_cancel").toggleClass("k-footer__btn--red");
       $("#btn_filament_cancel").toggleClass("k-footer__btn--grey");
-      finish_load_filament();
+      unload_filament_wait();
    }
 }
 
@@ -53,8 +53,13 @@ function heating_temp(temp, target) {
             fifty_reach = true;
          }
       }
-   } else {
-      var perc = Math.round((temp/target)*100);
+   } else if(filament_action == "filament_auto_unload") {
+      if(!eighty_reach){
+         var perc = Math.round((temp/target)*80);
+         if(perc == 80){
+            eighty_reach = true;
+         }
+      }      
    }
    $('#progress_bar').attr("value", perc);
 }

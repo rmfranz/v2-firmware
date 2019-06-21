@@ -5,6 +5,6 @@ $( "#sound" ).change(function() {
         audio.pause();
         audio.currentTime = 0;
         audio.play();
-        $("#volume").text(data);
+        $("#volume").text(data + " %");
     });
 });
