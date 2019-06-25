@@ -2,7 +2,7 @@ var conn_error = false;
 
 $.get("/get-wifi-connection").done(function (data) {
     var select = $("#wifi_list");
-    var info_div = $("#info");
+    var info_div = $("#info tbody");
     var selected = data.selected;
     var wifi_list = data.wifi_list;
     var info = data.info;
@@ -26,11 +26,10 @@ $.get("/get-wifi-connection").done(function (data) {
             d += '</div>'
             select.append(d);
         }
-        var inf = ''
         for (var i = 0; i < info.length; i++) {
-            inf += '<tr>' + info[i] + '</tr>'
+            info_div.append('<tr><td>' + info[i] + '</td></tr>')
         }
-        info_div.append(inf)
+        
         $('.wifi_selected').click(function () {
             var wifiname = $(this).data('wifiname');
             $("#network_name").val(wifiname);
