@@ -40,6 +40,10 @@ function finish_extrude_more() {
     $("#extrude_more_modal").toggleClass("k-modal-overlay--visible");
 }
 
+function finish_retract_more() {
+    $("#retract_more_modal").toggleClass("k-modal-overlay--visible");
+}
+
 $('#cancel_load_unload_filament').click(function () {
     if(can_cancel){
         $("#cancel_modal").toggleClass("k-modal-overlay--visible");
@@ -59,6 +63,14 @@ $('#filament_action').click(function () {
         $("#extrude_more_modal").toggleClass("k-modal-overlay--visible");
         $.get("/extrude-more");
         setTimeout(finish_extrude_more, 40000);
+    }
+});
+
+$('#filament_action_retract').click(function () {
+    if(can_extrude){
+        $("#retract_more_modal").toggleClass("k-modal-overlay--visible");
+        $.get("/retract-more");
+        setTimeout(finish_retract_more, 3000);
     }
 });
 

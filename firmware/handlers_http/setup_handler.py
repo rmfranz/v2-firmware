@@ -55,6 +55,12 @@ class ExtrudeOneMoreHandler(BasicHandler):
         self.firmware.extrude_one_more()
         self.write("ok")
 
+class RetractOneMoreHandler(BasicHandler):
+    def get(self):
+        self.firmware.retract_one_more()
+        self.write("ok")
+
+
 class RetractHandler(BasicHandler):
     def get(self):
         self.firmware.retract_filament()
