@@ -1223,3 +1223,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 #volume{
   font-size: 40px;
 }
+
+#wifi_info_table{
+  margin-left: 20px;
+}

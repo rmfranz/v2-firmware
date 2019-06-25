@@ -2,7 +2,7 @@ var conn_error = false;
 
 $.get("/get-wifi-connection").done(function (data) {
     var select = $("#wifi_list");
-    var info_div = $("#info tbody");
+    var info_div = $("#wifi_info_table tbody");
     var selected = data.selected;
     var wifi_list = data.wifi_list;
     var info = data.info;
