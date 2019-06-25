@@ -1,5 +1,5 @@
 from handlers_http.basic_handler import * 
-from utils import scan_wlan, connect_to_wifi, wifi_connected
+from utils import scan_wlan, connect_to_wifi, wifi_connected, return_wlan_info
 import tornado
 
 class WifiConnectionHandler(BasicHandler):
@@ -8,8 +8,9 @@ class WifiConnectionHandler(BasicHandler):
     def get(self):
         wifi_list = scan_wlan()
         selected = wifi_connected()
+        info = return_wlan_info()
         #self.render("listing_wifi.html", wifi_list=wifi_list, selected=selected, wizzard_viewed=self.wizzard.viewed)
-        self.write({"wifi_list": wifi_list, 'selected': selected})
+        self.write({"wifi_list": wifi_list, 'selected': selected, 'info': info})
 
 class ToWifiConnectionHandler(BasicHandler):
 

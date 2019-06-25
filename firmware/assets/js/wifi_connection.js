@@ -1,12 +1,20 @@
+var conn_error = false;
+
 $.get("/get-wifi-connection").done(function (data) {
     var select = $("#wifi_list");
+    var info_div = $("#info");
     var selected = data.selected;
     var wifi_list = data.wifi_list;
+    var info = data.info;
     if(wifi_list.length == 0) {
         select.append('<h2 class="k-main__h2">Error, try again</h2>');
     } else {
         for (var i = 0; i < wifi_list.length; i++) {
-            var d = '<div data-wifiname="' + wifi_list[i] + '" class="k-block-2 wifi_selected">'
+            if(wifi_list[i] == selected) {
+                var d = '<div id="wifi_connected" class="k-block-2">'
+            } else {
+                var d = '<div data-wifiname="' + wifi_list[i] + '" class="k-block-2 wifi_selected">'
+            }
             d += '<div class="k-block-2__left"><p>'  + wifi_list[i] + '</p></div>'
             d += ' <div id="wifi_icons" class="k-block-2__right">'
             if(wifi_list[i] == selected) {
@@ -18,11 +26,19 @@ $.get("/get-wifi-connection").done(function (data) {
             d += '</div>'
             select.append(d);
         }
+        var inf = ''
+        for (var i = 0; i < info.length; i++) {
+            inf += '<p>' + info[i] + '</p>'
+        }
+        info_div.append(inf)
         $('.wifi_selected').click(function () {
             var wifiname = $(this).data('wifiname');
             $("#network_name").val(wifiname);
             $("#network_name_title").text(wifiname);
             $('#wifi_modal').toggleClass('k-modal-overlay--visible');
+        });
+        $('#wifi_connected').click(function () {
+            $('#wifi_info_modal').toggleClass('k-modal-overlay--visible');
         });
     }
     $("#waiting_info").toggleClass("initiallyHidden");
@@ -30,7 +46,11 @@ $.get("/get-wifi-connection").done(function (data) {
 
 
 $("#cancel_modal").click(function () {
-    $('#wifi_modal').toggleClass('k-modal-overlay--visible');
+    if(conn_error){
+        window.location.href = "/wifi-connection";
+    } else {
+        $('#wifi_modal').toggleClass('k-modal-overlay--visible');
+    }
 });
 
 $("#confirm").click(function () {
@@ -43,9 +63,11 @@ $("#confirm").click(function () {
         data: {network_name: network_name, password: password},
         success: function (result) {
             if(network_name == result){
+                conn_error = false;
                 $("#wait_fetching_modal").toggleClass("k-modal-overlay--visible");
                 $("#connection_ok_modal").toggleClass("k-modal-overlay--visible");
             } else {
+                conn_error = true;
                 $("#wait_fetching_modal").toggleClass("k-modal-overlay--visible");
                 $("#connection_no_ok_modal").toggleClass("k-modal-overlay--visible");
             }
@@ -59,6 +81,10 @@ $("#connection_ok_modal_btn").click(function () {
 
 $("#connection_no_ok_modal_btn").click(function () {
     $("#connection_no_ok_modal").toggleClass("k-modal-overlay--visible");
+});
+
+$("#wifi_info_modal_btn").click(function () {
+    $("#wifi_info_modal").toggleClass("k-modal-overlay--visible");
 });
 
 $('#keyboard').keyboard({

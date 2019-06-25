@@ -282,3 +282,7 @@ def path_to_html(path):
             html += '<li class="file_selected" data-path="{}" data-filename="{}"><p>{}</p></li>'.format(fullpath, item, item)
     html += '</ul>'
     return html
+
+def return_wlan_info():
+    return [l.strip() for l in check_output("iwconfig wlan0 | tr -s ' '",
+        shell=True, universal_newlines=True).split('\n') if l]
