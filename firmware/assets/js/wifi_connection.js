@@ -28,7 +28,7 @@ $.get("/get-wifi-connection").done(function (data) {
         }
         var inf = ''
         for (var i = 0; i < info.length; i++) {
-            inf += '<p>' + info[i] + '</p>'
+            inf += '<tr>' + info[i] + '</tr>'
         }
         info_div.append(inf)
         $('.wifi_selected').click(function () {
