@@ -223,7 +223,7 @@ function set_temperatures(data) {
       if(t0_temp != 0 && t0 >= (t0_temp - (t0_temp * 0.05))){
          $("#retract_modal").toggleClass("k-modal-overlay--visible");
          $.get("/ext_1/retract");
-         setTimeout(finish_retract, 15000);
+         setTimeout(finish_retract, 3000);
       }
    });
    $("#t1_extrude").click(function () {
@@ -237,7 +237,7 @@ function set_temperatures(data) {
       if(t1_temp != 0 && t1 >= (t1_temp - (t1_temp * 0.05))){
          $("#retract_modal").toggleClass("k-modal-overlay--visible");
          $.get("/ext_2/retract");
-         setTimeout(finish_retract, 15000);
+         setTimeout(finish_retract, 3000);
       }
    });
 
