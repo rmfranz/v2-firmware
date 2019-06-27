@@ -285,7 +285,7 @@ def path_to_html(path):
 
 def return_wlan_info():
     return [l.strip() for l in check_output("iwconfig wlan0 | tr -s ' '",
-        shell=True, universal_newlines=True).split('\n') if l]
+        shell=True, universal_newlines=True).split('\n') if l][:-2]
 
 def deactivate_wifi():
     os.system('sudo ifconfig wlan0 down')
