@@ -65,7 +65,7 @@ def enable_hup(port):
 def disable_hup(port):
     control_ttyhup(port, True)
 
-logging = logg.getLogger('firmare')
+logging = logg.getLogger('firmware')
 
 class printcore():
     def __init__(self, port = None, baud = None, dtr=None):
