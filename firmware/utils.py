@@ -294,8 +294,11 @@ def activate_wifi():
     os.system('sudo ifconfig wlan0 up')
 
 def is_wifi_activated():
-    wlan = check_output('ifconfig | grep wlan0', shell=True, universal_newlines=True)
-    if wlan:
-        return True
-    else:
+    try:
+        wlan = check_output('ifconfig | grep wlan0', shell=True, universal_newlines=True)
+        if wlan:
+            return True
+        else:
+            return False
+    except:
         return False
