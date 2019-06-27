@@ -21,7 +21,7 @@ from handlers_http.network_handler import *
 from handlers_http.cloud_handler import *
 from firmware.director import FirmwareDirector
 from tornado import httpclient
-import logging
+import logging as log
 import pickle
 import os
 from firmware.gpio import Gpio
@@ -257,12 +257,18 @@ class VersionHandler(BasicHandler):
         self.redirect("/home")
 
 if __name__ == "__main__":
+    logger = logging.getLogger('firmware')
+    hdlr = logging.FileHandler('/home/pi/a_log.txt')
+    formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+    hdlr.setFormatter(formatter)
+    logger.addHandler(hdlr)
+    logger.setLevel(logging.DEBUG)
     app = Application()
     parse_command_line()
     tornado.locale.load_translations("/home/pi/v2-firmware/translations")
     app.listen(8888)
     try:
-        logging.info('Starting app')
+        logger.info('Starting app')
         tornado.ioloop.IOLoop.current().start()
     except KeyboardInterrupt:
         tornado.ioloop.IOLoop.instance().stop()

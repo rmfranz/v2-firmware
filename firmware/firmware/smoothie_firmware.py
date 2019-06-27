@@ -10,6 +10,7 @@ import tornado
 import os
 import itertools
 from firmware.the_counter import TheCounter
+import logging
 
 class SmoothieFirmware(BaseFirmware):
 
@@ -21,6 +22,8 @@ class SmoothieFirmware(BaseFirmware):
         and add an event handler
         Check directory for print end
         """
+        logger = logging.getLogger('firmware')
+        logger.info("Desde el firmware, me inicie")
         path = "/home/pi/print_end_status"
         self.printrun = printcore("/dev/ttyACM0", 115200)
         print("Conecte la impresora")
