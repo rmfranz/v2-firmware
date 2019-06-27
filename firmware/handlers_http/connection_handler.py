@@ -15,7 +15,11 @@ class WifiConnectionHandler(BasicHandler):
 class ToWifiConnectionHandler(BasicHandler):
 
     def get(self):
-        self.render("listing_wifi.html", wizzard_viewed=self.wizzard.viewed, is_wifi=is_wifi_activated())
+        is_wifi = is_wifi_activated()
+        is_wifi_js = 'false'
+        if is_wifi:
+            is_wifi_js = 'true'
+        self.render("listing_wifi.html", wizzard_viewed=self.wizzard.viewed, is_wifi=is_wifi, is_wifi_js=is_wifi_js)
 
     @tornado.gen.coroutine
     def post(self):
