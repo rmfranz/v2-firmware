@@ -116,6 +116,8 @@ class Application(tornado.web.Application):
             (r"/reset-grid", ResetGridCalibration),
             (r"/wifi-connection", ToWifiConnectionHandler),
             (r"/get-wifi-connection", WifiConnectionHandler),
+            (r"/activate-wifi", EnableWifiHandler),
+            (r"/deactivate-wifi", DisableWifiHandler),
             (r"/load", ToFilamentsExtrudersHandler),
             (r"/unload", ToFilamentsExtrudersHandler),
             (r"/filaments-selection", ToFilamentsHandler),

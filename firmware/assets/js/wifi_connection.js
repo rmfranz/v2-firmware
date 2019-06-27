@@ -6,7 +6,9 @@ $.get("/get-wifi-connection").done(function (data) {
     var selected = data.selected;
     var wifi_list = data.wifi_list;
     var info = data.info;
-    if(wifi_list.length == 0) {
+    if(wifi_list.length == 0 && !data.is_wifi){
+        select.append('<h2 class="k-main__h2">WIFI deactivate</h2>');
+    } else if(wifi_list.length == 0 && data.is_wifi) {
         select.append('<h2 class="k-main__h2">Error, try again</h2>');
     } else {
         for (var i = 0; i < wifi_list.length; i++) {
@@ -84,6 +86,18 @@ $("#connection_no_ok_modal_btn").click(function () {
 
 $("#wifi_info_modal_btn").click(function () {
     $("#wifi_info_modal").toggleClass("k-modal-overlay--visible");
+});
+
+$("#toggle_wifi").click(function () {
+    if(is_wifi) {
+        $.ajax({url: "/deactivate-wifi", success: function(result){
+            window.location.href = "/wifi-connection";
+        }});
+    } else {
+        $.ajax({url: "/activate-wifi", success: function(result){
+            window.location.href = "/wifi-connection";
+        }});
+    }
 });
 
 $('#keyboard').keyboard({

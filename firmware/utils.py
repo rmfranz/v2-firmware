@@ -142,7 +142,7 @@ def connect_private_wifi(network_name, password):
     return wifi_connected()
 
 def wifi_connected():
-    os.system("sudo ifconfig wlan0 up")
+    #os.system("sudo ifconfig wlan0 up")
     return check_output("iwgetid wlan0 --raw", shell=True, universal_newlines=True).strip()
 
 @tornado.gen.coroutine
@@ -286,3 +286,16 @@ def path_to_html(path):
 def return_wlan_info():
     return [l.strip() for l in check_output("iwconfig wlan0 | tr -s ' '",
         shell=True, universal_newlines=True).split('\n') if l]
+
+def deactivate_wifi():
+    os.system('sudo ifconfig wlan0 down')
+
+def activate_wifi():
+    os.system('sudo ifconfig wlan0 up')
+
+def is_wifi_activated():
+    wlan = check_output('ifconfig | grep wlan0', shell=True, universal_newlines=True)
+    if wlan:
+        return True
+    else:
+        return False

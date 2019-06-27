@@ -1,5 +1,5 @@
 from handlers_http.basic_handler import * 
-from utils import scan_wlan, connect_to_wifi, wifi_connected, return_wlan_info
+from utils import scan_wlan, connect_to_wifi, wifi_connected, return_wlan_info, activate_wifi, deactivate_wifi, is_wifi_activated
 import tornado
 
 class WifiConnectionHandler(BasicHandler):
@@ -10,12 +10,12 @@ class WifiConnectionHandler(BasicHandler):
         selected = wifi_connected()
         info = return_wlan_info()
         #self.render("listing_wifi.html", wifi_list=wifi_list, selected=selected, wizzard_viewed=self.wizzard.viewed)
-        self.write({"wifi_list": wifi_list, 'selected': selected, 'info': info})
+        self.write({"wifi_list": wifi_list, 'selected': selected, 'info': info, 'is_wifi': is_wifi_activated()})
 
 class ToWifiConnectionHandler(BasicHandler):
 
     def get(self):
-        self.render("listing_wifi.html", wizzard_viewed=self.wizzard.viewed)
+        self.render("listing_wifi.html", wizzard_viewed=self.wizzard.viewed, is_wifi=is_wifi_activated())
 
     @tornado.gen.coroutine
     def post(self):
@@ -31,3 +31,13 @@ class ConnectivityHandler(BasicHandler):
 
     def get(self):
         self.render("connectivity.html")
+
+class EnableWifiHandler(BasicHandler):
+    def get(self):
+        activate_wifi()
+        self.write('ok')
+
+class DisableWifiHandler(BasicHandler):
+    def get(self):
+        deactivate_wifi()
+        self.write('ok')

@@ -21,11 +21,13 @@
     <a href="/connectivity" class="k-footer-left">
         <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
     </a>
-    <!--
     <div class="k-footer-right">
-      <button class="k-footer__btn k-footer__btn--grey k-footer__btn--wide"> <img src="/static/images/icon_wifi-desactivar.svg"/> </button>  
+        {% if is_wifi %}
+            <button id="toggle_wifi" class="k-footer__btn k-footer__btn--grey k-footer__btn--wide"> <img src="/static/images/icon_wifi-desactivar.svg"/> </button> 
+        {% else %}
+            <button id="toggle_wifi" class="k-footer__btn k-footer__btn--grey k-footer__btn--wide"> <img src="/static/images/icon_wifi-activar.svg"/> </button> 
+        {% end %}
     </div>
-    -->
 </footer>
 {% end %}
 
@@ -98,6 +100,9 @@
         </div>
     </div>
 </section>
+<script>
+var is_wifi = {{is_wifi}};
+</script>
 <script src="/static/js/wifi_connection.js"></script>
 </body>
 {% end %}
