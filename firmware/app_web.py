@@ -118,6 +118,7 @@ class Application(tornado.web.Application):
             (r"/get-wifi-connection", WifiConnectionHandler),
             (r"/activate-wifi", EnableWifiHandler),
             (r"/deactivate-wifi", DisableWifiHandler),
+            (r"/forget-wifi", ForgetNetworkHandler),
             (r"/load", ToFilamentsExtrudersHandler),
             (r"/unload", ToFilamentsExtrudersHandler),
             (r"/filaments-selection", ToFilamentsHandler),

@@ -94,6 +94,9 @@
 </section>
 <section id="wifi_info_modal" class="k-modal-overlay">
     <div class="k-modal">
+        <button id="wifi_info_modal_btn" class="k-modal__close">
+            <img src="/static/images/icon_cancelar.svg" />
+        </button>
         <div class="k-modal-container">
             <div class="k-modal-2">
                 <table id="wifi_info_table">
@@ -101,7 +104,7 @@
                 </table>
             </div>
             <div class="k-modal-4__bottom">
-                <button id="wifi_info_modal_btn" class="k-modal-4__button k-modal-4__button--red">OK</button>
+                <button id="forget_wifi_btn" class="k-modal-4__button k-modal-4__button--red">{{_("forget")}}</button>
             </div>
         </div>
     </div>

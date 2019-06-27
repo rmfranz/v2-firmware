@@ -105,6 +105,12 @@ $("#toggle_wifi").click(function () {
     }
 });
 
+$("#forget_wifi_btn").click(function () {
+    $("#reset_wifi_wait").toggleClass("k-modal-overlay--visible");
+    $.get("/forget-wifi");
+    setTimeout(finish_activate_wifi, 10000);
+});
+
 $('#keyboard').keyboard({
   
     // set this to ISO 639-1 language code to override language set by the layout

@@ -45,3 +45,9 @@ class DisableWifiHandler(BasicHandler):
     def get(self):
         deactivate_wifi()
         self.write('ok')
+
+class ForgetNetworkHandler(BasicHandler):
+    @tornado.gen.coroutine
+    def get(self):
+        result = yield connect_to_wifi('fake', '1234567890')
+        self.write('ok')
