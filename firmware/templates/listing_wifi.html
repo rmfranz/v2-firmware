@@ -23,9 +23,11 @@
     </a>
     <div class="k-footer-right">
         {% if is_wifi %}
-            <button id="toggle_wifi" class="k-footer__btn k-footer__btn--grey k-footer__btn--wide"> <img src="/static/images/icon_wifi-desactivar.svg"/> </button> 
+        <button id="toggle_wifi" class="k-footer__btn k-footer__btn--grey k-footer__btn--wide"> <img
+                src="/static/images/icon_wifi-desactivar.svg" /> </button>
         {% else %}
-            <button id="toggle_wifi" class="k-footer__btn k-footer__btn--grey k-footer__btn--wide"> <img src="/static/images/icon_wifi-activar.svg"/> </button> 
+        <button id="toggle_wifi" class="k-footer__btn k-footer__btn--grey k-footer__btn--wide"> <img
+                src="/static/images/icon_wifi-activar.svg" /> </button>
         {% end %}
     </div>
 </footer>
@@ -93,15 +95,31 @@
 <section id="wifi_info_modal" class="k-modal-overlay">
     <div class="k-modal">
         <div class="k-modal-container">
-            <div class="k-modal-2"><table id="wifi_info_table"><tbody></tbody></table></div>
+            <div class="k-modal-2">
+                <table id="wifi_info_table">
+                    <tbody></tbody>
+                </table>
+            </div>
             <div class="k-modal-4__bottom">
                 <button id="wifi_info_modal_btn" class="k-modal-4__button k-modal-4__button--red">OK</button>
             </div>
         </div>
     </div>
 </section>
+<section id="reset_wifi_wait" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("print_load_file_popup_body")}}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 <script>
-var is_wifi = {{is_wifi_js}};
+    var is_wifi = {{ is_wifi_js }};
 </script>
 <script src="/static/js/wifi_connection.js"></script>
 </body>

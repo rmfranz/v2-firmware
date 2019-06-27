@@ -1,5 +1,9 @@
 var conn_error = false;
 
+function finish_activate_wifi(){
+    window.location.href = "/wifi-connection";
+}
+
 $.get("/get-wifi-connection").done(function (data) {
     var select = $("#wifi_list");
     var info_div = $("#wifi_info_table tbody");
@@ -95,7 +99,8 @@ $("#toggle_wifi").click(function () {
         }});
     } else {
         $.ajax({url: "/activate-wifi", success: function(result){
-            window.location.href = "/wifi-connection";
+            $("#reset_wifi_wait").toggleClass("k-modal-overlay--visible");
+            setTimeout(finish_activate_wifi, 10000);
         }});
     }
 });
