@@ -23,10 +23,13 @@ $("#disable_debug").on("click", function () {
 });
 
 $("#get_log").on("click", function () {
+    $("#wait_usb").toggleClass("k-modal-overlay--visible");
     $.get("/get-log").done(function( data ) {
         if(data == "ok"){
+            $("#wait_usb").toggleClass("k-modal-overlay--visible");
             $("#done_modal").toggleClass("k-modal-overlay--visible");
         } else {
+            $("#wait_usb").toggleClass("k-modal-overlay--visible");
             $("#error_usb_modal").toggleClass("k-modal-overlay--visible");
         }
     });
