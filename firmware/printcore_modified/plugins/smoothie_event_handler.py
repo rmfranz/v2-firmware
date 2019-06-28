@@ -20,6 +20,7 @@ from tornado.websocket import websocket_connect
 import tornado
 import asyncio
 import functools
+import logging
 
 class SmoothieHandler(PrinterEventHandler):
     '''
