@@ -9,6 +9,9 @@ import tornado
 import json
 import collections
 import logging
+from tornado.ioloop import PeriodicCallback
+
+logger = logging.getLogger('temperature_logger')
 
 def perform_os_check():
     if not os.path.exists("/home/pi/config-files"):
@@ -309,20 +312,35 @@ def enable_loggers():
     smoothie_logger = logging.getLogger('smoothie_logger')
     gcode_logger = logging.getLogger('gcode_logger')
     printcore_logger = logging.getLogger('printcore_logger')
+    temperature_logger = logging.getLogger('temperature_logger')
     smoothie_hdlr = logging.FileHandler('/home/pi/smoothie_log.txt')
     gcode_hdlr = logging.FileHandler('/home/pi/gcode_log.txt')
     printcore_hdlr = logging.FileHandler('/home/pi/printcore_log.txt')
+    temperature_hdlr = logging.FileHandler('/home/pi/temperature_log.txt')
     smoothie_hdlr.setFormatter(formatter)
     gcode_hdlr.setFormatter(formatter)
     printcore_hdlr.setFormatter(formatter)
+    temperature_hdlr.setFormatter(formatter)
     smoothie_logger.addHandler(smoothie_hdlr)
     smoothie_logger.setLevel(logging.DEBUG)
     gcode_logger.addHandler(gcode_hdlr)
     gcode_logger.setLevel(logging.DEBUG)
     printcore_logger.addHandler(printcore_hdlr)
     printcore_logger.setLevel(logging.DEBUG)
+    temperature_logger.addHandler(temperature_hdlr)
+    temperature_logger.setLevel(logging.DEBUG)
+    temp_caller = PeriodicCallback(log_temp, 2000)
+    temp_caller.start()
 
 def get_logs():
     os.system('cp /home/pi/smoothie_log.txt /media/usb && sync')
     os.system('cp /home/pi/gcode_log.txt /media/usb && sync')
     os.system('cp /home/pi/printcore_log.txt /media/usb && sync')
+    os.system('cp /home/pi/temperature_log.txt /media/usb && sync')
+
+def get_rpi_temp():
+    return check_output('/opt/vc/bin/vcgencmd measure_temp',
+        shell=True, universal_newlines=True).split('\n')[0]
+
+def log_temp():
+    logger.debug(get_rpi_temp())
