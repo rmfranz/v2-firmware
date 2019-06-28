@@ -169,6 +169,7 @@ class Application(tornado.web.Application):
             (r"/restore-user-pref", RestoreUserPref),
             (r"/reset-mac", ResetMacPref),
             (r"/toggle-debug", ToggleDebugHandler),
+            (r"/get-log", GetLogsHandler),
             (r"/set_connection_status", SetConnectionStatusHandler),
             (r"/temperatures", TemperaturesWsHandler),
             (r"/heating-bed", HeatingBedWsHandler),

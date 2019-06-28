@@ -1,6 +1,6 @@
 from handlers_http.basic_handler import BasicHandler
 from tornado.options import options
-from utils import get_extruder_materials, get_volume, set_volume, restore_user_pref, reset_mac, check_connectivity, mount_usb, reset_rpi
+from utils import get_extruder_materials, get_volume, set_volume, restore_user_pref, reset_mac, check_connectivity, mount_usb, reset_rpi, get_logs
 import os
 import json
 from subprocess import check_output
@@ -343,3 +343,12 @@ class ToggleDebugHandler(BasicHandler):
         elif debug == 'disable':
             os.system('sudo rm /home/pi/enable_debug')
         self.write('ok')
+
+class GetLogsHandler(BasicHandler):
+    def get(self):
+        result = mount_usb(self.firmware.hardware_json["board_uuid"])
+        if result == 0:
+            get_logs()
+            self.write('ok')
+        else:
+            self.write('error')

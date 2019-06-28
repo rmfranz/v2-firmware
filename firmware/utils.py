@@ -321,3 +321,8 @@ def enable_loggers():
     gcode_logger.setLevel(logging.DEBUG)
     printcore_logger.addHandler(printcore_hdlr)
     printcore_logger.setLevel(logging.DEBUG)
+
+def get_logs():
+    os.system('cp /home/pi/smoothie_log.txt /media/usb && sync')
+    os.system('cp /home/pi/gcode_log.txt /media/usb && sync')
+    os.system('cp /home/pi/printcore_log.txt /media/usb && sync')

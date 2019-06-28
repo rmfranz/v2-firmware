@@ -73,7 +73,8 @@ class SmoothieHandler(PrinterEventHandler):
         elif self.is_for_grid(line.strip()):
             self.create_connection_and_send("ws://127.0.0.1:8888/inspect-grid", line.strip())
         else:
-            self.smoothie_logger.debug(line.strip())
+            if line.strip() != 'ok':
+                self.smoothie_logger.debug(line.strip())
         if self.is_error(line.strip()) and not self.in_error:
             self.create_connection_and_send("ws://127.0.0.1:8888/error-handler", "ERR002")
             self.in_error = True

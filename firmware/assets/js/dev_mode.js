@@ -3,23 +3,33 @@ $("#enable_ssh").on("click", function () {
 });
 
 $("#disable_ssh").on("click", function () {
-    $.get("/ssh-disable").done($("#ssh_disable_modal").toggleClass("k-modal-overlay--visible"));;
+    $.get("/ssh-disable").done($("#ssh_disable_modal").toggleClass("k-modal-overlay--visible"));
 });
 
 $("#enable_dev_mode").on("click", function () {
-    $.get("/enable-dev-mode").done($("#done_modal").toggleClass("k-modal-overlay--visible"));;
+    $.get("/enable-dev-mode").done($("#done_modal").toggleClass("k-modal-overlay--visible"));
 });
 
 $("#disable_dev_mode").on("click", function () {
-    $.get("/disable-dev-mode").done($("#done_modal").toggleClass("k-modal-overlay--visible"));;
+    $.get("/disable-dev-mode").done($("#done_modal").toggleClass("k-modal-overlay--visible"));
 });
 
 $("#enable_debug").on("click", function () {
-    $.get("/toggle-debug?debug=enable").done($("#conf_reset_modal").toggleClass("k-modal-overlay--visible"));;
+    $.get("/toggle-debug?debug=enable").done($("#conf_reset_modal").toggleClass("k-modal-overlay--visible"));
 });
 
 $("#disable_debug").on("click", function () {
-    $.get("/toggle-debug?debug=disable").done($("#conf_reset_modal").toggleClass("k-modal-overlay--visible"));;
+    $.get("/toggle-debug?debug=disable").done($("#conf_reset_modal").toggleClass("k-modal-overlay--visible"));
+});
+
+$("#get_log").on("click", function () {
+    $.get("/get-log").done(function( data ) {
+        if(data == "ok"){
+            $("#done_modal").toggleClass("k-modal-overlay--visible");
+        } else {
+            $("#error_usb_modal").toggleClass("k-modal-overlay--visible");
+        }
+    });
 });
 
 $("#reset_board").on("click", function () {
@@ -75,4 +85,8 @@ $("#ssh_disable_modal_close").on("click", function () {
 
 $("#conf_reset_modal_close").on("click", function () {
     $("#conf_reset_modal").toggleClass("k-modal-overlay--visible");
+});
+
+$("#error_usb_modal_close").on("click", function () {
+    $("#error_usb_modal").toggleClass("k-modal-overlay--visible");
 });
