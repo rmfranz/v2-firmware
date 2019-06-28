@@ -334,3 +334,12 @@ class SetConnectionStatusHandler(BasicHandler):
         self.set_cookie('cloud_status', user_conf_json['cloud_pref'])
         self.set_cookie('wifi_status', result)
         self.write({'cloud_status': user_conf_json['cloud_pref'], 'wifi_status': result})
+
+class ToggleDebugHandler(BasicHandler):
+    def get(self):
+        debug = self.get_argument('debug')
+        if debug == 'enable':
+            os.system('touch /home/pi/enable_debug')
+        elif debug == 'disable':
+            os.system('sudo rm /home/pi/enable_debug')
+        self.write('ok')

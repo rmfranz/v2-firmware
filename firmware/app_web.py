@@ -21,12 +21,12 @@ from handlers_http.network_handler import *
 from handlers_http.cloud_handler import *
 from firmware.director import FirmwareDirector
 from tornado import httpclient
-import logging as log
+import logging
 import pickle
 import os
 from firmware.gpio import Gpio
 from firmware.wizzard import Wizzard
-from utils import check_file_print_finished, perform_os_check, check_premature_os, delete_corrupt
+from utils import check_file_print_finished, perform_os_check, check_premature_os, delete_corrupt, enable_loggers
 from tornado.ioloop import PeriodicCallback
 import json
 
@@ -168,6 +168,7 @@ class Application(tornado.web.Application):
             (r"/reset-board-uuid", ResetBoardUuidHandler),
             (r"/restore-user-pref", RestoreUserPref),
             (r"/reset-mac", ResetMacPref),
+            (r"/toggle-debug", ToggleDebugHandler),
             (r"/set_connection_status", SetConnectionStatusHandler),
             (r"/temperatures", TemperaturesWsHandler),
             (r"/heating-bed", HeatingBedWsHandler),
@@ -257,18 +258,14 @@ class VersionHandler(BasicHandler):
         self.redirect("/home")
 
 if __name__ == "__main__":
-    logger = logging.getLogger('firmware')
-    hdlr = logging.FileHandler('/home/pi/a_log.txt')
-    formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
-    hdlr.setFormatter(formatter)
-    logger.addHandler(hdlr)
-    logger.setLevel(logging.DEBUG)
+    if os.path.exists("/home/pi/enable_debug"):
+        enable_loggers()
     app = Application()
     parse_command_line()
     tornado.locale.load_translations("/home/pi/v2-firmware/translations")
     app.listen(8888)
     try:
-        logger.info('Starting app')
+        logging.info('Starting app')
         tornado.ioloop.IOLoop.current().start()
     except KeyboardInterrupt:
         tornado.ioloop.IOLoop.instance().stop()

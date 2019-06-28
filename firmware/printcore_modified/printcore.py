@@ -65,13 +65,12 @@ def enable_hup(port):
 def disable_hup(port):
     control_ttyhup(port, True)
 
-logging = logg.getLogger('firmware')
+logging = logg.getLogger('printcore_logger')
 
 class printcore():
     def __init__(self, port = None, baud = None, dtr=None):
         """Initializes a printcore instance. Pass the port and baud rate to
            connect immediately"""
-        logging.info("Soy printcore, me inicie")
         self.baud = None
         self.dtr = None
         self.port = None

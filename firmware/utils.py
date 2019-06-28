@@ -8,6 +8,7 @@ import re
 import tornado
 import json
 import collections
+import logging
 
 def perform_os_check():
     if not os.path.exists("/home/pi/config-files"):
@@ -302,3 +303,21 @@ def is_wifi_activated():
             return False
     except:
         return False
+
+def enable_loggers():
+    formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+    smoothie_logger = logging.getLogger('smoothie_logger')
+    gcode_logger = logging.getLogger('gcode_logger')
+    printcore_logger = logging.getLogger('printcore_logger')
+    smoothie_hdlr = logging.FileHandler('/home/pi/smoothie_log.txt')
+    gcode_hdlr = logging.FileHandler('/home/pi/gcode_log.txt')
+    printcore_hdlr = logging.FileHandler('/home/pi/printcore_log.txt')
+    smoothie_hdlr.setFormatter(formatter)
+    gcode_hdlr.setFormatter(formatter)
+    printcore_hdlr.setFormatter(formatter)
+    smoothie_logger.addHandler(smoothie_hdlr)
+    smoothie_logger.setLevel(logging.DEBUG)
+    gcode_logger.addHandler(gcode_hdlr)
+    gcode_logger.setLevel(logging.DEBUG)
+    printcore_logger.addHandler(printcore_hdlr)
+    printcore_logger.setLevel(logging.DEBUG)

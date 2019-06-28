@@ -32,6 +32,7 @@ class SmoothieHandler(PrinterEventHandler):
         self.in_error = False
         self.the_counter = None
         self.ioloop = tornado.ioloop.IOLoop(make_current=False)
+        self.smoothie_logger = logging.getLogger('smoothie_logger')
         
     def check_origin(self, origin):
         return True
@@ -70,7 +71,9 @@ class SmoothieHandler(PrinterEventHandler):
             self.create_connection_and_send("ws://127.0.0.1:8888/probe-complete", line.strip())
         elif self.is_for_grid(line.strip()):
             self.create_connection_and_send("ws://127.0.0.1:8888/inspect-grid", line.strip())
-        elif self.is_error(line.strip()) and not self.in_error:
+        else:
+            self.smoothie_logger.debug(line.strip())
+        if self.is_error(line.strip()) and not self.in_error:
             self.create_connection_and_send("ws://127.0.0.1:8888/error-handler", "ERR002")
             self.in_error = True
         self.__write("on_recv", line.strip())

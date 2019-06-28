@@ -14,6 +14,14 @@ $("#disable_dev_mode").on("click", function () {
     $.get("/disable-dev-mode").done($("#done_modal").toggleClass("k-modal-overlay--visible"));;
 });
 
+$("#enable_debug").on("click", function () {
+    $.get("/toggle-debug?debug=enable").done($("#conf_reset_modal").toggleClass("k-modal-overlay--visible"));;
+});
+
+$("#disable_debug").on("click", function () {
+    $.get("/toggle-debug?debug=disable").done($("#conf_reset_modal").toggleClass("k-modal-overlay--visible"));;
+});
+
 $("#reset_board").on("click", function () {
     $("#reset_board_modal").toggleClass("k-modal-overlay--visible");
 });
