@@ -667,6 +667,8 @@ class printcore():
             command = prefix + "*" + str(self._checksum(prefix))
             if "M110" not in command:
                 self.sentlines[lineno] = command
+            if len(self.sentlines) > 400000:
+                self.sentlines = dict(list(self.sentlines.items())[200000:])
         if self.printer:
             self.sent.append(command)
             # run the command through the analyzer
