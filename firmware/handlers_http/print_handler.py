@@ -69,6 +69,7 @@ class PrintHandler(BasicHandler):
         self.firmware.homming()
         if os.path.exists(self.firmware.file_path):
             self.firmware.start_print()
+            self.application.counter_to_zero()            
             self.application.violent_caller.start()
             if self.firmware.file_path != "/home/pi/cloud/cloud.gcode":
                 async_http_client = httpclient.AsyncHTTPClient()
@@ -121,6 +122,7 @@ class CancelHandler(BasicHandler):
         if os.path.exists("/home/pi/print_images/print.png"):
             os.remove("/home/pi/print_images/print.png")
         #self.render("index.html", working_on="cancelado")
+        self.application.counter_to_zero()
         self.write("ok")
 
 class CancelCloudHandler(BasicHandler):
@@ -129,6 +131,7 @@ class CancelCloudHandler(BasicHandler):
         #self.redirect("/home")
         if os.path.exists("/home/pi/print_images/print.png"):
             os.remove("/home/pi/print_images/print.png")
+        self.application.counter_to_zero()
         self.write("ok")
 
 class PrintFinishedHandler(BasicHandler):
@@ -137,11 +140,13 @@ class PrintFinishedHandler(BasicHandler):
         async_http_client.fetch("http://127.0.0.1:9000/local-printing?print_local=0", method='GET', raise_error=False)
         time_printing = self.get_cookie("time_printing")
         self.application.gpio.lights_green()
+        self.application.counter_to_zero()
         self.render("print_finished.html", filename=self.firmware.filename, time_printing=time_printing, is_image=os.path.exists("/home/pi/print_images/print.png"))
 
     def post(self):
         time_printing = self.get_body_argument("time_printing")
         self.set_cookie("time_printing", time_printing)
+        self.application.counter_to_zero()
         self.write("ok")
 
 class GetTotalLinesHandler(BasicHandler):
@@ -171,5 +176,5 @@ class ViolentPauseHandler(BasicHandler):
         self.firmware.direct_pause()
         yield tornado.gen.sleep(1)
         self.firmware.direct_resume()
-        os.system("touch /home/pi/violencia")
+        os.system("touch /home/pi/violencia_{}".format(str(self.application.violent_counter)))
         self.write('ok')

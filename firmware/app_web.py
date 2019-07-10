@@ -196,11 +196,18 @@ class Application(tornado.web.Application):
         self.firmware = FirmwareDirector().give_me_firmware()
         self.gpio = Gpio()
         self.wizzard = Wizzard()
-        self.violent_caller = PeriodicCallback(self.violent_call, 480000)
+        self.violent_caller = PeriodicCallback(self.violent_call, 60000)
+        self.violent_counter = 0
 
     def violent_call(self):
-        async_http_client = httpclient.AsyncHTTPClient()
-        async_http_client.fetch("http://127.0.0.1:8888/violent-pause")
+        self.violent_counter = self.violent_counter + 1
+        result = self.violent_counter % 10
+        if result == 0:
+            async_http_client = httpclient.AsyncHTTPClient()
+            async_http_client.fetch("http://127.0.0.1:8888/violent-pause")
+
+    def counter_to_zero(self):
+        self.violent_counter = 0
 
 class HomeHandler(BasicHandler):
     def get(self):
