@@ -168,8 +168,8 @@ class TestHandler(BasicHandler):
 class ViolentPauseHandler(BasicHandler):
     @tornado.gen.coroutine
     def get(self):
-        self.firmware.pause()
+        self.firmware.direct_pause()
         yield tornado.gen.sleep(1)
-        self.firmware.resume()
+        self.firmware.direct_resume()
         os.system("touch /home/pi/violencia")
         self.write('ok')

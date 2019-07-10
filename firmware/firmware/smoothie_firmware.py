@@ -157,6 +157,13 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("G90")
         self.printrun.resume()
 
+    def direct_pause(self):
+        self.printrun.pause()
+    
+    def direct_resume(self):
+        self.printrun.resume()
+
+
     def start_print_memory(self):
         with open(self.OFFSET_PATH) as f:
             config_json = json.load(f)
