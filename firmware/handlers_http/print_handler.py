@@ -69,6 +69,7 @@ class PrintHandler(BasicHandler):
         self.firmware.homming()
         if os.path.exists(self.firmware.file_path):
             self.firmware.start_print()
+            self.application.violent_caller.start()
             if self.firmware.file_path != "/home/pi/cloud/cloud.gcode":
                 async_http_client = httpclient.AsyncHTTPClient()
                 async_http_client.fetch("http://127.0.0.1:9000/local-printing?print_local=1", method='GET', raise_error=False)
@@ -163,3 +164,12 @@ class TestHandler(BasicHandler):
     def get(self):
         print("me pegaron")
         self.write("ok")
+
+class ViolentPauseHandler(BasicHandler):
+    @tornado.gen.coroutine
+    def get(self):
+        self.firmware.pause()
+        yield tornado.gen.sleep(1)
+        self.firmware.resume()
+        os.system("touch /home/pi/violencia")
+        self.write('ok')

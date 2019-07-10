@@ -97,6 +97,7 @@ class Application(tornado.web.Application):
             (r"/listing-files/([0-9]+)", ListingFilesHandler),
             (r"/listing-files/usb", ListingUsbHandler),
             (r"/confirm-print", PreviousPrintHandler),
+            (r"/violent-pause", ViolentPauseHandler),
             (r"/put-serial", SerialHandler),
             (r"/put-version", VersionHandler),
             (r"/select-calibration", CalibrationHandler),
@@ -195,6 +196,11 @@ class Application(tornado.web.Application):
         self.firmware = FirmwareDirector().give_me_firmware()
         self.gpio = Gpio()
         self.wizzard = Wizzard()
+        self.violent_caller = PeriodicCallback(self.violent_call, 480000)
+
+    def violent_call(self):
+        async_http_client = httpclient.AsyncHTTPClient()
+        async_http_client.fetch("http://127.0.0.1:8888/violent-pause")
 
 class HomeHandler(BasicHandler):
     def get(self):
