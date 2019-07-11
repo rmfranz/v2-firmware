@@ -345,10 +345,10 @@ def get_logs():
     os.system('cp {} /media/usb && sync'.format(gc_name))
     os.system('cp {} /media/usb && sync'.format(pr_name))
     os.system('cp {} /media/usb && sync'.format(tm_name))
-    os.system('sudo rm /home/pi/{}'.format(sm_name))
-    os.system('sudo rm /home/pi/{}'.format(gc_name))
-    os.system('sudo rm /home/pi/{}'.format(pr_name))
-    os.system('sudo rm /home/pi/{}'.format(tm_name))
+    os.system('sudo rm {}'.format(sm_name))
+    os.system('sudo rm {}'.format(gc_name))
+    os.system('sudo rm {}'.format(pr_name))
+    os.system('sudo rm {}'.format(tm_name))
 
 def get_rpi_temp():
     return check_output('/opt/vc/bin/vcgencmd measure_temp',
