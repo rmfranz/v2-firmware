@@ -308,15 +308,17 @@ def is_wifi_activated():
         return False
 
 def enable_loggers():
+    with open("/home/pi/config-files/hardware.json") as f:
+        hardware_json = json.load(f)
     formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
     smoothie_logger = logging.getLogger('smoothie_logger')
     gcode_logger = logging.getLogger('gcode_logger')
     printcore_logger = logging.getLogger('printcore_logger')
     temperature_logger = logging.getLogger('temperature_logger')
-    smoothie_hdlr = logging.FileHandler('/home/pi/smoothie_log.txt')
-    gcode_hdlr = logging.FileHandler('/home/pi/gcode_log.txt')
-    printcore_hdlr = logging.FileHandler('/home/pi/printcore_log.txt')
-    temperature_hdlr = logging.FileHandler('/home/pi/temperature_log.txt')
+    smoothie_hdlr = logging.FileHandler('/home/pi/smoothie_log_{}.txt'.format(hardware_json['serial_number']))
+    gcode_hdlr = logging.FileHandler('/home/pi/gcode_log_{}.txt'.format(hardware_json['serial_number']))
+    printcore_hdlr = logging.FileHandler('/home/pi/printcore_log_{}.txt'.format(hardware_json['serial_number']))
+    temperature_hdlr = logging.FileHandler('/home/pi/temperature_log_{}.txt'.format(hardware_json['serial_number']))
     smoothie_hdlr.setFormatter(formatter)
     gcode_hdlr.setFormatter(formatter)
     printcore_hdlr.setFormatter(formatter)
@@ -333,10 +335,20 @@ def enable_loggers():
     temp_caller.start()
 
 def get_logs():
-    os.system('cp /home/pi/smoothie_log.txt /media/usb && sync')
-    os.system('cp /home/pi/gcode_log.txt /media/usb && sync')
-    os.system('cp /home/pi/printcore_log.txt /media/usb && sync')
-    os.system('cp /home/pi/temperature_log.txt /media/usb && sync')
+    with open("/home/pi/config-files/hardware.json") as f:
+        hardware_json = json.load(f)
+    sm_name = '/home/pi/smoothie_log_{}.txt'.format(hardware_json['serial_number'])
+    gc_name = '/home/pi/gcode_log_{}.txt'.format(hardware_json['serial_number'])
+    pr_name = '/home/pi/printcore_log_{}.txt'.format(hardware_json['serial_number'])
+    tm_name = '/home/pi/temperature_log_{}.txt'.format(hardware_json['serial_number'])
+    os.system('cp {} /media/usb && sync'.format(sm_name))
+    os.system('cp {} /media/usb && sync'.format(gc_name))
+    os.system('cp {} /media/usb && sync'.format(pr_name))
+    os.system('cp {} /media/usb && sync'.format(tm_name))
+    os.system('sudo rm /home/pi/{}'.format(sm_name))
+    os.system('sudo rm /home/pi/{}'.format(gc_name))
+    os.system('sudo rm /home/pi/{}'.format(pr_name))
+    os.system('sudo rm /home/pi/{}'.format(tm_name))
 
 def get_rpi_temp():
     return check_output('/opt/vc/bin/vcgencmd measure_temp',

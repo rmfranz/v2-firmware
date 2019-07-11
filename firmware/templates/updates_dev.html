@@ -2,7 +2,7 @@
 {% block content %}
 <main class="k-main">
     <section class="k-block">
-        <h2 class="k-dialog__h2">{{_("info_update")}} Master version: {{ version }}</h2>
+        <h2 class="k-dialog__h2">Master version: {{ version }}</h2>
         <form id="dev_update" action="/get-dev-update" method="POST">
             <input type="text" class="k-intro-right__input" name="version" />
             <button type="submit" class="k-dialog__button k-dialog__button--shortened">{{_("extras_update")}}</button>
