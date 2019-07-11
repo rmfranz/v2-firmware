@@ -201,7 +201,7 @@ class Application(tornado.web.Application):
 
     def violent_call(self):
         self.violent_counter = self.violent_counter + 1
-        result = self.violent_counter % 10
+        result = self.violent_counter % 5
         if result == 0:
             async_http_client = httpclient.AsyncHTTPClient()
             async_http_client.fetch("http://127.0.0.1:8888/violent-pause")

@@ -125,7 +125,8 @@ class UsbUpdate(BasicHandler):
 class ToUpdateHandler(BasicHandler):
     def get(self):
         if os.path.exists("/home/pi/dev_mode"):
-            self.render("updates_dev.html", wizzard_viewed=self.wizzard.viewed)
+            hash = check_output("git rev-parse --short HEAD", shell=True, universal_newlines=True)
+            self.render("updates_dev.html", wizzard_viewed=self.wizzard.viewed, version=hash)
         else:
             self.render("updates.html", wizzard_viewed=self.wizzard.viewed)
 

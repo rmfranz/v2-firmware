@@ -174,7 +174,6 @@ class ViolentPauseHandler(BasicHandler):
     @tornado.gen.coroutine
     def get(self):
         self.firmware.direct_pause()
-        yield tornado.gen.sleep(1)
+        yield tornado.gen.sleep(0.1)
         self.firmware.direct_resume()
-        os.system("touch /home/pi/violencia_{}".format(str(self.application.violent_counter)))
         self.write('ok')
