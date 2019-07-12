@@ -277,7 +277,7 @@ def filter_gcode_file(path, name):
 def path_to_html(path):
     pattern = "*.gcode"
     html = '<ul class="nested">'
-    for item in os.listdir(path):
+    for item in sorted(os.listdir(path)):
         fullpath = os.path.join(path, item)
         if os.path.isdir(fullpath) and not item.startswith("."):
             html += '<li><p><span class="caret">%s</span></p>' % item
