@@ -87,8 +87,8 @@ class SmoothieHandler(PrinterEventHandler):
         self.__write("on_disconnect")
     
     def on_error(self, error):
-        self.create_connection_and_send("ws://127.0.0.1:8888/error-handler", "ERR001")
         self.smoothie_logger.debug(error.strip())
+        self.create_connection_and_send("ws://127.0.0.1:8888/error-handler", "ERR001")
         self.in_error = True
         self.__write("on_error", error)
         
@@ -163,7 +163,10 @@ class SmoothieHandler(PrinterEventHandler):
         return "ERROR" in data or "!!" in data or "HALT" in data
     
     def create_connection_and_send(self, url, data):
-        self.ioloop.run_sync(functools.partial(self.create_connection_and_send_async, url, data))
+        try:
+            self.ioloop.run_sync(functools.partial(self.create_connection_and_send_async, url, data))
+        except Exception as e:
+            self.smoothie_logger.error(str(e))
         #loop = asyncio.new_event_loop()
         #asyncio.set_event_loop(loop)
         #loop.run_until_complete( self.create_connection_and_send_async(url, data))
@@ -171,6 +174,11 @@ class SmoothieHandler(PrinterEventHandler):
 
     @tornado.gen.coroutine
     def create_connection_and_send_async(self, url, data):
-        ws = yield websocket_connect(url)
-        ws.write_message(data.strip())
-        ws.close()
+        try:
+            ws = yield websocket_connect(url)
+            ws.write_message(data.strip())
+        except Exception as e:
+            self.smoothie_logger.error(str(e))
+        finally:
+            ws.close()
+
