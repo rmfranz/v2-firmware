@@ -10,11 +10,13 @@ import picamera
 import io
 import base64
 import urllib
+from tornado import concurrent
 
 class PeriodicController:
 
     HARDWARE_JSON_FOLDER = "/home/pi/config-files/hardware.json"
     USER_CONF_JSON_FOLDER = "/home/pi/config-files/user_conf.json"
+    executor = concurrent.futures.ThreadPoolExecutor(5)
 
     def __init__(self):
         with open(self.HARDWARE_JSON_FOLDER) as f:
@@ -139,14 +141,16 @@ class PeriodicController:
         except:
             print("error")
 
+    @tornado.gen.coroutine
     def on_print(self, resp_dict):
         if os.path.exists("/home/pi/cloud/cloud.gcode"):
             os.remove("/home/pi/cloud/cloud.gcode")
         self.state = "downloading"
-        request = httpclient.HTTPRequest(url=resp_dict["payload"], streaming_callback=self.on_chunk,
-                    request_timeout=3600)
-        async_http_client = httpclient.AsyncHTTPClient()
-        async_http_client.fetch(request, self.on_download_done)
+        #request = httpclient.HTTPRequest(url=resp_dict["payload"], streaming_callback=self.on_chunk,
+        #            request_timeout=3600)
+        #async_http_client = httpclient.AsyncHTTPClient()
+        #async_http_client.fetch(request, self.on_download_done)
+        res = yield self.download_file(resp_dict["payload"])
         data_send = urllib.parse.urlencode({"file_path": "/home/pi/cloud/cloud.gcode", "filename": str(resp_dict.get("filename", "cloud_file"))})
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:8888/print", method='POST', raise_error=False, body=data_send)
@@ -180,6 +184,11 @@ class PeriodicController:
         self.state = "printing"
         self.create_connection_and_send("download_done")
         self.api_set_percentage.start()
+
+    @concurrent.run_on_executor
+    def download_file(self, url):
+        result = os.system('wget -O /home/pi/cloud/cloud.gcode {}'.format(url))
+        return result
 
     def on_temp_message(self, msg):
         if msg:
