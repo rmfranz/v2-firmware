@@ -150,7 +150,7 @@ class PeriodicController:
         #            request_timeout=3600)
         #async_http_client = httpclient.AsyncHTTPClient()
         #async_http_client.fetch(request, self.on_download_done)
-        res = yield self.download_file(resp_dict["payload"])
+        self.download_file(resp_dict["payload"])
         data_send = urllib.parse.urlencode({"file_path": "/home/pi/cloud/cloud.gcode", "filename": str(resp_dict.get("filename", "cloud_file"))})
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:8888/print", method='POST', raise_error=False, body=data_send)
@@ -187,8 +187,10 @@ class PeriodicController:
 
     @concurrent.run_on_executor
     def download_file(self, url):
-        result = os.system('wget -O /home/pi/cloud/cloud.gcode {}'.format(url))
-        return result
+        os.system("wget -O /home/pi/cloud/cloud.gcode '{}'".format(url))
+        self.state = "printing"
+        self.create_connection_and_send("download_done")
+        self.api_set_percentage.start()
 
     def on_temp_message(self, msg):
         if msg:
