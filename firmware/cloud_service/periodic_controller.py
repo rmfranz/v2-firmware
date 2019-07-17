@@ -54,6 +54,7 @@ class PeriodicController:
         self.ws_initialized = False
         self.started = True
         self.ioloop = tornado.ioloop.IOLoop(make_current=False)
+        self.down_ioloop = tornado.ioloop.IOLoop(make_current=False)
         try:
             self.camera = picamera.PiCamera()
             self.camera.rotation = 90
@@ -150,9 +151,7 @@ class PeriodicController:
         #            request_timeout=3600)
         #async_http_client = httpclient.AsyncHTTPClient()
         #async_http_client.fetch(request, self.on_download_done)
-        self.ioloop.run_in_executor(self.executor, self.download_file, [resp_dict["payload"]])
-        #res = yield self.download_file(resp_dict["payload"])
-        #self.api_set_percentage.start()
+        self.down_ioloop.run_in_executor(self.executor, self.download_file, resp_dict["payload"])
         data_send = urllib.parse.urlencode({"file_path": "/home/pi/cloud/cloud.gcode", "filename": str(resp_dict.get("filename", "cloud_file"))})
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:8888/print", method='POST', raise_error=False, body=data_send)
