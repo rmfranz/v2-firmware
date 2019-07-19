@@ -21,6 +21,8 @@ function set_connection_status(){
         }
         if(data.wifi_status == "wlan0"){
             $("#wifi_icon").attr("src","/static/images/icon_wifi-conectado.svg");
+        } else {
+            $("#wifi_icon").attr("src","/static/images/icon_wifi-desconectado.svg");
         }
     })
     setTimeout(set_connection_status, 30000);
