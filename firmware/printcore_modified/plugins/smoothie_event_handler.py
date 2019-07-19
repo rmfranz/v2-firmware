@@ -77,7 +77,7 @@ class SmoothieHandler(PrinterEventHandler):
                 ln_num = 0
                 if self.the_counter:
                     ln_num = self.the_counter.count_lines()
-                self.smoothie_logger.debug(str(ln_num) + " - " + str(line.strip())
+                self.smoothie_logger.debug(str(ln_num) + " - " + str(line.strip()))
         if self.is_error(line.strip()) and not self.in_error:
             self.create_connection_and_send("ws://127.0.0.1:8888/error-handler", "ERR002")
             self.in_error = True
