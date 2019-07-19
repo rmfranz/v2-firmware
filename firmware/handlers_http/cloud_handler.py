@@ -82,10 +82,13 @@ class GetQueueHandler(BasicHandler):
         resp = yield async_http_client.fetch(URL_QUEUE, method='POST', raise_error=False,
                 headers={'Content-Type': 'application/json'}, 
                 body=json.dumps({"auth_token": user_conf_json["auth_token"]}))
-        if resp.code == 200:
-            self.write({"resp": json.loads(resp.body.decode('utf-8'))})
+        data = json.loads(resp.body.decode('utf-8'))
+        if resp.code == 200 and data:
+            self.write({"resp": data, "error": ""})
+        elif resp.code == 200:
+            self.write({"resp":[], "error": self.locale.translate("no_files_queue")})
         else:
-            self.write({"resp":"error"})
+            self.write({"resp":[], "error": self.locale.translate("error_api")})
 
 class ToConfirmPrintHandler(BasicHandler):
     @tornado.gen.coroutine

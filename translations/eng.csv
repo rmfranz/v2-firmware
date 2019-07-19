@@ -303,6 +303,7 @@ retracting_popup,Retracting filament. Please wait...
 extrude_more_btn,Extrude more
 retract_more_btn,Retract more
 reset_uuid_warning_popup,Please wait. Then press OK.
+no_files_queue,No files on queue
 ,
 ,
 ,Left extruder

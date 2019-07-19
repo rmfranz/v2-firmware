@@ -1,11 +1,12 @@
 
 $.get("/get-cloud-queue").done(function (data) {
     var resp = data.resp;
+    var error = data.error;
     var select = $("#cloud_files");
-    if(resp == "error") {
-        select.append('<h2 class="k-main__h2">Error with API</h2>');        
-    } else if (resp.length == 0) {
-        select.append('<h2 class="k-main__h2">No files on queue</h2>');        
+    if(error.length > 0) {
+        select.append('<h2 class="k-main__h2">' + error + '</h2>');        
+    /*} else if (resp.length == 0) {
+        select.append('<h2 class="k-main__h2">' + error + '</h2>');*/
     } else {
         for (var i = 0; i < resp.length; i++) {
             var totalSeconds = resp[i].printing_duration;
