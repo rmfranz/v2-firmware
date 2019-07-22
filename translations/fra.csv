@@ -114,11 +114,11 @@ language_intro,Veuillez sélectionner la langue d'affichage:
 es,Español
 en,English
 fr,Français
-de,Deutsche
+de,Deutsch
 it,Italiano
 pl,Polski
 pt,Portuguese
-sw,
+sw,Svenka
 ,
 calibration_title,Calibrage
 calibration_z_offset,Calibrage axe Z
@@ -163,7 +163,7 @@ calibration_wizard_title,Assistant de calibrage
 waiting_for_initial_movements,Patientez jusqu'à la fin des premiers mouvements.
 done,Terminé
 skip_wizard,Installation terminée. Voulez-vous passer cet assistant la prochaine fois la imprimant redémarre?
-update_warning,Nous vous recommandons de mettre à jour le logiciel pour bénéficier des dernières fonctionnalités.
+update_warning,Nous vous recommandons de mettre à jour le logiciel pour bénéficier des dernières fonctionnalités. Avant de les modifier{} vérifiez les valeurs de calibrage en imprimant les tests de calibrage.
 ,
 ,
 offset_P1,Calibrage P1
@@ -303,6 +303,14 @@ retracting_popup,Veuillez patienter pendant la rétraction du filament.
 extrude_more_btn,Extruder
 retract_more_btn,Rétracter
 reset_uuid_warning_popup,Veuillez patienter et pressez ensuite OK.
+wifi_connection_ok_modal,Connexion OK
+zoffset_calibration_popup,Ajustez la distance avec les flèches jusqu'à ce que la touche la plate-forme sans s'appuyer.
+xyoffset_calibration_popup,Après avoir imprimé le gcode XY Offset Calibration{} mesurez l’alignement des deux carrés avec le calibre à coulisse.
+retract_more_popup,Veuillez patienter.
+error_api,Échec de connexion
+no_files_queue,La file d'impression est vide.
+,
+,
 ,
 ,
 ,Extrudeuse gauche

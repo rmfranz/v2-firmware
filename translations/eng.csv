@@ -62,9 +62,9 @@ filaments_menu_title,Filaments
 filaments_menu_load,Loading filament
 filaments_menu_unload,Unload filament
 filament_auto_load_message,This is an automatic process{} please wait for it to finish and return to the previous screen. 
-filament_auto_load_instruction,Insert filament into the Extruder {} on the back of the printer by lifting the lever.
+filament_auto_load_instruction,Feed filament into Extruder {} on the back of the printer by lifting the lever.
 filament_auto_load,Load Material
-filament_auto_unload,Unload Material
+filament_auto_unload,Unloading
 confirm_filament,Are you sure you want to cancel?
 ,
 filamentsetup_title,Filament setup
@@ -114,11 +114,11 @@ language_intro,Select the language to wish to use for the display:
 es,Español
 en,English
 fr,Français
-de,Deutsche
+de,Deutsch
 it,Italiano
 pl,Polski
 pt,Portuguese
-sw,
+sw,Svenka
 ,
 calibration_title,Calibration
 calibration_z_offset,Z Offset calibration
@@ -163,7 +163,7 @@ calibration_wizard_title,Calibration wizard
 waiting_for_initial_movements,Wait for initial movements to finish.
 done,Done
 skip_wizard,Setup completed! Do you want to skip this wizard next time the machine reboots?
-update_warning,We recommend that you update the software to have the latest features. Before changing any calibration value{} run the calibration test prints.
+update_warning,We recommend to keep the software update to have the latest features. Before changing any calibration value{} print the calibration test gcodes.
 ,
 ,
 offset_P1,P1 Offset
@@ -303,7 +303,14 @@ retracting_popup,Retracting filament. Please wait...
 extrude_more_btn,Extrude more
 retract_more_btn,Retract more
 reset_uuid_warning_popup,Please wait. Then press OK.
-no_files_queue,No files on queue
+wifi_connection_ok_modal,Connection OK
+zoffset_calibration_popup,Use the arrow keys to adjust the distance between each nozzle and the build plate so that they almost touch.
+xyoffset_calibration_popup,Print the XY Offset calibration gcode and measure the alignment of the both squares using a caliper.
+retract_more_popup,Please wait.
+error_api,Connection failure
+no_files_queue,Print queue is empty.
+,
+,
 ,
 ,
 ,Left extruder
@@ -312,7 +319,7 @@ no_files_queue,No files on queue
 ,No compatible files found
 ,print head
 ,I'm thinking...
-,Please wait
+,Please wait.
 ,Loading.
 ,Oops! Something went wrong.
 ,An error occurred

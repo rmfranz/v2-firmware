@@ -114,11 +114,11 @@ language_intro,Wybierz język interfejsu:
 es,Español
 en,English
 fr,Français
-de,Deutsche
+de,Deutsch
 it,Italiano
 pl,Polski
 pt,Portuguese
-sw,
+sw,Svenka
 ,
 calibration_title,Kalibracja
 calibration_z_offset,Kalibracja osi Z
@@ -295,14 +295,22 @@ reset_board_uuid,Rest UUID
 reset_user_prefs,Reset preferencji
 reset_board_warning,Proszę wyjąć wszystkie dyski USB i odłączyć klawiaturę od drukarki.
 next_reboot_warning,Zmiany zostaną uwzględnione po restarcie drukarki.
-enable_ssh_popup,
-disable_ssh_popup,
-reset_user_pref_popup,
-extruding_popup,
-retracting_popup,
-extrude_more_btn,
-retract_more_btn,
-reset_uuid_warning_popup,
+enable_ssh_popup,SSH enabled
+disable_ssh_popup,SSH desabled
+reset_user_pref_popup,Do you wish to delete all user preferences?
+extruding_popup,Extruding filament. Please wait...
+retracting_popup,Retracting filament. Please wait...
+extrude_more_btn,Extrude more
+retract_more_btn,Retract more
+reset_uuid_warning_popup,Please wait. Then press OK.
+wifi_connection_ok_modal,Połączenia Ok
+zoffset_calibration_popup,Use the arrow keys to adjust the distance between each nozzle and the build plate so that they almost touch.
+xyoffset_calibration_popup,Print the XY Offset calibration gcode and measure the alignment of the both squares using a caliper.
+retract_more_popup,Proszę czekać.
+error_api,Błąd połączenia
+no_files_queue,Kolejka wydruku jest pusta.
+,
+,
 ,
 ,
 ,Lewy ekstruder
@@ -311,7 +319,7 @@ reset_uuid_warning_popup,
 ,Nie znaleziono kompatybilnych plików
 ,głowica drukująca
 ,Myślę...
-,Proszę czekać
+,Proszę czekać.
 ,Ładowanie.
 ,Oops! Coś poszło nie tak.
 ,Wystąpił błąd

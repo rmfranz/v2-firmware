@@ -62,7 +62,7 @@ filaments_menu_title,Filamente
 filaments_menu_load,Filament laden
 filaments_menu_unload,Filament entladen
 filament_auto_load_message,Dies ist ein automatischer Prozess{} bitte warten Sie{} bis er abgeschlossen ist und kehren Sie zum vorherigen Bildschirm zurück. 
-filament_auto_load_instruction,Legen Sie das Filament in den Extruder {} auf der Rückseite des Druckers ein{} indem Sie den Lift anheben.
+filament_auto_load_instruction,Legen Sie das Filament in den Extruder {} auf der Rückseite des Druckers ein{} indem Sie den Hebel anheben.
 filament_auto_load,Material einlegen
 filament_auto_unload,Material entladen
 confirm_filament,Sind Sie sicher{} dass Sie abbrechen wollen?
@@ -118,7 +118,7 @@ de,Deutsch
 it,Italiano
 pl,Polski
 pt,Portuguese
-sw,
+sw,Svenka
 ,
 calibration_title,Kalibrierung
 calibration_z_offset,Z Offset-Kalibrierung
@@ -135,15 +135,15 @@ instructions_modal_title_Zoffset,Heben Sie die Bauplatte an{} bis sie die Düse 
 instructions_modal_title_Cal25step1,Bitte warten Sie{} bis der Druckkopf in der Mitte der XY-Achsen steht.
 instructions_modal_title_Cal25step2,Heben Sie die Bauplatte mit den Pfeiltasten an{} bis sie die Düse berührt. Klicken Sie dann auf Speichern.
 instructions_modal_text_Cal25_continue,Weitermachen
-calibration_grid_value,Kalibrierungswerte
-calibration_grid_value_info,
+calibration_grid_value,Kalibriergitterwerte
+calibration_grid_value_info,Ihr Drucker ist kalibriert. Wenn ein Wert N/D ist{} empfehlen wir{} die Düse und die Bauplatte zu reinigen und den Kalibriervorgang erneut durchzuführen.
 help_25_calibration_title,Kalibrieren
 help_25_calibration_body,
 help_25_reset_title,Zurücksetzen
 help_25_reset_body,
 help_25_inspect_title,Überprüfen
 help_25_inspect_body,
-warning_reset_calibration,Are you sure you want to reset build plate calibration?
+warning_reset_calibration,Sind Sie sicher{} dass Sie die Kalibrierung der Bauplatte zurücksetzen möchten?
 calibration_buildplate_step1,Schritt 1
 calibration_buildplate_step2,Schritt 2
 calibration_xy,XY Offset
@@ -151,7 +151,7 @@ calibration_wait,Bitte warten Sie{} bis die Kalibrierungssequenz abgeschlossen i
 calibration_make,Kalibrieren
 calibration_reset,Zurücksetzen
 calibration_inspect,Überprüfen
-calibration_reset_board,Warten Sie{} während der Drucker neu startet.
+calibration_reset_board,Warten Sie{} während der Drucker neu startet. Es kann eine gewisse Zeit dauern.
 calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Werkzeugwechsel{} bitte warten.
@@ -162,8 +162,9 @@ manual_reboot,Bitte schalten Sie den Drucker aus{} warten Sie 15s und schalten S
 calibration_wizard_title,Kalibrierungsassistent
 waiting_for_initial_movements,Warten Sie{} bis die ersten Bewegungen abgeschlossen sind.
 done,Erledigt
-skip_wizard,Setup abgeschlossen.
-update_warning,Wir empfehlen Ihnen{} die Software zu aktualisieren{} um die neuesten Funktionen zu erhalten.
+skip_wizard,Setup abgeschlossen! 
+Möchten Sie diesen Assistenten beim nächsten Neustart der Maschine überspringen?
+update_warning,Wir empfehlen Ihnen{} die Software zu aktualisieren{} um die neuesten Funktionen zu erhalten. Bevor Sie einen Kalibrierwert ändern{} führen Sie die Kalibrierungsprüfdrucke aus.
 ,
 ,
 offset_P1,P1 Offset
@@ -197,7 +198,7 @@ print_load_file_popup,Laden der Datei{} bitte warten. Es kann eine Weile dauern.
 print_load_file_popup_title,Datei laden
 print_load_file_popup_body,Bitte warten Sie. Dies kann einen Moment dauern.
 ,
-print_message,Now you can safely remove the USB flash drive.
+print_message,Jetzt können Sie den USB-Stick sicher entfernen.
 ,
 monitor_printingtime,Druckzeit:
 monitor_elapsedtime,Verstrichene Zeit
@@ -259,11 +260,11 @@ custom_version,Benutzerdefinierte Version
 updates_latest,Sie haben die neueste Version
 updates_updating_footer,Wichtig: Schalten Sie den Drucker während der Aktualisierung nicht aus.
 updates_success,Aktualisierung erfolgreich. Bitte warten Sie auf den Neustart.
-get_update_error,An error occurred during download. We recommend updating software via USB.
-usb_update,Update via USB flashdrive
-internet_update,Update via Internet
-usb_update_title,Update via USB flashdrive
-usb_update_info,Insert USB flashdrive.
+get_update_error,Beim Herunterladen ist ein Fehler aufgetreten. Wir empfehlen{} die Software über USB zu aktualisieren.
+usb_update,Update über USB-Stick
+internet_update,Update über das Internet
+usb_update_title,Update über das Internet
+usb_update_info,USB-Stick einstecken.
 ,
 print_selection_title,Drucken
 print_selection_cloud,Druckerwarteschlange
@@ -282,27 +283,35 @@ config_wifi,WiFi
 ,
 error,Bitte starten Sie den Drucker neu und wenn das Problem erneut auftritt{} wenden Sie sich an den technischen Support.
 waiting_info,Daten abrufen...
-onboarding_welcome_to_v2,Update abgeschlossen
-unmount_usb_error,Error 001 with flashdrive USB.
-mount_usb_error,Error 002 with flashdrive USB.
-download_error,Error 003 with update.
-copy_unzip_error,Error 004 with update.
-folder_error,Error 005 with update.
-dev_tools,Dev tools
-enable_ssh,Enable SSH
-disable_ssh,Disable SSH
-reset_board_uuid,Reset board uuid
-reset_user_prefs,Reset user prefs
-reset_board_warning,Please remove any usb or keyboard from printer!
-next_reboot_warning,Changes will applied on next reboot
+onboarding_welcome_to_v2,Das Update war erfolgreich! Ihr Portraitdrucker wurde erfolgreich auf die Software 2.0 aktualisiert. Genießen Sie das Erlebnis!
+unmount_usb_error,Fehler 001 bei USB-Stick.
+mount_usb_error,Fehler 002 bei USB-Stick.
+download_error,Fehler 003 bei der Aktualisierung.
+copy_unzip_error,Fehler 004 bei der Aktualisierung.
+folder_error,Fehler 005 bei der Aktualisierung.
+dev_tools,Entwicklungswerkzeuge
+enable_ssh,SSH aktivieren
+disable_ssh,SSH deaktivieren
+reset_board_uuid,Zurücksetzen der Board UUID
+reset_user_prefs,Benutzereinstellungen zurücksetzen
+reset_board_warning,Bitte entfernen Sie USB-Geräte oder Tastaturen vom Drucker.
+next_reboot_warning,Änderungen werden beim nächsten Neustart übernommen.
 enable_ssh_popup,SSH aktiviert
 disable_ssh_popup,SSH deaktiviert
-reset_user_pref_popup,
-extruding_popup,
-retracting_popup,
-extrude_more_btn,
-retract_more_btn,
-reset_uuid_warning_popup,
+reset_user_pref_popup,Möchten Sie alle Benutzereinstellungen löschen?
+extruding_popup,Filament wird extrudiert . Bitte warten .....
+retracting_popup,Filament wird zurückgezogen . Bitte warten .....
+extrude_more_btn,Mehr extrudieren
+retract_more_btn,Mehr zurückziehen
+reset_uuid_warning_popup,Bitte warten. Drücken Sie dann OK.
+wifi_connection_ok_modal,Verbindung ist OK
+zoffset_calibration_popup,Use the arrow keys to adjust the distance between each nozzle and the build plate so that they almost touch.
+xyoffset_calibration_popup,Print the XY Offset calibration gcode and measure the alignment of the both squares using a caliper.
+retract_more_popup,Bitte warten.
+error_api,Verbindungsfehler
+no_files_queue,Die Druckwarteschlange leer ist.
+,
+,
 ,
 ,
 ,Linker Extruder
@@ -311,7 +320,7 @@ reset_uuid_warning_popup,
 ,Keine kompatiblen Dateien gefunden
 ,Druckkopf
 ,Ich denke...
-,Bitte warten
+,Bitte warten.
 ,Laden.
 ,Hoppla! Etwas ist schief gelaufen.
 ,Ein Fehler ist aufgetreten
@@ -320,5 +329,4 @@ reset_uuid_warning_popup,
 ,
 ,Motoren abschalten
 ,Motoren einschalten
-,
-,Reset user prefs
+,Der Drucker ist sofort nach dem Auspacken kalibriert und druckbereit.

@@ -1,0 +1,331 @@
+powered_by,Drivs av
+hello,Hej!
+lets_get_started,Då börjar vi!
+we_will_guide_you_1,Vi kommer att vägleda dig för att få bästa
+we_will_guide_you_2,möjliga upplevelse.
+,
+,
+errors_modal_title,Anslutningsfel
+errors_printer_status,
+Disconnected,Kan inte ansluta.
+Connecting,
+Error,
+errors_modal_disconnected,Undersök anslutningen och starta om printern.
+,
+,
+warnings_modal_title,Viktigt
+warnings_modal_ok,Ok
+,
+,
+setup_internet,Klicka på Nästa för att konfigurera Internet anslutningen
+download_updates,Klicka på Nästa för att undersöka om det finns uppdateringar
+connect_to_the_cloud,Klicka på Nästa för att ansluta till Cloud
+load_filament,Klicka på Nästa för att ladda filament nu eller klicka på Avbryt för att ladda det senare.
+onboarding_skip,Avbryt
+onboarding_next,Nästa
+,
+,
+home_title,Hem
+home_print,Print
+home_settings,Inställningar
+home_message_1,Hej{} jag är redo att printa.
+home_message_2,Vänligen gå till https://cloud.smart3d.tech för att börja skriva ut.
+,
+files_title,Filer
+files_intro,Välj ett objekt att skriva ut.
+files_pendrive,USB minne
+files_samples,Testfiler
+files_calibration,Kalibreringsfiler
+loadingFiles,
+nofilesfound,Inga filer funna
+,
+mcontrol_title,Manuell kontroll
+prepprint_leftnozzle,
+prepprint_rightnozzle,
+manualcontrol_buildplate,Byggplattform
+kodak_filament,KODAK filament
+other_filament,Annat filament
+manualcontrol_extruders,Extruders
+manualcontrol_light,Ljus
+platform,
+,
+config_title,Inställningar
+config_internet,Internet
+config_filaments,Filament
+config_extras,Extra
+back,Tillbaka
+config_calibration,Kallibrering
+config_cloud,Molnet
+,
+,
+filaments_menu_title,Filament
+filaments_menu_load,Ladda filament
+filaments_menu_unload,Mata ur filament
+filament_auto_load_message,Detta är en automatisk process{} vänligen vänta på att det blir klart och gå tillbaks till förra menyn.
+filament_auto_load_instruction,Sätt i filament i Extruder {} på baksidan av printern genom att lyfta på spaken.
+filament_auto_load,Ladda filament
+filament_auto_unload,Mata ut filament
+confirm_filament,Är du säker på att du vill avbryta?
+,
+filamentsetup_title,Filament inställningar
+add_filament,Nytt filament
+filament_name,Namn
+filament_temp,Filament temp. (°C)
+bed_temp,Byggplattform temp. (°C)
+is_KODAK,KODAK?
+f_true,Ja
+f_false,Nej
+newfilament_failure,Det gick inte skapa filamentet. Vänligen prova igen.
+filament_confirm_delete,Är du säker på att du vill ta bort filamentet?
+filament_delete,Ta bort filament
+,
+,
+extruder,Extruder
+extruder_loaded,Laddad
+filaments_heating,Värmer upp. Vänligen vänta…
+filaments_extruding,Väntar på att mata ut...
+filaments_extruding_info,Var säker på att filamentet har matats in. Tryck Nästa när du ser filamentet tryckas ut.
+filaments_clean,Vänligen rengör överflödigt material.
+filaments_clean_info,Filamentet borde vara utmatat nu.
+loading_filaments_select,Välj filamenttyp du laddar.
+filaments_heating_extruder,Värmer upp hotend
+filaments_please_wait,Vänligen vänta.
+filaments_done,Klart
+filaments_retracting,Väntar på att frigöra.
+filaments_retracting_info,Var säker på att filamentet dras tillbaka.
+filaments_released,Vänligen ta bort filamentrullen
+filaments_released_info,Filamentet borde ha släppt nu.
+filaments_retracting_extruder,Drar tillbaka filamentet
+,
+,
+network_title,Nätverk
+network_password,Lösenord
+network_connect_failure,Ingen anslutning upprättad (fel lösenord?)
+connect_modal_title,Anslut till nätverk
+connected,Ansluten
+forget,Glöm
+connect_cancel,Avbryt
+connect,Anslut
+connecting,Ansluter
+network_choose,Välj nätverk
+,
+language_title,Språk
+language_intro,Välj språk du vill använda på skärmen:
+es,Español
+en,English
+fr,Français
+de,Deutsch
+it,Italiano
+pl,Polski
+pt,Portuguese
+sw,Svenska
+,
+calibration_title,Kalibrering
+calibration_z_offset,Z Offset kalibrering
+calibration_z_probe,Kalibrering byggplattform
+calibration_nozzle,Nozzle offset kalibrering
+calibration_offset_z,Z Offset kalibrering
+calibration_probe_triggered,Probe utlöst
+calibration_saving,Sparar…
+calibration_save,Spara
+calibration_offset_xy,Läs instruktionerna först
+calibration_offset_x,Offset X
+calibration_offset_y,Offset Y
+instructions_modal_title_Zoffset,Lyft byggplattformen tills den nuddar nozzeln
+instructions_modal_title_Cal25step1,Vänta tills printerhuvudet stannar i mitten av XY-axlarna.
+instructions_modal_title_Cal25step2,Lyft upp byggplattformen med pilknapparna tills den rör nozzeln. Klicka sedan på Spara.
+instructions_modal_text_Cal25_continue,Fortsätt
+calibration_grid_value,Kalibrera rutnätsvärden
+calibration_grid_value_info,Din printer är kalibrerad. Om något värde är N/D rekommenderas att rengöra nozzel{} byggplattform och göra kalibreringen igen.
+help_25_calibration_title,Kalibrera
+help_25_calibration_body,
+help_25_reset_title,Återställ
+help_25_reset_body,
+help_25_inspect_title,Undersök
+help_25_inspect_body,
+warning_reset_calibration,Är du säker på att du vill återställa byggplattformens kalibrering?
+calibration_buildplate_step1,Steg 1
+calibration_buildplate_step2,Steg 2
+calibration_xy,XY Offset
+calibration_wait,Vänligen vänta tills kalibreringen är klar.
+calibration_make,Kalibrera
+calibration_reset,Återställ
+calibration_inspect,Utforska
+calibration_reset_board,Vänta medans printern startar om. Det kan ta ett stund.
+calibration_hotend_1,Hotend 1
+calibration_hotend_2,Hotend 2
+calibration_extruder_change,Byter verktyg{} vänligen vänta.
+calibration_error,Ett fel uppstod. Vänligen kontakta teknisk support.
+calibration_offset_saving,Sparar kalibreringsvärden.
+manual_reboot,Vänligen stäng av printern{} vänta 15 sek och starta igen. Kalibreringsinställningarna gäller först efter en omstart.
+,
+calibration_wizard_title,Kalibreringsguide
+waiting_for_initial_movements,Vänta på att den första rörelserna ska avslutas.
+done,Klar
+skip_wizard,Inställningen är klar! Vill du hoppa över denna guide nästa gång du startar printern?
+update_warning,Vi rekomenderar att du uppdaterar mjukvaran för att ha de senaste funktionerna. Innan ändringar görs av kalibreringsvärdena{} kör test kalibreringsutskrift.
+,
+,
+offset_P1,P1 Offset
+offset_P2,P2 Offset
+offset_P3,P3 Offset
+,
+info_title,Printer information
+change_language,Byt språk
+info_printeraddress,IP adress (WiFi)
+info_printeraddress_ethernet,IP adress (Eth)
+info_serialnumber,Serienummer
+info_swversion,Mjukvaruversion
+info_hwversion,Hårdvaruversion
+info_updateavailable,Uppdatering tillgänglig
+waitForUpdate,Uppdatering {{procent}}%
+waitForReboot,Vänta på omstart.
+info_update,Uppdatering version
+info_confirm_update,Är du säker på att uppdatera från {{ from }} till {{ to }}?
+info_network,Nätverk
+info_language,Språk
+mac_address_lan,MAC adress
+,
+,
+backupForLeft,Säkerhetskopiering för
+presetOnFile,Förinställningar i filen
+Off (0ºC),Av
+Calculating...,Kalkylerar
+nozzleDisconnected,Hotend frånkopplad
+noFilesFound,För in USB minnet och vänta på att filerna laddas.
+print_load_file_popup,Laddar filen{} vänligen vänta.. Det kan ta en stund.
+print_load_file_popup_title,Laddar filen
+print_load_file_popup_body,Vänligen vänta. Det kan ta en stund.
+,
+print_message,Nu kan du säkert ta bort USB minnet.
+,
+monitor_printingtime,Utskrifts tid:
+monitor_elapsedtime,Förfluten tid
+monitor_pause,Paus
+monitor_paused,Pausad
+monitor_cancel,Avbryt
+monitor_printdone,Utskrift klar
+,
+confirm_cancel,Avbryta utskriften?
+confirm_yes,Ja
+confirm_no,Nej
+confirm_pause,Pausa utskriften?
+monitor_resume,Återuppta
+monitor_rate,Betygsätt
+,
+,
+nozzle_intro,Välj nozzle diameter som för närvarande är installerad
+nozzle_modal_title,Sätt nozzle storlek
+,
+,
+,
+,
+cloud_title,KODAK 3D Cloud
+cloud_intro,Använd följande registreringskod för att registrera den här printern för din användare på KODAK 3D Cloud.
+cloud_intro2,Registrera på cloud.smart3d.tech
+queue_empty,Din printer är online och redo att skriva. Logga in på ditt Cloud konto för att starta utskrift.
+delete_from_cloud,Ta bort printern från Cloud
+confirm_delete_from_cloud,Är du säker på att du vill ta bort Cloud registreringen för den här printern?
+job_date,Datum mottaget:
+job_email,Epost:
+job_duration,Utskrifts tid:
+job_material,Material typ:
+job_layer_height,Lagertjocklek:
+job_weight,Vikt:
+job_notes,Notering:
+job_preview,Förhandsvisning
+registration_success,Printern ansluten
+job_size,Filstorlek:
+cloud_unregister,Avregistrera
+cloud_disconnect,Koppla ifrån
+cloud_connect,Anslut
+job_cancel,Ta bort från kön
+job_print,Utskrift
+,
+extras_title,Extra material
+extras_controls,Kontroller
+extras_tools,Verktyg
+extras_info,Info
+extras_update,Uppdatera
+extras_sound,Ljud
+,
+sound_message,Justera ljudnivån medan vi spelar musiken.
+sound_off,Av
+sound_max,Max
+sound_volume,Volym
+,
+updates_updating,Uppdaterar till
+custom_version,Anpassad version
+updates_latest,Du har den senaste versionen
+updates_updating_footer,Viktigt: Stäng inte av printern under uppdatering.
+updates_success,Uppdateringen lyckades: Vänta på omstart.
+get_update_error,Ett fel uppstod under nedladdning. Vi rekomenderar att uppdatera via USB.
+usb_update,Uppdatera via USB minne
+internet_update,Uppdatera via Internet
+usb_update_title,Uppdatera via USB minne
+usb_update_info,För in USB minnet.
+,
+print_selection_title,Skriv ut
+print_selection_cloud,Skrivarkö
+print_selection_local,Skriv från lokal fil
+,
+cancel_popup_title,Avbryt utskrift
+cancel_popup_body,Vänligen vänta
+,
+info_title,Info
+,
+config_connectivity,Anslutning
+config_advanced,Manuella kontroller
+config_nozzle_size,Nozzle storlek
+config_motors,Motorer
+config_wifi,WiFi
+,
+error,Vänligen starta om printern och om felet kvarstår{} kontakta teknisk support.
+waiting_info,Hämtar data…
+onboarding_welcome_to_v2,Uppdateringen lyckades. Din Portrait skrivare uppdaterades till mjukvaran 2.0. Njut av upplevelsen!
+unmount_usb_error,Fel 001 med USB minnet.
+mount_usb_error,Fel 002 med USB minnet
+download_error,Fel 003 med uppdateringen.
+copy_unzip_error,Fel 004 med uppdateringen
+folder_error,Fel 005 med uppdateringen
+dev_tools,Utv verktyg
+enable_ssh,Aktivera SSH
+disable_ssh,Inaktivera SSH
+reset_board_uuid,Återställ board UUID
+reset_user_prefs,Återställ användarinställningar
+reset_board_warning,Vänligen koppla bort USB eller tangentbord från printern.
+next_reboot_warning,Ändringar kommer ske vid nästa omstart
+enable_ssh_popup,SSH aktiverad
+disable_ssh_popup,SSH inaktiverad
+reset_user_pref_popup,Vill du radera alla användarinställningar?
+extruding_popup,Extruderar filament. Vänligen vänta…
+retracting_popup,Drar tillbaka filament. Vänligen vänta…
+extrude_more_btn,Extrudera mera
+retract_more_btn,Drar tillbaka mera.
+reset_uuid_warning_popup,Vänligen vänta.. Sedan tryck OK.
+wifi_connection_ok_modal,Anslutning OK
+zoffset_calibration_popup,Ställ in så att båda nozzlarna nästan nuddar byggplattformen med hjälp av pil-knapparna
+xyoffset_calibration_popup,Skriv ut och mät orienteringen mellan de två delarna i XY Offset gcoden med ett skjutmått
+retract_more_popup,Vänligen vänta
+error_api,Anslutningsfel
+no_files_queue,Utskriftskön är tom.
+,
+,
+,
+,
+,Vänstra extrudern
+,Högra extrudern
+,Laddar filer
+,Ingen kompatibla filer hittades
+,Printhuvud
+,Jag tänker…
+,Vänligen vänta
+,Laddar.
+,Oops! Något gick fel.
+,Ett fel uppstod
+,Avancerad
+,"Förinställning på fil"
+,
+,Stäng av motorerna
+,Starta motorerna
+,Skrivaren är kalibrerad "out of box" och redo att skriva ut.

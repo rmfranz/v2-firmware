@@ -114,11 +114,11 @@ language_intro,Seleccione el idioma que desea utlizar en pantalla:
 es,Español
 en,English
 fr,Français
-de,Deutsche
+de,Deutsch
 it,Italiano
 pl,Polski
 pt,Portuguese
-sw,
+sw,Svenka
 ,
 calibration_title,Calibración
 calibration_z_offset,Compensación eje Z
@@ -163,7 +163,7 @@ calibration_wizard_title,Asistente de calibración
 waiting_for_initial_movements,Espere a que finalicen los movimientos.
 done,Finalizado
 skip_wizard,Configuración finalizada. Desea saltear la ayuda la proxima vez que la maquina reinicie?
-update_warning,Recomendamos que actualice el software para tener las últimas mejoras.
+update_warning,Recomendamos mantener el software siempre actualizado. Antes de modificarlos{} verifique los valores de calibración imprimiendo los tests de calibración.
 ,
 ,
 offset_P1,Compensación P1
@@ -303,6 +303,14 @@ retracting_popup,Calentando. Por favor aguarde...
 extrude_more_btn,Extruir
 retract_more_btn,Retraer
 reset_uuid_warning_popup,Por favor aguarde. Luego oprima OK.
+wifi_connection_ok_modal,Conexión OK
+zoffset_calibration_popup,Use las flechas para regular la distancia hasta que cada boquilla roce la plataforma sin tocarla.
+xyoffset_calibration_popup,Imprima el gcode XY Offset Calibration e mida con un calibre la alineación de ambos cuadrados.
+retract_more_popup,Por favor aguarde.
+error_api,Error de conexión
+no_files_queue,La cola de impresión está vacía.
+,
+,
 ,
 ,
 ,Extrusor izquierdo
@@ -311,7 +319,7 @@ reset_uuid_warning_popup,Por favor aguarde. Luego oprima OK.
 ,No se encontraron archivos compatibles
 ,cabezal
 ,Estoy pensando...
-,Espere
+,Por favor aguarde.
 ,Cargando.
 ,Oh no! Parece que algo ha fallado.
 ,Ocurrió un error

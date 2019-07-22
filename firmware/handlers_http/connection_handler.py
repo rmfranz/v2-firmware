@@ -1,6 +1,7 @@
 from handlers_http.basic_handler import * 
 from utils import scan_wlan, connect_to_wifi, wifi_connected, return_wlan_info, activate_wifi, deactivate_wifi, is_wifi_activated
 import tornado
+from tornado import concurrent
 
 class WifiConnectionHandler(BasicHandler):
 

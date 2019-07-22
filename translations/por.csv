@@ -114,11 +114,11 @@ language_intro,Selecione o idioma que deseja utilizar:
 es,Español
 en,English
 fr,Français
-de,Deutsche
+de,Deutsch
 it,Italiano
 pl,Polski
 pt,Portuguese
-sw,
+sw,Svenka
 ,
 calibration_title,Calibragem
 calibration_z_offset,Calibragem Eixo Z
@@ -164,7 +164,7 @@ waiting_for_initial_movements,Aguarde a conclusão dos movimentos iniciais.
 done,Concluído
 skip_wizard,Instalação concluída. 
 Deseja ignorar o assistente a próxima vez o sistema será reinicializado?
-update_warning,Recomendamos que você atualize o software para obter os recursos mais recentes.
+update_warning,Recomendamos que você mantenga o software actualizado. Antes de modificar os valores de calibração{} imprima os tests de calibração.
 ,
 ,
 offset_P1,Compensação P1
@@ -293,17 +293,25 @@ dev_tools,Ferramentas de desenvolvimento
 enable_ssh,Desativar serviço SSH
 disable_ssh,Habilitar serviço SSH
 reset_board_uuid,Restablecer UUID
-reset_user_prefs,Reiniciar preferências
+reset_user_prefs,Reiniciar preferências 
 reset_board_warning,Por favor retirar la unidade flash USB ou teclado da impressora. 
 next_reboot_warning,As mudanças terão efeito após a próxima reinicialização.
 enable_ssh_popup,SSH ativado
 disable_ssh_popup,SSH desativado
 reset_user_pref_popup,Deseja eliminar as preferências de usuário?
-extruding_popup,Aquecendo. Por favor{} aguarde…
-retracting_popup,Aquecendo. Por favor{} aguarde…
+extruding_popup,Extrudando. Por favor{} aguarde…
+retracting_popup,Retraendo. Por favor{} aguarde…
 extrude_more_btn,Extrudar
 retract_more_btn,Retrair
 reset_uuid_warning_popup,Aguarde e em seguida pressione OK. 
+wifi_connection_ok_modal,Conexão OK
+zoffset_calibration_popup,Use as botões de seta para ajustar a distância entre cada bocal e a plataforma para que eles quase toquem.
+xyoffset_calibration_popup,Depois de imprimir o código g XY Offset Calibration{} meça o alinhamento dos dois quadrados com o paquímetro.
+retract_more_popup,Aguarde por favor.
+error_api,Erro de conexão
+no_files_queue,La fila de Impressão está vazia.
+,
+,
 ,
 ,
 ,Extrusor esquerdo
@@ -312,7 +320,7 @@ reset_uuid_warning_popup,Aguarde e em seguida pressione OK.
 ,Não se encontraram arquivos compatíveis
 ,cabeçote de impressão
 ,Estou pensando...
-,Aguarde
+,Aguarde por favor.
 ,Carregando.
 ,Ops! Parece que algo deu errado.
 ,Ocorreu um erro

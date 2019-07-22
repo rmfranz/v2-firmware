@@ -114,11 +114,11 @@ language_intro,Seleziona l'idioma per lo schermo:
 es,Español
 en,English
 fr,Français
-de,Deutsche
+de,Deutsch
 it,Italiano
 pl,Polski
 pt,Portuguese
-sw,
+sw,Svenka
 ,
 calibration_title,Calibrazione
 calibration_z_offset,Calibrazione offset Z
@@ -163,7 +163,7 @@ calibration_wizard_title,Calibrazione assistita
 waiting_for_initial_movements,Attendere la fine dei movimenti.
 done,Chiudi
 skip_wizard,Configurazione completata. Desideri non visualizzare il wizard next time the machine reboots?
-update_warning,Consigliamo di aggiornare il software per ottenere le ultime funzionalitá.
+update_warning,Consigliamo di mantenere aggiornato il software. Prima di modificarli{} verifichi i valori di calibrazione stampando i test di calibrazione.
 ,
 ,
 offset_P1,Offset P1
@@ -303,6 +303,14 @@ retracting_popup,Retraendo il filamento. Attendere prego...
 extrude_more_btn,Estrudere
 retract_more_btn,Ritrarre
 reset_uuid_warning_popup,Si prega di attendere. Poi selezionare OK.
+wifi_connection_ok_modal,Connessione OK
+zoffset_calibration_popup,Regolare la distanza con le frecce sino a che l'augello sfiori la piattaforma senza toccarla.
+xyoffset_calibration_popup,Dopo aver stampato il gcode XY Offset Calibration{} misurare con il calibro l'allineamento dei due quadrati.
+retract_more_popup,Si prega di attendere.
+error_api,Errore di connessione
+no_files_queue,La coda di stampa è vuota.
+,
+,
 ,
 ,
 ,Ugello sinistro
@@ -311,7 +319,7 @@ reset_uuid_warning_popup,Si prega di attendere. Poi selezionare OK.
 ,Nessun file trovato
 ,carro
 ,Sto pensando.
-,Attendere
+,Si prega di attendere.
 ,Caricamento in corso.
 ,Oops! Si é verificato un problema.
 ,Errore imprevisto.
