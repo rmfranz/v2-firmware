@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="k-main">
+    {% if error == 3 %}
+    <h2 class="k-main__h2">{{_("nofilesfound").format(",")}}</h2>
+    {% elif error == 2 %}
+    <h2 class="k-main__h2">{{_("mount_usb_error").format(",")}}</h2>
+    {% elif error == 1 %}
+    <h2 class="k-main__h2">{{_("unmount_usb_error").format(",")}}</h2>
+    {% else %}
+    <section class="k-block">
+        {% for key, value in items.items() %}
+        <div class="k-block-2 file_selected" data-path="{{value}}" data-filename="{{ key }}">
+            <div class="k-block-2__left">
+                <div class="k-block-2__img-container">
+                    {% if key.split(".gcode")[0] in ["5 points", "XY Offset Calibration", "Z Offset test T0", "Z Offset test T1"]  %}
+                        <img src="/calib_images/{{key.split('.gcode')[0] + '.jpg'}}" style="height: 64px" />
+                    {% end %}
+                    {% if key.split(".gcode")[0] in ['ANubis8hrs', 'Crane_Hook_snylon6', 'Ext1_PETG_Vase', 'Ext1__PLATough_CableProtector', 'Ext1__PLATough_JapaneseRolling', 
+                    'Ext2_PLA+_Whistle', 'Gancho_nylon6 ', 'ski_goggels_PVA_ext2_PLA-t_ext1', 'tire_flex_2hrs', 'tire_flex_big_30hrs', 
+                    'turbine2_nylon', 'vase_velocity_petg']  %}
+                        <img src="/sample_images/{{key.split('.gcode')[0] + '.jpg'}}" style="height: 64px" />
+                    {% end %}
+                </div>
+                <p>{{ key }}</p>
+            </div>
+        </div>
+        {% end %}
+    </section>
+    {% end %}
+</main>
+<footer class="k-footer">
+    {% if listing_id == "1" %}
+    <a href="/print-selection" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
+    {% else %}
+    <a href="/local-files-selection" class="k-footer-left">
+        <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
+    </a>
+    {% end %}
+    <!-- Implementar despues
+    <div class="k-footer-right">
+      <button class="k-footer__btn k-footer__btn--yellow"> 
+        <img src="/static/images/icon_vista-lista.svg"/>
+      </button>  
+      <button class="k-footer__btn k-footer__btn--grey"> 
+        <img src="/static/images/icon_vista-miniatura.svg"/>
+      </button>  
+    </div>
+    -->
+</footer>
+<script>
+    var printing = false;
+</script>
+<script src="/static/js/print.js"></script>
+</body>
+{% end %}

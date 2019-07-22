@@ -26,9 +26,10 @@ class ListingFilesHandler(BasicHandler):
                 result = mount_usb(self.firmware.hardware_json["board_uuid"])
                 print("resultado: {}".format(result))
                 if result == 0:
-                    #items = get_gcodes_from_usb()                    
-                    html = path_to_html('/media/usb/')
-                    items = html.replace('<ul class="nested">', '', 1)[:-5]
+                    items = get_gcodes_from_usb()
+                    #Uncomment this and comment the other
+                    #html = path_to_html('/media/usb/')
+                    #items = html.replace('<ul class="nested">', '', 1)[:-5]
                 elif result == 1:
                     items = {}
                     error = 1
@@ -46,7 +47,8 @@ class ListingFilesHandler(BasicHandler):
         else:
             error = 0
         self.firmware.files_from_where = listing_id
-        self.render("listing_files.html", items=items, error=error, listing_id=listing_id)
+        #Return to listing_files.html
+        self.render("listing_files_common.html", items=items, error=error, listing_id=listing_id)
 
 class ListingUsbHandler(BasicHandler):
     @concurrent.run_on_executor
@@ -80,7 +82,8 @@ class PrintHandler(BasicHandler):
             #print(resp_reg.body.decode('utf-8'))
             self.render("printing.html", filename=self.firmware.filename, is_image=os.path.exists("/home/pi/print_images/print.png"))
         else:
-            self.render("listing_files.html", items=[], error="error", listing_id=1)
+            #Return to listing_files.html
+            self.render("listing_files_common.html", items=[], error="error", listing_id=1)
 
     def post(self):
         file_path = self.get_body_argument("file_path")
