@@ -48,7 +48,7 @@ class ListingFilesHandler(BasicHandler):
             error = 0
         self.firmware.files_from_where = listing_id
         #Return to listing_files.html
-        self.render("listing_files_common.html", items=items, error=error, listing_id=listing_id)
+        self.render("listing_files.html", items=items, error=error, listing_id=listing_id)
 
 class ListingUsbHandler(BasicHandler):
     @concurrent.run_on_executor
