@@ -38,7 +38,8 @@ class ToExtruderTemperatureHandler(BasicHandler):
         #    "OFF ~ 0°C": 0,
         #}
         #mat_temps = collections.OrderedDict(sorted(mat_temps.items()))
-        self.firmware.choose_extruder(extruder)
+        if extruder == "ext_2":
+            self.firmware.choose_extruder(extruder)
         mat_temps = get_extruder_materials(self.firmware.filaments_json)
         #mat_temps.move_to_end('OFF ~ 0°C')
         self.render("extruder_temp.html", extruder=extruder, mat_temps=mat_temps)

@@ -1,0 +1,67 @@
+/* resets background for directories, to prevent them from becoming a solid color*/
+details.k-block-2{
+  background-image:unset;
+}
+details.k-block-2 summary{
+  background-image: linear-gradient(to right, #EBEBEA 98%, white 98%, white)
+}
+
+/* switches margin side for elements with thumbnails on the right */
+.k-block-2__img-container--right{
+  margin-right:0;
+  margin-left: 15px;
+}
+
+
+/* styling for directories titles*/
+.k-block-2__left--directory{
+  color: #35A8DF;
+}
+
+/* sets progressive margin for deep elements */
+.k-block-2 > .k-block-2{
+  margin-left: 30px;
+}
+
+/*sets the fourth level as the point where elements stops adding margin */
+.k-block-2 > .k-block-2 > .k-block-2 > .k-block-2 > .k-block-2{
+  margin-left: 0;
+}
+
+/* styles the triangle icon */
+details > summary::-webkit-details-marker {
+  margin: 0 0 0 15px;
+}
+
+/* allows directory and file names to break at spaces and hyphens*/
+.k-block-2 p{
+  word-break: break-word;
+}
+
+/* set styles for extruder icon + filament type listing*/
+.k-block-2__extruder{
+  display: flex;
+  flex-direction: column;
+  margin:0; padding:0;
+  width: 35px;
+}
+
+/* styling for filament type*/
+.k-block-2__extruder > p{
+  all:unset;
+  font-size: 10px; 
+  text-align: center;
+}
+
+/* vertically centers the image */
+.k-block-2__img-container{
+  background: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* prevents bigger images from breaking the layout*/
+.k-block-2__img-container > img{
+  max-width: 100%;
+}

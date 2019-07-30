@@ -276,15 +276,15 @@ def filter_gcode_file(path, name):
 
 def path_to_html(path):
     pattern = "*.gcode"
-    html = '<ul class="nested">'
+    html = '<details class="k-block-2">'
     for item in sorted(os.listdir(path)):
         fullpath = os.path.join(path, item)
         if os.path.isdir(fullpath) and not item.startswith("."):
-            html += '<li><p><span class="caret">%s</span></p>' % item
-            html += path_to_html(fullpath) + '</li>'
+            html += '<summary class="k-block-2__left k-block-2__left--directory"><p>%s</p>' % item
+            html += path_to_html(fullpath) + '</summary>'
         elif fnmatch.fnmatch(fullpath, pattern) and not item.startswith("."):
-            html += '<li class="file_selected" data-path="{}" data-filename="{}"><p>{}</p></li>'.format(fullpath, item, item)
-    html += '</ul>'
+            html += '<div class="k-block-2 file_selected" data-path="{}" data-filename="{}"><div class="k-block-2__left"><p>{}</p></div></div>'.format(fullpath, item, item)
+    html += '</details>'
     return html
 
 def return_wlan_info():

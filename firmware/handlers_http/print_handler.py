@@ -26,9 +26,9 @@ class ListingFilesHandler(BasicHandler):
                 result = mount_usb(self.firmware.hardware_json["board_uuid"])
                 print("resultado: {}".format(result))
                 if result == 0:
-                    items = get_gcodes_from_usb()
+                    #items = get_gcodes_from_usb()
                     #Uncomment this and comment the other
-                    #html = path_to_html('/media/usb/')
+                    items = path_to_html('/media/usb/')
                     #items = html.replace('<ul class="nested">', '', 1)[:-5]
                 elif result == 1:
                     items = {}
