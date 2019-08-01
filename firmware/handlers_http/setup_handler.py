@@ -324,17 +324,22 @@ class ResetMacPref(BasicHandler):
         self.write("ok")
 
 class SetConnectionStatusHandler(BasicHandler):
+    @gen.coroutine
     def get(self):
         with open("/home/pi/config-files/user_conf.json") as f:
             user_conf_json = json.load(f)
         result = "no-connected"
         try:
-            result = str(check_connectivity().split("\n")[0])
+            result = yield self.get_connectivity()
         except:
             print("error")
         self.set_cookie('cloud_status', user_conf_json['cloud_pref'])
         self.set_cookie('wifi_status', result)
         self.write({'cloud_status': user_conf_json['cloud_pref'], 'wifi_status': result})
+
+    @concurrent.run_on_executor
+    def get_connectivity(self):
+        return str(check_connectivity().split("\n")[0])
 
 class ToggleDebugHandler(BasicHandler):
     def get(self):
