@@ -1,5 +1,5 @@
 from handlers_http.basic_handler import BasicHandler
-from tornado import httpclient
+from tornado import httpclient, concurrent, gen
 import json
 from cloud_service.cloud_utils import cloud_service_resp
 import tornado
@@ -19,13 +19,14 @@ class ToCloudHandler(BasicHandler):
             self.render("cloud.html", connected=False, cloud_pref=None, wizzard_viewed=self.wizzard.viewed)
 
 class GetRegistrationCodeHandler(BasicHandler):
+    @gen.coroutine
     def get(self):
         headers = {'Content-Type': 'application/json'}
         body = {"VID": "0KDK", "PID": "0001", "SNR": self.firmware.hardware_json["serial_number"], 
             "mac": self.firmware.get_macaddress().replace(":", ""), "type": "K_PORTRAIT", "version": "",
             "registration_code_ttl": 20}
-        http_client = httpclient.HTTPClient()
-        resp = http_client.fetch(URL_CLOUD, method='POST', raise_error=False,
+        http_client = httpclient.AsyncHTTPClient()
+        resp = yield http_client.fetch(URL_CLOUD, method='POST', raise_error=False,
                 headers=headers, body=json.dumps(body))
         if resp.code == 200:
             resp_dict = json.loads(resp.body.decode('utf-8'))
