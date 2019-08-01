@@ -21,6 +21,8 @@ function set_connection_status(){
         }
         if(data.wifi_status == "wlan0"){
             $("#wifi_icon").attr("src","/static/images/icon_wifi-conectado.svg");
+        } else if(data.wifi_status == "eth0") {
+            $("#wifi_icon").attr("src","/static/images/icon_ethernet.svg");
         } else {
             $("#wifi_icon").attr("src","/static/images/icon_wifi-desconectado.svg");
         }
