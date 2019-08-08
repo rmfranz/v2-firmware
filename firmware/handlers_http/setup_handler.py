@@ -106,7 +106,7 @@ class UsbUpdate(BasicHandler):
                 step1 = os.system('cp /media/usb/firmware.zip /home/pi && sync')
                 step2 = os.system('unzip -P kOdak..fIrmw2019?? /home/pi/firmware.zip -d /home/pi/firmware_unziped')
                 if step1 == 0 and step2 == 0:
-                    result = os.system('sudo cp -r /home/pi/firmware_unziped/* /home/pi/v2-firmware')
+                    result = os.system('sudo cp -r /home/pi/firmware_unziped/. /home/pi/v2-firmware')
                     os.system("sudo chown -R pi:pi /home/pi/v2-firmware")
                     if result == 0:
                         os.system('sudo rm -r /home/pi/firmware_unziped')
