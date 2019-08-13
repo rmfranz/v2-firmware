@@ -55,6 +55,7 @@ class Application(tornado.web.Application):
             (r"/get-actual-version", GetActualVersionHandler),
             (r"/get-dev-update", GetUpdateToDevHandler),
             (r"/software-update", ToUpdateSelectionHandler),
+            (r"/repair-update", RepairUpdateHandler),
             (r"/internet-update", ToUpdateHandler),
             (r"/usb-update", ToUsbUpdateHandler),
             (r"/make-usb-update", UsbUpdate),

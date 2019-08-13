@@ -31,6 +31,15 @@ $("#update").on("click", function () {
   }, 1000);
 });
 
+$("#repair_update").on("click", function () {
+  $('#updateModal').toggleClass("k-modal-overlay--visible");
+  $.get("/repair-update").done(function (data) {
+    $("#get_update_error").toggleClass("initiallyHidden");
+    $('#updateModal').toggleClass("k-modal-overlay--visible");
+    $('#update_error').toggleClass("initiallyHidden");
+  });
+});
+
 $("#update_modal_close").on("click", function () {
   $('#updateModal').toggleClass("k-modal-overlay--visible");
 });

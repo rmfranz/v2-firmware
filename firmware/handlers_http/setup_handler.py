@@ -199,13 +199,37 @@ class UpdateHandler(BasicHandler):
     def get(self):
         new = check_output("(git fetch --tags origin && git tag) | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
         os.system("git checkout -f")
-        os.system("git fetch")
+        os.system("git fetch --all")
+        os.system("git reset --hard origin/master")
         os.system("git checkout {}".format(new))
         if self.application.gpio.is_initialized:
             self.application.gpio.stop()
-        os.system("sudo killall pigpiod")
-        os.system("sudo reboot -h now")
+        reset_rpi()
         self.write("ok")
+
+class RepairUpdateHandler(BasicHandler):
+    def get(self):
+        '''
+        Source http://vincesalvino.blogspot.com/2013/08/git-empty-files-corrupt-objects-and.html
+        '''
+        rm = os.system('find .git/objects/ -size 0 -exec rm -f {} \;')
+        if rm == 0:
+            try:
+                new = check_output("(git fetch --tags origin && git tag) | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
+                os.system("git checkout -f")
+                os.system("git fetch --all")
+                os.system("git reset --hard origin/master")
+                os.system("git checkout {}".format(new))
+                if self.application.gpio.is_initialized:
+                    self.application.gpio.stop()
+                reset_rpi()
+                self.write('ok')
+            except:
+                #log
+                self.write('error')
+        else:
+            #log
+            self.write('error')
 
 class ToInfoHandler(BasicHandler):
     def get(self):
