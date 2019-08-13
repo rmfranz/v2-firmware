@@ -11,6 +11,7 @@ import os
 import itertools
 from firmware.the_counter import TheCounter
 import logging
+import filecmp
 
 class SmoothieFirmware(BaseFirmware):
 
@@ -223,20 +224,30 @@ class SmoothieFirmware(BaseFirmware):
         config_json["t1_xoffset"] = x_offset
         config_json["t1_yoffset"] = y_offset
         config_file = "/home/pi/config-files/confighotend2xyoffset"
+        config_smoothie = "/media/smoothie/confighotend2xyoffset"
         info = get_sd()
         sd = info.get(self.hardware_json["board_uuid"])
         if not sd:
-            return 1
+            return False
         os.system("sudo mount /dev/{} /media/smoothie -o uid=pi,gid=pi".format(sd))
         with open(config_file, "w") as f:
             f.write("extruder.hotend2.y_offset {}\n".format(str(y_offset)))
             f.write("extruder.hotend2.x_offset {}".format(str(x_offset)))
         os.system("cp {} /media/smoothie/confighotend2xyoffset && sync".format(config_file))
-        response = os.system("sudo umount /media/smoothie")
-        if response == 0:
+        os.system("sudo umount /media/smoothie")
+        check_res = self.check_config(config_file, config_smoothie)
+        if check_res:
             with open(self.OFFSET_PATH, 'w') as f:
                 json.dump(config_json, f)
-        return response
+            self.config_retry = 0
+            return check_res
+        elif self.config_retry < self.config_max_retries:
+            self.config_retry = self.config_retry + 1
+            self.save_xyoffset(x_offset, y_offset)
+        else:
+            self.config_retry = 0
+            return check_res
+
 
     def save_zoffset(self, z_offset_t0=None, z_offset_t1=None):
         with open(self.OFFSET_PATH) as f:
@@ -253,21 +264,28 @@ class SmoothieFirmware(BaseFirmware):
         else:
             config_json["t0_zoffset"] = z_offset_t0
             config_json["t1_zoffset"] = z_offset_t1
-        config_file = "/home/pi/config-files/confighotendzoffset"        
+        config_file = "/home/pi/config-files/confighotendzoffset"
+        config_smoothie = "/media/smoothie/confighotendzoffset"
         with open(self.OFFSET_PATH, 'w') as f:
             json.dump(config_json, f)
         info = get_sd()
         sd = info.get(self.hardware_json["board_uuid"])
         if not sd:
-            return 1
+            return False
         os.system("sudo mount /dev/{} /media/smoothie -o uid=pi,gid=pi".format(sd))
         with open(config_file, "w") as f:
-            #f.write("extruder.hotend1.z_offset {}\n".format(str(z_offset_t0)))
-            #f.write("extruder.hotend2.z_offset {}".format(str(z_offset_t1)))
             f.write("extruder.hotend2.z_offset {}".format(str(round(float(z_offset_t1) - float(z_offset_t0), 2))))
         os.system("cp {} /media/smoothie/confighotendzoffset && sync".format(config_file))
-        response = os.system("sudo umount /media/smoothie")
-        return response
+        os.system("sudo umount /media/smoothie")
+        check_res = self.check_config(config_file, config_smoothie)
+        if check_res:
+            return check_res
+        elif self.config_retry < self.config_max_retries:
+            self.config_retry = self.config_retry + 1
+            self.save_zoffset(z_offset_t0, z_offset_t1)
+        else:
+            self.config_retry = 0
+            return check_res
 
     def give_calibration_page(self):
         return "25_calibration.html"
@@ -398,3 +416,14 @@ class SmoothieFirmware(BaseFirmware):
             self.user_conf_json["nozzle_1"] = size
         elif nozzle == "2":
             self.user_conf_json["nozzle_2"] = size
+
+    def check_config(self, config_rpi, config_smoothie):
+        info = get_sd()
+        sd = info.get(self.hardware_json["board_uuid"])
+        resp_cmp = False
+        os.system("sudo mount /dev/{} /media/smoothie -o uid=pi,gid=pi".format(sd))
+        try:
+            resp_cmp = filecmp.cmp(config_smoothie, config_rpi)
+            os.system("sudo umount /media/smoothie")
+        finally:
+            return resp_cmp

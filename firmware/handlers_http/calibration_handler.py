@@ -51,8 +51,7 @@ class ZOffsetCalibrationHandler(BasicHandler):
         zoffset_t0 = self.get_body_argument("zoffset_t0")
         zoffset_t1 = self.get_body_argument("zoffset_t1")
         response = self.firmware.save_zoffset(zoffset_t0, zoffset_t1)
-        # si la respuesta es 0, todo bien sino todo mal
-        if response == 0:
+        if response:
             self.firmware.homming()
             #self.firmware.reset()
             #self.firmware.disconnect()
@@ -70,8 +69,7 @@ class XYOffsetCalibrationHandler(BasicHandler):
         xoffset = self.get_body_argument("xoffset")
         yoffset = self.get_body_argument("yoffset")
         response = self.firmware.save_xyoffset(xoffset, yoffset)
-        # si la respuesta es 0, todo bien sino todo mal
-        if response == 0:
+        if response:
             self.firmware.homming()
             #self.firmware.reset()
             #self.firmware.disconnect()

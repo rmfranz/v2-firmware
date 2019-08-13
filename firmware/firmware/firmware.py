@@ -25,6 +25,8 @@ class BaseFirmware:
         self.filename = None
         self.files_from_where = None
         self.total_lines = 0
+        self.config_retry = 0
+        self.config_max_retries = 5
 
     def init_ws_handler(self):
         self.printrun.initEventHandlers()
