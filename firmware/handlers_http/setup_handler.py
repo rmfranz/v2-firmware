@@ -179,21 +179,16 @@ class GetUpdateToDevHandler(BasicHandler):
         scanoutput = check_output("git fetch --tags origin && git tag", shell=True, universal_newlines=True)
         tags = [n for n in scanoutput.split("\n") if n and n != "vinicial"]
         tags.append("master")
-        if version in tags:
-            if version == "master":
-                os.system("git checkout -f")
-                os.system("git checkout master")
-                os.system("git fetch")
-                os.system("git pull")
-            else:
-                os.system("git checkout -f")
-                os.system("git fetch")
-                os.system("git checkout {}".format(version))
-            os.system("sudo killall pigpiod")
-            os.system("sudo reboot -h now")
-            self.write("ok")
+        os.system("git checkout -f")
+        os.system("git fetch --all")
+        os.system("git reset --hard origin/master")
+        if version == "master":
+            os.system("git checkout master")
+            os.system("git pull")
         else:
-            self.redirect("/software-update")
+            os.system("git checkout {}".format(version))
+        reset_rpi()
+        self.write("ok")
 
 class UpdateHandler(BasicHandler):
     def get(self):
