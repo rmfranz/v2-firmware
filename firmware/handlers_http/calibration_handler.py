@@ -50,6 +50,7 @@ class ZOffsetCalibrationHandler(BasicHandler):
     def post(self):
         zoffset_t0 = self.get_body_argument("zoffset_t0")
         zoffset_t1 = self.get_body_argument("zoffset_t1")
+        self.firmware.disconnect()
         response = self.firmware.save_zoffset(zoffset_t0, zoffset_t1)
         if response:
             self.firmware.homming()
@@ -68,6 +69,7 @@ class XYOffsetCalibrationHandler(BasicHandler):
     def post(self):
         xoffset = self.get_body_argument("xoffset")
         yoffset = self.get_body_argument("yoffset")
+        self.firmware.disconnect()
         response = self.firmware.save_xyoffset(xoffset, yoffset)
         if response:
             self.firmware.homming()
