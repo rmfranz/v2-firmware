@@ -3,6 +3,7 @@ from utils import mount_usb, get_gcodes_from_usb, get_gcodes_from_sample, get_gc
 import tornado
 from tornado import httpclient, concurrent
 import os
+import traceback
 
 class PrintSelectionHandler(BasicHandler):
     def get(self):
@@ -24,7 +25,6 @@ class ListingFilesHandler(BasicHandler):
         if listing_id == "1":
             try:
                 result = mount_usb(self.firmware.hardware_json["board_uuid"])
-                print("resultado: {}".format(result))
                 if result == 0:
                     #items = get_gcodes_from_usb()
                     #Uncomment this and comment the other
@@ -36,7 +36,8 @@ class ListingFilesHandler(BasicHandler):
                 else:
                     items = {}
                     error = 2
-            except:
+            except Exception:
+                self.app_logger.error('Error mounting usb: {}'.format(str(traceback.format_exc())))
                 items = {}
         elif listing_id == "2":
            items = get_gcodes_from_sample()
@@ -83,13 +84,15 @@ class PrintHandler(BasicHandler):
             self.render("printing.html", filename=self.firmware.filename, is_image=os.path.exists("/home/pi/print_images/print.png"))
         else:
             #Return to listing_files.html
+            self.app_logger.error('Path no exists! Remove usb?')
             self.render("listing_files_common.html", items=[], error="error", listing_id=1)
 
     def post(self):
         file_path = self.get_body_argument("file_path")
         try:
             filename = self.get_body_argument("filename").split(".gcode")[0]
-        except:
+        except Exception:
+            self.app_logger.error('Could not parse filename: {}'.format(str(traceback.format_exc())))
             filename = self.get_body_argument("filename")
         self.firmware.set_file_to_print(file_path, filename)
         self.write("ok")

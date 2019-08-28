@@ -5,8 +5,7 @@ import os
 import json
 from subprocess import check_output
 from tornado import httpclient, concurrent, gen
-
-
+import traceback
 
 class SetupHandler(BasicHandler):
     def get(self):
@@ -101,6 +100,7 @@ class UsbUpdate(BasicHandler):
         if result == 0:
             md5 = os.system('cd /media/usb && md5sum -c firmware.zip.md5')
             if md5 != 0:
+                self.app_logger.error('USB update error: error with md5')
                 self.write({'error': 3})
             else:
                 step1 = os.system('cp /media/usb/firmware.zip /home/pi && sync')
@@ -113,12 +113,16 @@ class UsbUpdate(BasicHandler):
                         reset_rpi()
                         self.write("ok")
                     else:
+                        self.app_logger.error('USB update error: error copying files to folder')
                         self.write({'error': 5})
                 else:
+                    self.app_logger.error('USB update error: error copy or unzip zip')
                     self.write({'error': 4})
         elif result == 1:
+            self.app_logger.error('USB update error: error mounting usb')
             self.write({'error': 1})
         else:
+            self.app_logger.error('USB update error: error {}'.format(str(result)))
             self.write({'error': 2})
         
 
@@ -137,7 +141,8 @@ class GetUpdateHandler(BasicHandler):
         new = yield self.get_new_tag()
         try:
             actual = check_output("git describe --abbrev=0", shell=True, universal_newlines=True)
-        except:
+        except Exception:
+            self.app_logger.error('Get update error: error getting actual version {}'.format(str(traceback.format_exc())))
             actual = "0"
         if not new:
             error = "error"
@@ -148,7 +153,8 @@ class GetUpdateHandler(BasicHandler):
         try:
             new_tag = check_output("git fetch --tags origin && git tag | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1",
                     shell=True, universal_newlines=True)
-        except:
+        except Exception:
+            self.app_logger.error('Get update error: error getting tags {}'.format(str(traceback.format_exc())))
             new_tag = None
         return new_tag
         
@@ -157,7 +163,8 @@ class GetActualVersionHandler(BasicHandler):
     def get(self):
         try:
             actual = check_output("git describe --abbrev=0", shell=True, universal_newlines=True)
-        except:
+        except Exception:
+            self.app_logger.error('Get update error: error getting actual version {}'.format(str(traceback.format_exc())))
             actual = "0"
         self.write({"actual": actual})
 
@@ -220,11 +227,11 @@ class RepairUpdateHandler(BasicHandler):
                     self.application.gpio.stop()
                 reset_rpi()
                 self.write('ok')
-            except:
-                #log
+            except Exception:
+                self.app_logger.error('Repair update error: error repairing update {}'.format(str(traceback.format_exc())))
                 self.write('error')
         else:
-            #log
+            self.app_logger.error('Repair update error: error removing corrupt objects')
             self.write('error')
 
 class ToInfoHandler(BasicHandler):
@@ -317,8 +324,10 @@ class ResetBoardUuidHandler(BasicHandler):
     def get(self):
         board_info = self.firmware.get_board_info()
         if not board_info:
+            self.app_logger.error('Reset board error: no board info')
             self.write("01")
         elif len(board_info) > 1:
+            self.app_logger.error('Reset board error: More than one board detected. USB connected?')
             self.write("02")
         else:
             self.firmware.set_board_info(board_info[0].split()[8])
@@ -351,8 +360,8 @@ class SetConnectionStatusHandler(BasicHandler):
         result = "no-connected"
         try:
             result = yield self.get_connectivity()
-        except:
-            print("error")
+        except Exception:
+            self.app_logger.error('Set connection error: could not get connectivity with this error: {}'.format(str(traceback.format_exc())))
         self.set_cookie('cloud_status', user_conf_json['cloud_pref'])
         self.set_cookie('wifi_status', result)
         self.write({'cloud_status': user_conf_json['cloud_pref'], 'wifi_status': result})

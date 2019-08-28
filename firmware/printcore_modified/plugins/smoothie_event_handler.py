@@ -93,9 +93,9 @@ class SmoothieHandler(PrinterEventHandler):
         self.__write("on_disconnect")
     
     def on_error(self, error):
+        self.create_connection_and_send("ws://127.0.0.1:8888/error-handler", "ERR001")
         self.smoothie_logger.debug(error.strip())
         self.board_logger.error(error.strip())
-        self.create_connection_and_send("ws://127.0.0.1:8888/error-handler", "ERR001")
         self.in_error = True
         self.__write("on_error", error)
         
