@@ -44,6 +44,22 @@
     </div>
 </section>
 
+<section id="calibration_retry" class="k-modal-overlay">
+    <div class="k-modal">
+        <button id="calibration_retry_close" class="k-modal__close">
+            <img src="/static/images/icon_cancelar.svg" />
+        </button>
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("calibration_retry").format(",")}}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="grid_modal" class="k-modal-overlay">
     <div class="k-modal">
         <button id="grid_modal_close" class="k-modal__close">
@@ -127,7 +143,8 @@
     <div class="k-modal">
         <div class="k-modal-container">
             <div class="k-modal-4__top">
-                <h2 class="k-modal__p k-modal__p--big k-modal__p--center" style="margin: 20px">Be sure nozzle and build plate are clear from any residual plastic</h2>
+                <h2 class="k-modal__p k-modal__p--big k-modal__p--center" style="margin: 20px">Be sure nozzle and build
+                    plate are clear from any residual plastic</h2>
             </div>
             <div class="k-modal-4__bottom">
                 <button id="advertise_modal_close" class="k-modal-4__button k-modal-4__button--red">OK</button>
