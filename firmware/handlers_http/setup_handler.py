@@ -187,6 +187,7 @@ class GetUpdateToDevHandler(BasicHandler):
             os.system("git pull")
         else:
             os.system("git checkout {}".format(version))
+            os.system("git pull origin {}".format(version))
         reset_rpi()
         self.write("ok")
 
