@@ -376,4 +376,11 @@ def enable_loggers():
     board_logger.setLevel(logging.ERROR)
 
 def get_logs():
-    pass
+    with open("/home/pi/config-files/hardware.json") as f:
+        hardware_json = json.load(f)
+    app_name = '/home/pi/logs/app_log_{}.txt'.format(hardware_json['serial_number'])
+    board_name = '/home/pi/logs/board_log_{}.txt'.format(hardware_json['serial_number'])
+    os.system('cp {} /media/usb && sync'.format(app_name))
+    os.system('cp {} /media/usb && sync'.format(board_name))
+    os.system('sudo rm {}'.format(app_name))
+    os.system('sudo rm {}'.format(board_name))
