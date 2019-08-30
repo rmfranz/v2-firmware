@@ -21,6 +21,7 @@ import tornado
 import asyncio
 import functools
 import logging
+import traceback
 
 class SmoothieHandler(PrinterEventHandler):
     '''
@@ -34,6 +35,7 @@ class SmoothieHandler(PrinterEventHandler):
         self.the_counter = None
         self.ioloop = tornado.ioloop.IOLoop(make_current=False)
         self.smoothie_logger = logging.getLogger('smoothie_logger')
+        self.board_logger = logging.getLogger('board_logger')
         
     def check_origin(self, origin):
         return True
@@ -81,6 +83,7 @@ class SmoothieHandler(PrinterEventHandler):
         if self.is_error(line.strip()) and not self.in_error:
             self.create_connection_and_send("ws://127.0.0.1:8888/error-handler", "ERR002")
             self.in_error = True
+            self.board_logger.error(line.strip())
         self.__write("on_recv", line.strip())
     
     def on_connect(self):
@@ -90,8 +93,9 @@ class SmoothieHandler(PrinterEventHandler):
         self.__write("on_disconnect")
     
     def on_error(self, error):
-        self.smoothie_logger.debug(error.strip())
         self.create_connection_and_send("ws://127.0.0.1:8888/error-handler", "ERR001")
+        self.smoothie_logger.debug(error.strip())
+        self.board_logger.error(error.strip())
         self.in_error = True
         self.__write("on_error", error)
         
@@ -168,8 +172,9 @@ class SmoothieHandler(PrinterEventHandler):
     def create_connection_and_send(self, url, data):
         try:
             self.ioloop.run_sync(functools.partial(self.create_connection_and_send_async, url, data))
-        except Exception as e:
-            self.smoothie_logger.error(str(e))
+        except Exception:
+            self.smoothie_logger.error(str(traceback.format_exc()))
+            self.board_logger.error(str(traceback.format_exc()))
         #loop = asyncio.new_event_loop()
         #asyncio.set_event_loop(loop)
         #loop.run_until_complete( self.create_connection_and_send_async(url, data))
@@ -180,8 +185,9 @@ class SmoothieHandler(PrinterEventHandler):
         try:
             ws = yield websocket_connect(url)
             ws.write_message(data.strip())
-        except Exception as e:
-            self.smoothie_logger.error(str(e))
+        except Exception:
+            self.smoothie_logger.error(str(traceback.format_exc()))
+            self.board_logger.error(str(traceback.format_exc()))
         finally:
             ws.close()
 

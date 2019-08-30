@@ -12,6 +12,7 @@ import itertools
 from firmware.the_counter import TheCounter
 import logging
 import filecmp
+import traceback
 
 class SmoothieFirmware(BaseFirmware):
 
@@ -24,7 +25,7 @@ class SmoothieFirmware(BaseFirmware):
         Check directory for print end
         """
         logger = logging.getLogger('firmware')
-        logger.info("Desde el firmware, me inicie")
+        self.board_logger = logging.getLogger('board_logger')
         path = "/home/pi/print_end_status"
         self.printrun = printcore("/dev/ttyACM0", 115200)
         print("Conecte la impresora")
@@ -229,6 +230,7 @@ class SmoothieFirmware(BaseFirmware):
         info = get_sd()
         sd = info.get(self.hardware_json["board_uuid"])
         if not sd:
+            self.board_logger.error('Not board uuid found on xy offset')
             return False
         os.system("sudo mount /dev/{} /media/smoothie -o uid=pi,gid=pi".format(sd))
         with open(config_file, "w") as f:
@@ -243,9 +245,11 @@ class SmoothieFirmware(BaseFirmware):
             self.config_retry = 0
             return check_res
         elif self.config_retry < self.config_max_retries:
+            self.board_logger.error('Error saving xy offset, attemp {}'.format(str(self.config_retry)))
             self.config_retry = self.config_retry + 1
             self.save_xyoffset(x_offset, y_offset)
         else:
+            self.board_logger.error('Error saving xy offset after all attemps')
             self.config_retry = 0
             return check_res
 
@@ -272,6 +276,7 @@ class SmoothieFirmware(BaseFirmware):
         info = get_sd()
         sd = info.get(self.hardware_json["board_uuid"])
         if not sd:
+            self.board_logger.error('Not board uuid found on z offset')
             return False
         os.system("sudo mount /dev/{} /media/smoothie -o uid=pi,gid=pi".format(sd))
         with open(config_file, "w") as f:
@@ -285,6 +290,7 @@ class SmoothieFirmware(BaseFirmware):
             self.config_retry = self.config_retry + 1
             self.save_zoffset(z_offset_t0, z_offset_t1)
         else:
+            self.board_logger.error('Error saving z offset after all attemps')
             self.config_retry = 0
             return check_res
 
@@ -426,5 +432,7 @@ class SmoothieFirmware(BaseFirmware):
         try:
             resp_cmp = filecmp.cmp(config_smoothie, config_rpi)
             os.system("sudo umount /media/smoothie")
+        except Exception:
+            self.board_logger.error(str(traceback.format_exc()))
         finally:
             return resp_cmp

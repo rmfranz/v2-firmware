@@ -197,6 +197,7 @@ class Application(tornado.web.Application):
         self.firmware = FirmwareDirector().give_me_firmware()
         self.gpio = Gpio()
         self.wizzard = Wizzard()
+        self.app_logger = logging.getLogger('app_logger')
         self.violent_caller = PeriodicCallback(self.violent_call, 3600000)
         self.violent_counter = 0
 

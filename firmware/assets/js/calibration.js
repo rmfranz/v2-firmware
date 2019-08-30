@@ -1,6 +1,7 @@
 $("#change_extruder").toggleClass( "k-modal-overlay--visible" );
 var ip = "127.0.0.1";
 var t0_activate =  true;
+var calibration_released =  false;
 function get_offsets() {
     var t0_offset = 1;
     var t1_offset = 1;
@@ -25,6 +26,13 @@ function finish_calibration() {
 
 function finish_3_calibration() {
     $("#3pt_calibration_wait").toggleClass( "k-modal-overlay--visible" );
+}
+
+function check_calibration_finish() {
+    if(calibration_released){
+        $('#calibration_wait').toggleClass( "k-modal-overlay--visible" );
+        $('#calibration_retry').toggleClass( "k-modal-overlay--visible" );
+    }
 }
 
 var {t0_offset, t1_offset, t1_yoffset, t1_xoffset} = get_offsets();
@@ -114,7 +122,9 @@ $("#25_points_calibration").on("click", function() {
     $.ajax({url: "/points-25-calibration", success: function(result){
         console.info(result)
     }});
+    calibration_released = true;
     $('#calibration_wait').toggleClass( "k-modal-overlay--visible" );
+    setTimeout(check_calibration_finish, 130000);
 });
 
 $("#inspect_grid_points").on("click", function() {
@@ -190,6 +200,7 @@ var ws_25_points_calibration = new WebSocket("ws://" + ip + ":8888/probe-complet
 ws_25_points_calibration.onmessage = function (evt) {
     /*$('#myModal').modal('hide');
     $('#grid_modal').modal('show');*/
+    calibration_released = false;
     $("#calibration_wait").toggleClass( "k-modal-overlay--visible" );
     $("#grid_modal").toggleClass( "k-modal-overlay--visible" );
 };
@@ -247,6 +258,10 @@ $("#confirm_manual_reboot").on("click", function() {
 
 $("#advertise_modal_close").on("click", function() {
     $("#advertise_modal").toggleClass( "k-modal-overlay--visible" );
+});
+
+$("#calibration_retry_close").on("click", function() {
+    $('#calibration_retry').toggleClass( "k-modal-overlay--visible" );
 });
 
 $("#3_points_calibration").on("click", function() {

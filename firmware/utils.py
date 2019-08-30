@@ -51,6 +51,9 @@ def perform_os_check():
     if not os.path.exists("/home/pi/print_images"):
         os.system("sudo mkdir /home/pi/print_images")
         os.system("sudo chown -R pi:pi /home/pi/print_images")
+    if not os.path.exists("/home/pi/logs"):
+        os.system("sudo mkdir /home/pi/logs")
+        os.system("sudo chown -R pi:pi /home/pi/logs")
     try:
         os.system("amixer cset numid=3 1")
     except:
@@ -306,7 +309,7 @@ def is_wifi_activated():
     except:
         return False
 
-def enable_loggers():
+def enable_deep_loggers():
     with open("/home/pi/config-files/hardware.json") as f:
         hardware_json = json.load(f)
     formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
@@ -333,7 +336,7 @@ def enable_loggers():
     temp_caller = PeriodicCallback(log_temp, 2000)
     temp_caller.start()
 
-def get_logs():
+def get_deep_logs():
     with open("/home/pi/config-files/hardware.json") as f:
         hardware_json = json.load(f)
     sm_name = '/home/pi/smoothie_log_{}.txt'.format(hardware_json['serial_number'])
@@ -355,3 +358,22 @@ def get_rpi_temp():
 
 def log_temp():
     logger.debug(get_rpi_temp())
+
+def enable_loggers():
+    log_folder = "/home/pi/logs"
+    with open("/home/pi/config-files/hardware.json") as f:
+        hardware_json = json.load(f)
+    formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+    app_logger = logging.getLogger('app_logger')
+    board_logger = logging.getLogger('board_logger')
+    app_hdlr = logging.FileHandler('{}/app_log_{}.txt'.format(log_folder, hardware_json['serial_number']))
+    board_hdlr = logging.FileHandler('{}/board_log_{}.txt'.format(log_folder, hardware_json['serial_number']))
+    app_hdlr.setFormatter(formatter)
+    board_hdlr.setFormatter(formatter)
+    app_logger.addHandler(app_hdlr)
+    app_logger.setLevel(logging.ERROR)
+    board_logger.addHandler(board_hdlr)
+    board_logger.setLevel(logging.ERROR)
+
+def get_logs():
+    pass

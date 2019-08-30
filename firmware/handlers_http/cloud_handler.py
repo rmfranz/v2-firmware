@@ -38,6 +38,7 @@ class GetRegistrationCodeHandler(BasicHandler):
             self.write({"registration_code": registration_code})
         else:
             #self.render("cloud.html", registration_code="Error on API", cloud_pref=None, wizzard_viewed=self.wizzard.viewed)
+            self.app_logger.error('Error on cloud registration: Code {} Resp {}'.format(str(resp.code), str(resp.body.decode('utf-8'))))
             self.write({"registration_code": "Error"})
 
 class UnregisterHandler(BasicHandler):
@@ -89,6 +90,7 @@ class GetQueueHandler(BasicHandler):
         elif resp.code == 200:
             self.write({"resp":[], "error": self.locale.translate("no_files_queue")})
         else:
+            self.app_logger.error('Error on get queue: Code {} Resp {}'.format(str(resp.code), str(resp.body.decode('utf-8'))))
             self.write({"resp":[], "error": self.locale.translate("error_api")})
 
 class ToConfirmPrintHandler(BasicHandler):
@@ -111,6 +113,7 @@ class ToConfirmPrintHandler(BasicHandler):
             if not cloud_job:
                 error = "error"
         else:
+            self.app_logger.error('Error on confirm print from cloud: Code {} Resp {}'.format(str(resp.code), str(resp.body.decode('utf-8'))))
             error = "error"
         time = float(cloud_job["printing_duration"])
         time = time % (24 * 3600)
@@ -132,6 +135,7 @@ class PrintCloudHandler(BasicHandler):
         if resp.code == 200:
             self.render("phantom.html", error=None)
         else:
+            self.app_logger.error('Error on print from cloud: Code {} Resp {}'.format(str(resp.code), str(resp.body.decode('utf-8'))))
             self.render("phantom.html", error="error")
 
 class SetUserCloudHanlder(BasicHandler):
