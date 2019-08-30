@@ -124,7 +124,7 @@ $("#25_points_calibration").on("click", function() {
     }});
     calibration_released = true;
     $('#calibration_wait').toggleClass( "k-modal-overlay--visible" );
-    setTimeout(check_calibration_finish, 130000);
+    setTimeout(check_calibration_finish, 300000);
 });
 
 $("#inspect_grid_points").on("click", function() {
