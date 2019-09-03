@@ -265,6 +265,10 @@ $("#calibration_retry_close").on("click", function() {
     $('#calibration_retry').toggleClass( "k-modal-overlay--visible" );
 });
 
+$("#calibration_ok_close").on("click", function() {
+    $('#calibration_ok_modal').toggleClass( "k-modal-overlay--visible" );
+});
+
 $("#3_points_calibration").on("click", function() {
     $("#3pt_calibration_wait").toggleClass( "k-modal-overlay--visible" );
     $.get("/make-3-calibration");
