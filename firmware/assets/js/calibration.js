@@ -32,6 +32,7 @@ function check_calibration_finish() {
     if(calibration_released){
         $('#calibration_wait').toggleClass( "k-modal-overlay--visible" );
         $('#calibration_retry').toggleClass( "k-modal-overlay--visible" );
+        calibration_released = false;
     }
 }
 
@@ -124,7 +125,7 @@ $("#25_points_calibration").on("click", function() {
     }});
     calibration_released = true;
     $('#calibration_wait').toggleClass( "k-modal-overlay--visible" );
-    setTimeout(check_calibration_finish, 300000);
+    setTimeout(check_calibration_finish, 240000);
 });
 
 $("#inspect_grid_points").on("click", function() {
@@ -202,7 +203,7 @@ ws_25_points_calibration.onmessage = function (evt) {
     $('#grid_modal').modal('show');*/
     calibration_released = false;
     $("#calibration_wait").toggleClass( "k-modal-overlay--visible" );
-    $("#grid_modal").toggleClass( "k-modal-overlay--visible" );
+    $("#calibration_ok_modal").toggleClass( "k-modal-overlay--visible" );
 };
 
 var inspect_grid = new WebSocket("ws://" + ip + ":8888/inspect-grid");
