@@ -2,6 +2,7 @@ $("#change_extruder").toggleClass( "k-modal-overlay--visible" );
 var ip = "127.0.0.1";
 var t0_activate =  true;
 var calibration_released =  false;
+var grid = [];
 function get_offsets() {
     var t0_offset = 1;
     var t1_offset = 1;
@@ -29,11 +30,25 @@ function finish_3_calibration() {
 }
 
 function check_calibration_finish() {
-    if(calibration_released){
+    var result = check_calibration_ok();
+    if(calibration_released && result) {
+        $('#calibration_wait').toggleClass( "k-modal-overlay--visible" );
+        $("#calibration_ok_modal").toggleClass( "k-modal-overlay--visible" );
+        calibration_released = false;
+    } else {
         $('#calibration_wait').toggleClass( "k-modal-overlay--visible" );
         $('#calibration_retry').toggleClass( "k-modal-overlay--visible" );
         calibration_released = false;
     }
+}
+
+function check_calibration_ok() {
+    for (var i = 0; i < grid.length; i++) {
+        if(isNaN(grid[i])){
+            return false;
+        }
+    }
+    return true;
 }
 
 var {t0_offset, t1_offset, t1_yoffset, t1_xoffset} = get_offsets();
@@ -201,14 +216,20 @@ var ws_25_points_calibration = new WebSocket("ws://" + ip + ":8888/probe-complet
 ws_25_points_calibration.onmessage = function (evt) {
     /*$('#myModal').modal('hide');
     $('#grid_modal').modal('show');*/
+    var result = check_calibration_ok();
     calibration_released = false;
     $("#calibration_wait").toggleClass( "k-modal-overlay--visible" );
-    $("#calibration_ok_modal").toggleClass( "k-modal-overlay--visible" );
+    if(result){
+        $("#calibration_ok_modal").toggleClass( "k-modal-overlay--visible" );
+    } else {
+        $("#calibration_retry").toggleClass( "k-modal-overlay--visible" );
+    }
 };
 
 var inspect_grid = new WebSocket("ws://" + ip + ":8888/inspect-grid");
 inspect_grid.onmessage = function (evt) {
-    var list = evt.data.split(" ")
+    var list = evt.data.split(" ");
+    grid = grid.concat(list);
     var append_td = "<tr>"
     for (var i = 0; i < list.length; i++) {
         append_td += "<td>" + list[i] + "</td>";
