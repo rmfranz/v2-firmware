@@ -27,9 +27,12 @@
     <a href="/select-calibration" class="k-footer-left">
         <button class="k-footer__btn k-footer__btn--red "> <img src="/static/images/icon_flecha-back.svg" /> </button>
     </a>
-    <a href="/save-25-calibration" class="k-footer-right">
+    <a id="save_calibration" href="#" class="k-footer-right">
         <button class="k-footer__btn k-footer__btn--yellow k-footer__btn--wide">{{_("calibration_save")}} </button>
     </a>
+    <!--<a href="/save-25-calibration" class="k-footer-right">
+        <button class="k-footer__btn k-footer__btn--yellow k-footer__btn--wide">{{_("calibration_save")}} </button>
+    </a>-->
 </footer>
 
 <!-- New modals -->
@@ -41,6 +44,48 @@
                 <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
                     {{_("calibration_wait").format(",")}}
                 </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="calibration_save_wait" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("calibration_save_wait").format(",")}}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="calibration_save_error" class="k-modal-overlay">
+    <div class="k-modal">
+        <button id="calibration_save_error_close" class="k-modal__close">
+            <img src="/static/images/icon_cancelar.svg" />
+        </button>
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <img class="k-spinner-container__spinner" src="/static/images/icon_loader.svg" />
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("calibration_save_error").format(",")}}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="calibration_save_ok" class="k-modal-overlay">
+    <div class="k-modal">
+        <div class="k-modal-4">
+            <div class="k-modal-4__top">
+                <h2 class="k-modal__title k-modal__title--big">{{_("calibration_save_ok").format(",")}}</h2>
+            </div>
+            <div class="k-modal-4__bottom">
+                <button id="calibration_save_ok_close" class="k-modal-4__button k-modal-4__button--red">OK</button>
             </div>
         </div>
     </div>

@@ -31,6 +31,11 @@ class ResetGridCalibration(BasicHandler):
 class SavePoints25Calibration(BasicHandler):
     def get(self):
         self.firmware.calibration_25_points_for_complete()
+        self.write('ok')
+
+class SavePoints25CalibrationPage(BasicHandler):
+    def get(self):
+        self.firmware.calibration_25_points_for_complete()
         self.render("select_calibration.html")
 
 class Points3Calibration(BasicHandler):

@@ -4,6 +4,7 @@ var t0_activate =  true;
 var calibration_released =  false;
 var grid = [];
 var probe_reach = false;
+var save_reach = false;
 function get_offsets() {
     var t0_offset = 1;
     var t1_offset = 1;
@@ -45,6 +46,13 @@ function check_calibration_finish() {
         $('#calibration_retry').toggleClass( "k-modal-overlay--visible" );
         calibration_released = false;
     }*/
+}
+
+function check_save_reach() {
+    if(!save_reach){
+        $('#calibration_save_wait').toggleClass( "k-modal-overlay--visible" );
+        $('#calibration_save_error').toggleClass( "k-modal-overlay--visible" );
+    }
 }
 
 function check_calibration_ok() {
@@ -148,6 +156,11 @@ $("#25_points_calibration").on("click", function() {
     setTimeout(check_calibration_finish, 240000);
 });
 
+$("#save_calibration").on("click", function() {
+    $('#calibration_save_wait').toggleClass( "k-modal-overlay--visible" );
+    $.get("/save-25-calibration");
+});
+
 $("#inspect_grid_points").on("click", function() {
     $("#grid_inspect").empty();
     $.ajax({url: "/show-grid", success: function(result){
@@ -240,6 +253,14 @@ ws_25_points_calibration_failed.onmessage = function (evt) {
     $("#sensado_error_modal").toggleClass( "k-modal-overlay--visible" );
 };
 
+var ws_grid_saved = new WebSocket("ws://" + ip + ":8888/grid-saved");
+ws_grid_saved.onmessage = function (evt) {
+    save_reach = true;
+    $("#calibration_save_wait").toggleClass( "k-modal-overlay--visible" );
+    $("#calibration_save_ok").toggleClass( "k-modal-overlay--visible" );
+    setTimeout(check_save_reach, 240000);
+};
+
 var inspect_grid = new WebSocket("ws://" + ip + ":8888/inspect-grid");
 inspect_grid.onmessage = function (evt) {
     var list = evt.data.split(" ");
@@ -312,6 +333,10 @@ $("#sensado_error_close").on("click", function() {
     $('#sensado_error_modal').toggleClass( "k-modal-overlay--visible" );
 });
 
+$("#calibration_save_error_close").on("click", function() {
+    $('#calibration_save_error').toggleClass( "k-modal-overlay--visible" );
+});
+
 $("#3_points_calibration").on("click", function() {
     $("#3pt_calibration_wait").toggleClass( "k-modal-overlay--visible" );
     $.get("/make-3-calibration");
@@ -320,4 +345,8 @@ $("#3_points_calibration").on("click", function() {
 
 $("#done_modal_close").on("click", function () {
     $("#done_modal").toggleClass("k-modal-overlay--visible");
+});
+
+$("#calibration_save_ok_close").on("click", function () {
+    window.location.href = "/select-calibration";
 });
