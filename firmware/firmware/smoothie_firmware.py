@@ -298,14 +298,14 @@ class SmoothieFirmware(BaseFirmware):
         return "25_calibration.html"
 
     def calibration_25_points_until_complete(self):
-        self.printrun.send_now("G28")
+        #self.printrun.send_now("G28")
         self.printrun.send_now("G32")
-        self.printrun.send_now("M374")
-        self.printrun.send_now("M500")
-
-    def calibration_25_points_for_complete(self):
         #self.printrun.send_now("M374")
         #self.printrun.send_now("M500")
+
+    def calibration_25_points_for_complete(self):
+        self.printrun.send_now("M374")
+        self.printrun.send_now("M500")
         self.printrun.send_now("G28")
 
     def show_grid_25_points(self):

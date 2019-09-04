@@ -177,6 +177,7 @@ class Application(tornado.web.Application):
             (r"/heating-bed", HeatingBedWsHandler),
             (r"/heating-nozzle", HeatingNozzleWsHandler),
             (r"/probe-complete", ProbeCompleteWsHandler),
+            (r"/probe-failed", ProbeFailedWsHandler),
             (r"/z-probe", ZProbeWsHandler),
             (r"/inspect-grid", InspectGridWsHandler),
             (r"/waiting-file", WaitingFileWsHandler),

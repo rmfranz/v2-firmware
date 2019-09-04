@@ -78,6 +78,37 @@
     </div>
 </section>
 
+<section id="sensado_ok_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <button id="sensado_ok_close" class="k-modal__close">
+            <img src="/static/images/icon_cancelar.svg" />
+        </button>
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <img class="k-modal-2__img" src="/static/images/icon-tilde_verde.svg" />
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("sensado_ok").format(",")}}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="sensado_error_modal" class="k-modal-overlay">
+    <div class="k-modal">
+        <button id="sensado_error_close" class="k-modal__close">
+            <img src="/static/images/icon_cancelar.svg" />
+        </button>
+        <div class="k-modal-container">
+            <div class="k-modal-2">
+                <img class="k-modal-2__img" src="/static/images/icon_cruz-roja.svg" />
+                <p class="k-modal__p k-modal__p--big k-modal__p--center k-modal_p--maxwidth">
+                    {{_("sensado_error").format(",")}}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="grid_modal" class="k-modal-overlay">
     <div class="k-modal">
         <button id="grid_modal_close" class="k-modal__close">

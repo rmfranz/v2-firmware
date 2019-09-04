@@ -3,6 +3,7 @@ var ip = "127.0.0.1";
 var t0_activate =  true;
 var calibration_released =  false;
 var grid = [];
+var probe_reach = false;
 function get_offsets() {
     var t0_offset = 1;
     var t1_offset = 1;
@@ -30,7 +31,11 @@ function finish_3_calibration() {
 }
 
 function check_calibration_finish() {
-    var result = check_calibration_ok();
+    if(!probe_reach){
+        $('#calibration_wait').toggleClass( "k-modal-overlay--visible" );
+        $('#sensado_error_modal').toggleClass( "k-modal-overlay--visible" );
+    }
+    /*var result = check_calibration_ok();
     if(calibration_released && result) {
         $('#calibration_wait').toggleClass( "k-modal-overlay--visible" );
         $("#calibration_ok_modal").toggleClass( "k-modal-overlay--visible" );
@@ -39,7 +44,7 @@ function check_calibration_finish() {
         $('#calibration_wait').toggleClass( "k-modal-overlay--visible" );
         $('#calibration_retry').toggleClass( "k-modal-overlay--visible" );
         calibration_released = false;
-    }
+    }*/
 }
 
 function check_calibration_ok() {
@@ -216,14 +221,23 @@ var ws_25_points_calibration = new WebSocket("ws://" + ip + ":8888/probe-complet
 ws_25_points_calibration.onmessage = function (evt) {
     /*$('#myModal').modal('hide');
     $('#grid_modal').modal('show');*/
-    var result = check_calibration_ok();
+    //var result = check_calibration_ok();
     calibration_released = false;
+    probe_reach = true;
     $("#calibration_wait").toggleClass( "k-modal-overlay--visible" );
-    if(result){
+    $("#sensado_ok_modal").toggleClass( "k-modal-overlay--visible" );
+    /*if(result){
         $("#calibration_ok_modal").toggleClass( "k-modal-overlay--visible" );
     } else {
         $("#calibration_retry").toggleClass( "k-modal-overlay--visible" );
-    }
+    }*/
+};
+
+var ws_25_points_calibration_failed = new WebSocket("ws://" + ip + ":8888/probe-failed");
+ws_25_points_calibration_failed.onmessage = function (evt) {
+    probe_reach = true;
+    $("#calibration_wait").toggleClass( "k-modal-overlay--visible" );
+    $("#sensado_error_modal").toggleClass( "k-modal-overlay--visible" );
 };
 
 var inspect_grid = new WebSocket("ws://" + ip + ":8888/inspect-grid");
@@ -288,6 +302,14 @@ $("#calibration_retry_close").on("click", function() {
 
 $("#calibration_ok_close").on("click", function() {
     $('#calibration_ok_modal').toggleClass( "k-modal-overlay--visible" );
+});
+
+$("#sensado_ok_close").on("click", function() {
+    $('#sensado_ok_modal').toggleClass( "k-modal-overlay--visible" );
+});
+
+$("#sensado_error_close").on("click", function() {
+    $('#sensado_error_modal').toggleClass( "k-modal-overlay--visible" );
 });
 
 $("#3_points_calibration").on("click", function() {

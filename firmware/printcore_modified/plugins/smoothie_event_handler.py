@@ -72,6 +72,8 @@ class SmoothieHandler(PrinterEventHandler):
             self.create_connection_and_send("ws://127.0.0.1:8888/z-probe", line.strip())
         elif self.is_probe_complete(line.strip()):
             self.create_connection_and_send("ws://127.0.0.1:8888/probe-complete", line.strip())
+        elif self.is_probe_failed(line.strip()):
+            self.create_connection_and_send("ws://127.0.0.1:8888/probe-failed", line.strip())
         elif self.is_for_grid(line.strip()):
             self.create_connection_and_send("ws://127.0.0.1:8888/inspect-grid", line.strip())
         else:
@@ -155,6 +157,9 @@ class SmoothieHandler(PrinterEventHandler):
 
     def is_probe_complete(self, data):
         return "Probe completed" in data
+
+    def is_probe_failed(self, data):
+        return "Probe failed" in data
 
     def is_for_grid(self, data):
         list_item = data.split(" ")
