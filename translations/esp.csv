@@ -309,8 +309,17 @@ xyoffset_calibration_popup,Imprima el gcode XY Offset Calibration e mida con un 
 retract_more_popup,Por favor aguarde.
 error_api,Error de conexión
 no_files_queue,La cola de impresión está vacía.
-,
-,
+repair_update_button,Reparar
+reparable_update_error,Error de conexión. Para repararlo presione el boton
+calibration_retry,Algo falló. Por favor{} reintente la calibración
+print_error_popup,Ocurrió un error. Por favor reinicie la máquina y reintente imprimir
+communication_error_popup,Ocurrió un error. Por favor reinicie la máquina 
+calibration_ok,Cama calibrada correctamente!
+sensado_ok,Sensado terminado
+sensado_error,Hubo un error. Por favor revise el sensor 
+calibration_save_wait,Guardando...
+calibration_save_ok,Plataforma calibrada exitosamente!
+calibration_save_error,Hubo un error. Por favor intente de nuevo
 ,
 ,
 ,Extrusor izquierdo

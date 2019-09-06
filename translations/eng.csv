@@ -309,8 +309,17 @@ xyoffset_calibration_popup,Print the XY Offset calibration gcode and measure the
 retract_more_popup,Please wait.
 error_api,Connection failure
 no_files_queue,Print queue is empty.
-,
-,
+repair_update_button,Repair
+reparable_update_error,Connection error. To repair it{} press the button
+calibration_retry,Something went wrong. Please{} retry calibration
+print_error_popup,An error has occurred. Please reboot and retry the print job 
+communication_error_popup,An error has occurred. Please reboot the machine
+calibration_ok,Bed succesfully calibrated!
+sensado_ok,Probing complete
+sensado_error,An error has occurred. Check the probing sensor
+calibration_save_wait,Saving...
+calibration_save_ok,Build plate succesfully calibrated!
+calibration_save_error,An error has occurred{} please try again
 ,
 ,
 ,Left extruder
