@@ -6,7 +6,11 @@ ws_error_handler.onmessage = function (evt) {
     } else if(error == "ERR001") {
         $("#communication_error_modal").toggleClass( "k-modal-overlay--visible" );
     } else {
-        $("#error_code").text(evt.data)
+        if(evt.data == "ERR002"){
+            $("#error_code").text(evt.data)
+        } else {
+            $("#error_text").text(evt.data)
+        }
         $("#error_modal").toggleClass( "k-modal-overlay--visible" );
     }
 };
