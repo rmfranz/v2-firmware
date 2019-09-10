@@ -9,6 +9,7 @@ ws_error_handler.onmessage = function (evt) {
         if(evt.data == "ERR002"){
             $("#error_code").text(evt.data)
         } else {
+            $("#error_code").toggleClass("k-modal__warning");
             $("#error_text").text(evt.data)
         }
         $("#error_modal").toggleClass( "k-modal-overlay--visible" );
