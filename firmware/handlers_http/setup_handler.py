@@ -222,6 +222,7 @@ class RepairUpdateHandler(BasicHandler):
                 os.system("git checkout -f")
                 os.system("git fetch --all")
                 os.system("git reset --hard origin/master")
+                os.system("git clean -f")
                 os.system("git checkout {}".format(new))
                 if self.application.gpio.is_initialized:
                     self.application.gpio.stop()
