@@ -2,6 +2,7 @@ $("#change_extruder").toggleClass( "k-modal-overlay--visible" );
 var ip = "127.0.0.1";
 var t0_activate =  true;
 var calibration_released =  false;
+var calibration_ok =  false;
 var grid = [];
 var probe_reach = false;
 var save_reach = false;
@@ -161,7 +162,7 @@ $("#25_points_calibration").on("click", function() {
 });
 
 $("#save_calibration").on("click", function() {
-    if(calibration_released){
+    if(calibration_ok){
         $('#calibration_save_wait').toggleClass( "k-modal-overlay--visible" );
         $.get("/save-25-calibration");
     }
@@ -243,6 +244,7 @@ ws_25_points_calibration.onmessage = function (evt) {
     //var result = check_calibration_ok();
     calibration_released = false;
     probe_reach = true;
+    calibration_ok = true;
     $("#calibration_wait").toggleClass( "k-modal-overlay--visible" );
     $("#sensado_ok_modal").toggleClass( "k-modal-overlay--visible" );
     /*if(result){
@@ -257,6 +259,10 @@ ws_25_points_calibration_failed.onmessage = function (evt) {
     probe_reach = true;
     $("#calibration_wait").toggleClass( "k-modal-overlay--visible" );
     $("#sensado_error_modal").toggleClass( "k-modal-overlay--visible" );
+    $('#btn_back_calibration').toggleClass( "k-footer__btn--grey" );
+    $('#btn_back_calibration').toggleClass( "k-footer__btn--red" );
+    $('#btn_save_calibration').toggleClass( "k-footer__btn--yellow");
+    $('#btn_save_calibration').toggleClass( "k-footer__btn--grey" );
 };
 
 var ws_grid_saved = new WebSocket("ws://" + ip + ":8888/grid-saved");
@@ -358,7 +364,7 @@ $("#calibration_save_ok_close").on("click", function () {
 });
 
 $("#back_calibration").on("click", function () {
-    if(!calibration_released){
+    if(!calibration_ok){
         window.location.href = "/select-calibration";
     }
 });
