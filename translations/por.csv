@@ -157,7 +157,7 @@ calibration_hotend_2,Hotend II
 calibration_extruder_change,Aguarde a alteração da ferramenta.
 calibration_error,Ocorreu um erro. Por favor{} contate o suporte técnico.
 calibration_offset_saving,Salvando os valores de calibração
-manual_reboot,Desligue a impressora no interruptor{} aguarde 15 segundos e volte a ligar a impressora. Os valores de calibração serán aplicados só depois de reiniciar a impressora.
+manual_reboot,Calibragem bem sucedida!! Desligue a impressora{} aguarde 15 segundos e ligue-a novamente. Em seguida{} imprima o arquivo de calibração e verifique se o nova compensação foi aplicada.
 ,
 calibration_wizard_title,Assistente de calibragem
 waiting_for_initial_movements,Aguarde a conclusão dos movimentos iniciais.
@@ -310,17 +310,21 @@ xyoffset_calibration_popup,Depois de imprimir o código g XY Offset Calibration{
 retract_more_popup,Aguarde por favor.
 error_api,Erro de conexão
 no_files_queue,La fila de Impressão está vazia.
-repair_update_button,Repair
-reparable_update_error,Connection error. To repair it{} press the button
-calibration_retry,Something went wrong. Please{} retry calibration
-print_error_popup,An error has occurred. Please reboot and retry the print job 
-communication_error_popup,An error has occurred. Please reboot the machine
-calibration_ok,Bed succesfully calibrated!
-sensado_ok,Probing complete
-sensado_error,An error has occurred. Check the probing sensor
-calibration_save_wait,Saving...
-calibration_save_ok,Build plate succesfully calibrated!
-calibration_save_error,An error has occurred{} please try again
+repair_update_button,Reparar
+reparable_update_error,Erro de conexão. 
+Para repará-lo{} pressione o botão.
+calibration_retry,Algo deu errado. Repita a calibragem.
+print_error_popup,Ocorreu um erro. Reinicie a impressora e tente novamente a impressão. 
+communication_error_popup,Ocorreu um erro. Reinicie a impressora.
+calibration_ok,Plataforma calibrada com sucesso!
+sensado_ok,Sondagem concluída.
+sensado_error,Ocorreu um erro. Verifique o sensor z.
+calibration_save_wait,Salvando…
+calibration_save_ok,Plataforma calibrada com sucesso! Imprima o arquivo de calibração para verificar.
+calibration_save_error,Ocorreu um erro. Tente novamente.
+,
+,
+,
 ,
 ,
 ,Extrusor esquerdo

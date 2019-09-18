@@ -155,9 +155,9 @@ calibration_reset_board,Espere mientras se resetea la maquina; puede demorar un 
 calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Espere mientras se realiza el cambio de herramienta.
-calibration_error,Ocurrió un error. Póngase en contacto con el soporte técnico.
+calibration_error,Se produjo un error. Póngase en contacto con el soporte técnico.
 calibration_offset_saving,Guardando los valores de calibración.
-manual_reboot,Por favor apague la impresora{} espere 15s y luego enciéndala nuevamente. Los valores de calibraciòn sólo tomarán efecto luego de reiniciarla.
+manual_reboot,Calibración exitosa! Apague la impresora{} espere 15 segundos y vuelva a encenderla. A continuación{} imprima el archivo de calibración y verifique que se haya aplicado la compensación.
 ,
 calibration_wizard_title,Asistente de calibración
 waiting_for_initial_movements,Espere a que finalicen los movimientos.
@@ -310,16 +310,19 @@ retract_more_popup,Por favor aguarde.
 error_api,Error de conexión
 no_files_queue,La cola de impresión está vacía.
 repair_update_button,Reparar
-reparable_update_error,Error de conexión. Para repararlo presione el boton
-calibration_retry,Algo falló. Por favor{} reintente la calibración
-print_error_popup,Ocurrió un error. Por favor reinicie la máquina y reintente imprimir
-communication_error_popup,Ocurrió un error. Por favor reinicie la máquina 
-calibration_ok,Cama calibrada correctamente!
-sensado_ok,Sensado terminado
-sensado_error,Hubo un error. Por favor revise el sensor 
+reparable_update_error,Error de conexión. Para repararlo presione el botón.
+calibration_retry,Algo falló. Por favor{} reintente la calibración.
+print_error_popup,Se produjo un error. Por favor reinicie la máquina y reintente imprimir.
+communication_error_popup,Se produjo un error.  Por favor reinicie la máquina.
+calibration_ok,Plataforma calibrada correctamente!
+sensado_ok,Sensado terminado.
+sensado_error,Se produjo un error. Por favor revise el sensor z.
 calibration_save_wait,Guardando...
-calibration_save_ok,Plataforma calibrada exitosamente!
-calibration_save_error,Hubo un error. Por favor intente de nuevo
+calibration_save_ok,Plataforma calibrada exitosamente! Imprima el archivo para testear la calibiración.
+calibration_save_error,Se produjo un error. Por favor intente de nuevo
+,
+,
+,
 ,
 ,
 ,Extrusor izquierdo
@@ -331,7 +334,7 @@ calibration_save_error,Hubo un error. Por favor intente de nuevo
 ,Por favor aguarde.
 ,Cargando.
 ,Oh no! Parece que algo ha fallado.
-,Ocurrió un error
+,Se produjo un error.
 ,Opciones avanzadas
 ,Temperatura fijada en el archivo
 ,

@@ -157,7 +157,7 @@ calibration_hotend_2,Hotend II
 calibration_extruder_change,Zmiana ekstrudera{} proszę czekać.
 calibration_error,Wystąpił błąd. Proszę skontaktować się ze wsparciem technicznym.
 calibration_offset_saving,Zapisywanie wartości kalibracji.
-manual_reboot,Wyłącz drukarkę{} odczekaj 15 sekund i włącz ją ponownie. Ustawienia kalibracji zostaną zastosowane dopiero po ponownym uruchomieniu drukarki.
+manual_reboot,Sukces kalibracji! Wyłącz drukarkę{} odczekaj 15 sekund i włącz ją ponownie. Następnie wydrukuj plik kalibracji i sprawdź{} czy zastosowano nowe przesunięcie.
 ,
 calibration_wizard_title,Pomocnik kalibracji
 waiting_for_initial_movements,Poczekaj na zakończenie inicjalizacji
@@ -304,22 +304,27 @@ extrude_more_btn,Extrude more
 retract_more_btn,Retract more
 reset_uuid_warning_popup,Please wait. Then press OK.
 wifi_connection_ok_modal,Połączenia Ok
-zoffset_calibration_popup,Use the arrow keys to adjust the distance between each nozzle and the build plate so that they almost touch.
-xyoffset_calibration_popup,Print the XY Offset calibration gcode and measure the alignment of the both squares using a caliper.
+zoffset_calibration_popup,Za pomocą klawiszy strzałek ustaw odległość między każdą dyszą a platformą roboczą{} tak aby prawie się dotykały.
+xyoffset_calibration_popup,Wydrukuj kod kalibracji przesunięcia XY i zmierz wyrównanie obu kwadratów za pomocą suwmiarki.
 retract_more_popup,Proszę czekać.
 error_api,Błąd połączenia
 no_files_queue,Kolejka wydruku jest pusta.
-repair_update_button,Repair
-reparable_update_error,Connection error. To repair it{} press the button
-calibration_retry,Something went wrong. Please{} retry calibration
-print_error_popup,An error has occurred. Please reboot and retry the print job 
-communication_error_popup,An error has occurred. Please reboot the machine
-calibration_ok,Bed succesfully calibrated!
-sensado_ok,Probing complete
-sensado_error,An error has occurred. Check the probing sensor
-calibration_save_wait,Saving...
-calibration_save_ok,Build plate succesfully calibrated!
-calibration_save_error,An error has occurred{} please try again
+repair_update_button,Napraw
+reparable_update_error,Błąd połączenia. Aby go naprawić{} naciśnij przycisk.
+calibration_retry,Coś poszło nie tak. 
+Powtórz kalibrację.
+print_error_popup,Wystąpił błąd. Uruchom ponownie drukarkę 
+i spróbuj ponownie wydrukować.
+communication_error_popup,Wystąpił błąd. Uruchom ponownie drukarkę.
+calibration_ok,Platforma drukowania pomyślnie skalibrowany!
+sensado_ok,Sondowanie zakończone.
+sensado_error,Wystąpił błąd. Sprawdź czujnik Z.
+calibration_save_wait,Zapisywanie...
+calibration_save_ok,Platforma drukowania pomyślnie skalibrowany! Wydrukuj plik kalibracji{} aby sprawdzić.
+calibration_save_error,Wystąpił błąd. Spróbuj ponownie.
+,
+,
+,
 ,
 ,
 ,Lewy ekstruder

@@ -155,15 +155,15 @@ calibration_reset_board,Wait while the printer reboots. It may take a little whi
 calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Changing tool{} please wait.
-calibration_error,An error occurred. Please contact technical support.
+calibration_error,An error has occurred. Please contact technical support.
 calibration_offset_saving,Saving the calibration values.
-manual_reboot,Please turn off the printer{} wait 15s and turn it on again. Calibration settings will only be applied after restarting the printer.
+manual_reboot,Calibration success! Please turn off the printer{} wait for 15 seconds{} and turn it on again. Next{} print the calibration file and verify that a new offset has been applied.
 ,
 calibration_wizard_title,Calibration wizard
 waiting_for_initial_movements,Wait for initial movements to finish.
 done,Done
 skip_wizard,Setup completed! Do you want to skip this wizard next time the machine reboots?
-update_warning,We recommend to keep the software update to have the latest features. Before changing any calibration value{} print the calibration test gcodes.
+update_warning,We recommend keeping the software updated to enjoy the latest features. Before changing any calibration value{} print the calibration test gcodes.
 ,
 ,
 offset_P1,P1 Offset
@@ -310,16 +310,19 @@ retract_more_popup,Please wait.
 error_api,Connection failure
 no_files_queue,Print queue is empty.
 repair_update_button,Repair
-reparable_update_error,Connection error. To repair it{} press the button
-calibration_retry,Something went wrong. Please{} retry calibration
-print_error_popup,An error has occurred. Please reboot and retry the print job 
-communication_error_popup,An error has occurred. Please reboot the machine
-calibration_ok,Bed succesfully calibrated!
-sensado_ok,Probing complete
-sensado_error,An error has occurred. Check the probing sensor
+reparable_update_error,Connection error. To repair it{} press the button.
+calibration_retry,Something went wrong. Please{} retry calibration.
+print_error_popup,An error has occurred. Please reboot and retry the print job.
+communication_error_popup,An error has occurred. Please reboot the machine.
+calibration_ok,Build plate succesfully calibrated!
+sensado_ok,Probing completed.
+sensado_error,An error has occurred. Check the probing sensor.
 calibration_save_wait,Saving...
-calibration_save_ok,Build plate succesfully calibrated!
-calibration_save_error,An error has occurred{} please try again
+calibration_save_ok,Build plate succesfully calibrated! Please print calibration file to check.
+calibration_save_error,An error has occurred. Please try again.
+,
+,
+,
 ,
 ,
 ,Left extruder

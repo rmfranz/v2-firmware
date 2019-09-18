@@ -157,7 +157,7 @@ calibration_hotend_2,Hotend 2
 calibration_extruder_change,Byter verktyg{} vänligen vänta.
 calibration_error,Ett fel uppstod. Vänligen kontakta teknisk support.
 calibration_offset_saving,Sparar kalibreringsvärden.
-manual_reboot,Vänligen stäng av printern{} vänta 15 sek och starta igen. Kalibreringsinställningarna gäller först efter en omstart.
+manual_reboot,Kalibreringsframgång! Stäng av skrivaren{} vänta i 15 sekunder och slå på den igen. Skriv sedan ut kalibreringsfilen och kontrollera att ny offset har tillämpats.
 ,
 calibration_wizard_title,Kalibreringsguide
 waiting_for_initial_movements,Vänta på att den första rörelserna ska avslutas.
@@ -309,17 +309,21 @@ xyoffset_calibration_popup,Skriv ut och mät orienteringen mellan de två delarn
 retract_more_popup,Vänligen vänta
 error_api,Anslutningsfel
 no_files_queue,Utskriftskön är tom.
-repair_update_button,Repair
-reparable_update_error,Connection error. To repair it{} press the button
-calibration_retry,Something went wrong. Please{} retry calibration
-print_error_popup,An error has occurred. Please reboot and retry the print job 
-communication_error_popup,An error has occurred. Please reboot the machine
-calibration_ok,Bed succesfully calibrated!
-sensado_ok,Probing complete
-sensado_error,An error has occurred. Check the probing sensor
-calibration_save_wait,Saving...
-calibration_save_ok,Build plate succesfully calibrated!
-calibration_save_error,An error has occurred{} please try again
+repair_update_button,Reparera
+reparable_update_error,Anslutningsfel. 
+För att reparera det{} tryck på knappen.
+calibration_retry,Något gick fel. Upprepa kalibreringen.
+print_error_popup,Ett fel uppstod. Starta om printern och försök utskriften igen.
+communication_error_popup,Ett fel uppstod. Starta om printern.
+calibration_ok,Byggplattform kalibrerad framgångsrikt!
+sensado_ok,Sondering avslutad.
+sensado_error,Ett fel uppstod. Kontrollera z-probe.
+calibration_save_wait,Sparar…
+calibration_save_ok,Byggplattform kalibrerad framgångsrikt! Skriv ut kalibreringsfilen för att kontrollera.
+calibration_save_error,Ett fel uppstod. Vänligen prova igen.
+,
+,
+,
 ,
 ,
 ,Vänstra extrudern

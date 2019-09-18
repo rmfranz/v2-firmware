@@ -155,9 +155,9 @@ calibration_reset_board,Attendere il riavvio della stampante. Potrebbe essere ne
 calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Attendere il cambio di ugello.
-calibration_error,Errore imprevisto. Contattare il supporto tecnico.
+calibration_error,Si è verificato un errore. Contattare il supporto tecnico.
 calibration_offset_saving,Salvataggio dei valori di calibrazione.
-manual_reboot,Spegnere la stampante{} attendere 15 sec. e riaccenderla. I nuovi valori di calibrazione saranno effettivi dopo la riaccensione.
+manual_reboot,Calibrazione riuscita! Spegnere la stampante{} attendere 15 secondi e riaccenderla. Quindi{} stampare il file di calibrazione e verificare che sia stato applicato il nuovo offset.
 ,
 calibration_wizard_title,Calibrazione assistita
 waiting_for_initial_movements,Attendere la fine dei movimenti.
@@ -309,17 +309,20 @@ xyoffset_calibration_popup,Dopo aver stampato il gcode XY Offset Calibration{} m
 retract_more_popup,Si prega di attendere.
 error_api,Errore di connessione
 no_files_queue,La coda di stampa è vuota.
-repair_update_button,Repair
-reparable_update_error,Connection error. To repair it{} press the button
-calibration_retry,Something went wrong. Please{} retry calibration
-print_error_popup,An error has occurred. Please reboot and retry the print job 
-communication_error_popup,An error has occurred. Please reboot the machine
-calibration_ok,Bed succesfully calibrated!
-sensado_ok,Probing complete
-sensado_error,An error has occurred. Check the probing sensor
-calibration_save_wait,Saving...
-calibration_save_ok,Build plate succesfully calibrated!
-calibration_save_error,An error has occurred{} please try again
+repair_update_button,Ripara
+reparable_update_error,Errore di connessione. Per ripararlo{} premere il pulsante.
+calibration_retry,Si é verificato un problema. Ripetere la calibrazione.
+print_error_popup,Si è verificato un errore. Riavvia la stampante e riprova a stampare.
+communication_error_popup,Si è verificato un errore. Riavvia la stampante e riprova.
+calibration_ok,Piatto di stampa correttamente calibrato!
+sensado_ok,Procedimento completato.
+sensado_error,Si è verificato un errore. Verificare il sensore z. 
+calibration_save_wait,Salvataggio in corso...
+calibration_save_ok,Piatto di stampa correttamente calibrato! Stampare il file di calibrazione per verificare.
+calibration_save_error,Si è verificato un errore. Riprova più tardi. 
+,
+,
+,
 ,
 ,
 ,Ugello sinistro

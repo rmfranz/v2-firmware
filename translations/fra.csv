@@ -157,7 +157,7 @@ calibration_hotend_2,Hotend II
 calibration_extruder_change,Veuillez patienter pendant le changement d'outil.
 calibration_error,Erreur inattendue. Contactez le support technique.
 calibration_offset_saving,Sauvegarder les valeurs de calibrage.
-manual_reboot,Veuillez éteindre l'imprimante{} attendre 15 s. et la remettre sous tension. Les valeurs de calibrage s'appliqueront après  le redémarrage de l'imprimante.
+manual_reboot,Calibrage sortie! Eteignez l'imprimante{} attendez 15 secondes et rallumez-la. Ensuite{} imprimez le fichier d'étalonnage et vérifiez que le nouveau décalage a été appliqué.
 ,
 calibration_wizard_title,Assistant de calibrage
 waiting_for_initial_movements,Patientez jusqu'à la fin des premiers mouvements.
@@ -309,17 +309,22 @@ xyoffset_calibration_popup,Après avoir imprimé le gcode XY Offset Calibration{
 retract_more_popup,Veuillez patienter.
 error_api,Échec de connexion
 no_files_queue,La file d'impression est vide.
-repair_update_button,Repair
-reparable_update_error,Connection error. To repair it{} press the button
-calibration_retry,Something went wrong. Please{} retry calibration
-print_error_popup,An error has occurred. Please reboot and retry the print job 
-communication_error_popup,An error has occurred. Please reboot the machine
-calibration_ok,Bed succesfully calibrated!
-sensado_ok,Probing complete
-sensado_error,An error has occurred. Check the probing sensor
-calibration_save_wait,Saving...
-calibration_save_ok,Build plate succesfully calibrated!
-calibration_save_error,An error has occurred{} please try again
+repair_update_button,Réparer
+reparable_update_error,Échec de connexion. Pour le réparer{} appuyez sur le bouton.
+calibration_retry,Une erreur s’est produite. Veuillez réessayez le calibrage.
+print_error_popup,Erreur inattendue. Veuillez redémarrer l'imprimante 
+et réessayez l'impression.
+communication_error_popup,Erreur inattendue. Veuillez redémarrer l'imprimante.
+calibration_ok,Plateau d'impression
+calibré avec succès!
+sensado_ok,Sondage terminé.
+sensado_error,Erreur inattendue. Veuillez vérifiez le capteur z.
+calibration_save_wait,Sauvegarde en cours…
+calibration_save_ok,Plateau d'impression calibrée avec succès! Veuillez imprimer le fichier de calibrage pour vérifier.
+calibration_save_error,Erreur inattendue. Veuillez réessayer.
+,
+,
+,
 ,
 ,
 ,Extrudeuse gauche

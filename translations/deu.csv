@@ -157,7 +157,7 @@ calibration_hotend_2,Hotend II
 calibration_extruder_change,Werkzeugwechsel{} bitte warten.
 calibration_error,Es ist ein Fehler aufgetreten. Bitte wenden Sie sich an den technischen Support.
 calibration_offset_saving,Speichern der Kalibrierungswerte.
-manual_reboot,Bitte schalten Sie den Drucker aus{} warten Sie 15s und schalten Sie ihn wieder ein. Kalibrierungseinstellungen werden erst nach einem Neustart des Druckers übernommen.
+manual_reboot,Kalibrierungserfolg! Bitte schalten Sie den Drucker aus{} warten Sie 15 Sekunden und schalten Sie ihn wieder ein. Drucken Sie als Nächstes die Kalibrierungsdatei aus und vergewissern Sie sich{} dass die Es wurde die neuer Offset angewendet.
 ,
 calibration_wizard_title,Kalibrierungsassistent
 waiting_for_initial_movements,Warten Sie{} bis die ersten Bewegungen abgeschlossen sind.
@@ -305,22 +305,28 @@ extrude_more_btn,Mehr extrudieren
 retract_more_btn,Mehr zurückziehen
 reset_uuid_warning_popup,Bitte warten. Drücken Sie dann OK.
 wifi_connection_ok_modal,Verbindung ist OK
-zoffset_calibration_popup,Use the arrow keys to adjust the distance between each nozzle and the build plate so that they almost touch.
-xyoffset_calibration_popup,Print the XY Offset calibration gcode and measure the alignment of the both squares using a caliper.
+zoffset_calibration_popup,Verwenden Sie die Pfeiltasten{} um den Abstand zwischen jeder Düse und der Bauplatte so einzustellen{} dass sie sich fast berühren.
+xyoffset_calibration_popup,Drucken Sie den XY-Offset-Kalibrierungscode aus und messen Sie die Ausrichtung der beiden Quadrate mit einem Messschieber.
 retract_more_popup,Bitte warten.
 error_api,Verbindungsfehler
 no_files_queue,Die Druckwarteschlange leer ist.
-repair_update_button,Repair
-reparable_update_error,Connection error. To repair it{} press the button
-calibration_retry,Something went wrong. Please{} retry calibration
-print_error_popup,An error has occurred. Please reboot and retry the print job 
-communication_error_popup,An error has occurred. Please reboot the machine
-calibration_ok,Bed succesfully calibrated!
-sensado_ok,Probing complete
-sensado_error,An error has occurred. Check the probing sensor
-calibration_save_wait,Saving...
-calibration_save_ok,Build plate succesfully calibrated!
-calibration_save_error,An error has occurred{} please try again
+repair_update_button,Reparieren
+reparable_update_error,Verbindungsfehler. Um es zu reparieren{} drücken Sie die Taste.
+calibration_retry,Etwas ist schief gelaufen. Bitte wiederholen Sie die Kalibrierung.
+print_error_popup,Es ist ein Fehler aufgetreten. Bitte starten Sie den Drucker neu und wiederholen Sie den Druck.
+communication_error_popup,Es ist ein Fehler aufgetreten. Bitte starten Sie den Drucker neu.
+calibration_ok,Bauplatte 
+erfolgreich kalibriert!
+sensado_ok,Prüfung abgeschlossen.
+sensado_error,Es ist ein Fehler aufgetreten. Überprüfen Sie den z-Sonde.
+calibration_save_wait,Es wird gespeichert…
+calibration_save_ok,Bauplatte 
+erfolgreich kalibriert! 
+Bitte drucken Sie die Kalibrierungsdatei aus{} um dies zu überprüfen.
+calibration_save_error,Es ist ein Fehler aufgetreten.  Bitte versuchen Sie es erneut.
+,
+,
+,
 ,
 ,
 ,Linker Extruder
