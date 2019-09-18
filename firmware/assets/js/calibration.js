@@ -148,6 +148,10 @@ $("#save_zoffset").on("click", function() {
 
 $("#25_points_calibration").on("click", function() {
     $("#grid_inspect").empty();
+    $('#btn_back_calibration').toggleClass( "k-footer__btn--red" );
+    $('#btn_back_calibration').toggleClass( "k-footer__btn--grey" );
+    $('#btn_save_calibration').toggleClass( "k-footer__btn--grey" );
+    $('#btn_save_calibration').toggleClass( "k-footer__btn--yellow");
     $.ajax({url: "/points-25-calibration", success: function(result){
         console.info(result)
     }});
@@ -157,8 +161,10 @@ $("#25_points_calibration").on("click", function() {
 });
 
 $("#save_calibration").on("click", function() {
-    $('#calibration_save_wait').toggleClass( "k-modal-overlay--visible" );
-    $.get("/save-25-calibration");
+    if(calibration_released){
+        $('#calibration_save_wait').toggleClass( "k-modal-overlay--visible" );
+        $.get("/save-25-calibration");
+    }
 });
 
 $("#inspect_grid_points").on("click", function() {
@@ -349,4 +355,10 @@ $("#done_modal_close").on("click", function () {
 
 $("#calibration_save_ok_close").on("click", function () {
     window.location.href = "/select-calibration";
+});
+
+$("#back_calibration").on("click", function () {
+    if(!calibration_released){
+        window.location.href = "/select-calibration";
+    }
 });
