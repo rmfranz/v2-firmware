@@ -85,7 +85,8 @@ class SmoothieHandler(PrinterEventHandler):
                     ln_num = self.the_counter.count_lines()
                 self.smoothie_logger.debug(str(ln_num) + " - " + str(line.strip()))
         if self.is_error(line.strip()) and not self.in_error:
-            self.create_connection_and_send("ws://127.0.0.1:8888/error-handler", "ERR002")
+            error = self.format_error(line.strip())
+            self.create_connection_and_send("ws://127.0.0.1:8888/error-handler", str(error))
             self.in_error = True
             self.board_logger.error(line.strip())
         self.__write("on_recv", line.strip())
@@ -179,6 +180,12 @@ class SmoothieHandler(PrinterEventHandler):
 
     def is_error(self, data):
         return "ERROR" in data or "!!" in data or "HALT" in data
+
+    def format_error(self, data):
+        if "T0" in data or "T1" in data:
+            return data
+        else:
+            "ERR002"
     
     def create_connection_and_send(self, url, data):
         try:
