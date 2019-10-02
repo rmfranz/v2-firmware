@@ -349,6 +349,7 @@ class SmoothieFirmware(BaseFirmware):
         os.system("sudo umount /media/smoothie")
         check_res = self.check_config("/media/smoothie/config", self.NEW_CONFIG)
         if check_res:
+            os.system("touch /home/pi/config_updted")
             self.reset()
             reset_rpi()
             return 0
