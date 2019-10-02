@@ -38,7 +38,7 @@ class Application(tornado.web.Application):
         handlers = [
             (r"/home", HomeHandler),
             (r"/check-update", CheckUpdateHandler),
-            (r"/update-board-config", CheckUpdateHandler),
+            (r"/update-board-config", UpdateBoarConfig),
             (r"/set-board-uuid", SetBoardUuidHandler),
             (r"/setup", SetupHandler),
             (r"/advanced", AdvancedHandler),
