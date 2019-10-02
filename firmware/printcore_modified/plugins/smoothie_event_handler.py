@@ -182,8 +182,10 @@ class SmoothieHandler(PrinterEventHandler):
         return "ERROR" in data or "!!" in data or "HALT" in data
 
     def format_error(self, data):
-        if "T0" in data or "T1" in data:
-            return data
+        if "T0" in data:
+            return "T0"
+        elif "T1" in data:
+            return "T1"
         else:
             "ERR002"
     
