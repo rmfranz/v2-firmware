@@ -37,6 +37,8 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/home", HomeHandler),
+            (r"/check-update", CheckUpdateHandler),
+            (r"/update-board-config", CheckUpdateHandler),
             (r"/set-board-uuid", SetBoardUuidHandler),
             (r"/setup", SetupHandler),
             (r"/advanced", AdvancedHandler),
@@ -274,6 +276,10 @@ class VersionHandler(BasicHandler):
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/refresh", raise_error=False)
         self.redirect("/home")
+
+class CheckUpdateHandler(BasicHandler):
+    def get(self):
+        self.write({"result": os.path.exists("/home/pi/config_updted")})
 
 if __name__ == "__main__":
     if os.path.exists("/home/pi/enable_debug"):

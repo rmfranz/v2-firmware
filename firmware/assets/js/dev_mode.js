@@ -63,7 +63,7 @@ $("#confirm_reset").on("click", function () {
         if(data == "ok"){
             $("#reset_ok").toggleClass("initiallyHidden");
         } else if(data == "01"){
-            $("#error_board").append("ERROR: Not board founded")
+            $("#error_board").append("ERROR: Board not found")
         } else if(data == "02") {
             $("#error_board").append("ERROR: Other usb founded")
         } else {

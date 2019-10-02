@@ -3,7 +3,7 @@ from printcore_modified.plugins.smoothie_event_handler import SmoothieHandler as
 from gcodes_loader.gcodes_loading import patch_and_split_gcodes
 from printcore_modified import gcoder
 from firmware.firmware import BaseFirmware
-from utils import split_file_for_print, grouper, split_gcode_for_print, get_sd
+from utils import split_file_for_print, grouper, split_gcode_for_print, get_sd, reset_rpi
 import os
 import json
 import tornado
@@ -17,6 +17,7 @@ import traceback
 class SmoothieFirmware(BaseFirmware):
 
     OFFSET_PATH = "/home/pi/config-files/offsets.json"
+    NEW_CONFIG = "/home/pi/v2-firmware/config_files_board/new_hw2/config"
     
     def initialize(self):
         """
@@ -338,13 +339,26 @@ class SmoothieFirmware(BaseFirmware):
         self.printrun.send_now("G1 Z{}".format(z_probe))
 
     def put_config(self):
-        os.system("sudo mount /dev/sda1 /media/smoothie -o uid=pi,gid=pi")
-        os.system("cp /home/pi/config-files/config /media/smoothie/ && sync")
-        os.system("cp /home/pi/config-files/confighotend2xyoffset /media/smoothie/ && sync")
-        os.system("cp /home/pi/config-files/confighotendzoffset /media/smoothie/ && sync")
-        os.system("cp /home/pi/config-files/correctionZProbe /media/smoothie/ && sync")
-        os.system("cp /home/pi/config-files/on_boot.gcode /media/smoothie/ && sync")
+        info = get_sd()
+        sd = info.get(self.hardware_json["board_uuid"])
+        if not sd:
+            self.board_logger.error('Not board uuid found on put config')
+            return 1
+        os.system("sudo mount /dev/{} /media/smoothie -o uid=pi,gid=pi".format(sd))
+        os.system("cp {} /media/smoothie/ && sync".format(self.NEW_CONFIG))
         os.system("sudo umount /media/smoothie")
+        check_res = self.check_config("/media/smoothie/config", self.NEW_CONFIG)
+        if check_res:
+            self.reset()
+            reset_rpi()
+            return 0
+        elif self.config_retry < self.config_max_retries:
+            self.board_logger.error('Error saving config on smoothie, attemp {}'.format(str(self.config_retry)))
+            self.config_retry = self.config_retry + 1
+            self.put_config()
+        else:
+            return 2
+
 
     def choose_extruder(self, extruder):
         if extruder == "ext_1":

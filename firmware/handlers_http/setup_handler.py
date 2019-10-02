@@ -388,3 +388,8 @@ class GetLogsHandler(BasicHandler):
             self.write('ok')
         else:
             self.write('error')
+
+class UpdateBoarConfig(BasicHandler):
+    def get(self):
+        result = self.firmware.put_config()
+        self.write({'error': result})
