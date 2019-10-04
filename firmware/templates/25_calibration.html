@@ -1,23 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 <main class="k-main">
-    <!--<section class="k-grid k-grid--1x3 k-grid--1x3-titled k-grid--1x3-titled-3">-->
+    {% if dev_mode %}
     <section class="k-grid k-grid--1x2asim k-grid--1x2-titled">
-        <!--<h3 class="k-grid--1x3-titled-full">{{_("calibration_z_probe")}}</h3>-->
         <h3>{{_("calibration_z_probe")}}</h3>
         <a id="25_points_calibration" href="#" class="k-grid-item" style="margin-left:200px">
             <img class="k-grid-item__img" src="/static/images/icon_calibracion-cama.svg" />
             <p class="k-grid-item__p">{{_("calibration_make")}}</p>
         </a>
-        <!--<a href="#" id="reset_grid_btn" class="k-grid-item">
-            <img class="k-grid-item__img" src="/static/images/icon_calibracion-reset.svg" />
-            <p class="k-grid-item__p">{{_("calibration_reset")}}</p>
-        </a>
-        <a href="#" id="inspect_grid_points" class="k-grid-item">
-            <img class="k-grid-item__img" src="/static/images/icon_calibracion-inspeccionar.svg" />
-            <p class="k-grid-item__p">{{_("calibration_inspect")}}</p>
-        </a>-->
     </section>
+    {% else %}
+    <section class="k-grid k-grid--1x3 k-grid--1x3-titled k-grid--1x3-titled-3"></section>
+    <h3>{{_("calibration_z_probe")}}</h3>
+    <a id="25_points_calibration" href="#" class="k-grid-item" style="margin-left:200px">
+        <img class="k-grid-item__img" src="/static/images/icon_calibracion-cama.svg" />
+        <p class="k-grid-item__p">{{_("calibration_make")}}</p>
+    </a>
+    <a href="#" id="reset_grid_btn" class="k-grid-item">
+        <img class="k-grid-item__img" src="/static/images/icon_calibracion-reset.svg" />
+        <p class="k-grid-item__p">{{_("calibration_reset")}}</p>
+    </a>
+    <a href="#" id="inspect_grid_points" class="k-grid-item">
+        <img class="k-grid-item__img" src="/static/images/icon_calibracion-inspeccionar.svg" />
+        <p class="k-grid-item__p">{{_("calibration_inspect")}}</p>
+    </a>
+    {% end %}
     <!--<div id="help_calibration" class="k-help-btn">
         <img src="/static/images/icon_ayuda.svg" />
     </div>-->

@@ -6,7 +6,7 @@ import json
 class BuildPlateCalibrationHandler(BasicHandler):
     
     def get(self):
-        self.render(self.firmware.give_calibration_page())
+        self.render(self.firmware.give_calibration_page(), dev_mode=os.path.exists("/home/pi/dev_mode"))
 
 class CalibrationHandler(BasicHandler):
     
