@@ -2,6 +2,7 @@ from handlers_http.basic_handler import BasicHandler
 from utils import reset_rpi
 import tornado
 import json
+import os
 
 class BuildPlateCalibrationHandler(BasicHandler):
     
