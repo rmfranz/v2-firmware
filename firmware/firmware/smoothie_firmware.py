@@ -18,6 +18,7 @@ class SmoothieFirmware(BaseFirmware):
 
     OFFSET_PATH = "/home/pi/config-files/offsets.json"
     NEW_CONFIG = "/home/pi/v2-firmware/config_files_board/new_hw2/config"
+    NEW_CONFIG_OVERRIDE = "/home/pi/v2-firmware/config_files_board/new_hw2/config-override"
     
     def initialize(self):
         """
@@ -124,7 +125,7 @@ class SmoothieFirmware(BaseFirmware):
     def cancel(self):
         self.printrun.cancelprint()
         self.printrun.send_now("G28")
-        self.printrun.send_now("M104 S0")
+        self.printrun.send_now("M104 T0 S0")
         self.printrun.send_now("M104 T1 S0")
         self.printrun.send_now("M140 S0")
         if os.path.exists("/home/pi/cloud/cloud.gcode"):
@@ -346,8 +347,11 @@ class SmoothieFirmware(BaseFirmware):
             return 1
         os.system("sudo mount /dev/{} /media/smoothie -o uid=pi,gid=pi".format(sd))
         os.system("cp {} /media/smoothie/ && sync".format(self.NEW_CONFIG))
+        os.system("cp {} /media/smoothie/ && sync".format(self.NEW_CONFIG_OVERRIDE))
         os.system("sudo umount /media/smoothie")
-        check_res = self.check_config("/media/smoothie/config", self.NEW_CONFIG)
+        check_res = self.check_config("/media/smoothie/config", self.NEW_CONFIG,
+                        second_conf_rpi="/media/smoothie/config-override",
+                        second_conf=self.NEW_CONFIG_OVERRIDE)
         if check_res:
             os.system("touch /home/pi/config_updted")
             self.reset()
@@ -439,13 +443,18 @@ class SmoothieFirmware(BaseFirmware):
         elif nozzle == "2":
             self.user_conf_json["nozzle_2"] = size
 
-    def check_config(self, config_rpi, config_smoothie):
+    def check_config(self, config_rpi, config_smoothie, second_conf_rpi = None, second_conf = None):
         info = get_sd()
         sd = info.get(self.hardware_json["board_uuid"])
         resp_cmp = False
         os.system("sudo mount /dev/{} /media/smoothie -o uid=pi,gid=pi".format(sd))
         try:
-            resp_cmp = filecmp.cmp(config_smoothie, config_rpi)
+            if second_conf:
+                resp_1 = filecmp.cmp(config_smoothie, config_rpi)
+                resp_2 = filecmp.cmp(second_conf, second_conf_rpi)
+                resp_cmp = resp_1 and resp_2
+            else:
+                resp_cmp = filecmp.cmp(config_smoothie, config_rpi)
             os.system("sudo umount /media/smoothie")
         except Exception:
             self.board_logger.error(str(traceback.format_exc()))

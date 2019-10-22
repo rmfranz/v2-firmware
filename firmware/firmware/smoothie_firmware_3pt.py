@@ -3,6 +3,7 @@ from firmware.smoothie_firmware import SmoothieFirmware
 class SmoothieFirmware3PT(SmoothieFirmware):
 
     NEW_CONFIG = "/home/pi/v2-firmware/config_files_board/new_hw1/config"
+    NEW_CONFIG_OVERRIDE = "/home/pi/v2-firmware/config_files_board/new_hw1/config-override"
     
     def make_calibration(self):
         self.printrun.send_now("G90")

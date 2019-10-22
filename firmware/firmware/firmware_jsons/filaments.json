@@ -35,7 +35,7 @@
         "feed_speed_slow" : "70",
         "standByTemperature" : "215",
         "okAllMetal" : "T",
-        "okPTFE" : "F",
+        "okPTFE" : "T",
         "adhesives" : "T"
     },
     "Nylon":{
@@ -86,7 +86,7 @@
         "feed_speed_fast" : "70",
         "feed_speed_slow" : "70",
         "standByTemperature" : "180",
-        "okAllMetal" : "T",
+        "okAllMetal" : "F",
         "okPTFE" : "T",
         "adhesives" : "F"
     },
