@@ -303,11 +303,11 @@ zprobe.probe_height                                         5               # Ho
 # Example for 3-point levelling strategy, see wiki documentation for other strategies
 leveling-strategy.three-point-leveling.enable               true            # a leveling strategy that probes three points to define a plane and keeps the Z parallel to that plane
 leveling-strategy.three-point-leveling.point1               100,200         # the first probe point (x,y) optional may be defined with M557
-leveling-strategy.three-point-leveling.point2               0,10           # the second probe point (x,y)
-leveling-strategy.three-point-leveling.point3               180,10             # the third probe point (x,y)
+leveling-strategy.three-point-leveling.point2               0,10            # the second probe point (x,y)
+leveling-strategy.three-point-leveling.point3               180,10          # the third probe point (x,y)
 leveling-strategy.three-point-leveling.home_first           false           # home the XY axis before probing
 leveling-strategy.three-point-leveling.tolerance            0.03            # the probe tolerance in mm, anything less that this will be ignored, default is 0.03mm leveling-strategy.three-point-leveling.probe_offsets        0,0,0           # the probe offsets from nozzle, must be x,y,z, default is no offset
-leveling-strategy.three-point-leveling.save_plane           false           # set to true to allow the bed plane to be saved with M500 default is false
+leveling-strategy.three-point-leveling.save_plane           true           # set to true to allow the bed plane to be saved with M500 default is false
 
 # leveling-strategy.rectangular-grid.enable                  true
 # leveling-strategy.rectangular-grid.x_size                  210
