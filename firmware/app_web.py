@@ -245,7 +245,9 @@ class HomeHandler(BasicHandler):
         elif not self.firmware.is_initialized:
             self.firmware.initialize()
             delete_corrupt()
-            if self.wizzard.viewed:
+            if not os.path.exists("/home/pi/config_updted"):
+                self.render("index.html")
+            elif self.wizzard.viewed:
                 self.render("index.html")
             else:
                 self.redirect(self.wizzard.give_me_page())
