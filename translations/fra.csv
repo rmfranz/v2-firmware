@@ -1,3 +1,8 @@
+,
+Tag name,French
+Tag Code,fr
+Export?,true
+,
 powered_by,Optimisé par
 hello,Bonjour!
 lets_get_started,Commençons!
@@ -155,7 +160,7 @@ calibration_reset_board,Veuillez patienter pendant le redémarrage. Cela peut pr
 calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Veuillez patienter pendant le changement d'outil.
-calibration_error,Erreur inattendue. Contactez le support technique.
+calibration_error,Erreur: valeurs de calibrage pas stockée. Veuillez redémarrer l'imprimante. Si le problème se reproduit{} contactez support@smart3d.tech
 calibration_offset_saving,Sauvegarder les valeurs de calibrage.
 manual_reboot,Calibrage sortie! Eteignez l'imprimante{} attendez 15 secondes et rallumez-la. Ensuite{} imprimez le fichier d'étalonnage et vérifiez que le nouveau décalage a été appliqué.
 ,
@@ -259,8 +264,9 @@ custom_version,Version personnalisée
 updates_latest,Vous avez la dernière version
 updates_updating_footer,Important: N'éteignez pas l'imprimante pendant la mise à jour.
 updates_success,Mise à jour réussie. Veuilllez patienter pendant le redémarrage.
-get_update_error,Une erreur s'est produite durant le téléchargement. Nous recommandons de de mettre à jour le logiciel via USB.
+get_update_error,Erreur: téléchargement. Veuillez redémarrer et réessayer. Si le problème se reproduit{} contactez support@smart3d.tech
 usb_update,Mise à jour via USB
+,
 internet_update,Mise à jour via Internet
 usb_update_title,Mise à jour via USB
 usb_update_info,Introduisez la clé USB.
@@ -279,15 +285,14 @@ config_advanced,Contrôles manuels
 config_nozzle_size,Diamètre buse
 config_motors,Moteurs
 config_wifi,WiFi
-,
-error,Veuillez redémarrer l'imprimante. Si le problème se reproduit{} contactez votre service technique.
+error,Erreur: système. Veuillez redémarrer l'imprimante. Si le problème se reproduit{} contactez support@smart3d.tech
 waiting_info,Extraction des données...
 onboarding_welcome_to_v2,Mise à jour réussie! Votre imprimante a été mise à jour avec succès au logiciel 2.0.
-unmount_usb_error,Error 001 avec clé USB.
-mount_usb_error,Error 002  avec clé USB.
-download_error,Error 003 avec mise à jour.
-copy_unzip_error,Error 004 avec mise à jour.
-folder_error,Error 005 avec mise à jour.
+unmount_usb_error,Erreur 001: clé USB.
+mount_usb_error,Erreur 002: clé USB.
+download_error,Erreur 003: mise à jour.
+copy_unzip_error,Erreur 004: mise à jour.
+folder_error,Erreur 005: mise à jour.
 dev_tools,Outils de développement
 enable_ssh,Activer l'accès SSH
 disable_ssh,Désactiver accès SSH
@@ -310,20 +315,21 @@ retract_more_popup,Veuillez patienter.
 error_api,Échec de connexion
 no_files_queue,La file d'impression est vide.
 repair_update_button,Réparer
-reparable_update_error,Échec de connexion. Pour le réparer{} appuyez sur le bouton.
+reparable_update_error,Erreur: Échec de connexion. Pour le réparer{} appuyez sur le bouton. Si le problème se reproduit{} contactez support@smart3d.tech
 calibration_retry,Une erreur s’est produite. Veuillez réessayez le calibrage.
-print_error_popup,Erreur inattendue. Veuillez redémarrer l'imprimante 
-et réessayez l'impression.
+print_error_popup,Erreur: système. Veuillez redémarrer et réessayer. Si le problème se reproduit{} contactez support@smart3d.tech
 communication_error_popup,Erreur inattendue. Veuillez redémarrer l'imprimante.
 calibration_ok,Plateau d'impression
 calibré avec succès!
 sensado_ok,Sondage terminé.
-sensado_error,Erreur inattendue. Veuillez vérifiez le capteur z.
+sensado_error,Erreur: 
+sondage incomplet. Veuillez vérifiez le capteur z et réessayez le calibrage. Si le problème se reproduit{} contactez support@smart3d.tech
 calibration_save_wait,Sauvegarde en cours…
 calibration_save_ok,Plateau d'impression calibrée avec succès! Veuillez imprimer le fichier de calibrage pour vérifier.
-calibration_save_error,Erreur inattendue. Veuillez réessayer.
-,
-,
+calibration_save_error,Erreur: données sauvegarde. Veuillez redémarrer et réessayer. Si le problème se reproduit{} contactez support@smart3d.tech
+board_not_found_error,Erreur: controller. Veuillez redémarrer. Si le problème se reproduit{} contactez support@smart3d.tech
+put_config_error,Erreur: config file. 
+Veuillez mettre à jour via USB. Si le problème se reproduit{} contactez support@smart3d.tech
 ,
 ,
 ,
@@ -344,3 +350,7 @@ calibration_save_error,Erreur inattendue. Veuillez réessayer.
 ,Activer les moteurs
 ,La imprimante est calibrée et prête à imprimer.
 ,Réinitialiser les préférences utilisateur
+,Erreur: 
+,Veuillez redémarrer l'imprimante. 
+,Si le problème se reproduit{} contactez support@smart3d.tech
+,Erreur: XXX. Veuillez redémarrer et réessayer. Si le problème se reproduit{} contactez support@smart3d.tech

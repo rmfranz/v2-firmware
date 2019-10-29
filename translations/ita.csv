@@ -1,3 +1,8 @@
+,
+Tag name,Italian
+Tag Code,it
+Export?,true
+,
 powered_by,Powered by
 hello,Hello!
 lets_get_started,Cominciamo!
@@ -155,7 +160,7 @@ calibration_reset_board,Attendere il riavvio della stampante. Potrebbe essere ne
 calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Attendere il cambio di ugello.
-calibration_error,Si è verificato un errore. Contattare il supporto tecnico.
+calibration_error,Errore: valori di calibrazione non salvati. Riavviare la stampante e calibrare nuovamente. Se il problema persiste{} contattare support@smart3d.tech
 calibration_offset_saving,Salvataggio dei valori di calibrazione.
 manual_reboot,Calibrazione riuscita! Spegnere la stampante{} attendere 15 secondi e riaccenderla. Quindi{} stampare il file di calibrazione e verificare che sia stato applicato il nuovo offset.
 ,
@@ -259,8 +264,9 @@ custom_version,Versione personalizzata
 updates_latest,Hai l'ultima versione
 updates_updating_footer,Importante: non spegnere il dispositivo durante l'aggiornamento
 updates_success,Aggiornamento completato. Attendi il riavvio.
-get_update_error,Si è verificato un errore durante il download. Raccomandiamo aggiornare il software via USB.
+get_update_error,Errore: download. Riavviare la stampante e intentare nuovamente. Se il problema persiste{} contattare support@smart3d.tech
 usb_update,Aggiornamento via chiave USB
+,
 internet_update,Aggiornamento via Internet
 usb_update_title,Aggiornamento via chiave USB
 usb_update_info,Inserire la chiave USB.
@@ -279,15 +285,14 @@ config_advanced,Controlli manuali
 config_nozzle_size,Diametro ugello
 config_motors,Motori
 config_wifi,WiFi
-,
-error,Riavviare la stampante. Se il problema persiste{} contattare il servizio tecnico.
+error,Errore: sistema. Riavviare la stampante. Se il problema persiste{} contattare support@smart3d.tech
 waiting_info,Estrazione informazioni...
 onboarding_welcome_to_v2,Aggiornamento completato. La stampante é stata aggiornata con successo alla versione 2.0.
-unmount_usb_error,Error 001 con la chiave USB.
-mount_usb_error,Error 002 con la chiave USB.
-download_error,Error 003 con l'aggiornamento.
-copy_unzip_error,Error 004 con l'aggiornamento.
-folder_error,Error 005 con l'aggiornamento.
+unmount_usb_error,Errore 001: chiave USB.
+mount_usb_error,Errore 002: chiave USB.
+download_error,Errore 003: aggiornamento.
+copy_unzip_error,Errore 004: aggiornamento.
+folder_error,Errore 005: aggiornamento.
 dev_tools,Strumenti di sviluppo
 enable_ssh,Abilita servizio SSH
 disable_ssh,Disattiva servizio SSH
@@ -310,18 +315,18 @@ retract_more_popup,Si prega di attendere.
 error_api,Errore di connessione
 no_files_queue,La coda di stampa è vuota.
 repair_update_button,Ripara
-reparable_update_error,Errore di connessione. Per ripararlo{} premere il pulsante.
+reparable_update_error,Errore: problema di connessione al server. Per ripararlo{} premere il pulsante. Se il problema persiste{} contattare support@smart3d.tech
 calibration_retry,Si é verificato un problema. Ripetere la calibrazione.
-print_error_popup,Si è verificato un errore. Riavvia la stampante e riprova a stampare.
+print_error_popup,Errore: sistema. Riavviare la stampante e intentare nuovamente. Se il problema persiste{} contattare support@smart3d.tech
 communication_error_popup,Si è verificato un errore. Riavvia la stampante e riprova.
 calibration_ok,Piatto di stampa correttamente calibrato!
-sensado_ok,Procedimento completato.
-sensado_error,Si è verificato un errore. Verificare il sensore z. 
+sensado_ok,Rilevamento completato.
+sensado_error,Errore: rilevamente incompleto. Revisare il sensore z e ripetere la calibrazione. Se il problema persiste{} contattare support@smart3d.tech
 calibration_save_wait,Salvataggio in corso...
 calibration_save_ok,Piatto di stampa correttamente calibrato! Stampare il file di calibrazione per verificare.
-calibration_save_error,Si è verificato un errore. Riprova più tardi. 
-,
-,
+calibration_save_error,Errore: salvataggio dati. Riavviare la stampante e intentare nuovamente. Se il problema persiste{} contattare support@smart3d.tech
+board_not_found_error,Errore: controller. Riavviare la stampante. Se il problema persiste{} contattare support@smart3d.tech
+put_config_error,Errore: config file. Aggiornare il SW via memoria USB. Se il problema persiste{} contattare support@smart3d.tech
 ,
 ,
 ,
@@ -342,3 +347,7 @@ calibration_save_error,Si è verificato un errore. Riprova più tardi.
 ,Attivare motori
 ,La stampante è calibrata e pronta a stampare.
 ,Reimpostare le preferenze utente
+,Errore: 
+, Riavviare la stampante e calibrare nuovamente. 
+,Se il problema persiste{} contattare support@smart3d.tech
+,Errore: XXX. Riavviare la stampante e intentare nuovamente. Se il problema persiste{} contattare support@smart3d.tech

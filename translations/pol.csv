@@ -1,3 +1,8 @@
+,
+Tag name,Polish
+Tag Code,pl
+Export?,true
+,
 powered_by,Dostarczone przez
 hello,Witaj!
 lets_get_started,Zaczynamy!
@@ -155,7 +160,7 @@ calibration_reset_board,Poczekaj na ponowne uruchomienie drukarki.
 calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Zmiana ekstrudera{} proszę czekać.
-calibration_error,Wystąpił błąd. Proszę skontaktować się ze wsparciem technicznym.
+calibration_error,Błąd: Wartości kalibracji nie są przechowywane. Proszę ponownie uruchomić drukarkę. Jeśli problem będzie nadal występował{} proszę skontaktować support@smart3d.tech
 calibration_offset_saving,Zapisywanie wartości kalibracji.
 manual_reboot,Sukces kalibracji! Wyłącz drukarkę{} odczekaj 15 sekund i włącz ją ponownie. Następnie wydrukuj plik kalibracji i sprawdź{} czy zastosowano nowe przesunięcie.
 ,
@@ -259,8 +264,9 @@ custom_version,Wersja niestandardowa
 updates_latest,Zainstalowana jest najnowsza wersja oprogramowania
 updates_updating_footer,Uwaga: nie wyłączaj drukarki w trakcie aktualizacji.
 updates_success,Aktualizacja zakończona. Poczekaj na ponowne uruchomienie.
-get_update_error,Wystąpił błąd pobierania. Zalecamy aktualizację oprogramowania za pomocą dysku USB.
+get_update_error,Błąd: pobierania. Uruchom ponownie i spróbuj ponownie. Jeśli problem będzie nadal występował{} proszę skontaktować support@smart3d.tech
 usb_update,Aktualizacja za pomocą dysku USB
+,
 internet_update,Aktualizacja przez Internet
 usb_update_title,Aktualizacja za pomocą dysku USB
 usb_update_info,Włóż dysk USB.
@@ -279,8 +285,7 @@ config_advanced,Zaawansowane
 config_nozzle_size,Średnica dysz
 config_motors,Silniki
 config_wifi,WiFi
-,
-error,Proszę ponownie uruchomić drukarkę. Jeśli problem będzie nadal występował{} proszę skontaktować się ze wsparciem technicznym.
+error,Blad: system. Proszę ponownie uruchomić drukarkę. Jeśli problem będzie nadal występował{} proszę skontaktować support@smart3d.tech
 waiting_info,Pobieram dane...
 onboarding_welcome_to_v2,Aktualizacja została wykonana prawidłowo! Drukarka został zaktualizowana do wersji 2.0.
 unmount_usb_error,Wystąpił błąd 001 dysku USB.
@@ -310,20 +315,19 @@ retract_more_popup,Proszę czekać.
 error_api,Błąd połączenia
 no_files_queue,Kolejka wydruku jest pusta.
 repair_update_button,Napraw
-reparable_update_error,Błąd połączenia. Aby go naprawić{} naciśnij przycisk.
+reparable_update_error,Błąd: połączenie z serwerem. Aby go naprawić{} naciśnij przycisk. Jeśli problem będzie nadal występował{} proszę skontaktować support@smart3d.tech
 calibration_retry,Coś poszło nie tak. 
 Powtórz kalibrację.
-print_error_popup,Wystąpił błąd. Uruchom ponownie drukarkę 
-i spróbuj ponownie wydrukować.
+print_error_popup,Błąd: system. Uruchom ponownie i spróbuj ponownie. Jeśli problem będzie nadal występował{} proszę skontaktować support@smart3d.tech
 communication_error_popup,Wystąpił błąd. Uruchom ponownie drukarkę.
 calibration_ok,Platforma drukowania pomyślnie skalibrowany!
 sensado_ok,Sondowanie zakończone.
-sensado_error,Wystąpił błąd. Sprawdź czujnik Z.
+sensado_error,Błąd: Sondowanie niekompletne. Sprawdź czujnik Z i powtórz kalibrację. Jeśli problem będzie nadal występował{} proszę skontaktować support@smart3d.tech
 calibration_save_wait,Zapisywanie...
 calibration_save_ok,Platforma drukowania pomyślnie skalibrowany! Wydrukuj plik kalibracji{} aby sprawdzić.
-calibration_save_error,Wystąpił błąd. Spróbuj ponownie.
-,
-,
+calibration_save_error,Błąd: zapisywanie danych. Uruchom ponownie i spróbuj ponownie. Jeśli problem będzie nadal występował{} proszę skontaktować support@smart3d.tech
+board_not_found_error,Błąd: controller. Uruchom ponownie. Jeśli problem będzie nadal występował{} proszę skontaktować support@smart3d.tech
+put_config_error,Błąd: config file. Zaktualizuj przez USB. Jeśli problem będzie nadal występował{} proszę skontaktować support@smart3d.tech
 ,
 ,
 ,
@@ -344,3 +348,7 @@ calibration_save_error,Wystąpił błąd. Spróbuj ponownie.
 ,Włącz silniki
 ,Drukarka jest gotowa do pracy.
 ,Reset preferencji użytkownika
+,Błąd: 
+,Proszę ponownie uruchomić drukarkę. 
+,Jeśli problem będzie nadal występował{} proszę skontaktować support@smart3d.tech
+,Błąd: XXX. Uruchom ponownie i spróbuj ponownie. Jeśli problem będzie nadal występował{} proszę skontaktować support@smart3d.tech

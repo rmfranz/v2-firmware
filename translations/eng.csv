@@ -1,3 +1,8 @@
+,
+Tag name,English
+Tag Code,en
+Export?,true
+,
 powered_by,Powered by
 hello,Hello!
 lets_get_started,Let's get started!
@@ -155,7 +160,7 @@ calibration_reset_board,Wait while the printer reboots. It may take a little whi
 calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Changing tool{} please wait.
-calibration_error,An error has occurred. Please contact technical support.
+calibration_error,Error: calibration values not stored. Please reboot and recalibrate. If problem persists contact support@smart3d.tech
 calibration_offset_saving,Saving the calibration values.
 manual_reboot,Calibration success! Please turn off the printer{} wait for 15 seconds{} and turn it on again. Next{} print the calibration file and verify that a new offset has been applied.
 ,
@@ -259,8 +264,9 @@ custom_version,Custom version
 updates_latest,You have the latest version
 updates_updating_footer,Important: do not turn the printer off while updating.
 updates_success,Update successful. Please wait for reboot.
-get_update_error,An error occurred during download. We recommend updating software via USB.
+get_update_error,Error: download error. Please reboot and retry. If problem persists contact support@smart3d.tech
 usb_update,Update via USB flashdrive
+,
 internet_update,Update via Internet
 usb_update_title,Update via USB flashdrive
 usb_update_info,Insert USB flashdrive.
@@ -279,15 +285,14 @@ config_advanced,Manual controls
 config_nozzle_size,Nozzle Size
 config_motors,Motors
 config_wifi,WiFi
-,
-error,Please restart the printer and if the problem occurs again{} contact tech support.
+error,Error: system error. Please reboot. If the problem persists contact support@smart3d.tech
 waiting_info,Fetching data...
 onboarding_welcome_to_v2,Update was successful! Your Portrait printer was updated succesfully to software 2.0. Enjoy the experience!
-unmount_usb_error,Error 001 with USB flashdrive.
-mount_usb_error,Error 002 with USB flashdrive.
-download_error,Error 003 with update.
-copy_unzip_error,Error 004 with update.
-folder_error,Error 005 with update.
+unmount_usb_error,Error 001: USB flashdrive.
+mount_usb_error,Error 002: USB flashdrive.
+download_error,Error 003: update.
+copy_unzip_error,Error 004: update.
+folder_error,Error: with update.
 dev_tools,Dev tools
 enable_ssh,Enable SSH
 disable_ssh,Disable SSH
@@ -310,18 +315,17 @@ retract_more_popup,Please wait.
 error_api,Connection failure
 no_files_queue,Print queue is empty.
 repair_update_button,Repair
-reparable_update_error,Connection error. To repair it{} press the button.
-calibration_retry,Something went wrong. Please{} retry calibration.
-print_error_popup,An error has occurred. Please reboot and retry the print job.
+reparable_update_error,Error: unable to reach server. To repair it{} press the button. If the problem persists contact support@smart3d.tech calibration_retry,Something went wrong. Please{} retry calibration.
+print_error_popup,Error: system. Please reboot and try again. If the problem persists contact support@smart3d.tech
 communication_error_popup,An error has occurred. Please reboot the machine.
 calibration_ok,Build plate succesfully calibrated!
 sensado_ok,Probing completed.
-sensado_error,An error has occurred. Check the probing sensor.
+sensado_error,Error: probing incomplete. Please check the probing sensor and recalibrate. If the problem persists contact support@smart3d.tech
 calibration_save_wait,Saving...
 calibration_save_ok,Build plate succesfully calibrated! Please print calibration file to check.
-calibration_save_error,An error has occurred. Please try again.
-,
-,
+calibration_save_error,Error: saving error. Please reboot and recalibrate. If the problem persists contact support@smart3d.tech
+board_not_found_error,Error: connection to the controller failed. Please reboot. If the problem persists contact support@smart3d.tech
+put_config_error,Error: configuration file. Please update via USB. If the problem persists contact support@smart3d.tech
 ,
 ,
 ,
@@ -342,3 +346,7 @@ calibration_save_error,An error has occurred. Please try again.
 ,Turn on motors
 ,The printer is calibrated out of the box and ready to print.
 ,Reset user preferences
+,Error:
+,Please reboot and recalibrate. If problem persists contact support@smart3d.tech
+,Please reboot and recalibrate. If problem persists contact support@smart3d.tech
+,Error: XXX. Please reboot and try again. If problem persists contact support@smart3d.tech

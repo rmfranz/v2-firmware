@@ -1,3 +1,8 @@
+,
+Tag name,Swedish
+Tag Code,swe
+Export?,true
+,
 powered_by,Drivs av
 hello,Hej!
 lets_get_started,Då börjar vi!
@@ -155,7 +160,7 @@ calibration_reset_board,Vänta medans printern startar om. Det kan ta ett stund.
 calibration_hotend_1,Hotend 1
 calibration_hotend_2,Hotend 2
 calibration_extruder_change,Byter verktyg{} vänligen vänta.
-calibration_error,Ett fel uppstod. Vänligen kontakta teknisk support.
+calibration_error,Fel: Kalibreringsvärden är inte lagrade. Vänligen starta och kalibrera printern. Om felet kvarstår{} kontakta support@smart3d.tech
 calibration_offset_saving,Sparar kalibreringsvärden.
 manual_reboot,Kalibreringsframgång! Stäng av skrivaren{} vänta i 15 sekunder och slå på den igen. Skriv sedan ut kalibreringsfilen och kontrollera att ny offset har tillämpats.
 ,
@@ -259,8 +264,9 @@ custom_version,Anpassad version
 updates_latest,Du har den senaste versionen
 updates_updating_footer,Viktigt: Stäng inte av printern under uppdatering.
 updates_success,Uppdateringen lyckades: Vänta på omstart.
-get_update_error,Ett fel uppstod under nedladdning. Vi rekomenderar att uppdatera via USB.
+get_update_error,Fel: nedladdningsfel. Vänligen starta om och försök igen. Om felet kvarstår{} kontakta support@smart3d.tech
 usb_update,Uppdatera via USB minne
+,
 internet_update,Uppdatera via Internet
 usb_update_title,Uppdatera via USB minne
 usb_update_info,För in USB minnet.
@@ -279,15 +285,14 @@ config_advanced,Manuella kontroller
 config_nozzle_size,Nozzle storlek
 config_motors,Motorer
 config_wifi,WiFi
-,
-error,Vänligen starta om printern och om felet kvarstår{} kontakta teknisk support.
+error,Fel: systemet. Vänligen starta om printern och om felet kvarstår{} kontakta support@smart3d.tech
 waiting_info,Hämtar data…
 onboarding_welcome_to_v2,Uppdateringen lyckades. Din Portrait skrivare uppdaterades till mjukvaran 2.0. Njut av upplevelsen!
-unmount_usb_error,Fel 001 med USB minnet.
-mount_usb_error,Fel 002 med USB minnet
-download_error,Fel 003 med uppdateringen.
-copy_unzip_error,Fel 004 med uppdateringen
-folder_error,Fel 005 med uppdateringen
+unmount_usb_error,Fel 001: USB minnet.
+mount_usb_error,Fel 002: USB minnet
+download_error,Fel 003: uppdateringen.
+copy_unzip_error,Fel 004: uppdateringen
+folder_error,Fel 005: uppdateringen
 dev_tools,Utv verktyg
 enable_ssh,Aktivera SSH
 disable_ssh,Inaktivera SSH
@@ -310,19 +315,19 @@ retract_more_popup,Vänligen vänta
 error_api,Anslutningsfel
 no_files_queue,Utskriftskön är tom.
 repair_update_button,Reparera
-reparable_update_error,Anslutningsfel. 
-För att reparera det{} tryck på knappen.
+reparable_update_error,Fel: Serveranslutning. 
+För att reparera det{} tryck på knappen. Om felet kvarstår{} kontakta support@smart3d.tech
 calibration_retry,Något gick fel. Upprepa kalibreringen.
-print_error_popup,Ett fel uppstod. Starta om printern och försök utskriften igen.
+print_error_popup,Fel: systemet. Vänligen starta om och försök igen. Om felet kvarstår{} kontakta support@smart3d.tech
 communication_error_popup,Ett fel uppstod. Starta om printern.
 calibration_ok,Byggplattform kalibrerad framgångsrikt!
 sensado_ok,Sondering avslutad.
-sensado_error,Ett fel uppstod. Kontrollera z-probe.
+sensado_error,Fel: sondering ofullständig. Kontrollera z-probe och upprepa kalibreringen. Om felet kvarstår{} kontakta support@smart3d.tech
 calibration_save_wait,Sparar…
 calibration_save_ok,Byggplattform kalibrerad framgångsrikt! Skriv ut kalibreringsfilen för att kontrollera.
-calibration_save_error,Ett fel uppstod. Vänligen prova igen.
-,
-,
+calibration_save_error,Fel: datalagring. Vänligen starta om och försök igen. Om felet kvarstår{} kontakta support@smart3d.tech
+board_not_found_error,Fel: controller. Vänligen starta. Om felet kvarstår{} kontakta support@smart3d.tech
+put_config_error,Fel: config file. Uppdatera via USB. Om felet kvarstår{} kontakta support@smart3d.tech
 ,
 ,
 ,
@@ -342,3 +347,8 @@ calibration_save_error,Ett fel uppstod. Vänligen prova igen.
 ,Stäng av motorerna
 ,Starta motorerna
 ,Skrivaren är kalibrerad "out of box" och redo att skriva ut.
+,
+,Fel: 
+,Vänligen starta och kalibrera printern.
+,Om felet kvarstår{} kontakta support@smart3d.tech
+,Fel: XXX. Vänligen starta om och försök igen. Om felet kvarstår{} kontakta support@smart3d.tech

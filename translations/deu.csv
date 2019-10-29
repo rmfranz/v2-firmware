@@ -1,3 +1,8 @@
+,
+Tag name,Deutsch
+Tag Code,de 
+Export?,true
+,
 powered_by,Powered by
 hello,Hallo!
 lets_get_started,Fangen wir an! 
@@ -155,7 +160,7 @@ calibration_reset_board,Warten Sie{} während der Drucker neu startet. Es kann e
 calibration_hotend_1,Hotend I
 calibration_hotend_2,Hotend II
 calibration_extruder_change,Werkzeugwechsel{} bitte warten.
-calibration_error,Es ist ein Fehler aufgetreten. Bitte wenden Sie sich an den technischen Support.
+calibration_error,Fehler: Kalibrierwerte nicht gespeichert. Bitte starten und neu kalibrieren Sie den Drucker. Wenn das Problem erneut auftritt{} wenden Sie support@smart3d.tech
 calibration_offset_saving,Speichern der Kalibrierungswerte.
 manual_reboot,Kalibrierungserfolg! Bitte schalten Sie den Drucker aus{} warten Sie 15 Sekunden und schalten Sie ihn wieder ein. Drucken Sie als Nächstes die Kalibrierungsdatei aus und vergewissern Sie sich{} dass die Es wurde die neuer Offset angewendet.
 ,
@@ -260,8 +265,9 @@ custom_version,Benutzerdefinierte Version
 updates_latest,Sie haben die neueste Version
 updates_updating_footer,Wichtig: Schalten Sie den Drucker während der Aktualisierung nicht aus.
 updates_success,Aktualisierung erfolgreich. Bitte warten Sie auf den Neustart.
-get_update_error,Beim Herunterladen ist ein Fehler aufgetreten. Wir empfehlen{} die Software über USB zu aktualisieren.
+get_update_error,Fehler: Downloadfehler. Bitte neu starten den Drucker und erneut versuchen Sie. Wenn das Problem erneut auftritt{} wenden Sie support@smart3d.tech
 usb_update,Update über USB-Stick
+,
 internet_update,Update über das Internet
 usb_update_title,Update über das Internet
 usb_update_info,USB-Stick einstecken.
@@ -280,15 +286,14 @@ config_advanced,Manuelle Steuerung
 config_nozzle_size,Düsengröße
 config_motors,Motoren
 config_wifi,WiFi
-,
-error,Bitte starten Sie den Drucker neu und wenn das Problem erneut auftritt{} wenden Sie sich an den technischen Support.
+error,Fehler: System. Bitte starten Sie den Drucker neu und wenn das Problem erneut auftritt{} wenden Sie support@smart3d.tech
 waiting_info,Daten abrufen...
 onboarding_welcome_to_v2,Das Update war erfolgreich! Ihr Portraitdrucker wurde erfolgreich auf die Software 2.0 aktualisiert. Genießen Sie das Erlebnis!
-unmount_usb_error,Fehler 001 bei USB-Stick.
-mount_usb_error,Fehler 002 bei USB-Stick.
-download_error,Fehler 003 bei der Aktualisierung.
-copy_unzip_error,Fehler 004 bei der Aktualisierung.
-folder_error,Fehler 005 bei der Aktualisierung.
+unmount_usb_error,Fehler 001: USB-Stick.
+mount_usb_error,Fehler 002: USB-Stick.
+download_error,Fehler 003: Aktualisierung.
+copy_unzip_error,Fehler 004: Aktualisierung.
+folder_error,Fehler 005: Aktualisierung.
 dev_tools,Entwicklungswerkzeuge
 enable_ssh,SSH aktivieren
 disable_ssh,SSH deaktivieren
@@ -311,21 +316,20 @@ retract_more_popup,Bitte warten.
 error_api,Verbindungsfehler
 no_files_queue,Die Druckwarteschlange leer ist.
 repair_update_button,Reparieren
-reparable_update_error,Verbindungsfehler. Um es zu reparieren{} drücken Sie die Taste.
+reparable_update_error,Fehler: Serververbindungfehler. Um es zu reparieren{} drücken Sie die Taste. Wenn das Problem erneut auftritt{} wenden Sie support@smart3d.tech
 calibration_retry,Etwas ist schief gelaufen. Bitte wiederholen Sie die Kalibrierung.
-print_error_popup,Es ist ein Fehler aufgetreten. Bitte starten Sie den Drucker neu und wiederholen Sie den Druck.
+print_error_popup,Fehler: System. Bitte neu starten Sie den Drucker und erneut versuchen. Wenn das Problem erneut auftritt{} wenden Sie support@smart3d.tech
 communication_error_popup,Es ist ein Fehler aufgetreten. Bitte starten Sie den Drucker neu.
 calibration_ok,Bauplatte 
 erfolgreich kalibriert!
 sensado_ok,Prüfung abgeschlossen.
-sensado_error,Es ist ein Fehler aufgetreten. Überprüfen Sie den z-Sonde.
+sensado_error,Fehler: Prüfung unvollständig. Überprüfen Sie den z-Sonde und erneut versuchen. Wenn das Problem erneut auftritt{} wenden Sie support@smart3d.tech
 calibration_save_wait,Es wird gespeichert…
-calibration_save_ok,Bauplatte 
-erfolgreich kalibriert! 
+calibration_save_ok,Bauplatte erfolgreich kalibriert! 
 Bitte drucken Sie die Kalibrierungsdatei aus{} um dies zu überprüfen.
-calibration_save_error,Es ist ein Fehler aufgetreten.  Bitte versuchen Sie es erneut.
-,
-,
+calibration_save_error,Fehler: Datenspeicherung. Bitte neu starten den Drucker und erneut versuchen Sie. Wenn das Problem erneut auftritt{} wenden Sie support@smart3d.tech
+board_not_found_error,Fehler: controller. Bitte neu starten den Drucker. Wenn das Problem erneut auftritt{} wenden Sie support@smart3d.tech
+put_config_error,Fehler: config file. Bitte aktualisieren Sie über USB. Wenn das Problem erneut auftritt{} wenden Sie support@smart3d.tech
 ,
 ,
 ,
@@ -345,3 +349,8 @@ calibration_save_error,Es ist ein Fehler aufgetreten.  Bitte versuchen Sie es er
 ,Motoren abschalten
 ,Motoren einschalten
 ,Der Drucker ist sofort nach dem Auspacken kalibriert und druckbereit.
+,
+,Fehler: 
+,Bitte starten und neu kalibrieren Sie den Drucker. 
+,Wenn das Problem erneut auftritt{} wenden Sie support@smart3d.tech
+,Fehler: XXX. Bitte neu starten den Drucker und erneut versuchen Sie. Wenn das Problem erneut auftritt{} wenden Sie support@smart3d.tech
