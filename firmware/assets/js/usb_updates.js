@@ -20,3 +20,5 @@ $("#update").on("click", function () {
         }
     })
 })
+
+$("#update_modal_close").on("click", function () {$('#updateModal').toggleClass("k-modal-overlay--visible");})

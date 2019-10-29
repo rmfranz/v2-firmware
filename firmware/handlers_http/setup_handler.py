@@ -6,6 +6,7 @@ import json
 from subprocess import check_output
 from tornado import httpclient, concurrent, gen
 import traceback
+from distutils import dir_util
 
 class SetupHandler(BasicHandler):
     def get(self):
@@ -106,14 +107,16 @@ class UsbUpdate(BasicHandler):
                 step1 = os.system('cp /media/usb/firmware.zip /home/pi && sync')
                 step2 = os.system('unzip -P kOdak..fIrmw2019?? /home/pi/firmware.zip -d /home/pi/firmware_unziped')
                 if step1 == 0 and step2 == 0:
-                    result = os.system('sudo rsync /home/pi/firmware_unziped/ /home/pi/v2-firmware')
-                    os.system("sudo chown -R pi:pi /home/pi/v2-firmware")
-                    if result == 0:
+                    #result = os.system('sudo rsync /home/pi/firmware_unziped/ /home/pi/v2-firmware')
+                    try:
+                        dir_util.copy_tree('/home/pi/firmware_unziped', '/home/pi/v2-firmware')
+                        os.system("sudo chown -R pi:pi /home/pi/v2-firmware")
                         os.system('sudo rm -r /home/pi/firmware_unziped')
+                        os.system('touch /home/pi/usb_updated')
                         reset_rpi()
                         self.write("ok")
-                    else:
-                        self.app_logger.error('USB update error: error copying files to folder')
+                    except:
+                        self.app_logger.error('USB update error: error copying files')
                         self.write({'error': 5})
                 else:
                     self.app_logger.error('USB update error: error copy or unzip zip')
