@@ -225,12 +225,12 @@ nozzle_modal_title,Set nozzle size
 ,
 ,
 ,
-cloud_title,KODAK 3D Cloud
-cloud_intro,Use the following registration token to register this printer for your user on the KODAK 3D Cloud.
-cloud_intro2,Register at cloud.smart3d.tech
+cloud_title,3DPrinterOS
+cloud_intro,Use the following registration token to register this printer for your user on 3DPrinterOS.
+cloud_intro2,Register at 3DPrinterOS.com
 queue_empty,Your printer is online and ready to print. Log into your cloud account to start printing.
 delete_from_cloud,Delete printer from cloud
-confirm_delete_from_cloud,Are you sure delete the cloud registration for this printer?
+confirm_delete_from_cloud,Are you sure you want to delete the cloud registration for this printer?
 job_date,Date received:
 job_email,Email:
 job_duration,Printing time:
@@ -285,7 +285,7 @@ config_advanced,Manual controls
 config_nozzle_size,Nozzle Size
 config_motors,Motors
 config_wifi,WiFi
-error,Error: system error. Please reboot. If the problem persists contact support@smart3d.tech
+error,System Error. Please reboot. If the problem persists contact support@smart3d.tech
 waiting_info,Fetching data...
 onboarding_welcome_to_v2,Update was successful! Your Portrait printer was updated succesfully to software 2.0. Enjoy the experience!
 unmount_usb_error,Error 001: USB flashdrive.
