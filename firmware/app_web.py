@@ -147,7 +147,7 @@ class Application(tornado.web.Application):
             (r"/sound", ToSoundHandler),
             (r"/ssh-enable", EnableSSHHandler),
             (r"/ssh-disable", DisableSSHHandler),
-            (r"/enable-dev-mode", EnableDebModeHandler),
+            (r"/enable-dev-mode", EnableDevModeHandler),
             (r"/disable-dev-mode", DisableDebModeHandler),
             (r"/dev-mode", ToUserDevModeHandler),
             (r"/lights", ToLightsHandler),
@@ -222,8 +222,8 @@ class HomeHandler(BasicHandler):
             self.wizzard.viewed = True
         async_http_client = httpclient.AsyncHTTPClient()
         async_http_client.fetch("http://127.0.0.1:9000/init-websockets")
-        if os.path.exists("/home/pi/print_images/print.png"):
-            os.remove("/home/pi/print_images/print.png")
+#        if os.path.exists("/home/pi/print_images/print.png"):
+#            os.remove("/home/pi/print_images/print.png")
         if not self.application.gpio.is_initialized:
             self.application.gpio.initialize()
         if not self.firmware.check_mac_address():
@@ -245,7 +245,7 @@ class HomeHandler(BasicHandler):
         elif not self.firmware.is_initialized:
             self.firmware.initialize()
             delete_corrupt()
-            if not os.path.exists("/home/pi/config_updted"):
+            if not os.path.exists("/home/pi/config_updated"):
                 self.render("index.html")
             elif self.wizzard.viewed:
                 self.render("index.html")
@@ -281,7 +281,7 @@ class VersionHandler(BasicHandler):
 
 class CheckUpdateHandler(BasicHandler):
     def get(self):
-        self.write({"result": os.path.exists("/home/pi/config_updted")})
+        self.write({"result": os.path.exists("/home/pi/config_updated")})
 
 if __name__ == "__main__":
     if os.path.exists("/home/pi/enable_debug"):

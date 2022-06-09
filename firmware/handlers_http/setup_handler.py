@@ -104,22 +104,22 @@ class UsbUpdate(BasicHandler):
                 self.app_logger.error('USB update error: error with md5')
                 self.write({'error': 3})
             else:
-                step1 = os.system('cp /media/usb/firmware.zip /home/pi && sync')
-                step2 = os.system('unzip -P kOdak..fIrmw2019?? /home/pi/firmware.zip -d /home/pi/firmware_unziped')
+                step1 = os.system('sudo cp /media/usb/firmware.zip /home/pi && sudo sync')
+                step2 = os.system('sudo unzip -P kOdak..fIrmw2019?? /home/pi/firmware.zip -d /home/pi/firmware_unziped')
                 if step1 == 0 and step2 == 0:
                     #result = os.system('sudo rsync /home/pi/firmware_unziped/ /home/pi/v2-firmware')
                     try:
                         dir_util.copy_tree('/home/pi/firmware_unziped', '/home/pi/v2-firmware')
                         os.system("sudo chown -R pi:pi /home/pi/v2-firmware")
                         os.system('sudo rm -r /home/pi/firmware_unziped')
-                        os.system('touch /home/pi/usb_updated')
+                        os.system('sudo touch /home/pi/usb_updated')
                         reset_rpi()
                         self.write("ok")
                     except:
                         self.app_logger.error('USB update error: error copying files')
                         self.write({'error': 5})
                 else:
-                    self.app_logger.error('USB update error: error copy or unzip zip')
+                    self.app_logger.error('USB update error: error copying or unzipping zip file')
                     self.write({'error': 4})
         elif result == 1:
             self.app_logger.error('USB update error: error mounting usb')
@@ -132,7 +132,7 @@ class UsbUpdate(BasicHandler):
 class ToUpdateHandler(BasicHandler):
     def get(self):
         if os.path.exists("/home/pi/dev_mode"):
-            hash = check_output("git rev-parse --short HEAD", shell=True, universal_newlines=True)
+            hash = check_output("sudo git rev-parse --short HEAD", shell=True, universal_newlines=True)
             self.render("updates_dev.html", wizzard_viewed=self.wizzard.viewed, version=hash)
         else:
             self.render("updates.html", wizzard_viewed=self.wizzard.viewed)
@@ -143,7 +143,7 @@ class GetUpdateHandler(BasicHandler):
         error = None
         new = yield self.get_new_tag()
         try:
-            actual = check_output("git describe --abbrev=0", shell=True, universal_newlines=True)
+            actual = check_output("sudo git describe --abbrev=0", shell=True, universal_newlines=True)
         except Exception:
             self.app_logger.error('Get update error: error getting actual version {}'.format(str(traceback.format_exc())))
             actual = "0"
@@ -154,7 +154,7 @@ class GetUpdateHandler(BasicHandler):
     @concurrent.run_on_executor
     def get_new_tag(self):
         try:
-            new_tag = check_output("git fetch --tags origin && git tag | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1",
+            new_tag = check_output("sudo git fetch --tags origin && git tag | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1",
                     shell=True, universal_newlines=True)
         except Exception:
             self.app_logger.error('Get update error: error getting tags {}'.format(str(traceback.format_exc())))
@@ -203,11 +203,11 @@ class GetUpdateToDevHandler(BasicHandler):
 
 class UpdateHandler(BasicHandler):
     def get(self):
-        new = check_output("(git fetch --tags origin && git tag) | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
-        os.system("git checkout -f")
-        os.system("git fetch --all")
-        os.system("git reset --hard origin/master")
-        os.system("git checkout {}".format(new))
+        new = check_output("(sudo git fetch --tags origin && git tag) | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
+        os.system("sudo git checkout -f")
+        os.system("sudo git fetch --all")
+        os.system("sudo git reset --hard origin/master")
+        os.system("sudo git checkout {}".format(new))
         if self.application.gpio.is_initialized:
             self.application.gpio.stop()
         reset_rpi()
@@ -221,12 +221,12 @@ class RepairUpdateHandler(BasicHandler):
         rm = os.system('find .git/objects/ -size 0 -exec rm -f {} \;')
         if rm == 0:
             try:
-                new = check_output("(git fetch --tags origin && git tag) | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
-                os.system("git checkout -f")
-                os.system("git fetch --all")
-                os.system("git reset --hard origin/master")
-                os.system("git clean -f")
-                os.system("git checkout {}".format(new))
+                new = check_output("(sudo git fetch --tags origin && git tag) | grep '[0-9]\+.[0-9]\+.[0-9]\+' | tail -1", shell=True, universal_newlines=True)
+                os.system("sudo git checkout -f")
+                os.system("sudo git fetch --all")
+                os.system("sudo git reset --hard origin/master")
+                os.system("sudo git clean -f")
+                os.system("sudo git checkout {}".format(new))
                 if self.application.gpio.is_initialized:
                     self.application.gpio.stop()
                 reset_rpi()
@@ -306,7 +306,7 @@ class ToUserDevModeHandler(BasicHandler):
     def get(self):
         self.render("user_dev_mode.html")
 
-class EnableDebModeHandler(BasicHandler):
+class EnableDevModeHandler(BasicHandler):
     def get(self):
         os.system("touch /home/pi/dev_mode")
         self.write("ok")
@@ -378,7 +378,7 @@ class ToggleDebugHandler(BasicHandler):
     def get(self):
         debug = self.get_argument('debug')
         if debug == 'enable':
-            os.system('touch /home/pi/enable_debug')
+            os.system('sudo touch /home/pi/enable_debug && chown pi:pi /home/pi/enable_debug')
         elif debug == 'disable':
             os.system('sudo rm /home/pi/enable_debug')
         self.write('ok')

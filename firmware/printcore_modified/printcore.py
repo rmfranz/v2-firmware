@@ -70,7 +70,7 @@ logging = logg.getLogger('printcore_logger')
 class printcore():
     def __init__(self, port = None, baud = None, dtr=None):
         """Initializes a printcore instance. Pass the port and baud rate to
-           connect immediately"""
+            connect immediately"""
         self.baud = None
         self.dtr = None
         self.port = None
@@ -201,7 +201,7 @@ class printcore():
             self.writefailures = 0
             if not is_serial:
                 self.printer_tcp = socket.socket(socket.AF_INET,
-                                                 socket.SOCK_STREAM)
+                                                    socket.SOCK_STREAM)
                 self.printer_tcp.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
                 self.timeout = 0.25
                 self.printer_tcp.settimeout(1.0)
@@ -212,8 +212,8 @@ class printcore():
                 except socket.error as e:
                     if(e.strerror is None): e.strerror=""
                     self.logError(_("Could not connect to %s:%s:") % (hostname, port) +
-                                  "\n" + _("Socket error %s:") % e.errno +
-                                  "\n" + e.strerror)
+                                    "\n" + _("Socket error %s:") % e.errno +
+                                    "\n" + e.strerror)
                     self.printer = None
                     self.printer_tcp = None
                     return
@@ -222,9 +222,9 @@ class printcore():
                 self.printer_tcp = None
                 try:
                     self.printer = Serial(port = self.port,
-                                          baudrate = self.baud,
-                                          timeout = 0.25,
-                                          parity = PARITY_ODD)
+                                            baudrate = self.baud,
+                                            timeout = 0.25,
+                                            parity = PARITY_ODD)
                     self.printer.close()
                     self.printer.parity = PARITY_NONE
                     try:  #this appears not to work on many platforms, so we're going to call it but not care if it fails
@@ -235,12 +235,12 @@ class printcore():
                     self.printer.open()
                 except SerialException as e:
                     self.logError(_("Could not connect to %s at baudrate %s:") % (self.port, self.baud) +
-                                  "\n" + _("Serial error: %s") % e)
+                                    "\n" + _("Serial error: %s") % e)
                     self.printer = None
                     return
                 except IOError as e:
                     self.logError(_("Could not connect to %s at baudrate %s:") % (self.port, self.baud) +
-                                  "\n" + _("IO error: %s") % e)
+                                    "\n" + _("IO error: %s") % e)
                     self.printer = None
                     return
             for handler in self.event_handler:
@@ -266,7 +266,7 @@ class printcore():
                     line = self.printer.readline().decode('ascii')
                 except UnicodeDecodeError:
                     self.logError(_("Got rubbish reply from %s at baudrate %s:") % (self.port, self.baud) +
-                                  "\n" + _("Maybe a bad baudrate?"))
+                                    "\n" + _("Maybe a bad baudrate?"))
                     return None
                 if self.printer_tcp and not line:
                     raise OSError(-1, "Read EOF from socket")
@@ -333,7 +333,7 @@ class printcore():
                     if empty_lines == 15: break
                 else: empty_lines = 0
                 if line.startswith(tuple(self.greetings)) \
-                   or line.startswith('ok') or "T:" in line:
+                    or line.startswith('ok') or "T:" in line:
                     self.online = True
                     for handler in self.event_handler:
                         try: handler.on_online()
@@ -429,7 +429,7 @@ class printcore():
         self.clear = False
         resuming = (startindex != 0)
         self.print_thread = threading.Thread(target = self._print,
-                                             kwargs = {"resuming": resuming})
+                                                kwargs = {"resuming": resuming})
         self.print_thread.start()
         return True
 
@@ -517,7 +517,7 @@ class printcore():
         self.paused = False
         self.printing = True
         self.print_thread = threading.Thread(target = self._print,
-                                             kwargs = {"resuming": True})
+                                                kwargs = {"resuming": True})
         self.print_thread.start()
 
     def send(self, command, wait = 0):
@@ -551,7 +551,7 @@ class printcore():
                 try: self.startcb(resuming)
                 except:
                     self.logError(_("Print start callback failed with:") +
-                                  "\n" + traceback.format_exc())
+                                    "\n" + traceback.format_exc())
             while self.printing and self.printer and self.online:
                 self._sendnext()
             self.sentlines = {}
@@ -565,10 +565,10 @@ class printcore():
                 try: self.endcb()
                 except:
                     self.logError(_("Print end callback failed with:") +
-                                  "\n" + traceback.format_exc())
+                                    "\n" + traceback.format_exc())
         except:
             self.logError(_("Print thread died due to the following error:") +
-                          "\n" + traceback.format_exc())
+                            "\n" + traceback.format_exc())
         finally:
             self.print_thread = None
             self._start_sender()
@@ -702,7 +702,7 @@ class printcore():
             except socket.error as e:
                 if e.errno is None:
                     self.logError(_("Can't write to printer (disconnected ?):") +
-                                  "\n" + traceback.format_exc())
+                                    "\n" + traceback.format_exc())
                 else:
                     self.logError(_("Can't write to printer (disconnected?) (Socket error {0}): {1}").format(e.errno, decode_utf8(e.strerror)))
                 self.writefailures += 1

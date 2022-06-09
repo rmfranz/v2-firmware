@@ -79,12 +79,12 @@ def iconfile(filename):
 
 def imagefile(filename):
     for prefix in ['/usr/local/share/pronterface/images',
-                   '/usr/share/pronterface/images']:
+                    '/usr/share/pronterface/images']:
         candidate = os.path.join(prefix, filename)
         if os.path.exists(candidate):
             return candidate
     local_candidate = os.path.join(os.path.dirname(sys.argv[0]),
-                                   "images", filename)
+                                    "images", filename)
     if os.path.exists(local_candidate):
         return local_candidate
     frozen_candidate=os.path.join(getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__))),"images",filename)
@@ -106,11 +106,11 @@ def lookup_file(filename, prefixes):
 
 def pixmapfile(filename):
     return lookup_file(filename, ['/usr/local/share/pixmaps',
-                                  '/usr/share/pixmaps'])
+                                    '/usr/share/pixmaps'])
 
 def sharedfile(filename):
     return lookup_file(filename, ['/usr/local/share/pronterface',
-                                  '/usr/share/pronterface'])
+                                    '/usr/share/pronterface'])
 
 def configfile(filename):
     return lookup_file(filename, [os.path.expanduser("~/.printrun/"), ])
@@ -218,7 +218,7 @@ def hexcolor_to_float(color, components):
     ndigits = numel // components
     div = 16 ** ndigits - 1
     return tuple(round(float(int(color[i:i + ndigits], 16)) / div, 2)
-                 for i in range(0, numel, ndigits))
+                    for i in range(0, numel, ndigits))
 
 def check_rgb_color(color):
     if len(color[1:]) % 3 != 0:

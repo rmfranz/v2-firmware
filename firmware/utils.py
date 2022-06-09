@@ -106,7 +106,7 @@ def get_gcodes_from_calibration():
 def scan_wlan_without_quality():
     """
     There is an alternative with iw, but gives other result string
-       check_output("sudo iw wlan0 scan | grep SSID | tr -s ' '", shell=True, universal_newlines=True)
+        check_output("sudo iw wlan0 scan | grep SSID | tr -s ' '", shell=True, universal_newlines=True)
     """
     scanoutput = check_output("sudo iwlist wlan0 scan | grep ESSID | tr -s ' '", shell=True, universal_newlines=True)
     list_ssid = filter(None, [raw_ssid.split('"')[0] for raw_ssid in scanoutput.split('ESSID:"') if raw_ssid.strip()])
@@ -157,9 +157,7 @@ def connect_to_wifi(network_name, password=None):
     result = ''
     if password:
         result = yield connect_private_wifi(network_name, password)
-        print('!!!!!!!!! RESULTADO: {}'.format(result))
-    #else:
-    #    result = connect_public_wifi(network_name)
+        print('!!!!!!!!! RESULT: {}'.format(result))
     return result
 
 def split_file_for_print(printrun):
@@ -200,7 +198,7 @@ def check_file_print_finished():
         ws = create_connection("ws://127.0.0.1:8888/print-finished")
         ws.send("print_finished")
         ws.close()
-        os.system("rm /home/pi/print_end_status/*")
+        os.system("sudo rm /home/pi/print_end_status/*")
 
 def get_extruder_materials(filaments):
     filaments.update({'OFF': {'name': 'OFF', 'printTemp': 0, 'displayOrder': 20, 'okAllMetal': '', 'okPTFE': ''}})

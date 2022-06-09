@@ -317,7 +317,8 @@ class PeriodicController:
         except:
             if not os.path.exists("/home/pi/camera_error"):
                 os.system("touch /home/pi/camera_error")
-            print("error en camara")
+                os.system("chown pi:pi /home/pi/camera_error")
+            print("Camera Error")
             self.camera_caller.stop()
 
     def create_connection_and_send(self, data):

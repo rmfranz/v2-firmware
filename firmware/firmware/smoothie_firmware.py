@@ -30,7 +30,7 @@ class SmoothieFirmware(BaseFirmware):
         self.board_logger = logging.getLogger('board_logger')
         path = "/home/pi/print_end_status"
         self.printrun = printcore("/dev/ttyACM0", 115200)
-        print("Conecte la impresora")
+        print("Connecting to printer")
         self.the_counter = TheCounter()
         smoothie_handler = handler()
         smoothie_handler.set_the_counter(self.the_counter)
@@ -168,7 +168,6 @@ class SmoothieFirmware(BaseFirmware):
     def direct_resume(self):
         self.printrun.resume()
 
-
     def start_print_memory(self):
         with open(self.OFFSET_PATH) as f:
             config_json = json.load(f)
@@ -232,7 +231,7 @@ class SmoothieFirmware(BaseFirmware):
         info = get_sd()
         sd = info.get(self.hardware_json["board_uuid"])
         if not sd:
-            self.board_logger.error('Not board uuid found on xy offset')
+            self.board_logger.error('No board uuid found on xy offset')
             return False
         os.system("sudo mount /dev/{} /media/smoothie -o uid=pi,gid=pi".format(sd))
         with open(config_file, "w") as f:
@@ -343,7 +342,7 @@ class SmoothieFirmware(BaseFirmware):
         info = get_sd()
         sd = info.get(self.hardware_json["board_uuid"])
         if not sd:
-            self.board_logger.error('Not board uuid found on put config')
+            self.board_logger.error('Board uuid not found in config')
             return 1
         os.system("sudo mount /dev/{} /media/smoothie -o uid=pi,gid=pi".format(sd))
         os.system("cp {} /media/smoothie/ && sync".format(self.NEW_CONFIG))
@@ -353,7 +352,7 @@ class SmoothieFirmware(BaseFirmware):
                         second_conf_rpi="/media/smoothie/config-override",
                         second_conf=self.NEW_CONFIG_OVERRIDE)
         if check_res:
-            os.system("touch /home/pi/config_updted")
+            os.system("touch /home/pi/config_updated")
             self.reset()
             reset_rpi()
             return 0
