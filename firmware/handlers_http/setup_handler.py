@@ -165,7 +165,7 @@ class GetUpdateHandler(BasicHandler):
 class GetActualVersionHandler(BasicHandler):
     def get(self):
         try:
-            actual = check_output("git describe --abbrev=0", shell=True, universal_newlines=True)
+            actual = check_output("sudo git describe --abbrev=0", shell=True, universal_newlines=True)
         except Exception:
             self.app_logger.error('Get update error: error getting actual version {}'.format(str(traceback.format_exc())))
             actual = "0"
@@ -182,22 +182,22 @@ class GetUpdateToDevHandler(BasicHandler):
 
     @concurrent.run_on_executor
     def get_tags(self):
-        return check_output("git fetch --tags origin && git tag", shell=True, universal_newlines=True)
+        return check_output("sudo git fetch --tags origin && git tag", shell=True, universal_newlines=True)
 
     def post(self):
         version = self.get_body_argument("version")
-        scanoutput = check_output("git fetch --tags origin && git tag", shell=True, universal_newlines=True)
+        scanoutput = check_output("sudo git fetch --tags origin && git tag", shell=True, universal_newlines=True)
         tags = [n for n in scanoutput.split("\n") if n and n != "vinicial"]
         tags.append("master")
-        os.system("git checkout -f")
-        os.system("git fetch --all")
-        os.system("git reset --hard origin/master")
+        os.system("sudo git checkout -f")
+        os.system("sudo git fetch --all")
+        os.system("sudo git reset --hard origin/master")
         if version == "master":
-            os.system("git checkout master")
-            os.system("git pull")
+            os.system("sudo git checkout master")
+            os.system("sudo git pull")
         else:
-            os.system("git checkout {}".format(version))
-            os.system("git pull origin {}".format(version))
+            os.system("sudo git checkout {}".format(version))
+            os.system("sudo git pull origin {}".format(version))
         reset_rpi()
         self.write("ok")
 
