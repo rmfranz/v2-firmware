@@ -4,6 +4,7 @@
 
 ### Eclipse ###
 
+.DS_STORE
 .metadata
 bin/
 tmp/
