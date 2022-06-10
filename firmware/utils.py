@@ -88,7 +88,7 @@ def get_gcodes_from_usb():
     return collections.OrderedDict(sorted(dict_of_files.items(), key=lambda t: t[0].lower()))
 
 def get_gcodes_from_sample():
-    dirName = "/home/pi/v2-firmware/Samples"
+    dirName = "/home/pi/uploads"
     pattern = "*.gcode"
     dict_of_files = {}
     for (dirpath, dirnames, filenames) in os.walk(dirName):
