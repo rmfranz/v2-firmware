@@ -39,7 +39,7 @@ home_message_2,Please go to https://cloud.smart3d.tech to start printing.
 files_title,Files
 files_intro,Select an object to print.
 files_pendrive,USB flash drive
-files_samples,Sample files
+files_samples,Uploads
 files_calibration,Calibration files
 loadingFiles,
 nofilesfound,No files found
